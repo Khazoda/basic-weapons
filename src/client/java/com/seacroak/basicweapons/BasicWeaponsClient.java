@@ -1,4 +1,4 @@
-package com.seacroak;
+package com.seacroak.basicweapons;
 
 import net.fabricmc.api.ClientModInitializer;
 

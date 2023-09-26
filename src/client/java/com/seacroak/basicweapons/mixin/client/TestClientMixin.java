@@ -1,4 +1,4 @@
-package com.seacroak.mixin.client;
+package com.seacroak.basicweapons.mixin.client;
 
 import net.minecraft.client.MinecraftClient;
 import org.spongepowered.asm.mixin.Mixin;

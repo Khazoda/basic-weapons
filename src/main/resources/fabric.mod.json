@@ -16,10 +16,10 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.seacroak.BasicWeapons"
+      "com.seacroak.basicweapons.BasicWeapons"
     ],
     "client": [
-      "com.seacroak.BasicWeaponsClient"
+      "com.seacroak.basicweapons.BasicWeaponsClient"
     ]
   },
   "mixins": [
