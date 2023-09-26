@@ -11,8 +11,8 @@
     "homepage": "https://fabricmc.net/",
     "sources": "https://github.com/FabricMC/fabric-example-mod"
   },
-  "license": "CC0-1.0",
-  "icon": "assets/basicweapons/icon.png",
+  "license": "MIT",
+  "icon": "bw_icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
