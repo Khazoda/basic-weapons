@@ -9,17 +9,18 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainRegistry {
+  public final static Map<Integer, Item> registeredItems = new HashMap<>();
 
   public static void init() {
-    List<Item> registeredItems = new LinkedList<>();
-
+    int x = 0;
     for (BWItems.ItemInfo item : BWItems.items
     ) {
-      registeredItems.add(registerItem(item.name, item.itemSupplier.get()));
+      registeredItems.put(x, registerItem(item.name, item.itemSupplier.get()));
+      x += 1;
     }
 
     ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(content -> {

@@ -3,7 +3,9 @@
   "package": "com.seacroak.basicweapons.mixin.client",
   "compatibilityLevel": "JAVA_17",
   "client": [
-    "TestClientMixin"
+    "ItemRendererAccessor",
+    "ItemRendererMixin",
+    "ModelLoaderMixin"
   ],
   "injectors": {
     "defaultRequire": 1

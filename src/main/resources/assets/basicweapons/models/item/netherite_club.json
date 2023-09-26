@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "basicweapons:item/baton/wooden_baton"
+    "layer0": "basicweapons:item/club/netherite_club"
   }
 }

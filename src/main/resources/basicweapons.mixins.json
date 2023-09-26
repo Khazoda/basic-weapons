@@ -3,7 +3,6 @@
   "package": "com.seacroak.basicweapons.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "TestMixin"
   ],
   "injectors": {
     "defaultRequire": 1

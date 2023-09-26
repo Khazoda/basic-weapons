@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "basicweapons:item/baton/diamond_baton"
+    "layer0": "basicweapons:item/club/diamond_club"
   }
 }

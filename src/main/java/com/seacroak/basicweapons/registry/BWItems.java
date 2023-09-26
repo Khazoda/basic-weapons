@@ -1,9 +1,6 @@
 package com.seacroak.basicweapons.registry;
 
-import com.seacroak.basicweapons.item.BatonItem;
-import com.seacroak.basicweapons.item.DaggerItem;
-import com.seacroak.basicweapons.item.HammerItem;
-import com.seacroak.basicweapons.item.SpearItem;
+import com.seacroak.basicweapons.item.*;
 import net.minecraft.item.Item;
 import net.minecraft.item.ToolMaterials;
 
@@ -16,10 +13,13 @@ public class BWItems {
   public static final float daggerSpeed = -2.0f;
   public static final int hammerDamage = 7;
   public static final float hammerSpeed = -3.4f;
-  public static final int batonDamage = 2;
-  public static final float batonSpeed = -2.4f;
+  public static final int clubDamage = 2;
+  public static final float clubSpeed = -2.4f;
   public static final int spearDamage = 2;
   public static final float spearSpeed = -2.4f;
+  public static final int quarterstaffDamage = 1;
+  public static final float quarterstaffSpeed = -2.2f;
+  
   public static List<ItemInfo> items = new LinkedList<>();
 
   public static void init() {
@@ -38,12 +38,12 @@ public class BWItems {
     items.add(new ItemInfo("hammer", "diamond_hammer", () -> new HammerItem(ToolMaterials.DIAMOND, hammerDamage - 1, hammerSpeed, new Item.Settings())));
     items.add(new ItemInfo("hammer", "netherite_hammer", () -> new HammerItem(ToolMaterials.NETHERITE, hammerDamage - 1, hammerSpeed, new Item.Settings().fireproof())));
     /* Batons */
-    items.add(new ItemInfo("baton", "wooden_baton", () -> new BatonItem(ToolMaterials.WOOD, batonDamage, batonSpeed, new Item.Settings())));
-    items.add(new ItemInfo("baton", "stone_baton", () -> new BatonItem(ToolMaterials.STONE, batonDamage, batonSpeed, new Item.Settings())));
-    items.add(new ItemInfo("baton", "iron_baton", () -> new BatonItem(ToolMaterials.IRON, batonDamage, batonSpeed, new Item.Settings())));
-    items.add(new ItemInfo("baton", "golden_baton", () -> new BatonItem(ToolMaterials.GOLD, batonDamage, batonSpeed, new Item.Settings())));
-    items.add(new ItemInfo("baton", "diamond_baton", () -> new BatonItem(ToolMaterials.DIAMOND, batonDamage, batonSpeed, new Item.Settings())));
-    items.add(new ItemInfo("baton", "netherite_baton", () -> new BatonItem(ToolMaterials.NETHERITE, batonDamage, batonSpeed, new Item.Settings().fireproof())));
+    items.add(new ItemInfo("club", "wooden_club", () -> new ClubItem(ToolMaterials.WOOD, clubDamage, clubSpeed, new Item.Settings())));
+    items.add(new ItemInfo("club", "stone_club", () -> new ClubItem(ToolMaterials.STONE, clubDamage, clubSpeed, new Item.Settings())));
+    items.add(new ItemInfo("club", "iron_club", () -> new ClubItem(ToolMaterials.IRON, clubDamage, clubSpeed, new Item.Settings())));
+    items.add(new ItemInfo("club", "golden_club", () -> new ClubItem(ToolMaterials.GOLD, clubDamage, clubSpeed, new Item.Settings())));
+    items.add(new ItemInfo("club", "diamond_club", () -> new ClubItem(ToolMaterials.DIAMOND, clubDamage, clubSpeed, new Item.Settings())));
+    items.add(new ItemInfo("club", "netherite_club", () -> new ClubItem(ToolMaterials.NETHERITE, clubDamage, clubSpeed, new Item.Settings().fireproof())));
     /* Spears */
     items.add(new ItemInfo("spear", "wooden_spear", () -> new SpearItem(ToolMaterials.WOOD, spearDamage, spearSpeed, new Item.Settings())));
     items.add(new ItemInfo("spear", "stone_spear", () -> new SpearItem(ToolMaterials.STONE, spearDamage, spearSpeed, new Item.Settings())));
@@ -51,6 +51,13 @@ public class BWItems {
     items.add(new ItemInfo("spear", "golden_spear", () -> new SpearItem(ToolMaterials.GOLD, spearDamage, spearSpeed, new Item.Settings())));
     items.add(new ItemInfo("spear", "diamond_spear", () -> new SpearItem(ToolMaterials.DIAMOND, spearDamage, spearSpeed, new Item.Settings())));
     items.add(new ItemInfo("spear", "netherite_spear", () -> new SpearItem(ToolMaterials.NETHERITE, spearDamage, spearSpeed, new Item.Settings().fireproof())));
+    /* Quarterstaves */
+    items.add(new ItemInfo("quarterstaff", "wooden_quarterstaff", () -> new QuarterstaffItem(ToolMaterials.WOOD, quarterstaffDamage, quarterstaffSpeed, new Item.Settings())));
+    items.add(new ItemInfo("quarterstaff", "stone_quarterstaff", () -> new QuarterstaffItem(ToolMaterials.STONE, quarterstaffDamage, quarterstaffSpeed, new Item.Settings())));
+    items.add(new ItemInfo("quarterstaff", "iron_quarterstaff", () -> new QuarterstaffItem(ToolMaterials.IRON, quarterstaffDamage, quarterstaffSpeed, new Item.Settings())));
+    items.add(new ItemInfo("quarterstaff", "golden_quarterstaff", () -> new QuarterstaffItem(ToolMaterials.GOLD, quarterstaffDamage, quarterstaffSpeed, new Item.Settings())));
+    items.add(new ItemInfo("quarterstaff", "diamond_quarterstaff", () -> new QuarterstaffItem(ToolMaterials.DIAMOND, quarterstaffDamage, quarterstaffSpeed, new Item.Settings())));
+    items.add(new ItemInfo("quarterstaff", "netherite_quarterstaff", () -> new QuarterstaffItem(ToolMaterials.NETHERITE, quarterstaffDamage, quarterstaffSpeed, new Item.Settings().fireproof())));
 
   }
 
