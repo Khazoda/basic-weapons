@@ -3,7 +3,7 @@
   "package": "com.seacroak.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "ExampleMixin"
+    "TestMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -22,7 +22,7 @@ loom {
     splitEnvironmentSourceSets()
 
     mods {
-        "basic-weapons" {
+        "basicweapons" {
             sourceSet sourceSets.main
             sourceSet sourceSets.client
         }

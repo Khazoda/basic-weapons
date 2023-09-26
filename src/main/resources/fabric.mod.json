@@ -1,31 +1,31 @@
 {
   "schemaVersion": 1,
-  "id": "basic-weapons",
+  "id": "basicweapons",
   "version": "${version}",
   "name": "Basic Weapons",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "description": "No fluff, no sparkles, just some straightforward vanilla+ weaponry.",
   "authors": [
-    "Me!"
+    "Khazoda"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
     "sources": "https://github.com/FabricMC/fabric-example-mod"
   },
   "license": "CC0-1.0",
-  "icon": "assets/basic-weapons/icon.png",
+  "icon": "assets/basicweapons/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.seacroak.ExampleMod"
+      "com.seacroak.BasicWeapons"
     ],
     "client": [
-      "com.seacroak.ExampleModClient"
+      "com.seacroak.BasicWeaponsClient"
     ]
   },
   "mixins": [
-    "basic-weapons.mixins.json",
+    "basicweapons.mixins.json",
     {
-      "config": "basic-weapons.client.mixins.json",
+      "config": "basicweapons.client.mixins.json",
       "environment": "client"
     }
   ],
