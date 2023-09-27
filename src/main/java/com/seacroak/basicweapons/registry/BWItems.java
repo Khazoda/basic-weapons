@@ -37,12 +37,12 @@ public class BWItems {
     items.add(new ItemInfo("hammer", "diamond_hammer", () -> new HammerItem(Tiers.DIAMOND, hammerDamage - 1, hammerSpeed, new Item.Properties())));
     items.add(new ItemInfo("hammer", "netherite_hammer", () -> new HammerItem(Tiers.NETHERITE, hammerDamage - 1, hammerSpeed, new Item.Properties().fireResistant())));
     /* Batons */
-    items.add(new ItemInfo("baton", "wooden_baton", () -> new ClubItem(Tiers.WOOD, clubDamage, clubSpeed, new Item.Properties())));
-    items.add(new ItemInfo("baton", "stone_baton", () -> new ClubItem(Tiers.STONE, clubDamage, clubSpeed, new Item.Properties())));
-    items.add(new ItemInfo("baton", "iron_baton", () -> new ClubItem(Tiers.IRON, clubDamage, clubSpeed, new Item.Properties())));
-    items.add(new ItemInfo("baton", "golden_baton", () -> new ClubItem(Tiers.GOLD, clubDamage, clubSpeed, new Item.Properties())));
-    items.add(new ItemInfo("baton", "diamond_baton", () -> new ClubItem(Tiers.DIAMOND, clubDamage, clubSpeed, new Item.Properties())));
-    items.add(new ItemInfo("baton", "netherite_baton", () -> new ClubItem(Tiers.NETHERITE, clubDamage, clubSpeed, new Item.Properties().fireResistant())));
+    items.add(new ItemInfo("club", "wooden_club", () -> new ClubItem(Tiers.WOOD, clubDamage, clubSpeed, new Item.Properties())));
+    items.add(new ItemInfo("club", "stone_club", () -> new ClubItem(Tiers.STONE, clubDamage, clubSpeed, new Item.Properties())));
+    items.add(new ItemInfo("club", "iron_club", () -> new ClubItem(Tiers.IRON, clubDamage, clubSpeed, new Item.Properties())));
+    items.add(new ItemInfo("club", "golden_club", () -> new ClubItem(Tiers.GOLD, clubDamage, clubSpeed, new Item.Properties())));
+    items.add(new ItemInfo("club", "diamond_club", () -> new ClubItem(Tiers.DIAMOND, clubDamage, clubSpeed, new Item.Properties())));
+    items.add(new ItemInfo("club", "netherite_club", () -> new ClubItem(Tiers.NETHERITE, clubDamage, clubSpeed, new Item.Properties().fireResistant())));
     /* Spears */
     items.add(new ItemInfo("spear", "wooden_spear", () -> new SpearItem(Tiers.WOOD, spearDamage, spearSpeed, new Item.Properties())));
     items.add(new ItemInfo("spear", "stone_spear", () -> new SpearItem(Tiers.STONE, spearDamage, spearSpeed, new Item.Properties())));
