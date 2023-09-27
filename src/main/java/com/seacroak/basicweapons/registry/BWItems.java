@@ -1,9 +1,6 @@
 package com.seacroak.basicweapons.registry;
 
-import com.seacroak.basicweapons.item.BatonItem;
-import com.seacroak.basicweapons.item.DaggerItem;
-import com.seacroak.basicweapons.item.HammerItem;
-import com.seacroak.basicweapons.item.SpearItem;
+import com.seacroak.basicweapons.item.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tiers;
 
@@ -16,10 +13,12 @@ public class BWItems {
   public static final float daggerSpeed = -2.0f;
   public static final int hammerDamage = 7;
   public static final float hammerSpeed = -3.4f;
-  public static final int batonDamage = 2;
-  public static final float batonSpeed = -2.4f;
+  public static final int clubDamage = 2;
+  public static final float clubSpeed = -2.4f;
   public static final int spearDamage = 2;
   public static final float spearSpeed = -2.4f;
+  public static final int quarterstaffDamage = 2;
+  public static final float quarterstaffSpeed = -2.4f;
   public static List<ItemInfo> items = new LinkedList<>();
 
   public static void init() {
@@ -38,12 +37,12 @@ public class BWItems {
     items.add(new ItemInfo("hammer", "diamond_hammer", () -> new HammerItem(Tiers.DIAMOND, hammerDamage - 1, hammerSpeed, new Item.Properties())));
     items.add(new ItemInfo("hammer", "netherite_hammer", () -> new HammerItem(Tiers.NETHERITE, hammerDamage - 1, hammerSpeed, new Item.Properties().fireResistant())));
     /* Batons */
-    items.add(new ItemInfo("baton", "wooden_baton", () -> new BatonItem(Tiers.WOOD, batonDamage, batonSpeed, new Item.Properties())));
-    items.add(new ItemInfo("baton", "stone_baton", () -> new BatonItem(Tiers.STONE, batonDamage, batonSpeed, new Item.Properties())));
-    items.add(new ItemInfo("baton", "iron_baton", () -> new BatonItem(Tiers.IRON, batonDamage, batonSpeed, new Item.Properties())));
-    items.add(new ItemInfo("baton", "golden_baton", () -> new BatonItem(Tiers.GOLD, batonDamage, batonSpeed, new Item.Properties())));
-    items.add(new ItemInfo("baton", "diamond_baton", () -> new BatonItem(Tiers.DIAMOND, batonDamage, batonSpeed, new Item.Properties())));
-    items.add(new ItemInfo("baton", "netherite_baton", () -> new BatonItem(Tiers.NETHERITE, batonDamage, batonSpeed, new Item.Properties().fireResistant())));
+    items.add(new ItemInfo("baton", "wooden_baton", () -> new ClubItem(Tiers.WOOD, clubDamage, clubSpeed, new Item.Properties())));
+    items.add(new ItemInfo("baton", "stone_baton", () -> new ClubItem(Tiers.STONE, clubDamage, clubSpeed, new Item.Properties())));
+    items.add(new ItemInfo("baton", "iron_baton", () -> new ClubItem(Tiers.IRON, clubDamage, clubSpeed, new Item.Properties())));
+    items.add(new ItemInfo("baton", "golden_baton", () -> new ClubItem(Tiers.GOLD, clubDamage, clubSpeed, new Item.Properties())));
+    items.add(new ItemInfo("baton", "diamond_baton", () -> new ClubItem(Tiers.DIAMOND, clubDamage, clubSpeed, new Item.Properties())));
+    items.add(new ItemInfo("baton", "netherite_baton", () -> new ClubItem(Tiers.NETHERITE, clubDamage, clubSpeed, new Item.Properties().fireResistant())));
     /* Spears */
     items.add(new ItemInfo("spear", "wooden_spear", () -> new SpearItem(Tiers.WOOD, spearDamage, spearSpeed, new Item.Properties())));
     items.add(new ItemInfo("spear", "stone_spear", () -> new SpearItem(Tiers.STONE, spearDamage, spearSpeed, new Item.Properties())));
@@ -51,6 +50,13 @@ public class BWItems {
     items.add(new ItemInfo("spear", "golden_spear", () -> new SpearItem(Tiers.GOLD, spearDamage, spearSpeed, new Item.Properties())));
     items.add(new ItemInfo("spear", "diamond_spear", () -> new SpearItem(Tiers.DIAMOND, spearDamage, spearSpeed, new Item.Properties())));
     items.add(new ItemInfo("spear", "netherite_spear", () -> new SpearItem(Tiers.NETHERITE, spearDamage, spearSpeed, new Item.Properties().fireResistant())));
+    /* Quarterstaves */
+    items.add(new ItemInfo("quarterstaff", "wooden_quarterstaff", () -> new QuarterstaffItem(Tiers.WOOD, quarterstaffDamage, quarterstaffSpeed, new Item.Properties())));
+    items.add(new ItemInfo("quarterstaff", "stone_quarterstaff", () -> new QuarterstaffItem(Tiers.STONE, quarterstaffDamage, quarterstaffSpeed, new Item.Properties())));
+    items.add(new ItemInfo("quarterstaff", "iron_quarterstaff", () -> new QuarterstaffItem(Tiers.IRON, quarterstaffDamage, quarterstaffSpeed, new Item.Properties())));
+    items.add(new ItemInfo("quarterstaff", "golden_quarterstaff", () -> new QuarterstaffItem(Tiers.GOLD, quarterstaffDamage, quarterstaffSpeed, new Item.Properties())));
+    items.add(new ItemInfo("quarterstaff", "diamond_quarterstaff", () -> new QuarterstaffItem(Tiers.DIAMOND, quarterstaffDamage, quarterstaffSpeed, new Item.Properties())));
+    items.add(new ItemInfo("quarterstaff", "netherite_quarterstaff", () -> new QuarterstaffItem(Tiers.NETHERITE, quarterstaffDamage, quarterstaffSpeed, new Item.Properties().fireResistant())));
 
   }
 
