@@ -13,7 +13,7 @@ public class HammerItem extends BasicWeaponItem {
 
   @Override
   public boolean hurtEnemy(ItemStack itemStack, LivingEntity target, LivingEntity attacker) {
-    target.addDeltaMovement(new Vec3(0, 0.35, 0));
+    target.addDeltaMovement(new Vec3(0, 0.45, 0));
     itemStack.hurtAndBreak(1, attacker, (p_43296_) -> {
       p_43296_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
     });

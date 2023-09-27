@@ -13,7 +13,7 @@ public class ClubItem extends BasicWeaponItem {
   }
 
   public boolean hurtEnemy(ItemStack itemStack, LivingEntity target, LivingEntity attacker) {
-    target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 10));
+    target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 15));
     itemStack.hurtAndBreak(1, attacker, (p_43296_) -> {
       p_43296_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
     });
