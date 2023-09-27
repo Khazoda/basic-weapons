@@ -51,8 +51,8 @@ public class BasicWeaponItem extends TieredItem {
   }
 
   public boolean hurtEnemy(ItemStack itemStack, LivingEntity target, LivingEntity attacker) {
-    itemStack.hurtAndBreak(1, attacker, (p_43296_) -> {
-      p_43296_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
+    itemStack.hurtAndBreak(1, attacker, (entity) -> {
+      entity.broadcastBreakEvent(EquipmentSlot.MAINHAND);
     });
     return true;
   }

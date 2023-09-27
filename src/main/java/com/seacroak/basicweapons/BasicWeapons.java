@@ -25,29 +25,6 @@ import static com.seacroak.basicweapons.registry.MainRegistry.registeredItems;
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(BW_ID)
 public class BasicWeapons {
-
-//  // Create a Deferred Register to hold Blocks which will all be registered under the "examplemod" namespace
-//  public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, BW_ID);
-//  // Create a Deferred Register to hold Items which will all be registered under the "examplemod" namespace
-//  public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, BW_ID);
-//  // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "examplemod" namespace
-//  public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, BW_ID);
-//
-//  // Creates a new Block with the id "examplemod:example_block", combining the namespace and path
-//  public static final RegistryObject<Block> EXAMPLE_BLOCK = BLOCKS.register("example_block", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.STONE)));
-//  // Creates a new BlockItem with the id "examplemod:example_block", combining the namespace and path
-//  public static final RegistryObject<Item> EXAMPLE_BLOCK_ITEM = ITEMS.register("example_block", () -> new BlockItem(EXAMPLE_BLOCK.get(), new Item.Properties()));
-
-//    public static final RegistryObject<Item> EXAMPLE_ITEM = ITEMS.register("example_item", () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
-//            .alwaysEat().nutrition(1).saturationMod(2f).build())));
-
-//    public static final RegistryObject<CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder()
-//            .withTabsBefore(CreativeModeTabs.COMBAT)
-//            .icon(() -> EXAMPLE_ITEM.get().getDefaultInstance())
-//            .displayItems((parameters, output) -> {
-//                output.accept(EXAMPLE_ITEM.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
-//            }).build());
-
   public BasicWeapons() {
     IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
     MinecraftForge.EVENT_BUS.register(this);
@@ -57,7 +34,6 @@ public class BasicWeapons {
     MainRegistry.preInit();
     MainRegistry.init(modEventBus);
 
-//    CREATIVE_MODE_TABS.register(modEventBus);
     modEventBus.addListener(this::addCreative);
     ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
   }
@@ -72,24 +48,18 @@ public class BasicWeapons {
   }
 
   private void commonSetup(final FMLCommonSetupEvent event) {
-    // Some common setup code
     BW_LOG.info("Mod loading..");
-
   }
 
-  // You can use SubscribeEvent and let the Event Bus discover methods to call
   @SubscribeEvent
   public void onServerStarting(ServerStartingEvent event) {
-    // Do something when the server starts
     BW_LOG.info("Mod loading on server side..");
   }
 
-  // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
   @Mod.EventBusSubscriber(modid = BW_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
   public static class ClientModEvents {
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
-      // Some client setup code
       BW_LOG.info("Mod loading on client side..");
     }
   }
