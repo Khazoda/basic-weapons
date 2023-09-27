@@ -14,7 +14,7 @@ public class ClubItem extends BasicWeaponItem {
 
   @Override
   public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-    target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 10));
+    target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 15));
     stack.damage(1, attacker, (e) -> {
       e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND);
     });
