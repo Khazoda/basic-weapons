@@ -1,0 +1,17 @@
+{
+  "attributes": {
+    "attack_range": 2.5,
+    "category": "hammer",
+    "attacks": [
+      {
+        "hitbox": "VERTICAL_PLANE",
+        "angle": 0,
+        "animation": "basicweapons:one_handed_swing_up",
+        "upswing": 0.45,
+        "swing_sound": {
+          "id": "bettercombat:mace_slash"
+        }
+      }
+    ]
+  }
+}
