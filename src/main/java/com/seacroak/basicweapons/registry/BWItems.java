@@ -13,12 +13,12 @@ public class BWItems {
   public static final float daggerSpeed = -2.0f;
   public static final int hammerDamage = 7;
   public static final float hammerSpeed = -3.4f;
-  public static final int clubDamage = 2;
-  public static final float clubSpeed = -2.4f;
+  public static final int clubDamage = 5;
+  public static final float clubSpeed = -3.0f;
   public static final int spearDamage = 2;
-  public static final float spearSpeed = -2.4f;
-  public static final int quarterstaffDamage = 2;
-  public static final float quarterstaffSpeed = -2.4f;
+  public static final float spearSpeed = -2.8f;
+  public static final int quarterstaffDamage = 1;
+  public static final float quarterstaffSpeed = -2.3f;
   public static List<ItemInfo> items = new LinkedList<>();
 
   public static void init() {
@@ -26,7 +26,7 @@ public class BWItems {
     items.add(new ItemInfo("dagger", "wooden_dagger", () -> new DaggerItem(Tiers.WOOD, daggerDamage, daggerSpeed, new Item.Properties())));
     items.add(new ItemInfo("dagger", "stone_dagger", () -> new DaggerItem(Tiers.STONE, daggerDamage, daggerSpeed, new Item.Properties())));
     items.add(new ItemInfo("dagger", "iron_dagger", () -> new DaggerItem(Tiers.IRON, daggerDamage, daggerSpeed, new Item.Properties())));
-    items.add(new ItemInfo("dagger", "golden_dagger", () -> new DaggerItem(Tiers.GOLD, daggerDamage, daggerSpeed, new Item.Properties())));
+    items.add(new ItemInfo("dagger", "golden_dagger", () -> new DaggerItem(Tiers.GOLD, daggerDamage - 1, daggerSpeed + 1, new Item.Properties())));
     items.add(new ItemInfo("dagger", "diamond_dagger", () -> new DaggerItem(Tiers.DIAMOND, daggerDamage, daggerSpeed, new Item.Properties())));
     items.add(new ItemInfo("dagger", "netherite_dagger", () -> new DaggerItem(Tiers.NETHERITE, daggerDamage, daggerSpeed, new Item.Properties().fireResistant())));
     /* Hammers */
