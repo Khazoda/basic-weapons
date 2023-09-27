@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  /",
+    " O ",
+    "/  "
+  ],
+  "key": {
+    "/": {
+      "item": "minecraft:stick"
+    },
+    "O": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "basicweapons:iron_quarterstaff",
+    "count": 1
+  }
+}
