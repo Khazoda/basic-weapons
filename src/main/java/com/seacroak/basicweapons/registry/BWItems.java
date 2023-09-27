@@ -31,8 +31,8 @@ public class BWItems {
     items.add(new ItemInfo("dagger", "diamond_dagger", () -> new DaggerItem(ToolMaterials.DIAMOND, daggerDamage, daggerSpeed, new Item.Settings())));
     items.add(new ItemInfo("dagger", "netherite_dagger", () -> new DaggerItem(ToolMaterials.NETHERITE, daggerDamage, daggerSpeed, new Item.Settings().fireproof())));
     /* Hammers */
-    items.add(new ItemInfo("hammer", "wooden_hammer", () -> new HammerItem(ToolMaterials.WOOD, hammerDamage, hammerSpeed - 0.2f, new Item.Settings())));
-    items.add(new ItemInfo("hammer", "stone_hammer", () -> new HammerItem(ToolMaterials.STONE, hammerDamage + 1, hammerSpeed - 0.2f, new Item.Settings())));
+    items.add(new ItemInfo("hammer", "wooden_hammer", () -> new HammerItem(ToolMaterials.WOOD, hammerDamage - 6, hammerSpeed + 0.4f, new Item.Settings())));
+    items.add(new ItemInfo("hammer", "stone_hammer", () -> new HammerItem(ToolMaterials.STONE, hammerDamage - 3, hammerSpeed + 0.2f, new Item.Settings())));
     items.add(new ItemInfo("hammer", "iron_hammer", () -> new HammerItem(ToolMaterials.IRON, hammerDamage, hammerSpeed - 0.1f, new Item.Settings())));
     items.add(new ItemInfo("hammer", "golden_hammer", () -> new HammerItem(ToolMaterials.GOLD, hammerDamage - 3, hammerSpeed, new Item.Settings())));
     items.add(new ItemInfo("hammer", "diamond_hammer", () -> new HammerItem(ToolMaterials.DIAMOND, hammerDamage - 1, hammerSpeed, new Item.Settings())));
