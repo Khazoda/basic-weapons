@@ -12,7 +12,7 @@ public class HammerItem extends BasicWeaponItem {
 
   @Override
   public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-    target.addVelocity(0, 0.35, 0);
+    target.addVelocity(0, 0.45, 0);
     stack.damage(1, attacker, (e) -> {
       e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND);
     });
