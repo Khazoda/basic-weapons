@@ -4,6 +4,7 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 
@@ -14,7 +15,11 @@ public class ClubItem extends BasicWeaponItem {
 
   @Override
   public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-    target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 15));
+    PlayerEntity player = (PlayerEntity) attacker;
+    float f2 = player.getAttackCooldownProgress(0.5f);
+    if (f2 > 0.9F) {
+      target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 15));
+    }
     stack.damage(1, attacker, (e) -> {
       e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND);
     });
