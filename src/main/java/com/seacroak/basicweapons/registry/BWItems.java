@@ -30,10 +30,10 @@ public class BWItems {
     items.add(new ItemInfo("dagger", "diamond_dagger", () -> new DaggerItem(Tiers.DIAMOND, daggerDamage, daggerSpeed, new Item.Properties())));
     items.add(new ItemInfo("dagger", "netherite_dagger", () -> new DaggerItem(Tiers.NETHERITE, daggerDamage, daggerSpeed, new Item.Properties().fireResistant())));
     /* Hammers */
-    items.add(new ItemInfo("hammer", "wooden_hammer", () -> new HammerItem(Tiers.WOOD, hammerDamage, hammerSpeed - 0.2f, new Item.Properties())));
-    items.add(new ItemInfo("hammer", "stone_hammer", () -> new HammerItem(Tiers.STONE, hammerDamage + 1, hammerSpeed - 0.2f, new Item.Properties())));
+    items.add(new ItemInfo("hammer", "wooden_hammer", () -> new HammerItem(Tiers.WOOD, hammerDamage - 6, hammerSpeed + 0.4f, new Item.Properties())));
+    items.add(new ItemInfo("hammer", "stone_hammer", () -> new HammerItem(Tiers.STONE, hammerDamage - 3, hammerSpeed + 0.2f, new Item.Properties())));
     items.add(new ItemInfo("hammer", "iron_hammer", () -> new HammerItem(Tiers.IRON, hammerDamage, hammerSpeed - 0.1f, new Item.Properties())));
-    items.add(new ItemInfo("hammer", "golden_hammer", () -> new HammerItem(Tiers.GOLD, hammerDamage - 1, hammerSpeed, new Item.Properties())));
+    items.add(new ItemInfo("hammer", "golden_hammer", () -> new HammerItem(Tiers.GOLD, hammerDamage - 3, hammerSpeed, new Item.Properties())));
     items.add(new ItemInfo("hammer", "diamond_hammer", () -> new HammerItem(Tiers.DIAMOND, hammerDamage - 1, hammerSpeed, new Item.Properties())));
     items.add(new ItemInfo("hammer", "netherite_hammer", () -> new HammerItem(Tiers.NETHERITE, hammerDamage - 1, hammerSpeed, new Item.Properties().fireResistant())));
     /* Batons */
