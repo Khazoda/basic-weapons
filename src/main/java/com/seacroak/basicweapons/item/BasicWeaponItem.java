@@ -16,10 +16,18 @@ import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TieredItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.common.ToolAction;
+
+import java.util.Set;
+
+import static com.google.common.collect.ImmutableSet.of;
+import static net.minecraftforge.common.ToolActions.SWORD_DIG;
 
 public class BasicWeaponItem extends TieredItem {
   private final float attackDamage;
   private final Multimap<Attribute, AttributeModifier> defaultModifiers;
+  private static final Set<ToolAction> DEFAULT_BASIC_WEAPON_ACTIONS = of(SWORD_DIG);
+
 
   public BasicWeaponItem(Tier tier, int attackDamage, float attackSpeed, Item.Properties properties) {
     super(tier, properties);
@@ -42,8 +50,8 @@ public class BasicWeaponItem extends TieredItem {
     return state.is(BlockTags.SWORD_EFFICIENT) ? 1.5F : 1.0F;
   }
 
-  public boolean hurtEnemy(ItemStack p_43278_, LivingEntity target, LivingEntity attacker) {
-    p_43278_.hurtAndBreak(1, attacker, (p_43296_) -> {
+  public boolean hurtEnemy(ItemStack itemStack, LivingEntity target, LivingEntity attacker) {
+    itemStack.hurtAndBreak(1, attacker, (p_43296_) -> {
       p_43296_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
     });
     return true;
@@ -69,6 +77,6 @@ public class BasicWeaponItem extends TieredItem {
 
   @Override
   public boolean canPerformAction(ItemStack stack, net.minecraftforge.common.ToolAction toolAction) {
-    return net.minecraftforge.common.ToolActions.DEFAULT_SWORD_ACTIONS.contains(toolAction);
+    return DEFAULT_BASIC_WEAPON_ACTIONS.contains(toolAction);
   }
 }
