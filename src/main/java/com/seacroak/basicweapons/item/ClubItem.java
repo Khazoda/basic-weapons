@@ -1,5 +1,6 @@
 package com.seacroak.basicweapons.item;
 
+import com.seacroak.basicweapons.PlayerEntityAccessor;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -16,7 +17,7 @@ public class ClubItem extends BasicWeaponItem {
   @Override
   public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
     PlayerEntity player = (PlayerEntity) attacker;
-    float f2 = player.getAttackCooldownProgress(0.5f);
+    float f2 = ((PlayerEntityAccessor) player).bw$getCooldown(0.5f);
     if (f2 > 0.9F) {
       target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 15));
     }
