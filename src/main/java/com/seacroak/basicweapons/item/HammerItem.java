@@ -17,7 +17,13 @@ public class HammerItem extends BasicWeaponItem {
     Player player = (Player) attacker;
     float f2 = player.getAttackStrengthScale(0.5f);
     if (f2 > 0.9F) {
-      target.addDeltaMovement(new Vec3(0, 0.45, 0));
+      if (target.isAlwaysTicking()) {
+        Vec3 currentMovement = target.getDeltaMovement();
+        target.setDeltaMovement(currentMovement.x, currentMovement.y + 0.8, currentMovement.z);
+        target.hurtMarked = true;
+      } else {
+        target.addDeltaMovement(new Vec3(0, 0.45, 0));
+      }
     }
     itemStack.hurtAndBreak(1, attacker, (entity) -> {
       entity.broadcastBreakEvent(EquipmentSlot.MAINHAND);
