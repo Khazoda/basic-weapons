@@ -19,7 +19,6 @@ public class HammerItem extends BasicWeaponItem {
     if (f2 > 0.9F) {
       target.addDeltaMovement(new Vec3(0, 0.45, 0));
     }
-    ;
     itemStack.hurtAndBreak(1, attacker, (entity) -> {
       entity.broadcastBreakEvent(EquipmentSlot.MAINHAND);
     });

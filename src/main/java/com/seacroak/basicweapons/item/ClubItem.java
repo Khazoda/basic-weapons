@@ -21,7 +21,6 @@ public class ClubItem extends BasicWeaponItem {
     if (f2 > 0.9F) {
       target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 15));
     }
-    ;
     itemStack.hurtAndBreak(1, attacker, (entity) -> {
       entity.broadcastBreakEvent(EquipmentSlot.MAINHAND);
     });
