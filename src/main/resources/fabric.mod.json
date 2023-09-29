@@ -3,13 +3,13 @@
   "id": "basicweapons",
   "version": "${version}",
   "name": "Basic Weapons",
-  "description": "No fluff, no sparkles, just some straightforward vanilla+ weaponry.",
+  "description": "Adds vanilla+ weaponry - no extra fluff or sparkles",
   "authors": [
     "Khazoda"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://github.com/Khazoda/basic-weapons",
+    "sources": "https://github.com/Khazoda/basic-weapons"
   },
   "license": "MIT",
   "icon": "bw_icon.png",
