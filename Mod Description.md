@@ -1,4 +1,4 @@
-![Basic Weapons Banner](https://github.com/Khazoda/Basic Weapons/blob/Web-Assets/description_common/banner.png?raw=true)
+![Basic Weapons Banner](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/banner.png?raw=true)
 
 # Important 🐻
 
