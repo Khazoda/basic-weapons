@@ -26,13 +26,14 @@ Basic Weapons adds **5** new weapon types to complement the existing sword and a
 
 For more indepth information about the weapons, please refer to the **Weapon Stats** section further down.
 
-# Recommended Mods 🌻
+![Divider](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/divider_1.png?raw=true)
+
+# Better Combat Integration 🔥
 
 Basic Weapons has optional features that you may want to use. To unlock everything this mod has to offer, consider downloading any of the mods below to use in your game.
 
 - [EMI](https://www.curseforge.com/minecraft/mc-mods/emi) OR [REI](https://www.curseforge.com/minecraft/mc-mods/roughly-enough-items) - Both of these mods fulfil similar functions, and you should only install one of them. Recipe viewer mods such as EMI and REI allow you to see a searchable list of every item in the game. This includes plushables and their recipes in the plushable builder.
 - [Bovines and Buttercups](https://www.curseforge.com/minecraft/mc-mods/bovines-and-buttercups) - This content mod adds mooblooms to your world. With it installed, you can unlock a new texture for the moobloom plushable by enabling a built-in resource pack!
-  ![Basic Weapons Banner](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/creativetab.png?raw=true)
 
 # Frequently Asked Questions (FAQ) 🧡
 
@@ -43,5 +44,6 @@ Basic Weapons has optional features that you may want to use. To unlock everythi
 - I found a bug / my game crashed  
   _`If you find any problems with Basic Weapons, please feel encouraged to create an issue on the GitHub repository issue tracker. Bug reports are incredibly helpful, and help make Basic Weapons the best it can be.`_
 
-![divider](https://github.com/Khazoda/Basic Weapons/blob/Web-Assets/description_common/divider.png?raw=true)
+<!-- ![divider](https://github.com/Khazoda/Basic Weapons/blob/Web-Assets/description_common/divider.png?raw=true)
 ![footer](https://github.com/Khazoda/Basic Weapons/blob/Web-Assets/description_common/footer.png?raw=true)
+![Basic Weapons Banner](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/creativetab.png?raw=true) -->
