@@ -1,26 +1,19 @@
 ![Basic Weapons Banner](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/banner.png?raw=true)
 
-# Important 🐻
+# Important ⚔️
 
-Basic Weapons is a mod that works with *Fabric* and *Quilt*. You will *need* to download the following:  
-| Using Fabric | [Fabric API](https://legacy.curseforge.com/minecraft/mc-mods/fabric-api) | [GeckoLib](https://legacy.curseforge.com/minecraft/mc-mods/geckolib) | [Patchouli](https://legacy.curseforge.com/minecraft/mc-mods/patchouli-fabric) |
-| ----- | ----- | ----- | ----- |
-| Using Quilt | [Quilted Fabric API](https://legacy.curseforge.com/minecraft/mc-mods/qsl) | [GeckoLib](https://legacy.curseforge.com/minecraft/mc-mods/geckolib) | [Patchouli](https://legacy.curseforge.com/minecraft/mc-mods/patchouli-fabric) |
+Basic Weapons is a mod that works with *Fabric*, _Quilt_ & _Forge_. You will need to download the following:  
+| Using Fabric | [Fabric API](https://legacy.curseforge.com/minecraft/mc-mods/fabric-api) |
+| ----- | ----- |
+| Using Quilt | [Quilted Fabric API](https://legacy.curseforge.com/minecraft/mc-mods/qsl) |
+| Using Forge | Nothing extra 😁 |
 
-# About 🦣
+# About 🤺
 
-Basic Weapons adds many new decorative blocks that are crafted within a new crafting interface, the Plushable Builder.  
-These 'plushables' can have sound and particle effects on interaction, as well as animations.
-![highlight](https://github.com/Khazoda/Basic Weapons/blob/Web-Assets/description_common/highlight.png?raw=true)
+Basic Weapons adds **5** new weapon types to complement the existing sword and axe. Each weapon is balanced around damage, attack speed, crafting costs and special effects. _If you have Better Combat installed, the weapons are also balanced around attack reach, breadth and combos._
+![Basic Weapons Banner](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/creative_tab.png?raw=true)
 
-# Getting Started 📖
-
-- Pick up a copper ingot to unlock the recipe for the Plushable Builder in your recipe book, a block that is used to craft every plushable.
-- Once you've crafted the builder you will be granted the Plushable Codex, a book item that details the recipes of every plush.
-- Every plushable needs either a Heart of Gold or a Powered Heart of Gold. Both recipes can be found in your recipe book at the same time you unlock the builder recipe.
-  ![Crafting recipe](https://github.com/Khazoda/Basic Weapons/blob/Web-Assets/description_common/crafting.png?raw=true)
-
-# Optional Mods 🌻
+# Recommended Mods 🌻
 
 Basic Weapons has optional features that you may want to use. To unlock everything this mod has to offer, consider downloading any of the mods below to use in your game.
 
