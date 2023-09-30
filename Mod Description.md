@@ -29,7 +29,7 @@ Weapons should feel _unique, powerful, easy to use_ and _fair._ Please take a lo
 
 # Better Combat Integration 🔥
 
-![Divider](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/bettercombat.png?raw=true)
+![Better Combat + Basic Weapons](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/bettercombat.png?raw=true)
 Basic Weapons works well as a drop-in mod to spice up the weapon variety in your adventures, but it plays especially well when paired with [Better Combat](https://modrinth.com/mod/better-combat). Each weapon has a unique playstyle,
 
 With Better Combat installed, spears gain more weapon range, quarterstaves receive exciting new attack combos, daggers and clubs can be paired with other weapons for dual-wielding mayhem, and the hammer even features a fully custom attack animation.
@@ -47,6 +47,8 @@ For weapon stats with Better Combat integration, see below:
 | Quarterstaff  | Low    | Medium    |                      | Hybrid  | High      | Two-handed  |
 | Spear         | Medium | Slow      |                      | Single  | Very High | Two-handed  |
 | Club          | High   | Slow      | Slow target          | Single  | Medium    | One-handed  |
+
+![Divider](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/divider_2.png?raw=true)
 
 # Frequently Asked Questions (FAQ) 🧡
 
