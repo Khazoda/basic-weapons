@@ -15,22 +15,24 @@ Basic Weapons adds **5** new weapon types of every vanilla tool material _(Wood,
 ![Divider](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/showcase.png?raw=true)
 Weapons should feel _unique, powerful, easy to use_ and _fair._ Please take a look at this high level overview of each weapon:
 
-| Weapon        | Damage | Speed     | Baseline Effect      |
-| ------------- | ------ | --------- | -------------------- |
-| Vanilla Sword | Medium | Medium    | Sweeping             |
-| Vanilla Axe   | High   | Slow      | Shield Break         |
-| Dagger        | Low    | Fast      |                      |
-| Hammer        | High   | Very Slow | Knock target upwards |
-| Quarterstaff  | Low    | Medium    |                      |
-| Spear         | Medium | Medium    |                      |
-| Club          | High   | Slow      | Slow target          |
+| Weapon         | Damage | Speed     | Baseline Effect      |
+| -------------- | ------ | --------- | -------------------- |
+| Vanilla Sword  | Medium | Medium    | Sweeping             |
+| Vanilla Axe    | High   | Slow      | Shield Break         |
+| Dagger         | Low    | Fast      |                      |
+| Hammer         | High   | Very Slow | Knock target upwards |
+| Quarterstaff\* | Low    | Medium    |                      |
+| Spear\*        | Medium | Medium    |                      |
+| Club           | High   | Slow      | Slow target          |
+
+\*_The spear and quarterstaff are best used alongside Better Combat to utilize their full combat potential, but still work well as cheap weapons, and look very stylish when held._
 
 ![Divider](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/divider_1.png?raw=true)
 
 # Better Combat Integration 🔥
 
 ![Better Combat + Basic Weapons](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/bettercombat.png?raw=true)
-Basic Weapons works well as a drop-in mod to spice up the weapon variety in your adventures, but it plays especially well when paired with [Better Combat](https://modrinth.com/mod/better-combat). Each weapon has a unique playstyle,
+Basic Weapons works well as a drop-in mod to spice up the weapon variety in your adventures, but it plays especially well when paired with [Better Combat](https://modrinth.com/mod/better-combat).
 
 With Better Combat installed, spears gain more weapon range, quarterstaves receive exciting new attack combos, daggers and clubs can be paired with other weapons for dual-wielding mayhem, and the hammer even features a fully custom attack animation.
 
