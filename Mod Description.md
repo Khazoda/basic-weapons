@@ -34,7 +34,7 @@ Weapons should feel _unique, powerful, easy to use_ and _fair._ Please take a lo
 ![Better Combat + Basic Weapons](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/bettercombat.png?raw=true)
 Basic Weapons works well as a drop-in mod to spice up the weapon variety in your adventures, but it plays especially well when paired with [Better Combat](https://modrinth.com/mod/better-combat).
 
-With Better Combat installed, spears gain more weapon range, quarterstaves receive exciting new attack combos, daggers and clubs can be paired with other weapons for dual-wielding mayhem, and the hammer even features a fully custom attack animation.
+With Better Combat installed, spears gain more range, quarterstaves receive exciting new attack combos, daggers and clubs can be paired with other weapons for dual-wielding mayhem, and the hammer even features a fully custom attack animation.
 
 If any of this sounds interesting to you, I recommend you try the two mods out together. [Better Combat](https://modrinth.com/mod/better-combat) can take some getting used to at first, but it's well worth your time investment in the long term, bringing a new layer of strategy and fun to your weapon choices and fights.
 
