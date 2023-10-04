@@ -19,7 +19,7 @@ import static com.seacroak.basicweapons.registry.MainRegistry.registeredItems;
 public abstract class ItemRendererMixin {
   @ModifyVariable(method = "renderItem", at = @At(value = "HEAD"), argsOnly = true)
   public BakedModel useHeldModels(BakedModel value, ItemStack stack, ModelTransformationMode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
-    if (renderMode == ModelTransformationMode.GUI) return value;
+    if (renderMode == ModelTransformationMode.GUI || renderMode == ModelTransformationMode.GROUND || renderMode == ModelTransformationMode.FIXED) return value;
     boolean flag = false;
     String resourceLocation = "";
     Item item = stack.getItem();
