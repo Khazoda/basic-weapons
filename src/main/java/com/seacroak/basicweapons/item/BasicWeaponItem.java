@@ -62,6 +62,7 @@ public abstract class BasicWeaponItem extends ToolItem {
     return slot == EquipmentSlot.MAINHAND ? this.attributeModifiers : super.getAttributeModifiers(slot);
   }
 
+
   @Override
   public boolean isSuitableFor(BlockState state) {
     return false;

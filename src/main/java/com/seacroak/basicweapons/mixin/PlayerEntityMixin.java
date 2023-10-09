@@ -1,6 +1,5 @@
 package com.seacroak.basicweapons.mixin;
 
-import com.seacroak.basicweapons.PlayerEntityAccessor;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;

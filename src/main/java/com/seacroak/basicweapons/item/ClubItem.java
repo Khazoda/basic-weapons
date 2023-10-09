@@ -1,6 +1,6 @@
 package com.seacroak.basicweapons.item;
 
-import com.seacroak.basicweapons.PlayerEntityAccessor;
+import com.seacroak.basicweapons.mixin.PlayerEntityAccessor;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
