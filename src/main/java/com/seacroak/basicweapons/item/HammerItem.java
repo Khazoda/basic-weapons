@@ -1,6 +1,6 @@
 package com.seacroak.basicweapons.item;
 
-import com.seacroak.basicweapons.mixin.PlayerEntityAccessor;
+import com.seacroak.basicweapons.mixinutils.PlayerEntityAccessor;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;

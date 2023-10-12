@@ -9,15 +9,12 @@ import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ToolItem;
-import net.minecraft.item.ToolMaterial;
+import net.minecraft.item.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 /* Class based off SwordItem to disable sweeping behaviour by default */
-public abstract class BasicWeaponItem extends ToolItem {
+public abstract class BasicWeaponItem extends ToolItem implements Vanishable {
   private final float attackDamage;
   private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
 
