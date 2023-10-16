@@ -29,8 +29,6 @@ public class MainRegistry {
         content.addAfter(registeredItems.get(i - 1), registeredItems.get(i));
       }
     });
-
-    EnchantmentRegistry.init();
   }
 
   public static Item registerItem(String name, Item item) {
