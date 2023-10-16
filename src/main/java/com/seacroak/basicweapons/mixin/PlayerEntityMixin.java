@@ -1,6 +1,6 @@
 package com.seacroak.basicweapons.mixin;
 
-import com.seacroak.basicweapons.PlayerEntityAccessor;
+import com.seacroak.basicweapons.mixinutils.PlayerEntityAccessor;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
@@ -24,9 +24,8 @@ public abstract class PlayerEntityMixin implements PlayerEntityAccessor {
     return this.attackCooldownProgress;
   }
 
-  @Inject(at = @At("HEAD"), method = "attack")
+  @Inject(method = "attack", at = @At("HEAD"))
   private void retrieveCooldownEarly(Entity target, CallbackInfo ci) {
     attackCooldownProgress = this.getAttackCooldownProgress(0.5f);
   }
-
 }
