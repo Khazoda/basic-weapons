@@ -12,8 +12,8 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
-import net.minecraft.world.item.TieredItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ToolAction;
@@ -23,14 +23,14 @@ import java.util.Set;
 import static com.google.common.collect.ImmutableSet.of;
 import static net.minecraftforge.common.ToolActions.SWORD_DIG;
 
-public class BasicWeaponItem extends TieredItem {
+public class BasicWeaponItem extends SwordItem {
   private final float attackDamage;
   private final Multimap<Attribute, AttributeModifier> defaultModifiers;
   private static final Set<ToolAction> DEFAULT_BASIC_WEAPON_ACTIONS = of(SWORD_DIG);
 
 
   public BasicWeaponItem(Tier tier, int attackDamage, float attackSpeed, Item.Properties properties) {
-    super(tier, properties);
+    super(tier, attackDamage, attackSpeed, properties);
     this.attackDamage = (float) attackDamage + tier.getAttackDamageBonus();
     ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
     builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Weapon modifier", (double) this.attackDamage, AttributeModifier.Operation.ADDITION));
