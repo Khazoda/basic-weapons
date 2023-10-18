@@ -4,10 +4,10 @@
     "item": "minecraft:netherite_ingot"
   },
   "base": {
-    "item": "basicweapons:diamond_quarterstaff"
+    "item": "basicweapons:diamond_hammer"
   },
   "result": {
-    "item": "basicweapons:netherite_quarterstaff"
+    "item": "basicweapons:netherite_hammer"
   },
   "template": {
     "item": "minecraft:netherite_upgrade_smithing_template"
