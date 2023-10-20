@@ -14,12 +14,12 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 /* Class based off SwordItem to disable sweeping behaviour by default */
-public abstract class BasicWeaponItem extends ToolItem implements Vanishable {
+public abstract class BasicWeaponItem extends SwordItem implements Vanishable {
   private final float attackDamage;
   private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
 
   public BasicWeaponItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Item.Settings settings) {
-    super(toolMaterial, settings);
+    super(toolMaterial, attackDamage, attackSpeed, settings);
     this.attackDamage = (float) attackDamage + toolMaterial.getAttackDamage();
     ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
     builder.put(EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeModifier(ATTACK_DAMAGE_MODIFIER_ID, "Weapon modifier", (double) this.attackDamage, EntityAttributeModifier.Operation.ADDITION));
