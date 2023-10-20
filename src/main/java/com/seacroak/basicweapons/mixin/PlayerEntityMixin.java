@@ -1,5 +1,7 @@
 package com.seacroak.basicweapons.mixin;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.seacroak.basicweapons.item.BasicWeaponItem;
 import com.seacroak.basicweapons.mixinutils.PlayerEntityAccessor;
 import net.minecraft.entity.Entity;
@@ -11,7 +13,6 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(PlayerEntity.class)
@@ -40,25 +41,25 @@ public abstract class PlayerEntityMixin implements PlayerEntityAccessor {
 //    return pe.getMovementSpeed() +x + 0.1f;
 //  }
 
-  @Redirect(method = "attack", at = @At(value = "FIELD", target = "Lnet/minecraft/entity/player/PlayerEntity;horizontalSpeed:F", opcode = Opcodes.GETFIELD))
-  private float alterHorizontalSpeedToSneakilyPreventSweeping(PlayerEntity instance) {
+  @WrapOperation(method = "attack", at = @At(value = "FIELD", target = "Lnet/minecraft/entity/player/PlayerEntity;horizontalSpeed:F", opcode = Opcodes.GETFIELD))
+  private float alterHorizontalSpeedToSneakilyPreventSweeping(PlayerEntity instance, Operation<Float> original) {
     if (instance.getStackInHand(Hand.MAIN_HAND).getItem() instanceof BasicWeaponItem)
       return 10f;
-    return instance.horizontalSpeed;
+    return original.call(instance);
   }
 
-  @Redirect(method = "attack", at = @At(value = "FIELD", target = "Lnet/minecraft/entity/player/PlayerEntity;prevHorizontalSpeed:F", opcode = Opcodes.GETFIELD))
-  private float alterPreviousHorizontalSpeedToSneakilyPreventSweeping(PlayerEntity instance) {
+  @WrapOperation(method = "attack", at = @At(value = "FIELD", target = "Lnet/minecraft/entity/player/PlayerEntity;prevHorizontalSpeed:F", opcode = Opcodes.GETFIELD))
+  private float alterPreviousHorizontalSpeedToSneakilyPreventSweeping(PlayerEntity instance, Operation<Float> original) {
     if (instance.getStackInHand(Hand.MAIN_HAND).getItem() instanceof BasicWeaponItem)
       return 0f;
-    return instance.prevHorizontalSpeed;
+    return original.call(instance);
   }
 
-  @Inject(method = "tick()V", at = @At("HEAD"))
-  private void amogus(CallbackInfo ci) {
-    PlayerEntity t = ((PlayerEntity) (Object) this);
-    float f = t.horizontalSpeed;
-    float g = t.prevHorizontalSpeed;
-    System.out.println("S: " + f + " P: " + g + " T: " + (f - g));
-  }
+//  @Inject(method = "tick()V", at = @At("HEAD"))
+//  private void amogus(CallbackInfo ci) {
+//    PlayerEntity t = ((PlayerEntity) (Object) this);
+//    float f = t.horizontalSpeed;
+//    float g = t.prevHorizontalSpeed;
+//    System.out.println("S: " + f + " P: " + g + " T: " + (f - g));
+//  }
 }
