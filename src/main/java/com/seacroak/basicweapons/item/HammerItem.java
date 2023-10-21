@@ -7,7 +7,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.phys.Vec3;
 
-public class HammerItem extends BasicWeaponItem {
+public class HammerItem extends BasicWeaponSweeplessItem {
   public HammerItem(Tier tier, int damage, float attackSpeed, Properties properties) {
     super(tier, damage, attackSpeed, properties);
   }

@@ -8,7 +8,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 
-public class ClubItem extends BasicWeaponItem {
+public class ClubItem extends BasicWeaponSweeplessItem {
   public ClubItem(Tier tier, int damage, float attackSpeed, Properties properties) {
     super(tier, damage, attackSpeed, properties);
   }
