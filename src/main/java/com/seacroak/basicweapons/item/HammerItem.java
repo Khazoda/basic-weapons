@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.util.math.Vec3d;
 
-public class HammerItem extends BasicWeaponItem {
+public class HammerItem extends BasicWeaponSweeplessItem {
   public HammerItem(ToolMaterial tier, int damage, float attackSpeed, Settings properties) {
     super(tier, damage, attackSpeed, properties);
   }
