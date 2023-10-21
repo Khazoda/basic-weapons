@@ -2,6 +2,8 @@ package com.seacroak.basicweapons.item;
 
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraftforge.common.ToolAction;
 
 import java.util.Set;
@@ -16,6 +18,13 @@ public class BasicWeaponSweeplessItem extends BasicWeaponItem {
     super(tier, attackDamage, attackSpeed, properties);
   }
 
+  @Override
+  public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
+    if (enchantment == Enchantments.SWEEPING_EDGE) {
+      return false;
+    }
+    return super.canApplyAtEnchantingTable(stack, enchantment);
+  }
   @Override
   public boolean canPerformAction(ItemStack stack, net.minecraftforge.common.ToolAction toolAction) {
     return SWEEPLESS_BASIC_WEAPON_ACTIONS.contains(toolAction);
