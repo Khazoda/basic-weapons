@@ -23,7 +23,7 @@ This high level overview should give you an idea of what each weapon is good and
 | Vanilla Axe    | High   | Slow      | Shield Break         |
 | Dagger         | Low    | Fast      |                      |
 | Hammer         | High   | Very Slow | Knock target upwards |
-| Quarterstaff\* | Low    | Medium    |                      |
+| Quarterstaff\* | Low    | Medium    | Sweeping             |
 | Spear\*        | Medium | Medium    |                      |
 | Club           | High   | Slow      | Slow target          |
 
@@ -48,11 +48,13 @@ For weapon stats with Better Combat integration, see below:
 | Vanilla Axe   | High   | Slow      | Vanilla Shield Break | Single  | Medium    | One-handed  |
 | Dagger        | Low    | Fast      |                      | Single  | Medium    | One-handed  |
 | Hammer        | High   | Very Slow | Knock target upwards | Single  | Medium    | One-handed  |
-| Quarterstaff  | Low    | Medium    |                      | Hybrid  | High      | Two-handed  |
+| Quarterstaff  | Low    | Medium    | Vanilla Sweeping     | Hybrid  | High      | Two-handed  |
 | Spear         | Medium | Slow      |                      | Single  | Very High | Two-handed  |
 | Club          | High   | Slow      | Slow target          | Single  | Medium    | One-handed  |
 
 ![Divider](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/divider_2.png?raw=true)
+![Recipes](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/recipes.png?raw=true)
+![Divider](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/divider_3.png?raw=true)
 
 # Frequently Asked Questions (FAQ) 🧡
 
@@ -65,7 +67,7 @@ For weapon stats with Better Combat integration, see below:
 - I found a bug / my game crashed  
    _`If you find any problems with Basic Weapons, please feel encouraged to create an issue on the GitHub repository issue tracker. Bug reports are incredibly helpful, and help make Basic Weapons the best it can be.`_
 
-![Divider](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/divider_3.png?raw=true)
+![Divider](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/divider_4.png?raw=true)
 
 ## More Weapon Stats (Just in-case you want them) 😺
 
