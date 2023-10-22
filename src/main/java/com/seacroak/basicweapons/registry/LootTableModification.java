@@ -54,8 +54,8 @@ public class LootTableModification {
     LootPool.Builder poolBuilder = LootPool.builder()
         .rolls(UniformLootNumberProvider.create(0f, 2f))
         .with(loot_pool);
-    if (applyDamage) poolBuilder.apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.7f, 0.9f)));
-    poolBuilder.bonusRolls(ConstantLootNumberProvider.create(0.5f));
+    if (applyDamage) poolBuilder.apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.7f, 0.95f)))
+        .bonusRolls(ConstantLootNumberProvider.create(0.5f));
     tableBuilder.pool(poolBuilder);
   }
 
