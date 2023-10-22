@@ -66,6 +66,12 @@ For weapon stats with Better Combat integration, see below:
    _`If you find any problems with Basic Weapons, please feel encouraged to create an issue on the GitHub repository issue tracker. Bug reports are incredibly helpful, and help make Basic Weapons the best it can be.`_
   ![Divider](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/divider_3.png?raw=true)
 
+## Recipes 🧩
+
+![Divider](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/divider_4.png?raw=true)
+![Recipes](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/recipes.png?raw=true)
+![Divider](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/divider_5.png?raw=true)
+
 ## More Weapon Stats (Just in-case you want them) 😺
 
 ### This table shows the baseline stats for each weapon type. Tier modifiers apply after these stats (i.e. Wood/Stone/Iron etc.), but this table should give you a good idea of how each weapon compares to the next.
@@ -81,12 +87,6 @@ For weapon stats with Better Combat integration, see below:
 | Club         | 5                 | 1.0                          | 2.5                                                   |
 | Axe          | 6                 | 0.8                          | 2.5                                                   |
 | Hammer       | 7                 | 0.6                          | 2.5                                                   |
-
-## Recipes 🧩
-
-![Divider](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/divider_4.png?raw=true)
-![Recipes](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/recipes.png?raw=true)
-![Divider](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/divider_5.png?raw=true)
 
 ## For The Creative Mode Enjoyers Among You 👇🏽
 
