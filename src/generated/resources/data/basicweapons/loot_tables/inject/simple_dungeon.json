@@ -1,0 +1,40 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "basicweapons:iron_dagger",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "basicweapons:iron_hammer"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "basicweapons:iron_club",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "basicweapons:iron_spear",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "basicweapons:iron_quarterstaff",
+          "weight": 2
+        }
+      ],
+      "rolls": {
+        "type": "minecraft:uniform",
+        "max": 2.0,
+        "min": 0.0
+      }
+    }
+  ],
+  "random_sequence": "basicweapons:inject/simple_dungeon"
+}

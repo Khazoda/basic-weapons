@@ -1,0 +1,56 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "bonus_rolls": 0.5,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "basicweapons:stone_dagger",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "basicweapons:stone_dagger",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "basicweapons:stone_hammer"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "basicweapons:stone_club",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "basicweapons:stone_spear",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "basicweapons:stone_quarterstaff",
+          "weight": 2
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "damage": {
+            "type": "minecraft:uniform",
+            "max": 0.95,
+            "min": 0.7
+          },
+          "function": "minecraft:set_damage"
+        }
+      ],
+      "rolls": {
+        "type": "minecraft:uniform",
+        "max": 2.0,
+        "min": 0.0
+      }
+    }
+  ],
+  "random_sequence": "basicweapons:inject/igloo_chest"
+}

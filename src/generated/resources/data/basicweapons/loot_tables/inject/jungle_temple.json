@@ -1,0 +1,45 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "basicweapons:stone_dagger",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "basicweapons:stone_dagger",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "basicweapons:stone_hammer"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "basicweapons:stone_club",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "basicweapons:stone_spear",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "basicweapons:stone_quarterstaff",
+          "weight": 2
+        }
+      ],
+      "rolls": {
+        "type": "minecraft:uniform",
+        "max": 2.0,
+        "min": 0.0
+      }
+    }
+  ],
+  "random_sequence": "basicweapons:inject/jungle_temple"
+}

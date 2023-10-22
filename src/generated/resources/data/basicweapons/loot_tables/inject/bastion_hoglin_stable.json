@@ -1,0 +1,88 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "bonus_rolls": 0.5,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "basicweapons:golden_dagger",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "basicweapons:golden_hammer"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "basicweapons:golden_club",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "basicweapons:golden_spear",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "basicweapons:golden_quarterstaff",
+          "weight": 2
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:enchant_randomly"
+        },
+        {
+          "add": false,
+          "damage": {
+            "type": "minecraft:uniform",
+            "max": 0.95,
+            "min": 0.7
+          },
+          "function": "minecraft:set_damage"
+        }
+      ],
+      "rolls": {
+        "type": "minecraft:uniform",
+        "max": 1.0,
+        "min": 0.0
+      }
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "basicweapons:golden_dagger",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "basicweapons:golden_hammer"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "basicweapons:golden_club",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "basicweapons:golden_spear",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "basicweapons:golden_quarterstaff",
+          "weight": 2
+        }
+      ],
+      "rolls": {
+        "type": "minecraft:uniform",
+        "max": 1.0,
+        "min": 0.0
+      }
+    }
+  ],
+  "random_sequence": "basicweapons:inject/bastion_hoglin_stable"
+}
