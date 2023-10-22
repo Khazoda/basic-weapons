@@ -9,7 +9,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 
-public class ClubItem extends BasicWeaponItem {
+public class ClubItem extends BasicWeaponSweeplessItem {
   public ClubItem(ToolMaterial tier, int damage, float attackSpeed, Settings properties) {
     super(tier, damage, attackSpeed, properties);
   }
