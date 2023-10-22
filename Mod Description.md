@@ -53,8 +53,6 @@ For weapon stats with Better Combat integration, see below:
 | Club          | High   | Slow      | Slow target          | Single  | Medium    | One-handed  |
 
 ![Divider](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/divider_2.png?raw=true)
-![Recipes](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/recipes.png?raw=true)
-![Divider](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/divider_3.png?raw=true)
 
 # Frequently Asked Questions (FAQ) 🧡
 
@@ -66,8 +64,7 @@ For weapon stats with Better Combat integration, see below:
   _`Unfortunately I don't have the time to backport Basic Weapons to earlier versions. The mod will however support each new version of Minecraft.`_
 - I found a bug / my game crashed  
    _`If you find any problems with Basic Weapons, please feel encouraged to create an issue on the GitHub repository issue tracker. Bug reports are incredibly helpful, and help make Basic Weapons the best it can be.`_
-
-![Divider](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/divider_4.png?raw=true)
+  ![Divider](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/divider_3.png?raw=true)
 
 ## More Weapon Stats (Just in-case you want them) 😺
 
@@ -84,6 +81,12 @@ For weapon stats with Better Combat integration, see below:
 | Club         | 5                 | 1.0                          | 2.5                                                   |
 | Axe          | 6                 | 0.8                          | 2.5                                                   |
 | Hammer       | 7                 | 0.6                          | 2.5                                                   |
+
+## Recipes 🧩
+
+![Divider](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/divider_4.png?raw=true)
+![Recipes](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/recipes.png?raw=true)
+![Divider](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/divider_5.png?raw=true)
 
 ## For The Creative Mode Enjoyers Among You 👇🏽
 
