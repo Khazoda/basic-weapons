@@ -1,5 +1,6 @@
 package com.seacroak.basicweapons;
 
+import com.seacroak.basicweapons.datagen.LootTableModification;
 import com.seacroak.basicweapons.registry.BWItems;
 import com.seacroak.basicweapons.registry.MainRegistry;
 import net.minecraft.world.item.*;
@@ -39,6 +40,7 @@ public class BasicWeapons {
     MainRegistry.preInit();
     MainRegistry.init(modEventBus);
 
+    MinecraftForge.EVENT_BUS.addListener(LootTableModification::onLootLoad);
     modEventBus.addListener(this::addCreative);
     ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
   }

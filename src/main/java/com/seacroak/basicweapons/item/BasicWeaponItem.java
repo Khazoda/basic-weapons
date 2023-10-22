@@ -21,12 +21,12 @@ import net.minecraftforge.common.ToolAction;
 import java.util.Set;
 
 import static com.google.common.collect.ImmutableSet.of;
-import static net.minecraftforge.common.ToolActions.SWORD_DIG;
+import static net.minecraftforge.common.ToolActions.SWORD_SWEEP;
 
 public class BasicWeaponItem extends SwordItem {
   private final float attackDamage;
   private final Multimap<Attribute, AttributeModifier> defaultModifiers;
-  private static final Set<ToolAction> DEFAULT_BASIC_WEAPON_ACTIONS = of(SWORD_DIG);
+  private static final Set<ToolAction> DEFAULT_BASIC_WEAPON_ACTIONS = of(SWORD_SWEEP);
 
 
   public BasicWeaponItem(Tier tier, int attackDamage, float attackSpeed, Item.Properties properties) {

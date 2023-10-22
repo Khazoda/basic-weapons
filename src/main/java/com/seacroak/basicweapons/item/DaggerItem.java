@@ -6,7 +6,7 @@ import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class DaggerItem extends BasicWeaponItem {
+public class DaggerItem extends BasicWeaponSweeplessItem {
   public DaggerItem(Tier tier, int damage, float attackSpeed, Properties properties) {
     super(tier, damage, attackSpeed, properties);
   }
