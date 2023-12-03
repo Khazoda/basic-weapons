@@ -2,9 +2,9 @@ package com.seacroak.basicweapons.item;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.Material;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
-import net.minecraft.registry.tag.BlockTags;
 
 public class DaggerItem extends BasicWeaponSweeplessItem {
   public DaggerItem(ToolMaterial tier, int damage, float attackSpeed, Settings properties) {
@@ -16,7 +16,8 @@ public class DaggerItem extends BasicWeaponSweeplessItem {
     if (state.isOf(Blocks.COBWEB)) {
       return 15.0F;
     } else {
-      return state.isIn(BlockTags.SWORD_EFFICIENT) ? 1.5F : 1.0F;
+      Material material = state.getMaterial();
+      return material != Material.PLANT && material != Material.REPLACEABLE_PLANT && material != Material.STONE && material != Material.LEAVES && material != Material.ORGANIC_PRODUCT ? 1.0F : 1.5F;
     }
   }
 

@@ -4,7 +4,7 @@ import com.seacroak.basicweapons.Constants;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.render.model.BakedModel;
-import net.minecraft.client.render.model.json.ModelTransformationMode;
+import net.minecraft.client.render.model.json.ModelTransformation;
 import net.minecraft.client.util.ModelIdentifier;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.Item;
@@ -18,8 +18,9 @@ import static com.seacroak.basicweapons.registry.MainRegistry.registeredItems;
 @Mixin(ItemRenderer.class)
 public abstract class ItemRendererMixin {
   @ModifyVariable(method = "renderItem", at = @At(value = "HEAD"), argsOnly = true)
-  public BakedModel useHeldModels(BakedModel value, ItemStack stack, ModelTransformationMode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
-    if (renderMode == ModelTransformationMode.GUI || renderMode == ModelTransformationMode.GROUND || renderMode == ModelTransformationMode.FIXED) return value;
+  public BakedModel useHeldModels(BakedModel value, ItemStack stack, ModelTransformation.Mode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
+    if (renderMode == ModelTransformation.Mode.GUI || renderMode == ModelTransformation.Mode.GROUND || renderMode == ModelTransformation.Mode.FIXED)
+      return value;
     boolean flag = false;
     String resourceLocation = "";
     Item item = stack.getItem();
