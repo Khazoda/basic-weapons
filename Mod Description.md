@@ -91,3 +91,10 @@ For weapon stats with Better Combat integration, see below:
 ## For The Creative Mode Enjoyers Among You 👇🏽
 
 ![Basic Weapons Banner](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/creativetab.png?raw=true)
+
+### Thank you to the contributors
+
+FirePhantom303,
+nimbXnumb - Russian Translation
+
+Hexasan - Turkish Translation
