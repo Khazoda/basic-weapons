@@ -95,6 +95,6 @@ For weapon stats with Better Combat integration, see below:
 ### Thank you to the contributors
 
 FirePhantom303,
-nimbXnumb - Russian Translation
+nimbXnumb, goofy_boyd9110260 - Russian Translation
 
 Hexasan - Turkish Translation
