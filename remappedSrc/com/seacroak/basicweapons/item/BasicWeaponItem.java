@@ -9,9 +9,7 @@ import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.SwordItem;
-import net.minecraft.item.ToolMaterial;
+import net.minecraft.item.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -20,7 +18,7 @@ public abstract class BasicWeaponItem extends SwordItem implements Vanishable {
   private final float attackDamage;
   private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
 
-  public BasicWeaponItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
+  public BasicWeaponItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Item.Settings settings) {
     super(toolMaterial, attackDamage, attackSpeed, settings);
     this.attackDamage = (float) attackDamage + toolMaterial.getAttackDamage();
     ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
