@@ -48,6 +48,12 @@ public class BasicWeaponSweeplessItem extends ToolItem {
   }
 
   @Override
+  public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
+    stack.damage(1, miner, EquipmentSlot.MAINHAND);
+    return super.postMine(stack, world, state, pos, miner);
+  }
+
+  @Override
   public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
     stack.damage(1, attacker, EquipmentSlot.MAINHAND);
     return true;
