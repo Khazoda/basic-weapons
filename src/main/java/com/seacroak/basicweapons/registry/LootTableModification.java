@@ -78,60 +78,60 @@ public class LootTableModification {
   }
 
   public static void init() {
-    LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
+    LootTableEvents.MODIFY.register((key, tableBuilder, source) -> {
       /* Overworld */
-      if (source.isBuiltin() && JUNGLE_TEMPLE_CHEST.equals(id)) {
+      if (source.isBuiltin() && JUNGLE_TEMPLE_CHEST.equals(key)) {
         addItems(stone_loot_pool, tableBuilder, false);
       }
-      if (source.isBuiltin() && IGLOO_CHEST_CHEST.equals(id)) {
+      if (source.isBuiltin() && IGLOO_CHEST_CHEST.equals(key)) {
         addItems(stone_loot_pool, tableBuilder, true);
       }
-      if (source.isBuiltin() && SHIPWRECK_SUPPLY_CHEST.equals(id)) {
+      if (source.isBuiltin() && SHIPWRECK_SUPPLY_CHEST.equals(key)) {
         addItems(stone_loot_pool, tableBuilder, true);
       }
 
-      if (source.isBuiltin() && SIMPLE_DUNGEON_CHEST.equals(id)) {
+      if (source.isBuiltin() && SIMPLE_DUNGEON_CHEST.equals(key)) {
         addItems(iron_loot_pool, tableBuilder, false);
       }
-      if (source.isBuiltin() && ABANDONED_MINESHAFT_CHEST.equals(id)) {
+      if (source.isBuiltin() && ABANDONED_MINESHAFT_CHEST.equals(key)) {
         addItems(iron_loot_pool, tableBuilder, false);
       }
-      if (source.isBuiltin() && DESERT_PYRAMID_CHEST.equals(id)) {
+      if (source.isBuiltin() && DESERT_PYRAMID_CHEST.equals(key)) {
         addItems(iron_loot_pool, tableBuilder, false);
       }
-      if (source.isBuiltin() && PILLAGER_OUTPOST_CHEST.equals(id)) {
+      if (source.isBuiltin() && PILLAGER_OUTPOST_CHEST.equals(key)) {
         addItems(iron_loot_pool, tableBuilder, false);
       }
-      if (source.isBuiltin() && BURIED_TREASURE_CHEST.equals(id)) {
+      if (source.isBuiltin() && BURIED_TREASURE_CHEST.equals(key)) {
         addItems(iron_loot_pool, tableBuilder, false);
       }
-      if (source.isBuiltin() && SHIPWRECK_TREASURE_CHEST.equals(id)) {
+      if (source.isBuiltin() && SHIPWRECK_TREASURE_CHEST.equals(key)) {
         addItems(iron_loot_pool, tableBuilder, false);
       }
-      if (source.isBuiltin() && STRONGHOLD_CORRIDOR_CHEST.equals(id)) {
+      if (source.isBuiltin() && STRONGHOLD_CORRIDOR_CHEST.equals(key)) {
         addItems(iron_loot_pool, tableBuilder, false);
       }
-      if (source.isBuiltin() && VILLAGE_WEAPONSMITH_CHEST.equals(id)) {
+      if (source.isBuiltin() && VILLAGE_WEAPONSMITH_CHEST.equals(key)) {
         addItems(iron_loot_pool, tableBuilder, false);
       }
       /* Nether */
-      if (source.isBuiltin() && BASTION_TREASURE_CHEST.equals(id)) {
+      if (source.isBuiltin() && BASTION_TREASURE_CHEST.equals(key)) {
         addEnchantedItems(diamond_loot_pool, tableBuilder, true);
       }
-      if (source.isBuiltin() && BASTION_OTHER_CHEST.equals(id)) {
+      if (source.isBuiltin() && BASTION_OTHER_CHEST.equals(key)) {
         addEnchantedItems(golden_loot_pool, tableBuilder, true);
       }
-      if (source.isBuiltin() && BASTION_BRIDGE_CHEST.equals(id)) {
+      if (source.isBuiltin() && BASTION_BRIDGE_CHEST.equals(key)) {
         addItems(golden_loot_pool, tableBuilder, false);
       }
-      if (source.isBuiltin() && BASTION_HOGLIN_STABLE_CHEST.equals(id)) {
+      if (source.isBuiltin() && BASTION_HOGLIN_STABLE_CHEST.equals(key)) {
         addEnchantedItems(golden_loot_pool, tableBuilder, true);
       }
-      if (source.isBuiltin() && RUINED_PORTAL_CHEST.equals(id)) {
+      if (source.isBuiltin() && RUINED_PORTAL_CHEST.equals(key)) {
         addEnchantedItems(golden_loot_pool, tableBuilder, false);
       }
       /* End */
-      if (source.isBuiltin() && END_CITY_TREASURE_CHEST.equals(id)) {
+      if (source.isBuiltin() && END_CITY_TREASURE_CHEST.equals(key)) {
         addEnchantedItems(diamond_loot_pool, tableBuilder, false);
       }
     });
