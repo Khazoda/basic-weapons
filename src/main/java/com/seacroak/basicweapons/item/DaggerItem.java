@@ -1,28 +1,19 @@
 package com.seacroak.basicweapons.item;
 
-import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.item.ItemStack;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.ToolComponent;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.registry.tag.BlockTags;
 
+import java.util.List;
+
 public class DaggerItem extends BasicWeaponSweeplessItem {
-  public DaggerItem(ToolMaterial tier, int damage, float attackSpeed, Settings properties) {
-    super(tier, damage, attackSpeed, properties);
+  public DaggerItem(ToolMaterial tier, Settings settings) {
+    super(tier, settings.component(DataComponentTypes.TOOL, createToolComponent()));
   }
 
-  @Override
-  public float getMiningSpeedMultiplier(ItemStack stack, BlockState state) {
-    if (state.isOf(Blocks.COBWEB)) {
-      return 15.0F;
-    } else {
-      return state.isIn(BlockTags.SWORD_EFFICIENT) ? 1.5F : 1.0F;
-    }
+  private static ToolComponent createToolComponent() {
+    return new ToolComponent(List.of(ToolComponent.Rule.ofAlwaysDropping(List.of(Blocks.COBWEB), 15.0F), ToolComponent.Rule.of(BlockTags.SWORD_EFFICIENT, 1.5F)), 1.0F, 2);
   }
-
-  @Override
-  public boolean isSuitableFor(BlockState state) {
-    return state.isOf(Blocks.COBWEB);
-  }
-
 }

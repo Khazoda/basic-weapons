@@ -4,6 +4,7 @@ import com.seacroak.basicweapons.item.*;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.EnchantmentLevelEntry;
 import net.minecraft.item.ItemStack;
+import net.minecraft.resource.featuretoggle.FeatureSet;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -17,7 +18,7 @@ import static net.minecraft.enchantment.Enchantments.SWEEPING_EDGE;
 public class EnchantmentHelperMixin {
 
   @Inject(method = "getPossibleEntries", at = @At("TAIL"))
-  private static void blacklistEnchantments(int power, ItemStack stack, boolean treasureAllowed, CallbackInfoReturnable<List<EnchantmentLevelEntry>> cir) {
+  private static void blacklistEnchantments(FeatureSet enabledFeatures, int level, ItemStack stack, boolean treasureAllowed, CallbackInfoReturnable<List<EnchantmentLevelEntry>> cir) {
     if (stack.getItem() instanceof BasicWeaponItem) {
       var currentEntries = cir.getReturnValue();
       if (stack.getItem() instanceof ClubItem) {
