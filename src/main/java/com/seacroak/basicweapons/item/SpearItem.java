@@ -11,6 +11,8 @@ import net.minecraft.item.ToolMaterial;
 import java.util.UUID;
 
 public class SpearItem extends BasicWeaponSweeplessItem {
+  public static final UUID PLAYER_ENTITY_INTERACTION_RANGE_MODIFIER_ID = UUID.fromString("036cb269-7727-44a7-a605-554b48d2664d");
+
   public SpearItem(ToolMaterial tier, Settings settings) {
     super(tier, settings.component(DataComponentTypes.TOOL, createToolComponent()));
   }
@@ -35,7 +37,7 @@ public class SpearItem extends BasicWeaponSweeplessItem {
         )
         /* Hopefully this isn't hacky and is in fact safe and correct 😓*/
         .add(EntityAttributes.PLAYER_ENTITY_INTERACTION_RANGE,
-            new EntityAttributeModifier(UUID.randomUUID(), "Reach modifier", 2, EntityAttributeModifier.Operation.ADD_VALUE),
+            new EntityAttributeModifier(PLAYER_ENTITY_INTERACTION_RANGE_MODIFIER_ID, "Reach modifier", 2, EntityAttributeModifier.Operation.ADD_VALUE),
             AttributeModifierSlot.MAINHAND)
         .build();
   }
