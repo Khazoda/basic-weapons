@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "basicweapons:wooden_spear",
+    "basicweapons:stone_spear",
+    "basicweapons:iron_spear",
+    "basicweapons:golden_spear",
+    "basicweapons:diamond_spear",
+    "basicweapons:netherite_spear"
+  ]
+}
