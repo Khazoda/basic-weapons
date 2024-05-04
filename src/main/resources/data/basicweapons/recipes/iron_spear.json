@@ -14,7 +14,7 @@
     }
   },
   "result": {
-    "item": "basicweapons:iron_spear",
+    "id": "basicweapons:iron_spear",
     "count": 1
   }
 }

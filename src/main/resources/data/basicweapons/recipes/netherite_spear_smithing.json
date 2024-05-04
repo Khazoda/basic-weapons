@@ -7,7 +7,7 @@
     "item": "basicweapons:diamond_spear"
   },
   "result": {
-    "item": "basicweapons:netherite_spear"
+    "id": "basicweapons:netherite_spear"
   },
   "template": {
     "item": "minecraft:netherite_upgrade_smithing_template"

@@ -7,7 +7,7 @@
     "item": "basicweapons:diamond_dagger"
   },
   "result": {
-    "item": "basicweapons:netherite_dagger"
+    "id": "basicweapons:netherite_dagger"
   },
   "template": {
     "item": "minecraft:netherite_upgrade_smithing_template"

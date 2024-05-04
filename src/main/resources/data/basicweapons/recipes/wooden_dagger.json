@@ -13,7 +13,7 @@
     }
   },
   "result": {
-    "item": "basicweapons:wooden_dagger",
+    "id": "basicweapons:wooden_dagger",
     "count": 1
   }
 }

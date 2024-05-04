@@ -14,7 +14,7 @@
     }
   },
   "result": {
-    "item": "basicweapons:iron_hammer",
+    "id": "basicweapons:iron_hammer",
     "count": 1
   }
 }

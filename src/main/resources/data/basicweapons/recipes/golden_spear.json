@@ -14,7 +14,7 @@
     }
   },
   "result": {
-    "item": "basicweapons:golden_spear",
+    "id": "basicweapons:golden_spear",
     "count": 1
   }
 }

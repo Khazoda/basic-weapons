@@ -7,7 +7,7 @@
     "item": "basicweapons:diamond_club"
   },
   "result": {
-    "item": "basicweapons:netherite_club"
+    "id": "basicweapons:netherite_club"
   },
   "template": {
     "item": "minecraft:netherite_upgrade_smithing_template"

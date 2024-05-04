@@ -7,7 +7,7 @@
     "item": "basicweapons:diamond_quarterstaff"
   },
   "result": {
-    "item": "basicweapons:netherite_quarterstaff"
+    "id": "basicweapons:netherite_quarterstaff"
   },
   "template": {
     "item": "minecraft:netherite_upgrade_smithing_template"

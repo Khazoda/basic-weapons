@@ -14,7 +14,7 @@
     }
   },
   "result": {
-    "item": "basicweapons:wooden_hammer",
+    "id": "basicweapons:wooden_hammer",
     "count": 1
   }
 }

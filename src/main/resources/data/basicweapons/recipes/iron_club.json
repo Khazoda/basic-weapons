@@ -14,7 +14,7 @@
     }
   },
   "result": {
-    "item": "basicweapons:iron_club",
+    "id": "basicweapons:iron_club",
     "count": 1
   }
 }

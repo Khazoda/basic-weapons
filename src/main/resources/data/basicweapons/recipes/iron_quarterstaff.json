@@ -14,7 +14,7 @@
     }
   },
   "result": {
-    "item": "basicweapons:iron_quarterstaff",
+    "id": "basicweapons:iron_quarterstaff",
     "count": 1
   }
 }

@@ -13,7 +13,7 @@
     }
   },
   "result": {
-    "item": "basicweapons:golden_dagger",
+    "id": "basicweapons:golden_dagger",
     "count": 1
   }
 }
