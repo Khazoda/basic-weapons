@@ -13,7 +13,8 @@ import net.minecraft.item.ToolMaterial;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-/* Class based off SwordItem to disable sweeping behaviour by default */
+
+// Used for weapons with sweeping. This currently includes the quarterstaff
 public abstract class BasicWeaponItem extends SwordItem {
 
   public BasicWeaponItem(ToolMaterial toolMaterial, Settings settings) {

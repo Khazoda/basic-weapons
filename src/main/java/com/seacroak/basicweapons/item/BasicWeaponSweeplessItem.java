@@ -1,5 +1,6 @@
 package com.seacroak.basicweapons.item;
 
+import com.seacroak.basicweapons.mixin.PlayerEntityMixin;
 import net.minecraft.block.BlockState;
 import net.minecraft.component.type.AttributeModifierSlot;
 import net.minecraft.component.type.AttributeModifiersComponent;
@@ -14,6 +15,12 @@ import net.minecraft.item.ToolMaterial;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+
+/**
+ * Used by PlayerEntityMixin to determine whether to kill sweeping behaviour or not
+ *
+ * @see PlayerEntityMixin
+ */
 public class BasicWeaponSweeplessItem extends ToolItem {
   public BasicWeaponSweeplessItem(ToolMaterial toolMaterial, Settings settings) {
     super(toolMaterial, settings);
