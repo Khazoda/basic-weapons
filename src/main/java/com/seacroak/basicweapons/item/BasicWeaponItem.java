@@ -1,10 +1,8 @@
 package com.seacroak.basicweapons.item;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.AttributeModifierSlot;
 import net.minecraft.component.type.AttributeModifiersComponent;
-import net.minecraft.component.type.ToolComponent;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
@@ -19,11 +17,7 @@ import net.minecraft.world.World;
 public abstract class BasicWeaponItem extends SwordItem {
 
   public BasicWeaponItem(ToolMaterial toolMaterial, Settings settings) {
-    super(toolMaterial, settings.component(DataComponentTypes.TOOL, createToolComponent()));
-  }
-
-  private static ToolComponent createToolComponent() {
-    return null;
+    super(toolMaterial, settings);
   }
 
   public static AttributeModifiersComponent createAttributeModifiers(ToolMaterial material, int baseAttackDamage, float attackSpeed) {

@@ -1,7 +1,6 @@
 package com.seacroak.basicweapons.item;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.AttributeModifierSlot;
 import net.minecraft.component.type.AttributeModifiersComponent;
 import net.minecraft.component.type.ToolComponent;
@@ -18,7 +17,7 @@ import net.minecraft.world.World;
 
 public class BasicWeaponSweeplessItem extends ToolItem {
   public BasicWeaponSweeplessItem(ToolMaterial toolMaterial, Settings settings) {
-    super(toolMaterial, settings.component(DataComponentTypes.TOOL, createToolComponent()));
+    super(toolMaterial, settings);
   }
 
   private static ToolComponent createToolComponent() {
