@@ -28,5 +28,14 @@
   "item.basicweapons.iron_quarterstaff": "Bastón de Hierro",
   "item.basicweapons.golden_quarterstaff": "Bastón de Oro",
   "item.basicweapons.diamond_quarterstaff": "Bastón de Diamante",
-  "item.basicweapons.netherite_quarterstaff": "Bastón de Netherita"
+  "item.basicweapons.netherite_quarterstaff": "Bastón de Netherita",
+  "tag.item.basicweapons.hammers": "Martillos",
+  "tag.item.basicweapons.daggers": "Daga",
+  "tag.item.c.tools.daggers": "Dagas",
+  "tag.item.basicweapons.clubs": "Clubes",
+  "tag.item.c.tools.clubs": "Clubes",
+  "tag.item.basicweapons.quarterstaves": "Pentagramas",
+  "tag.item.c.tools.quarterstaves": "Pentagramas",
+  "tag.item.basicweapons.spears": "Lanzas",
+  "tag.item.c.tools.spears": "Lanzas"
 }
