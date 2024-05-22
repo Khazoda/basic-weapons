@@ -28,14 +28,5 @@
   "item.basicweapons.iron_quarterstaff": "Железный посох",
   "item.basicweapons.golden_quarterstaff": "Золотой посох",
   "item.basicweapons.diamond_quarterstaff": "Алмазный посох",
-  "item.basicweapons.netherite_quarterstaff": "Незеритовый посох",
-  "tag.item.basicweapons.hammers": "",
-  "tag.item.basicweapons.daggers": "",
-  "tag.item.c.tools.daggers": "",
-  "tag.item.basicweapons.clubs": "",
-  "tag.item.c.tools.clubs": "",
-  "tag.item.basicweapons.quarterstaves": "",
-  "tag.item.c.tools.quarterstaves": "",
-  "tag.item.basicweapons.spears": "",
-  "tag.item.c.tools.spears": ""
+  "item.basicweapons.netherite_quarterstaff": "Незеритовый посох"
 }
