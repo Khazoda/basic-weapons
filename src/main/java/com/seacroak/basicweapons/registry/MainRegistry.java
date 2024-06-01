@@ -32,7 +32,7 @@ public class MainRegistry {
   }
 
   public static Item registerItem(String name, Item item) {
-    return Registry.register(Registries.ITEM, new Identifier(Constants.BW_ID, name), item);
+    return Registry.register(Registries.ITEM, Identifier.of(Constants.BW_ID, name), item);
   }
 
 }
