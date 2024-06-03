@@ -9,6 +9,7 @@ import net.minecraft.client.util.ModelIdentifier;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
@@ -80,7 +81,7 @@ public abstract class ItemRendererMixin {
       };
     }
     if (flag) {
-      return ((ItemRendererAccessor) this).bw$getModels().getModelManager().getModel(new ModelIdentifier(Constants.BW_ID, resourceLocation, "inventory"));
+      return ((ItemRendererAccessor) this).bw$getModels().getModelManager().getModel(new ModelIdentifier(Identifier.of(Constants.BW_NAMESPACE), resourceLocation));
     } else {
       return value;
     }
