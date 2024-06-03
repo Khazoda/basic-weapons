@@ -81,7 +81,9 @@ public abstract class ItemRendererMixin {
       };
     }
     if (flag) {
-      return ((ItemRendererAccessor) this).bw$getModels().getModelManager().getModel(new ModelIdentifier(Identifier.of(Constants.BW_NAMESPACE), resourceLocation));
+      ModelIdentifier a = new ModelIdentifier(Identifier.of(Constants.BW_NAMESPACE, resourceLocation), "inventory");
+      BakedModel x = ((ItemRendererAccessor) this).bw$getModels().getModelManager().getModel(a);
+      return x;
     } else {
       return value;
     }

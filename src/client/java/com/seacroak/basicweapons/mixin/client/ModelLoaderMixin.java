@@ -24,22 +24,18 @@ public abstract class ModelLoaderMixin {
 
     @Inject(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/model/ModelLoader;addModelToBake(Lnet/minecraft/client/util/ModelIdentifier;Lnet/minecraft/client/render/model/UnbakedModel;)V", ordinal = 0, shift = At.Shift.AFTER))
     public void putBakedModels(BlockColors blockColors, Profiler profiler, Map<Identifier, JsonUnbakedModel> jsonUnbakedModels, Map<Identifier, List<ModelLoader.SpriteGetter>> blockStates, CallbackInfo ci) {
-        Identifier x = Identifier.of(Constants.BW_NAMESPACE, "models/item/wooden_spear_held.json");
-        Identifier y = Identifier.of("wooden_spear_held");
-        JsonUnbakedModel z = jsonUnbakedModels.get(Identifier.of(Constants.BW_NAMESPACE, "models/item/wooden_spear_held.json"));
-
-        this.addModelToBake(ModelIdentifier.ofInventoryVariant(Identifier.of(Constants.BW_NAMESPACE, "wooden_spear_held")), jsonUnbakedModels.get(x));
-//        this.addModelToBake(ModelIdentifier.ofInventoryVariant(Constants.BW_ID.withPath("stone_spear_held")), jsonUnbakedModels.get(Identifier.of("stone_spear_held")));
-//        this.addModelToBake(ModelIdentifier.ofInventoryVariant(Constants.BW_ID.withPath("iron_spear_held")), jsonUnbakedModels.get(Identifier.of("iron_spear_held")));
-//        this.addModelToBake(ModelIdentifier.ofInventoryVariant(Constants.BW_ID.withPath("golden_spear_held")), jsonUnbakedModels.get(Identifier.of("golden_spear_held")));
-//        this.addModelToBake(ModelIdentifier.ofInventoryVariant(Constants.BW_ID.withPath("diamond_spear_held")), jsonUnbakedModels.get(Identifier.of("diamond_spear_held")));
-//        this.addModelToBake(ModelIdentifier.ofInventoryVariant(Constants.BW_ID.withPath("netherite_spear_held")), jsonUnbakedModels.get(Identifier.of("netherite_spear_held")));
-//        this.addModelToBake(ModelIdentifier.ofInventoryVariant(Constants.BW_ID.withPath("wooden_quarterstaff_held")), jsonUnbakedModels.get(Identifier.of("wooden_quarterstaff_held")));
-//        this.addModelToBake(ModelIdentifier.ofInventoryVariant(Constants.BW_ID.withPath("stone_quarterstaff_held")), jsonUnbakedModels.get(Identifier.of("stone_quarterstaff_held")));
-//        this.addModelToBake(ModelIdentifier.ofInventoryVariant(Constants.BW_ID.withPath("iron_quarterstaff_held")), jsonUnbakedModels.get(Identifier.of("iron_quarterstaff_held")));
-//        this.addModelToBake(ModelIdentifier.ofInventoryVariant(Constants.BW_ID.withPath("golden_quarterstaff_held")), jsonUnbakedModels.get(Identifier.of("golden_quarterstaff_held")));
-//        this.addModelToBake(ModelIdentifier.ofInventoryVariant(Constants.BW_ID.withPath("diamond_quarterstaff_held")), jsonUnbakedModels.get(Identifier.of("diamond_quarterstaff_held")));
-//        this.addModelToBake(ModelIdentifier.ofInventoryVariant(Constants.BW_ID.withPath("netherite_quarterstaff_held")), jsonUnbakedModels.get(Identifier.of("netherite_quarterstaff_held")));
+        this.addModelToBake(ModelIdentifier.ofInventoryVariant(Identifier.of(Constants.BW_NAMESPACE, "wooden_spear_held")), jsonUnbakedModels.get(Identifier.of(Constants.BW_NAMESPACE, "models/item/wooden_spear_held.json")));
+        this.addModelToBake(ModelIdentifier.ofInventoryVariant(Identifier.of(Constants.BW_NAMESPACE, "stone_spear_held")), jsonUnbakedModels.get(Identifier.of(Constants.BW_NAMESPACE, "models/item/stone_spear_held.json")));
+        this.addModelToBake(ModelIdentifier.ofInventoryVariant(Identifier.of(Constants.BW_NAMESPACE, "iron_spear_held")), jsonUnbakedModels.get(Identifier.of(Constants.BW_NAMESPACE, "models/item/iron_spear_held.json")));
+        this.addModelToBake(ModelIdentifier.ofInventoryVariant(Identifier.of(Constants.BW_NAMESPACE, "golden_spear_held")), jsonUnbakedModels.get(Identifier.of(Constants.BW_NAMESPACE, "models/item/golden_spear_held.json")));
+        this.addModelToBake(ModelIdentifier.ofInventoryVariant(Identifier.of(Constants.BW_NAMESPACE, "diamond_spear_held")), jsonUnbakedModels.get(Identifier.of(Constants.BW_NAMESPACE, "models/item/diamond_spear_held.json")));
+        this.addModelToBake(ModelIdentifier.ofInventoryVariant(Identifier.of(Constants.BW_NAMESPACE, "netherite_spear_held")), jsonUnbakedModels.get(Identifier.of(Constants.BW_NAMESPACE, "models/item/netherite_spear_held.json")));
+        this.addModelToBake(ModelIdentifier.ofInventoryVariant(Identifier.of(Constants.BW_NAMESPACE, "wooden_quarterstaff_held")), jsonUnbakedModels.get(Identifier.of(Constants.BW_NAMESPACE, "models/item/wooden_quarterstaff_held.json")));
+        this.addModelToBake(ModelIdentifier.ofInventoryVariant(Identifier.of(Constants.BW_NAMESPACE, "stone_quarterstaff_held")), jsonUnbakedModels.get(Identifier.of(Constants.BW_NAMESPACE, "models/item/stone_quarterstaff_held.json")));
+        this.addModelToBake(ModelIdentifier.ofInventoryVariant(Identifier.of(Constants.BW_NAMESPACE, "iron_quarterstaff_held")), jsonUnbakedModels.get(Identifier.of(Constants.BW_NAMESPACE, "models/item/iron_quarterstaff_held.json")));
+        this.addModelToBake(ModelIdentifier.ofInventoryVariant(Identifier.of(Constants.BW_NAMESPACE, "golden_quarterstaff_held")), jsonUnbakedModels.get(Identifier.of(Constants.BW_NAMESPACE, "models/item/golden_quarterstaff_held.json")));
+        this.addModelToBake(ModelIdentifier.ofInventoryVariant(Identifier.of(Constants.BW_NAMESPACE, "diamond_quarterstaff_held")), jsonUnbakedModels.get(Identifier.of(Constants.BW_NAMESPACE, "models/item/diamond_quarterstaff_held.json")));
+        this.addModelToBake(ModelIdentifier.ofInventoryVariant(Identifier.of(Constants.BW_NAMESPACE, "netherite_quarterstaff_held")), jsonUnbakedModels.get(Identifier.of(Constants.BW_NAMESPACE, "models/item/netherite_quarterstaff_held.json")));
     }
 
 }
