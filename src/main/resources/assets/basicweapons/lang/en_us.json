@@ -30,7 +30,6 @@
   "item.basicweapons.diamond_quarterstaff": "Diamond Quarterstaff",
   "item.basicweapons.netherite_quarterstaff": "Netherite Quarterstaff",
   "tag.item.basicweapons.hammers": "Hammers",
-  "tag.item.c.tools.hammers": "Hammers",
   "tag.item.basicweapons.daggers": "Dagger",
   "tag.item.c.tools.daggers": "Daggers",
   "tag.item.basicweapons.clubs": "Clubs",
@@ -38,5 +37,6 @@
   "tag.item.basicweapons.quarterstaves": "Quarterstaves",
   "tag.item.c.tools.quarterstaves": "Quarterstaves",
   "tag.item.basicweapons.spears": "Spears",
-  "tag.item.c.tools.spears": "Spears"
+  "tag.item.c.tools.spears": "Spears",
+  "tag.item.c.tools.hammers": ""
 }
