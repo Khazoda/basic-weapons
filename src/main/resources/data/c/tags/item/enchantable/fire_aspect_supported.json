@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:enchantable/fire_aspect",
+    "#basicweapons:enchantable/basic_weapon"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "#basicweapons:enchantable/blunt_basic_weapon",
+    "#basicweapons:enchantable/sharp_basic_weapon"
+  ]
+}

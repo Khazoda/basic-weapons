@@ -1,0 +1,44 @@
+{
+  "replace": false,
+  "anvil_cost": 4,
+  "description": {
+    "translate": "enchantment.minecraft.fire_aspect"
+  },
+  "effects": {
+    "minecraft:post_attack": [
+      {
+        "affected": "victim",
+        "effect": {
+          "type": "minecraft:ignite",
+          "duration": {
+            "type": "minecraft:linear",
+            "base": 4.0,
+            "per_level_above_first": 4.0
+          }
+        },
+        "enchanted": "attacker",
+        "requirements": {
+          "condition": "minecraft:damage_source_properties",
+          "predicate": {
+            "is_direct": true
+          }
+        }
+      }
+    ]
+  },
+  "max_cost": {
+    "base": 60,
+    "per_level_above_first": 20
+  },
+  "max_level": 2,
+  "min_cost": {
+    "base": 10,
+    "per_level_above_first": 20
+  },
+  "primary_items": "#c:enchantable/fire_aspect_primary",
+  "slots": [
+    "mainhand"
+  ],
+  "supported_items": "#c:enchantable/fire_aspect_supported",
+  "weight": 2
+}
