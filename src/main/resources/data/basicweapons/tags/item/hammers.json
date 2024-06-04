@@ -6,6 +6,8 @@
     "basicweapons:iron_hammer",
     "basicweapons:golden_hammer",
     "basicweapons:diamond_hammer",
-    "basicweapons:netherite_hammer"
+    "basicweapons:netherite_hammer",
+    "basicweapons:bronze_hammer"
+
   ]
 }

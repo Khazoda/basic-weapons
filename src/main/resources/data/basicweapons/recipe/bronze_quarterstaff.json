@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  /",
+    " O ",
+    "/  "
+  ],
+  "key": {
+    "/": {
+      "item": "minecraft:stick"
+    },
+    "O": {
+      "item": "bronze:bronze_ingot"
+    }
+  },
+  "result": {
+    "id": "basicweapons:bronze_quarterstaff",
+    "count": 1
+  }
+}

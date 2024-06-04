@@ -6,6 +6,8 @@
     "basicweapons:iron_dagger",
     "basicweapons:golden_dagger",
     "basicweapons:diamond_dagger",
-    "basicweapons:netherite_dagger"
+    "basicweapons:netherite_dagger",
+    "basicweapons:bronze_dagger"
+
   ]
 }
