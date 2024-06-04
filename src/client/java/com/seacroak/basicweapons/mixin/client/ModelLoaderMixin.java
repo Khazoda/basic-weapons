@@ -1,6 +1,7 @@
 package com.seacroak.basicweapons.mixin.client;
 
 import com.seacroak.basicweapons.Constants;
+import com.seacroak.basicweapons.registry.MainRegistry;
 import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.render.model.ModelLoader;
 import net.minecraft.client.render.model.UnbakedModel;
@@ -36,6 +37,9 @@ public abstract class ModelLoaderMixin {
         this.addModelToBake(ModelIdentifier.ofInventoryVariant(Identifier.of(Constants.BW_NAMESPACE, "golden_quarterstaff_held")), jsonUnbakedModels.get(Identifier.of(Constants.BW_NAMESPACE, "models/item/golden_quarterstaff_held.json")));
         this.addModelToBake(ModelIdentifier.ofInventoryVariant(Identifier.of(Constants.BW_NAMESPACE, "diamond_quarterstaff_held")), jsonUnbakedModels.get(Identifier.of(Constants.BW_NAMESPACE, "models/item/diamond_quarterstaff_held.json")));
         this.addModelToBake(ModelIdentifier.ofInventoryVariant(Identifier.of(Constants.BW_NAMESPACE, "netherite_quarterstaff_held")), jsonUnbakedModels.get(Identifier.of(Constants.BW_NAMESPACE, "models/item/netherite_quarterstaff_held.json")));
+        if (MainRegistry.bronze_mod_loaded) {
+            this.addModelToBake(ModelIdentifier.ofInventoryVariant(Identifier.of(Constants.BW_NAMESPACE, "bronze_spear_held")), jsonUnbakedModels.get(Identifier.of(Constants.BW_NAMESPACE, "models/item/bronze_spear_held.json")));
+            this.addModelToBake(ModelIdentifier.ofInventoryVariant(Identifier.of(Constants.BW_NAMESPACE, "bronze_quarterstaff_held")), jsonUnbakedModels.get(Identifier.of(Constants.BW_NAMESPACE, "models/item/bronze_quarterstaff_held.json")));
+        }
     }
-
 }
