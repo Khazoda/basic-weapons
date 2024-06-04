@@ -2,6 +2,7 @@ package com.seacroak.basicweapons.registry;
 
 import com.seacroak.basicweapons.Constants;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.Items;
@@ -14,8 +15,11 @@ import java.util.Map;
 
 public class MainRegistry {
   public final static Map<Integer, Item> registeredItems = new HashMap<>();
+  public final static boolean bronze_mod_loaded = FabricLoader.getInstance().isModLoaded("bronze");
 
   public static void init() {
+
+
     int x = 0;
     for (BWItems.ItemInfo item : BWItems.items
     ) {

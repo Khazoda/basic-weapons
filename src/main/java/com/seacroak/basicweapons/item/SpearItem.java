@@ -38,7 +38,7 @@ public class SpearItem extends BasicWeaponSweeplessItem {
                 )
                 /* Hopefully this isn't hacky and is in fact safe and correct 😓*/
                 .add(EntityAttributes.PLAYER_ENTITY_INTERACTION_RANGE,
-                        new EntityAttributeModifier(Identifier.of(String.valueOf(PLAYER_ENTITY_INTERACTION_RANGE_MODIFIER_ID)), 2, EntityAttributeModifier.Operation.ADD_VALUE),
+                        new EntityAttributeModifier(Identifier.of(PLAYER_ENTITY_INTERACTION_RANGE_MODIFIER_ID.toString()), 2, EntityAttributeModifier.Operation.ADD_VALUE),
                         AttributeModifierSlot.MAINHAND)
                 .build();
     }
