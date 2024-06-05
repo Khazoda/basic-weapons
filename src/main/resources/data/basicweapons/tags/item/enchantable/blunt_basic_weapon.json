@@ -1,8 +1,8 @@
 {
   "replace": false,
   "values": [
-    "#basicweapons:hammers",
-    "#basicweapons:clubs",
-    "#basicweapons:quarterstaves"
+    "#c:tools/hammers",
+    "#c:tools/clubs",
+    "#c:tools/quarterstaves"
   ]
 }

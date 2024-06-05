@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "#basicweapons:daggers",
-    "#basicweapons:spears"
+    "#c:tools/daggers",
+    "#c:tools/spears"
   ]
 }

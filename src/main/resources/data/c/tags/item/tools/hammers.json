@@ -1,6 +1,15 @@
 {
   "replace": false,
   "values": [
-    "#basicweapons:hammers"
+    "basicweapons:wooden_hammer",
+    "basicweapons:stone_hammer",
+    "basicweapons:iron_hammer",
+    "basicweapons:golden_hammer",
+    "basicweapons:diamond_hammer",
+    "basicweapons:netherite_hammer",
+    {
+      "id": "basicweapons:bronze_hammer",
+      "required": false
+    }
   ]
 }

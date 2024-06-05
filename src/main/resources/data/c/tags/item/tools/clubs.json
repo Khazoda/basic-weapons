@@ -1,6 +1,15 @@
 {
   "replace": false,
   "values": [
-    "#basicweapons:clubs"
+    "basicweapons:wooden_club",
+    "basicweapons:stone_club",
+    "basicweapons:iron_club",
+    "basicweapons:golden_club",
+    "basicweapons:diamond_club",
+    "basicweapons:netherite_club",
+    {
+      "id": "basicweapons:bronze_club",
+      "required": false
+    }
   ]
 }

@@ -7,7 +7,7 @@
   ],
   "key": {
     "^": {
-      "item": "bronze:bronze_ingot"
+      "tag": "c:bronze_ingots"
     },
     "/": {
       "item": "minecraft:stick"
@@ -15,6 +15,15 @@
   },
   "result": {
     "id": "basicweapons:bronze_spear",
+    "required": false,
     "count": 1
-  }
+  },
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "bronze"
+      ]
+    }
+  ]
 }

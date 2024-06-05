@@ -10,11 +10,19 @@
       "item": "minecraft:stick"
     },
     "O": {
-      "item": "bronze:bronze_ingot"
+      "tag": "c:bronze_ingots"
     }
   },
   "result": {
     "id": "basicweapons:bronze_quarterstaff",
     "count": 1
-  }
+  },
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "bronze"
+      ]
+    }
+  ]
 }

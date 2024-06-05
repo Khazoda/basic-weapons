@@ -1,6 +1,15 @@
 {
   "replace": false,
   "values": [
-    "#basicweapons:quarterstaves"
+    "basicweapons:wooden_quarterstaff",
+    "basicweapons:stone_quarterstaff",
+    "basicweapons:iron_quarterstaff",
+    "basicweapons:golden_quarterstaff",
+    "basicweapons:diamond_quarterstaff",
+    "basicweapons:netherite_quarterstaff",
+    {
+      "id": "basicweapons:bronze_quarterstaff",
+      "required": false
+    }
   ]
 }

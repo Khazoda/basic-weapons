@@ -1,10 +1,10 @@
 {
   "replace": false,
   "values": [
-    "#basicweapons:daggers",
-    "#basicweapons:clubs",
-    "#basicweapons:hammers",
-    "#basicweapons:quarterstaves",
-    "#basicweapons:spears"
+    "#c:tools/daggers",
+    "#c:tools/clubs",
+    "#c:tools/hammers",
+    "#c:tools/quarterstaves",
+    "#c:tools/spears"
   ]
 }
