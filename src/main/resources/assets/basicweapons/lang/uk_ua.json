@@ -39,7 +39,5 @@
   "tag.item.basicweapons.spears": "Списи",
   "tag.item.c.tools.spears": "Списи",
   "tag.item.c.tools.hammers": "Молоти",
-  "Might as in mightiness, strength, power": {
-    "enchantment.minecraft.might": "Могутність"
-  }
+  "enchantment.minecraft.might": "Могутність"
 }
