@@ -14,6 +14,6 @@ public class BasicWeapons implements ModInitializer {
     BWItems.init();
     MainRegistry.init();
     LootTableModification.init();
-    BW_LOG.info("[Basic Weapons] Swinging into action!");
+    BW_LOG.info("[Basic Weapons] Armaments added");
   }
 }
