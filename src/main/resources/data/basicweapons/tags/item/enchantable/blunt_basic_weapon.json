@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "#c:tools/hammers",
+    "#c:tools/clubs",
+    "#c:tools/quarterstaves"
+  ]
+}

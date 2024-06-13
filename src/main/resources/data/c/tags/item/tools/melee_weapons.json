@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "#c:tools/daggers",
+    "#c:tools/clubs",
+    "#c:tools/hammers",
+    "#c:tools/quarterstaves",
+    "#c:tools/spears"
+  ]
+}
