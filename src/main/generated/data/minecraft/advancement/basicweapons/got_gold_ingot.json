@@ -1,0 +1,31 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "got_gold_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:gold_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "got_gold_ingot"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "basicweapons:golden_dagger",
+      "basicweapons:golden_club",
+      "basicweapons:golden_club_variant",
+      "basicweapons:golden_hammer",
+      "basicweapons:golden_spear",
+      "basicweapons:golden_quarterstaff"
+    ]
+  },
+  "sends_telemetry_event": true
+}

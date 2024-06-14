@@ -20,6 +20,9 @@
     ],
     "client": [
       "com.seacroak.basicweapons.BasicWeaponsClient"
+    ],
+    "fabric-datagen": [
+      "com.seacroak.basicweapons.datagen.BasicWeaponsDataGenerator"
     ]
   },
   "mixins": [
