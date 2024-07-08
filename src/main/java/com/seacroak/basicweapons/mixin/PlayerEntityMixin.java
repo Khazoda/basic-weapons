@@ -33,6 +33,7 @@ public abstract class PlayerEntityMixin implements PlayerEntityAccessor {
   @Inject(method = "attack", at = @At("HEAD"))
   private void retrieveCooldownEarly(Entity target, CallbackInfo ci) {
     attackCooldownProgress = this.getAttackCooldownProgress(0.5f);
+
   }
 
   /*** Cursed mixins to prevent sweeping on BasicWeaponItems ***/
