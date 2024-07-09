@@ -28,15 +28,5 @@
   "item.basicweapons.iron_quarterstaff": "Demir Değnek",
   "item.basicweapons.golden_quarterstaff": "Altın Değnek",
   "item.basicweapons.diamond_quarterstaff": "Elmas Değnek",
-  "item.basicweapons.netherite_quarterstaff": "Netherit Değnek",
-  "tag.item.basicweapons.hammers": "",
-  "tag.item.basicweapons.daggers": "",
-  "tag.item.c.tools.daggers": "",
-  "tag.item.basicweapons.clubs": "",
-  "tag.item.c.tools.clubs": "",
-  "tag.item.basicweapons.quarterstaves": "",
-  "tag.item.c.tools.quarterstaves": "",
-  "tag.item.basicweapons.spears": "",
-  "tag.item.c.tools.spears": "",
-  "tag.item.c.tools.hammers": ""
+  "item.basicweapons.netherite_quarterstaff": "Netherit Değnek"
 }
