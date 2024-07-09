@@ -1,0 +1,31 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "got_cobblestone": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:cobblestone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "got_cobblestone"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "basicweapons:stone_dagger",
+      "basicweapons:stone_club",
+      "basicweapons:stone_club_variant",
+      "basicweapons:stone_hammer",
+      "basicweapons:stone_spear",
+      "basicweapons:stone_quarterstaff"
+    ]
+  },
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,31 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "got_sticks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:stick"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "got_sticks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "basicweapons:wooden_dagger",
+      "basicweapons:wooden_club",
+      "basicweapons:wooden_club_variant",
+      "basicweapons:wooden_hammer",
+      "basicweapons:wooden_spear",
+      "basicweapons:wooden_quarterstaff"
+    ]
+  },
+  "sends_telemetry_event": true
+}
