@@ -46,11 +46,11 @@ public class BWItems {
     /* 8 */
     items.add(new ItemInfo("hammer", "iron_hammer", () -> new HammerItem(ToolMaterials.IRON, hammerDamage, hammerSpeed, new Item.Settings())));
     /* 9 */
-    items.add(new ItemInfo("hammer", "golden_hammer", () -> new HammerItem(ToolMaterials.GOLD, hammerDamage - 3, hammerSpeed - 1.0f, new Item.Settings())));
+    items.add(new ItemInfo("hammer", "golden_hammer", () -> new HammerItem(ToolMaterials.GOLD, hammerDamage - 3, hammerSpeed + 0.6f, new Item.Settings())));
     /* 10 */
-    items.add(new ItemInfo("hammer", "diamond_hammer", () -> new HammerItem(ToolMaterials.DIAMOND, hammerDamage - 1, hammerSpeed - 0.1f, new Item.Settings())));
+    items.add(new ItemInfo("hammer", "diamond_hammer", () -> new HammerItem(ToolMaterials.DIAMOND, hammerDamage - 1, hammerSpeed + 0.1f, new Item.Settings())));
     /* 11 */
-    items.add(new ItemInfo("hammer", "netherite_hammer", () -> new HammerItem(ToolMaterials.NETHERITE, hammerDamage - 1, hammerSpeed - 0.2f, new Item.Settings().fireproof())));
+    items.add(new ItemInfo("hammer", "netherite_hammer", () -> new HammerItem(ToolMaterials.NETHERITE, hammerDamage - 1, hammerSpeed + 0.2f, new Item.Settings().fireproof())));
     /* Batons */
     /* 12 */
     items.add(new ItemInfo("club", "wooden_club", () -> new ClubItem(ToolMaterials.WOOD, clubDamage, clubSpeed, new Item.Settings())));
