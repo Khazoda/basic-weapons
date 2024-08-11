@@ -83,7 +83,7 @@ public class BWItems {
 
     items.add(new UnregisteredItemInfo(WEAPON_TYPE.HAMMER, WEAPON_MATERIAL.GOLD, "golden_hammer",
         () -> new HammerItem(ToolMaterials.GOLD, new Item.Settings().attributeModifiers(HammerItem.createAttributeModifiers(
-            ToolMaterials.GOLD, hammerDamage - 6, hammerSpeed + 1f, hammerRange)))));
+            ToolMaterials.GOLD, hammerDamage - 6, hammerSpeed + 0.6f, hammerRange)))));
 
     items.add(new UnregisteredItemInfo(WEAPON_TYPE.HAMMER, WEAPON_MATERIAL.DIAMOND, "diamond_hammer",
         () -> new HammerItem(ToolMaterials.DIAMOND, new Item.Settings().attributeModifiers(HammerItem.createAttributeModifiers(
