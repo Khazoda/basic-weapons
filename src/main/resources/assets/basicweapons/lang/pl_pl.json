@@ -3,6 +3,6 @@
   "item.basicweapons.stone_hammer": "Kamienny Młot",
   "item.basicweapons.iron_hammer": "Żelazny Młot",
   "item.basicweapons.golden_hammer": "Złoty Młot",
-  "item.basicweapons.diamond_hammer": "Diamentowy Młot"
+  "item.basicweapons.diamond_hammer": "Diamentowy Młot",
+  "tag.item.c.tools.hammers": "Młoty"
 }
-  
