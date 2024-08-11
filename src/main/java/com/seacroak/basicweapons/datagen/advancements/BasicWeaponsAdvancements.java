@@ -25,6 +25,8 @@ public class BasicWeaponsAdvancements implements Consumer<Consumer<AdvancementEn
             .addRecipe(Identifier.of(Constants.BW_NAMESPACE, "wooden_hammer"))
             .addRecipe(Identifier.of(Constants.BW_NAMESPACE, "wooden_spear"))
             .addRecipe(Identifier.of(Constants.BW_NAMESPACE, "wooden_quarterstaff"))
+            .addRecipe(Identifier.of(Constants.BW_NAMESPACE, "wooden_glaive"))
+
         )
         .build(advancementConsumer, Constants.BW_NAMESPACE + "/got_sticks");
     AdvancementEntry stone_weapons = Advancement.Builder.create()
@@ -37,6 +39,8 @@ public class BasicWeaponsAdvancements implements Consumer<Consumer<AdvancementEn
             .addRecipe(Identifier.of(Constants.BW_NAMESPACE, "stone_hammer"))
             .addRecipe(Identifier.of(Constants.BW_NAMESPACE, "stone_spear"))
             .addRecipe(Identifier.of(Constants.BW_NAMESPACE, "stone_quarterstaff"))
+            .addRecipe(Identifier.of(Constants.BW_NAMESPACE, "stone_glaive"))
+
         )
         .build(advancementConsumer, Constants.BW_NAMESPACE + "/got_cobblestone");
     AdvancementEntry iron_weapons = Advancement.Builder.create()
@@ -49,6 +53,8 @@ public class BasicWeaponsAdvancements implements Consumer<Consumer<AdvancementEn
             .addRecipe(Identifier.of(Constants.BW_NAMESPACE, "iron_hammer"))
             .addRecipe(Identifier.of(Constants.BW_NAMESPACE, "iron_spear"))
             .addRecipe(Identifier.of(Constants.BW_NAMESPACE, "iron_quarterstaff"))
+            .addRecipe(Identifier.of(Constants.BW_NAMESPACE, "iron_glaive"))
+
         )
         .build(advancementConsumer, Constants.BW_NAMESPACE + "/got_iron_ingot");
     AdvancementEntry bronze_weapons = Advancement.Builder.create()
@@ -61,6 +67,8 @@ public class BasicWeaponsAdvancements implements Consumer<Consumer<AdvancementEn
             .addRecipe(Identifier.of(Constants.BRONZE_NAMESPACE, "bronze_hammer"))
             .addRecipe(Identifier.of(Constants.BRONZE_NAMESPACE, "bronze_spear"))
             .addRecipe(Identifier.of(Constants.BRONZE_NAMESPACE, "bronze_quarterstaff"))
+            .addRecipe(Identifier.of(Constants.BRONZE_NAMESPACE, "bronze_glaive"))
+
         )
         .build(advancementConsumer, Constants.BW_NAMESPACE + "/got_bronze_ingot");
     AdvancementEntry golden_weapons = Advancement.Builder.create()
@@ -73,6 +81,8 @@ public class BasicWeaponsAdvancements implements Consumer<Consumer<AdvancementEn
             .addRecipe(Identifier.of(Constants.BW_NAMESPACE, "golden_hammer"))
             .addRecipe(Identifier.of(Constants.BW_NAMESPACE, "golden_spear"))
             .addRecipe(Identifier.of(Constants.BW_NAMESPACE, "golden_quarterstaff"))
+            .addRecipe(Identifier.of(Constants.BW_NAMESPACE, "golden_glaive"))
+
         )
         .build(advancementConsumer, Constants.BW_NAMESPACE + "/got_gold_ingot");
     AdvancementEntry diamond_weapons = Advancement.Builder.create()
@@ -85,6 +95,8 @@ public class BasicWeaponsAdvancements implements Consumer<Consumer<AdvancementEn
             .addRecipe(Identifier.of(Constants.BW_NAMESPACE, "diamond_hammer"))
             .addRecipe(Identifier.of(Constants.BW_NAMESPACE, "diamond_spear"))
             .addRecipe(Identifier.of(Constants.BW_NAMESPACE, "diamond_quarterstaff"))
+            .addRecipe(Identifier.of(Constants.BW_NAMESPACE, "diamond_glaive"))
+
         )
         .build(advancementConsumer, Constants.BW_NAMESPACE + "/got_diamond");
   }
