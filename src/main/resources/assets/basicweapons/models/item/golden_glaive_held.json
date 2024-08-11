@@ -1,0 +1,6 @@
+{
+  "parent": "basicweapons:item/handheld_big_glaive",
+  "textures": {
+    "layer0": "basicweapons:item/glaive/golden_glaive_held"
+  }
+}
