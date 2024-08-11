@@ -54,6 +54,7 @@ public abstract class ItemRendererMixin {
             resourceLocation = "netherite_spear_held";
             yield true;
           }
+
           /* Quarterstaves */
           case "item.basicweapons.wooden_quarterstaff" -> {
             resourceLocation = "wooden_quarterstaff_held";
@@ -79,6 +80,33 @@ public abstract class ItemRendererMixin {
             resourceLocation = "netherite_quarterstaff_held";
             yield true;
           }
+
+          /* Glaives */
+          case "item.basicweapons.wooden_glaive" -> {
+            resourceLocation = "wooden_glaive_held";
+            yield true;
+          }
+          case "item.basicweapons.stone_glaive" -> {
+            resourceLocation = "stone_glaive_held";
+            yield true;
+          }
+          case "item.basicweapons.iron_glaive" -> {
+            resourceLocation = "iron_glaive_held";
+            yield true;
+          }
+          case "item.basicweapons.golden_glaive" -> {
+            resourceLocation = "golden_glaive_held";
+            yield true;
+          }
+          case "item.basicweapons.diamond_glaive" -> {
+            resourceLocation = "diamond_glaive_held";
+            yield true;
+          }
+          case "item.basicweapons.netherite_glaive" -> {
+            resourceLocation = "netherite_glaive_held";
+            yield true;
+          }
+
           /* Bronze mod integration */
           case "item.basicweapons.bronze_spear" -> {
             resourceLocation = "bronze_spear_held";
@@ -88,74 +116,15 @@ public abstract class ItemRendererMixin {
             resourceLocation = "bronze_quarterstaff_held";
             yield true;
           }
+          case "item.basicweapons.bronze_glaive" -> {
+            resourceLocation = "bronze_glaive_held";
+            yield true;
+          }
           default -> false;
         };
       }
     }
-//        if (registeredItems.values().contains(item)) {
-//            flag = switch (item.getTranslationKey()) {
-//                /* Spears */
-//                case "item.basicweapons.wooden_spear" -> {
-//                    resourceLocation = "wooden_spear_held";
-//                    yield true;
-//                }
-//                case "item.basicweapons.stone_spear" -> {
-//                    resourceLocation = "stone_spear_held";
-//                    yield true;
-//                }
-//                case "item.basicweapons.iron_spear" -> {
-//                    resourceLocation = "iron_spear_held";
-//                    yield true;
-//                }
-//                case "item.basicweapons.golden_spear" -> {
-//                    resourceLocation = "golden_spear_held";
-//                    yield true;
-//                }
-//                case "item.basicweapons.diamond_spear" -> {
-//                    resourceLocation = "diamond_spear_held";
-//                    yield true;
-//                }
-//                case "item.basicweapons.netherite_spear" -> {
-//                    resourceLocation = "netherite_spear_held";
-//                    yield true;
-//                }
-//                /* Quarterstaves */
-//                case "item.basicweapons.wooden_quarterstaff" -> {
-//                    resourceLocation = "wooden_quarterstaff_held";
-//                    yield true;
-//                }
-//                case "item.basicweapons.stone_quarterstaff" -> {
-//                    resourceLocation = "stone_quarterstaff_held";
-//                    yield true;
-//                }
-//                case "item.basicweapons.iron_quarterstaff" -> {
-//                    resourceLocation = "iron_quarterstaff_held";
-//                    yield true;
-//                }
-//                case "item.basicweapons.golden_quarterstaff" -> {
-//                    resourceLocation = "golden_quarterstaff_held";
-//                    yield true;
-//                }
-//                case "item.basicweapons.diamond_quarterstaff" -> {
-//                    resourceLocation = "diamond_quarterstaff_held";
-//                    yield true;
-//                }
-//                case "item.basicweapons.netherite_quarterstaff" -> {
-//                    resourceLocation = "netherite_quarterstaff_held";
-//                    yield true;
-//                }
-//                /* Bronze mod integration */
-//                case "item.basicweapons.bronze_spear" -> {
-//                    resourceLocation = "bronze_spear_held";
-//                    yield true;
-//                }
-//                case "item.basicweapons.bronze_quarterstaff" -> {
-//                    resourceLocation = "bronze_quarterstaff_held";
-//                    yield true;
-//                }
-//                default -> false;
-//            };
-//        }
+
     if (flag) {
       ModelIdentifier a = new ModelIdentifier(Identifier.of(Constants.BW_NAMESPACE, resourceLocation), "inventory");
       BakedModel x = ((ItemRendererAccessor) this).bw$getModels().getModelManager().getModel(a);
