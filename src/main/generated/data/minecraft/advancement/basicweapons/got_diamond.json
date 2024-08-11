@@ -24,7 +24,8 @@
       "basicweapons:diamond_club_variant",
       "basicweapons:diamond_hammer",
       "basicweapons:diamond_spear",
-      "basicweapons:diamond_quarterstaff"
+      "basicweapons:diamond_quarterstaff",
+      "basicweapons:diamond_glaive"
     ]
   },
   "sends_telemetry_event": true

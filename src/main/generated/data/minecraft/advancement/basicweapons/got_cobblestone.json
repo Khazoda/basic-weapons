@@ -24,7 +24,8 @@
       "basicweapons:stone_club_variant",
       "basicweapons:stone_hammer",
       "basicweapons:stone_spear",
-      "basicweapons:stone_quarterstaff"
+      "basicweapons:stone_quarterstaff",
+      "basicweapons:stone_glaive"
     ]
   },
   "sends_telemetry_event": true
