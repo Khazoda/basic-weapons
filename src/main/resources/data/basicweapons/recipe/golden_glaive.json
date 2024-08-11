@@ -1,8 +1,8 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "  /",
-    " O ",
+    " OO",
+    "O/ ",
     "/  "
   ],
   "key": {
@@ -10,11 +10,11 @@
       "item": "minecraft:stick"
     },
     "O": {
-      "tag": "minecraft:stone_tool_materials"
+      "item": "minecraft:gold_ingot"
     }
   },
   "result": {
-    "id": "basicweapons:stone_quarterstaff",
+    "id": "basicweapons:golden_glaive",
     "count": 1
   }
 }

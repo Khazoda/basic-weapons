@@ -1,8 +1,8 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "  /",
-    " O ",
+    " OO",
+    "O/ ",
     "/  "
   ],
   "key": {
@@ -14,7 +14,7 @@
     }
   },
   "result": {
-    "id": "basicweapons:stone_quarterstaff",
+    "id": "basicweapons:stone_glaive",
     "count": 1
   }
 }
