@@ -1,0 +1,6 @@
+{
+  "parent": "bettercombat:glaive",
+  "attributes": {
+    "attack_range": 3.25
+  }
+}
