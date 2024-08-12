@@ -25,13 +25,15 @@
 
 
 # Important ⚔️
-Minecraft has a bug where held items have gaps. Weapons from this mod are not immune to the bug, and I therefore highly recommend using ModelGapFix:
+Minecraft has a bug where held items have gaps. Weapons from this mod are not immune to the bug, and I therefore highly recommend using the ModelGapFix mod:
+
 [![Model Gap Fix Download](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/modelgapfix.png?raw=true)](https://modrinth.com/mod/modelfix)
 
 
 # About 🤺
 
-Basic Weapons adds **5** new weapon types of every vanilla tool material _(Wood, Stone, Iron, Gold, Diamond, Netherite)_ to complement the existing sword and axe in Minecraft. Each weapon is balanced around damage, attack speed, crafting costs and special effects. _If you have Better Combat installed, the weapons are also balanced around attack reach, number of enemies hit, and combos._
+Basic Weapons adds **6** new weapon types of every vanilla tool material _(Wood, Stone, Iron, Gold, Diamond, Netherite)_ to complement the existing sword and axe in Minecraft. Each weapon is balanced around damage, attack speed, crafting costs, attack reach and special effects.  
+_If you have Better Combat installed, the weapons are also balanced around number of enemies hit and combos._
 
 ![Divider](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/showcase.png?raw=true)
 Weapons should feel _unique, powerful, easy to use_ and _fair._ I made Basic Weapons because I was looking around for weapon mods that would fit seamlessly into vanilla gameplay, and didn't quite find what I was looking for. I hope that in creating Basic Weapons, I've made that search a little easier for those of you who've had a similar experience.
@@ -50,6 +52,10 @@ This high level overview should give you an idea of what each weapon is good and
 | Glaive        | High   | Very Slow | Sweeping             |
 
 ![Divider](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/divider_1.png?raw=true)
+# Bronze Integration 🔶
+My [Bronze mod](https://modrinth.com/mod/bronze) has explicit integration with Basic Weapons. Each weapon type will receive a bronze version when both mods are installed together.
+
+TODO:ADD BRONZE WEAPON SCREENSHOT
 
 # Better Combat Integration 🔥
 
