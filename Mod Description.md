@@ -42,16 +42,16 @@ Weapons should feel _unique, powerful, easy to use_ and _fair._ I made Basic Wea
 
 This high level overview should give you an idea of what each weapon is good and bad at:
 
-| Weapon        | Damage | Speed     | Baseline Effect      |
-| ------------- | ------ | --------- | -------------------- |
-| Vanilla Sword | Medium | Medium    | Sweeping             |
-| Vanilla Axe   | High   | Slow      | Shield Break         |
-| Dagger        | Low    | Fast      |                      |
-| Club          | High   | Slow      | Slow target          |
-| Hammer        | High   | Very Slow | Knock target upwards |
-| Spear         | Medium | Medium    |                      |
-| Quarterstaff  | Low    | Medium    | Sweeping             |
-| Glaive        | High   | Very Slow | Sweeping             |
+| Weapon        | Damage | Speed     | Baseline Effect      | Reach     |
+| ------------- | ------ | --------- | -------------------- | --------- |
+| Vanilla Sword | Medium | Medium    | Sweeping             | Medium    |
+| Vanilla Axe   | High   | Slow      | Shield Break         | Medium    |
+| Dagger        | Low    | Fast      |                      | Medium    |
+| Club          | High   | Slow      | Slow target          | Medium    |
+| Hammer        | High   | Very Slow | Knock target upwards | Medium    |
+| Spear         | Medium | Medium    |                      | Very High |
+| Quarterstaff  | Low    | Medium    | Sweeping             | High      |
+| Glaive        | High   | Very Slow | Sweeping             | High      |
 
 ![Divider](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/divider_1.png?raw=true)
 # Bronze Integration 🔶
