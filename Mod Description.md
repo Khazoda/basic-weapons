@@ -54,9 +54,11 @@ This high level overview should give you an idea of what each weapon is good and
 
 ![Divider](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/divider_1.png?raw=true)
 # Bronze Integration 🔶
-My [Bronze mod](https://modrinth.com/mod/bronze) has explicit integration with Basic Weapons. Each weapon type will receive a bronze version when both mods are installed together.
+My [Bronze mod](https://modrinth.com/mod/bronze) has explicit integration with Basic Weapons.  
+Each weapon type will receive a bronze version when both mods are installed together.
 
-TODO:ADD BRONZE WEAPON SCREENSHOT
+![Divider](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/bronze_showcase.png?raw=true)
+
 
 ![Divider](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/divider_5.png?raw=true)
 
@@ -86,6 +88,8 @@ For weapon stats with Better Combat integration, see below:
 
 # Frequently Asked Questions (FAQ) 🧡
 
+- What are the recipes?
+- _`Recipes are unlocked in the vanilla recipe book when obtaining the requisite materials (e.g. picking up an iron ingot). You can also use a mod like EMI to view all recipes.`_
 - What are the mod's dependencies?  
   _`Basic Weapons has no required dependencies except for the usual Fabric API/ QFAPI that most mods on Fabric and Quilt require. For an upgraded experience you can install this mod together with Better Combat for more exciting fights if you want.`_
 - Is there a forge/fabric/quilt version?  
@@ -115,5 +119,4 @@ __Thank you to all the wonderful translation contributors!__
 - DanioMalinowy
 - Ardufish123
 - Harjjw
-
-
+- lotl
