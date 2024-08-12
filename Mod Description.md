@@ -25,7 +25,8 @@
 
 
 # Important ⚔️
-Minecraft has a bug where held items have gaps. Weapons from this mod are not immune to the bug, and I therefore highly recommend using the ModelGapFix mod:
+Minecraft has a bug where held items have gaps.  
+Weapons from this mod are not immune to the bug, and I therefore highly recommend using the ModelGapFix mod:
 
 [![Model Gap Fix Download](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/modelgapfix.png?raw=true)](https://modrinth.com/mod/modelfix)
 
@@ -56,6 +57,8 @@ This high level overview should give you an idea of what each weapon is good and
 My [Bronze mod](https://modrinth.com/mod/bronze) has explicit integration with Basic Weapons. Each weapon type will receive a bronze version when both mods are installed together.
 
 TODO:ADD BRONZE WEAPON SCREENSHOT
+
+![Divider](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/divider_5.png?raw=true)
 
 # Better Combat Integration 🔥
 
@@ -92,7 +95,7 @@ For weapon stats with Better Combat integration, see below:
 - I found a bug / my game crashed  
    _`If you find any problems with Basic Weapons, please feel encouraged to create an issue on the GitHub repository issue tracker. Bug reports are incredibly helpful, and help make Basic Weapons the best it can be.`_
 
-![Divider](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/divider_3.png?raw=true)
+![Divider](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/divider_4.png?raw=true)
 
 __Thank you to all the wonderful translation contributors!__
 - junshengxie
@@ -114,5 +117,3 @@ __Thank you to all the wonderful translation contributors!__
 - Harjjw
 
 
-![Divider](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/divider_4.png?raw=true)
-![Divider](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/divider_5.png?raw=true)
