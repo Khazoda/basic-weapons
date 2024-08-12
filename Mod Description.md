@@ -19,18 +19,15 @@
 
 </sub>
 
-![Model Gap Fix Download](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/modelgapfix.png?raw=true)
+
 
 ![Basic Weapons Banner](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/banner.png?raw=true)
 
 
 # Important ⚔️
+Minecraft has a bug where held items have gaps. Weapons from this mod are not immune to the bug, and I therefore highly recommend using ModelGapFix:
+[![Model Gap Fix Download](https://github.com/Khazoda/basic-weapons/blob/Web-Assets/description_common/modelgapfix.png?raw=true)](https://modrinth.com/mod/modelfix)
 
-Basic Weapons is a mod that works with *Fabric*, _Quilt_ & _Forge_. Depending on which mod loader you're using you will need to download different things:
-| Using Fabric | [Fabric API](https://legacy.curseforge.com/minecraft/mc-mods/fabric-api)  |
-| ------------ | ------------------------------------------------------------------------- |
-| Using Quilt  | [Quilted Fabric API](https://legacy.curseforge.com/minecraft/mc-mods/qsl) |
-| Using Forge  | Nothing extra 👍🏽                                                           |
 
 # About 🤺
 
