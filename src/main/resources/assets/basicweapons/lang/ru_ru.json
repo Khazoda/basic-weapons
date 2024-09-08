@@ -62,5 +62,14 @@
   "tag.item.c.enchantable.unbreaking_supported": "Поддерживает Зачарование \"Неразрушимость\"",
   "tag.item.c.enchantable.sharpness_supported": "Поддерживает Зачарование \"Острота\"",
   "tag.item.c.enchantable.sharpness_primary": "Начальное Зачарование \"Острота\"",
-  "tag.item.c.enchantable.bane_of_arthropods_primary": "Начальное Зачарование \"Бич Членистоногих\""
+  "tag.item.c.enchantable.bane_of_arthropods_primary": "Начальное Зачарование \"Бич Членистоногих\"",
+  "item.basicweapons.wooden_glaive": "Деревянная глефа",
+  "item.basicweapons.stone_glaive": "Каменная глефа",
+  "item.basicweapons.iron_glaive": "Железная глефа",
+  "item.basicweapons.bronze_glaive": "Бронзовая глефа",
+  "item.basicweapons.golden_glaive": "Золотая глефа",
+  "item.basicweapons.diamond_glaive": "Алмазная глефа",
+  "item.basicweapons.netherite_glaive": "Незеритовая глефа",
+  "tag.item.basicweapons.glaives": "Глефы",
+  "tag.item.c.tools.glaives": "Глефы"
 }
