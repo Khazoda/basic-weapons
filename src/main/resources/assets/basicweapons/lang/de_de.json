@@ -44,5 +44,15 @@
   "item.basicweapons.bronze_hammer": "Bronzehammer",
   "item.basicweapons.bronze_club": "Bronzekeule",
   "item.basicweapons.bronze_spear": "Bronzespeer",
-  "item.basicweapons.bronze_quarterstaff": "Bronzekampfstab"
+  "item.basicweapons.bronze_quarterstaff": "Bronzekampfstab",
+  "tag.item.c.bronze_ingots": "Bronzebarren",
+  "item.basicweapons.wooden_glaive": "Holz Glefe",
+  "item.basicweapons.stone_glaive": "Stein Glefe",
+  "item.basicweapons.iron_glaive": "Eisen Glefe",
+  "item.basicweapons.bronze_glaive": "Bronzene Glefe",
+  "item.basicweapons.golden_glaive": "Goldene Glefe",
+  "item.basicweapons.diamond_glaive": "Diamant Glefe",
+  "item.basicweapons.netherite_glaive": "Netherit Glefe",
+  "tag.item.basicweapons.glaives": "Glefen",
+  "tag.item.c.tools.glaives": "Glefen"
 }
