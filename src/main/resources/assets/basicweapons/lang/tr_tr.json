@@ -46,8 +46,10 @@
   "item.basicweapons.bronze_quarterstaff": "Bronz Değnek",
   "tag.item.c.bronze_ingots": "Bronz Külçe",
   "tag.item.c.enchantable.smite_supported": "Darbe Büyüsü Uygulanabilenler",
+  "tag.item.c.enchantable.might_supported": "Güç Büyüsü Uygulanabilenler",
   "tag.item.c.enchantable.smite_primary": "Darbe Büyüsü Önceliği",
   "tag.item.c.enchantable.fire_aspect_supported": "Alevden Çehre Uygulanabilenler",
+  "tag.item.c.enchantable.might_primary": "Güç Büyüsü Öncelikli",
   "tag.item.c.enchantable.looting_supported": "Ganimet Büyüsü Uygulanabilenler",
   "tag.item.basicweapons.enchantable.sharp_basic_weapon": "Basic Weapons Keskin Ekipmanlar",
   "tag.item.c.enchantable.sweeping_edge_supported": "Süpürücü Kenar Büyüsü Uygulanabilenler",
@@ -58,5 +60,14 @@
   "tag.item.c.enchantable.unbreaking_supported": "Kırılmazlık Büyüsü Uygulanabilenler",
   "tag.item.c.enchantable.sharpness_supported": "Keskinlik Büyüsü Uygulanabilenler",
   "tag.item.c.enchantable.sharpness_primary": "Keskinlik Büyüsü Önceliği",
-  "tag.item.c.enchantable.bane_of_arthropods_primary": "Eklembacaklıların Kıyameti Büyüsü Önceliği"
+  "tag.item.c.enchantable.bane_of_arthropods_primary": "Eklembacaklıların Kıyameti Büyüsü Önceliği",
+  "item.basicweapons.wooden_glaive": "Tahta Pala",
+  "item.basicweapons.stone_glaive": "Taş Pala",
+  "item.basicweapons.iron_glaive": "Demir Pala",
+  "item.basicweapons.bronze_glaive": "Bronz Pala",
+  "item.basicweapons.golden_glaive": "Altın Pala",
+  "item.basicweapons.diamond_glaive": "Elmas Pala",
+  "item.basicweapons.netherite_glaive": "Netherit Pala",
+  "tag.item.basicweapons.glaives": "Palalar",
+  "tag.item.c.tools.glaives": "Palalar"
 }
