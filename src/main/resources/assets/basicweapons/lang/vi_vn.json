@@ -62,5 +62,14 @@
   "tag.item.c.enchantable.unbreaking_supported": "Hỗ Trợ Phù Phép Chậm Hỏng",
   "tag.item.c.enchantable.sharpness_supported": "Hỗ Trợ Phù Phép Sắc Bén",
   "tag.item.c.enchantable.sharpness_primary": "Phù Phép Sắc Bén Chính",
-  "tag.item.c.enchantable.bane_of_arthropods_primary": "Phù Phép Hại Loài Chân Đốt Chính"
+  "tag.item.c.enchantable.bane_of_arthropods_primary": "Phù Phép Hại Loài Chân Đốt Chính",
+  "item.basicweapons.wooden_glaive": "Đoản Kiếm Gỗ",
+  "item.basicweapons.stone_glaive": "Đoản Kiếm Đá",
+  "item.basicweapons.iron_glaive": "Đoản Kiếm Sắt",
+  "item.basicweapons.bronze_glaive": "Đoản Kiếm Đồng",
+  "item.basicweapons.golden_glaive": "Đoản Kiếm Vàng",
+  "item.basicweapons.diamond_glaive": "Đoản Kiếm Kim Cương",
+  "item.basicweapons.netherite_glaive": "Đoản Kiếm Nethit",
+  "tag.item.basicweapons.glaives": "Đoản Kiếm",
+  "tag.item.c.tools.glaives": "Đoản Kiếm"
 }
