@@ -10,10 +10,11 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
+import net.minecraft.registry.tag.BlockTags;
 
 public class ClubItem extends BasicWeaponSweeplessItem {
-  public ClubItem(ToolMaterial tier, Settings settings) {
-    super(tier, settings.component(DataComponentTypes.TOOL, createToolComponent()));
+  public ClubItem(ToolMaterial tier, float attackDamage, float attackSpeed, double reach, Settings settings) {
+    super(tier, BlockTags.SWORD_EFFICIENT, attackDamage, attackSpeed, settings.component(DataComponentTypes.TOOL, createToolComponent()));
   }
 
   private static ToolComponent createToolComponent() {

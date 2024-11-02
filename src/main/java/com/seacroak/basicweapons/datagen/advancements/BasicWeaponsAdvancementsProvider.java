@@ -15,6 +15,6 @@ public class BasicWeaponsAdvancementsProvider extends FabricAdvancementProvider 
 
   @Override
   public void generateAdvancement(RegistryWrapper.WrapperLookup registryLookup, Consumer<AdvancementEntry> consumer) {
-    new BasicWeaponsAdvancements().accept(consumer);
+    new BasicWeaponsAdvancements().accept(registryLookup, consumer);
   }
 }

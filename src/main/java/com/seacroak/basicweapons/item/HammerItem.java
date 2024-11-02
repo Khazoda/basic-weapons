@@ -8,12 +8,13 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
+import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.util.math.Vec3d;
 
 public class HammerItem extends BasicWeaponSweeplessItem {
 
-  public HammerItem(ToolMaterial tier, Settings settings) {
-    super(tier, settings.component(DataComponentTypes.TOOL, createToolComponent()));
+  public HammerItem(ToolMaterial tier, float attackDamage, float attackSpeed, double reach, Settings settings) {
+    super(tier, BlockTags.SWORD_EFFICIENT, attackDamage, attackSpeed, settings.component(DataComponentTypes.TOOL, createToolComponent()));
   }
 
   private static ToolComponent createToolComponent() {

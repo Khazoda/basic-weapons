@@ -1,6 +1,7 @@
 package com.seacroak.basicweapons.item;
 
 import com.seacroak.basicweapons.mixin.PlayerEntityMixin;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.component.type.AttributeModifierSlot;
 import net.minecraft.component.type.AttributeModifiersComponent;
@@ -10,8 +11,9 @@ import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ToolItem;
+import net.minecraft.item.MiningToolItem;
 import net.minecraft.item.ToolMaterial;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -24,26 +26,26 @@ import static com.seacroak.basicweapons.Constants.PLAYER_ENTITY_INTERACTION_RANG
  *
  * @see PlayerEntityMixin
  */
-public class BasicWeaponSweeplessItem extends ToolItem {
-  public BasicWeaponSweeplessItem(ToolMaterial toolMaterial, Settings settings) {
-    super(toolMaterial, settings);
+public class BasicWeaponSweeplessItem extends MiningToolItem {
+  public BasicWeaponSweeplessItem(ToolMaterial toolMaterial, TagKey<Block> effectiveBlocks, float attackDamage, float attackSpeed, Settings settings) {
+    super(toolMaterial, effectiveBlocks, attackDamage, attackSpeed, settings);
   }
 
   public static AttributeModifiersComponent createAttributeModifiers(ToolMaterial material, float baseAttackDamage, float attackSpeed, double extraRange) {
     return AttributeModifiersComponent.builder()
         .add(
-            EntityAttributes.GENERIC_ATTACK_DAMAGE,
+            EntityAttributes.ATTACK_DAMAGE,
             new EntityAttributeModifier(
-                BASE_ATTACK_DAMAGE_MODIFIER_ID, baseAttackDamage + material.getAttackDamage(), EntityAttributeModifier.Operation.ADD_VALUE
+                BASE_ATTACK_DAMAGE_MODIFIER_ID, baseAttackDamage + material.attackDamageBonus(), EntityAttributeModifier.Operation.ADD_VALUE
             ),
             AttributeModifierSlot.MAINHAND
         )
         .add(
-            EntityAttributes.GENERIC_ATTACK_SPEED,
+            EntityAttributes.ATTACK_SPEED,
             new EntityAttributeModifier(BASE_ATTACK_SPEED_MODIFIER_ID, attackSpeed, EntityAttributeModifier.Operation.ADD_VALUE),
             AttributeModifierSlot.MAINHAND
         )
-        .add(EntityAttributes.PLAYER_ENTITY_INTERACTION_RANGE,
+        .add(EntityAttributes.ENTITY_INTERACTION_RANGE,
             new EntityAttributeModifier(Identifier.of(PLAYER_ENTITY_INTERACTION_RANGE_MODIFIER_ID.toString()), extraRange, EntityAttributeModifier.Operation.ADD_VALUE),
             AttributeModifierSlot.MAINHAND)
         .build();
