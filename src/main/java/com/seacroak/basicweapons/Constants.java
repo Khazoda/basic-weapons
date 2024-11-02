@@ -12,6 +12,7 @@ import java.util.UUID;
 public class Constants {
   /* Mod Information */
   public static final String BW_NAMESPACE = "basicweapons";
+  public static final Identifier BW_IDENTIFIER = Identifier.of(BW_NAMESPACE, "");
   public static final String BW_NAME = "Basic Weapons";
   public static final Logger BW_LOG = LoggerFactory.getLogger(BW_NAME);
 

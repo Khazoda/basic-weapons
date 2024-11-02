@@ -1,15 +1,11 @@
 package com.seacroak.basicweapons.registry;
 
-import com.seacroak.basicweapons.Constants;
 import com.seacroak.basicweapons.item.*;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.Items;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.util.Identifier;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -45,7 +41,7 @@ public class MainRegistry {
     int x = 0;
     for (BWItems.UnregisteredItemInfo item : BWItems.items
     ) {
-      registeredItems.put(x, new RegisteredItemInfo(item.weaponType, item.weaponMaterial, item.name, registerItem(item.name, item.itemSupplier.get())));
+      registeredItems.put(x, new RegisteredItemInfo(item.weaponType, item.weaponMaterial, item.name, Reggie.register(item.name, item.itemSupplier.get())));
       x += 1;
     }
 
@@ -81,10 +77,6 @@ public class MainRegistry {
         content.addAfter(registeredItems.get(i - 1).item, registeredItems.get(i).item);
       }
     });
-  }
-
-  public static Item registerItem(String name, Item item) {
-    return Registry.register(Registries.ITEM, Identifier.of(Constants.BW_NAMESPACE, name), item);
   }
 
   public static class RegisteredItemInfo {

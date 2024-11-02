@@ -4,11 +4,11 @@ import com.seacroak.basicweapons.Constants;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.render.model.BakedModel;
-import net.minecraft.client.render.model.json.ModelTransformationMode;
 import net.minecraft.client.util.ModelIdentifier;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ModelTransformationMode;
 import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -127,7 +127,7 @@ public abstract class ItemRendererMixin {
 
     if (flag) {
       ModelIdentifier a = new ModelIdentifier(Identifier.of(Constants.BW_NAMESPACE, resourceLocation), "inventory");
-      BakedModel x = ((ItemRendererAccessor) this).bw$getModels().getModelManager().getModel(a);
+      BakedModel x = ((ItemRendererAccessor) this).bw$getModels().getModel(a.id());
       return x;
     } else {
       return value;
