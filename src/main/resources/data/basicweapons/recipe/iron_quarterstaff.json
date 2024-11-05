@@ -1,17 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "pattern": [
     "  /",
     " O ",
     "/  "
   ],
   "key": {
-    "/": {
-      "item": "minecraft:stick"
-    },
-    "O": {
-      "item": "minecraft:iron_ingot"
-    }
+    "/": "minecraft:stick",
+    "O": "#minecraft:iron_tool_materials"
   },
   "result": {
     "id": "basicweapons:iron_quarterstaff",

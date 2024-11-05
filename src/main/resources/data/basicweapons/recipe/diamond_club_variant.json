@@ -1,17 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "pattern": [
     "# ",
     " #",
     " /"
   ],
   "key": {
-    "#": {
-      "item": "minecraft:diamond"
-    },
-    "/": {
-      "item": "minecraft:stick"
-    }
+    "#": "#minecraft:diamond_tool_materials",
+    "/": "minecraft:stick"
   },
   "result": {
     "id": "basicweapons:diamond_club",

@@ -1,16 +1,13 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "pattern": [
     " #",
     "/ "
   ],
   "key": {
-    "#": {
-      "item": "minecraft:cobblestone"
-    },
-    "/": {
-      "item": "minecraft:stick"
-    }
+    "#": "#minecraft:stone_tool_materials",
+    "/": "minecraft:stick"
   },
   "result": {
     "id": "basicweapons:stone_dagger",

@@ -1,16 +1,13 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "pattern": [
     "#",
     "/"
   ],
   "key": {
-    "#": {
-      "tag": "minecraft:planks"
-    },
-    "/": {
-      "item": "minecraft:stick"
-    }
+    "#": "#minecraft:planks",
+    "/": "minecraft:stick"
   },
   "result": {
     "id": "basicweapons:wooden_dagger",

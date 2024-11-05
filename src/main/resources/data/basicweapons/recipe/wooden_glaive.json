@@ -1,17 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "pattern": [
     " OO",
     "O/ ",
     "/  "
   ],
   "key": {
-    "/": {
-      "item": "minecraft:stick"
-    },
-    "O": {
-      "tag": "minecraft:planks"
-    }
+    "/": "minecraft:stick",
+    "O": "#minecraft:planks"
   },
   "result": {
     "id": "basicweapons:wooden_glaive",

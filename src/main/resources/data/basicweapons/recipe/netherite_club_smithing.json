@@ -1,15 +1,10 @@
 {
   "type": "minecraft:smithing_transform",
-  "addition": {
-    "item": "minecraft:netherite_ingot"
-  },
-  "base": {
-    "item": "basicweapons:diamond_club"
-  },
+  "template": "minecraft:netherite_upgrade_smithing_template",
+  "base": "basicweapons:diamond_club",
+  "addition": "#minecraft:netherite_tool_materials",
   "result": {
-    "id": "basicweapons:netherite_club"
-  },
-  "template": {
-    "item": "minecraft:netherite_upgrade_smithing_template"
+    "id": "basicweapons:netherite_club",
+    "count": 1
   }
 }
