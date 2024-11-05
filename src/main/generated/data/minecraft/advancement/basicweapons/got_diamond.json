@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "got_diamond": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:diamond"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "got_diamond"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "basicweapons:diamond_dagger",
+      "basicweapons:diamond_club",
+      "basicweapons:diamond_club_variant",
+      "basicweapons:diamond_hammer",
+      "basicweapons:diamond_spear",
+      "basicweapons:diamond_quarterstaff",
+      "basicweapons:diamond_glaive"
+    ]
+  },
+  "sends_telemetry_event": true
+}

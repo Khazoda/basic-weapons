@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "got_bronze_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:bronze_ingots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "got_bronze_ingot"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "basicweapons:bronze_dagger",
+      "basicweapons:bronze_club",
+      "basicweapons:bronze_club_variant",
+      "basicweapons:bronze_hammer",
+      "basicweapons:bronze_spear",
+      "basicweapons:bronze_quarterstaff",
+      "basicweapons:bronze_glaive"
+    ]
+  },
+  "sends_telemetry_event": true
+}

@@ -1,5 +1,6 @@
 package com.seacroak.basicweapons;
 
+import com.seacroak.basicweapons.registry.EnchantmentRegistry;
 import com.seacroak.basicweapons.registry.LootTableModification;
 import com.seacroak.basicweapons.registry.MainRegistry;
 import com.seacroak.basicweapons.registry.WeaponRegistry;
@@ -14,6 +15,7 @@ public class BasicWeapons implements ModInitializer {
     WeaponRegistry.init();
     MainRegistry.init();
     LootTableModification.init();
-    BW_LOG.info("[Basic Weapons] Armaments added");
+    EnchantmentRegistry.init();
+    BW_LOG.info("[Basic Weapons] Weapons Loaded");
   }
 }
