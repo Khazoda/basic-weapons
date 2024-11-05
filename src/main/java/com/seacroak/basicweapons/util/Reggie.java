@@ -1,6 +1,5 @@
-package com.seacroak.basicweapons.registry;
+package com.seacroak.basicweapons.util;
 
-import com.seacroak.basicweapons.util.ID;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;

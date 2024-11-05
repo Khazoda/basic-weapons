@@ -6,7 +6,7 @@ import net.minecraft.item.ToolMaterial;
 import net.minecraft.registry.tag.BlockTags;
 
 public class SpearItem extends BasicWeaponSweeplessItem {
-  public SpearItem(ToolMaterial tier, float attackDamage, float attackSpeed, Settings settings) {
+  public SpearItem(ToolMaterial tier, float attackDamage, float attackSpeed, double reach, Settings settings) {
     super(tier, BlockTags.SWORD_EFFICIENT, attackDamage, attackSpeed, settings.component(DataComponentTypes.TOOL, createToolComponent()));
   }
 
