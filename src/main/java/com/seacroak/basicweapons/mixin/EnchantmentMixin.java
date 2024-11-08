@@ -53,16 +53,20 @@ public class EnchantmentMixin {
   private void onIsAcceptableItem(ItemStack stack, CallbackInfoReturnable<Boolean> cir) {
     if (stack.isIn(BWTags.BASIC_WEAPONS)) {
       String enchantDesc = ((Enchantment) (Object) this).toString().toLowerCase();
+      var a = enchantDesc.toLowerCase();
+      var c = stack.isIn(BWTags.NO_SWEEPING);
+      var d = stack.isIn(BWTags.BLUNT_WEAPONS);
 
       // Block sweeping edge for weapons that shouldn't have it
       if (stack.isIn(BWTags.NO_SWEEPING) && enchantDesc.contains("sweeping")) {
         cir.setReturnValue(false);
-        return;
       }
 
       // Block sharpness for blunt weapons
-      if (stack.isIn(BWTags.BLUNT_WEAPONS) && enchantDesc.contains("sharpness")) {
+      else if (stack.isIn(BWTags.BLUNT_WEAPONS) && enchantDesc.contains("sharpness")) {
         cir.setReturnValue(false);
+      } else {
+        cir.setReturnValue(true);
       }
     }
   }
@@ -76,7 +80,6 @@ public class EnchantmentMixin {
       // Block sweeping edge for weapons that shouldn't have it
       if (stack.isIn(BWTags.NO_SWEEPING) && enchantDesc.contains("sweeping")) {
         cir.setReturnValue(false);
-        return;
       }
 
       // Block sharpness for blunt weapons
