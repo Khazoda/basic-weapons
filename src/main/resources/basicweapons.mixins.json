@@ -3,6 +3,7 @@
   "package": "com.seacroak.basicweapons.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "EnchantmentMixin",
     "PlayerEntityMixin"
   ],
   "injectors": {

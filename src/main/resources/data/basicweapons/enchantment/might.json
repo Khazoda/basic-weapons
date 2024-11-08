@@ -28,10 +28,10 @@
     "base": 1,
     "per_level_above_first": 11
   },
-  "primary_items": "#c:enchantable/might_primary",
+  "primary_items": "#basicweapons:enchantable/blunt_basic_weapon",
   "slots": [
     "mainhand"
   ],
-  "supported_items": "#c:enchantable/might_supported",
+  "supported_items": "#basicweapons:enchantable/blunt_basic_weapon",
   "weight": 10
 }

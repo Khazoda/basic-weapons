@@ -1,7 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "#minecraft:enchantable/weapon",
-    "#basicweapons:enchantable/basic_weapon"
-  ]
-}
