@@ -1,7 +1,7 @@
-// 1.21.3	2024-11-05T21:53:42.3790524	Basic Weapons/Advancements
+// 1.21.3	2024-11-09T17:05:11.3518226	Basic Weapons/Advancements
 58e2fc3c9d691245eb99f9ca966638393f79d880 data\minecraft\advancement\basicweapons\got_sticks.json
-370981c899ad6c79ba194289820335634b1906da data\minecraft\advancement\basicweapons\got_cobblestone.json
 2386b1b0cca589a943cd83cb278e5daa5b24049e data\minecraft\advancement\basicweapons\got_gold_ingot.json
+370981c899ad6c79ba194289820335634b1906da data\minecraft\advancement\basicweapons\got_cobblestone.json
 a20508fc77bf79400b1aa9d39b7966c715c310a5 data\minecraft\advancement\basicweapons\got_iron_ingot.json
 e251eda5b0e4528ac14b75a0289e085746351726 data\minecraft\advancement\basicweapons\got_diamond.json
 bf2b671e3d041e80781975c06cb46c15ae15a6e2 data\minecraft\advancement\basicweapons\got_bronze_ingot.json
