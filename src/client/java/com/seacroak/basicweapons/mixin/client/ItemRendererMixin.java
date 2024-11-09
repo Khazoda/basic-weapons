@@ -27,7 +27,7 @@ public abstract class ItemRendererMixin {
     Item item = stack.getItem();
 
     for (var entry : registeredItems.entrySet()) {
-      if (entry.getValue().item == item) {
+      if (entry.getValue().item() == item) {
         flag = switch (item.getTranslationKey()) {
           /* Spears */
           case "item.basicweapons.wooden_spear" -> {

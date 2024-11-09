@@ -42,11 +42,11 @@ public class MainRegistry {
   public static void init() {
     int x = 0;
     for (ItemInfo itemWithInfo : WeaponRegistry.itemsWithInfo) {
-      registeredItems.put(x++, new ItemInfo(itemWithInfo.weaponType, itemWithInfo.weaponMaterial, itemWithInfo.name, itemWithInfo.item));
+      registeredItems.put(x++, new ItemInfo(itemWithInfo.weaponType(), itemWithInfo.weaponMaterial(), itemWithInfo.name(), itemWithInfo.item()));
     }
     for (Map.Entry<Integer, ItemInfo> entry : registeredItems.entrySet()) {
-      Item item = entry.getValue().item;
-      switch (entry.getValue().weaponType) {
+      Item item = entry.getValue().item();
+      switch (entry.getValue().weaponType()) {
         case DAGGER -> daggers.add((DaggerItem) item);
         case CLUB -> clubs.add((ClubItem) item);
         case HAMMER -> hammers.add((HammerItem) item);
@@ -54,19 +54,19 @@ public class MainRegistry {
         case QUARTERSTAFF -> quarterstaves.add((QuarterstaffItem) item);
         case GLAIVE -> glaives.add((GlaiveItem) item);
       }
-      if (entry.getValue().weaponMaterial.equals(WOOD)) woodenWeapons.add(item);
-      else if (entry.getValue().weaponMaterial.equals(STONE)) stoneWeapons.add(item);
-      else if (entry.getValue().weaponMaterial.equals(IRON)) ironWeapons.add(item);
-      else if (entry.getValue().weaponMaterial.equals(BRONZE)) bronzeWeapons.add(item);
-      else if (entry.getValue().weaponMaterial.equals(GOLD)) goldenWeapons.add(item);
-      else if (entry.getValue().weaponMaterial.equals(DIAMOND)) diamondWeapons.add(item);
-      else if (entry.getValue().weaponMaterial.equals(NETHERITE)) netheriteWeapons.add(item);
+      if (entry.getValue().weaponMaterial().equals(WOOD)) woodenWeapons.add(item);
+      else if (entry.getValue().weaponMaterial().equals(STONE)) stoneWeapons.add(item);
+      else if (entry.getValue().weaponMaterial().equals(IRON)) ironWeapons.add(item);
+      else if (entry.getValue().weaponMaterial().equals(BRONZE)) bronzeWeapons.add(item);
+      else if (entry.getValue().weaponMaterial().equals(GOLD)) goldenWeapons.add(item);
+      else if (entry.getValue().weaponMaterial().equals(DIAMOND)) diamondWeapons.add(item);
+      else if (entry.getValue().weaponMaterial().equals(NETHERITE)) netheriteWeapons.add(item);
 
       // Item group item infiltration
       ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(content -> {
-        content.addAfter(Items.NETHERITE_AXE, registeredItems.get(0).item);
+        content.addAfter(Items.NETHERITE_AXE, registeredItems.get(0).item());
         for (int i = 1; i < registeredItems.size(); i++) {
-          content.addAfter(registeredItems.get(i - 1).item, registeredItems.get(i).item);
+          content.addAfter(registeredItems.get(i - 1).item(), registeredItems.get(i).item());
         }
       });
     }

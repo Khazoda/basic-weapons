@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 import static com.seacroak.basicweapons.Constants.PLAYER_ENTITY_INTERACTION_RANGE_MODIFIER_ID;
 
 
-// Used for weapons with sweeping. This currently includes the quarterstaff
+// Used for weapons with sweeping. This currently includes the quarterstaff & glaive
 public abstract class BasicWeaponItem extends SwordItem {
 
 
