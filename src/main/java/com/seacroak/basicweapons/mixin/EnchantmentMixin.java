@@ -18,7 +18,6 @@ import java.util.List;
 @Mixin(Enchantment.class)
 public class EnchantmentMixin {
 
-  /* Enchantment Table Enchanting Interception */
   @Inject(method = "getApplicableItems", at = @At("RETURN"), cancellable = true)
   private void onGetApplicableItems(CallbackInfoReturnable<RegistryEntryList<Item>> cir) {
     String enchantDesc = ((Enchantment) (Object) this).toString().toLowerCase();
@@ -48,7 +47,6 @@ public class EnchantmentMixin {
     cir.setReturnValue(RegistryEntryList.of(filteredList));
   }
 
-  /* Enchant Command Interception*/
   @Inject(method = "isAcceptableItem", at = @At("HEAD"), cancellable = true)
   private void onIsAcceptableItem(ItemStack stack, CallbackInfoReturnable<Boolean> cir) {
     if (stack.isIn(BWTags.BASIC_WEAPONS)) {
@@ -67,7 +65,6 @@ public class EnchantmentMixin {
     }
   }
 
-  /* Enchant Command Interception*/
   @Inject(method = "isPrimaryItem", at = @At("HEAD"), cancellable = true)
   private void onIsPrimaryItem(ItemStack stack, CallbackInfoReturnable<Boolean> cir) {
     if (stack.isIn(BWTags.BASIC_WEAPONS)) {
