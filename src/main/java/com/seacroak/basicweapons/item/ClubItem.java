@@ -1,8 +1,6 @@
 package com.seacroak.basicweapons.item;
 
 import com.seacroak.basicweapons.mixinutils.PlayerEntityAccessor;
-import net.minecraft.component.DataComponentTypes;
-import net.minecraft.component.type.ToolComponent;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -12,13 +10,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.registry.tag.BlockTags;
 
-public class ClubItem extends BasicWeaponSweeplessItem {
+public class ClubItem extends BasicWeaponItem {
   public ClubItem(ToolMaterial tier, float attackDamage, float attackSpeed, double reach, Settings settings) {
-    super(tier, BlockTags.SWORD_EFFICIENT, attackDamage, attackSpeed, settings.component(DataComponentTypes.TOOL, createToolComponent()));
-  }
-
-  private static ToolComponent createToolComponent() {
-    return null;
+    super(tier, BlockTags.SWORD_EFFICIENT, attackDamage, attackSpeed, reach, settings);
   }
 
   @Override

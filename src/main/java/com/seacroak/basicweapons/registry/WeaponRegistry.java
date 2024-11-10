@@ -4,12 +4,9 @@ import com.seacroak.basicweapons.data.WEAPON_TYPE;
 import com.seacroak.basicweapons.data.WeaponStats;
 import com.seacroak.basicweapons.item.*;
 import com.seacroak.basicweapons.material.BWToolMaterials;
-import com.seacroak.basicweapons.util.ID;
 import com.seacroak.basicweapons.util.Reggie;
 import net.minecraft.item.Item;
 import net.minecraft.item.ToolMaterial;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -71,20 +68,13 @@ public class WeaponRegistry {
   public static final Item BRONZE_GLAIVE = bronze_mod_loaded ? registerWeapon("bronze_glaive", BWToolMaterials.BRONZE, WEAPON_TYPE.GLAIVE, WeaponStats.GLAIVE, GlaiveItem::new) : null;
 
   private static Item registerWeapon(String name, ToolMaterial material, WEAPON_TYPE type, WeaponStats stats, WeaponFactory<? extends Item> factory) {
-    Item item = Reggie.register(name, (settings) -> factory.create(material, stats.damage(), stats.speed(), stats.range(),
-        attachDefaultSettings(name, type, material, stats.damage(), stats.speed(), stats.range())));
+    Item item = Reggie.register(name, (settings) -> factory.create(material, stats.damage(), stats.speed(), stats.reach(), settings), buildDefaultSettings(material));
     itemsWithInfo.add(new ItemInfo(type, material, name, item));
     return item;
   }
 
-  private static Item.Settings attachDefaultSettings(String name, WEAPON_TYPE weaponType, ToolMaterial material, float damage, float speed, double range) {
-    Item.Settings itemSettings = new Item.Settings().registryKey(RegistryKey.of(RegistryKeys.ITEM, ID.of(name)));
-    switch (weaponType) {
-      case DAGGER, HAMMER, CLUB, SPEAR ->
-          itemSettings = itemSettings.attributeModifiers(BasicWeaponSweeplessItem.createAttributeModifiers(material, damage, speed, range));
-      case QUARTERSTAFF, GLAIVE ->
-          itemSettings = itemSettings.attributeModifiers(BasicWeaponItem.createAttributeModifiers(material, damage, speed, range));
-    }
+  private static Item.Settings buildDefaultSettings(ToolMaterial material) {
+    Item.Settings itemSettings = new Item.Settings();
     if (material == ToolMaterial.NETHERITE) itemSettings = itemSettings.fireproof();
     return itemSettings;
   }
@@ -94,9 +84,10 @@ public class WeaponRegistry {
 
   @FunctionalInterface
   private interface WeaponFactory<T extends Item> {
-    T create(ToolMaterial material, float damage, float speed, double range, Item.Settings settings);
+    T create(ToolMaterial material, float damage, float speed, double reach, Item.Settings settings);
   }
 
   public record ItemInfo(WEAPON_TYPE weaponType, ToolMaterial weaponMaterial, String name, Item item) {
   }
+
 }

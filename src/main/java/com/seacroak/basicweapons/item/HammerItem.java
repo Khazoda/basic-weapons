@@ -1,8 +1,6 @@
 package com.seacroak.basicweapons.item;
 
 import com.seacroak.basicweapons.mixinutils.PlayerEntityAccessor;
-import net.minecraft.component.DataComponentTypes;
-import net.minecraft.component.type.ToolComponent;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -11,14 +9,10 @@ import net.minecraft.item.ToolMaterial;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.util.math.Vec3d;
 
-public class HammerItem extends BasicWeaponSweeplessItem {
+public class HammerItem extends BasicWeaponItem {
 
   public HammerItem(ToolMaterial tier, float attackDamage, float attackSpeed, double reach, Settings settings) {
-    super(tier, BlockTags.SWORD_EFFICIENT, attackDamage, attackSpeed, settings.component(DataComponentTypes.TOOL, createToolComponent()));
-  }
-
-  private static ToolComponent createToolComponent() {
-    return null;
+    super(tier, BlockTags.SWORD_EFFICIENT, attackDamage, attackSpeed, reach, settings);
   }
 
   @Override

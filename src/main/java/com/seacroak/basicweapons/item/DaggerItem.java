@@ -9,12 +9,12 @@ import net.minecraft.registry.tag.BlockTags;
 
 import java.util.List;
 
-public class DaggerItem extends BasicWeaponSweeplessItem {
+public class DaggerItem extends BasicWeaponItem {
   public DaggerItem(ToolMaterial tier, float attackDamage, float attackSpeed, double reach, Settings settings) {
-    super(tier, BlockTags.SWORD_EFFICIENT, attackDamage, attackSpeed, settings.component(DataComponentTypes.TOOL, createToolComponent()));
-  }
-
-  private static ToolComponent createToolComponent() {
-    return new ToolComponent(List.of(ToolComponent.Rule.ofAlwaysDropping(RegistryEntryList.of(Blocks.COBWEB.getRegistryEntry()), 15.0F)), 1.0F, 2);
+    super(tier, BlockTags.SWORD_EFFICIENT, attackDamage, attackSpeed, reach,
+        settings.component(DataComponentTypes.TOOL,
+            new ToolComponent(List.of(ToolComponent.Rule.ofAlwaysDropping(RegistryEntryList.of(Blocks.COBWEB.getRegistryEntry()), 15.0F)), 1.0F, 2)
+        )
+    );
   }
 }
