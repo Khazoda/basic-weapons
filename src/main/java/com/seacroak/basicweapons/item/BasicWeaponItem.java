@@ -15,6 +15,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import static com.seacroak.basicweapons.Constants.PLAYER_ENTITY_INTERACTION_RANGE_MODIFIER_ID;
+import static com.seacroak.basicweapons.registry.MainRegistry.bettercombat_mod_loaded;
 
 
 // Used for weapons with sweeping. This currently includes the quarterstaff
@@ -39,7 +40,7 @@ public abstract class BasicWeaponItem extends SwordItem {
             AttributeModifierSlot.MAINHAND
         )
         .add(EntityAttributes.PLAYER_ENTITY_INTERACTION_RANGE,
-            new EntityAttributeModifier(Identifier.of(PLAYER_ENTITY_INTERACTION_RANGE_MODIFIER_ID.toString()), extraRange, EntityAttributeModifier.Operation.ADD_VALUE),
+            new EntityAttributeModifier(Identifier.of(PLAYER_ENTITY_INTERACTION_RANGE_MODIFIER_ID.toString()), bettercombat_mod_loaded ? 0 : extraRange, EntityAttributeModifier.Operation.ADD_VALUE),
             AttributeModifierSlot.MAINHAND)
         .build();
   }
