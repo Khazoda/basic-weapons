@@ -25,6 +25,7 @@ import net.minecraft.world.World;
 import java.util.List;
 
 import static com.seacroak.basicweapons.Constants.PLAYER_ENTITY_INTERACTION_RANGE_MODIFIER_ID;
+import static com.seacroak.basicweapons.registry.MainRegistry.bettercombat_mod_loaded;
 
 
 /**
@@ -79,7 +80,7 @@ public abstract class BasicWeaponItem extends Item {
             EntityAttributes.ENTITY_INTERACTION_RANGE,
             new EntityAttributeModifier(
                 Identifier.of(PLAYER_ENTITY_INTERACTION_RANGE_MODIFIER_ID.toString()),
-                reach,
+                bettercombat_mod_loaded ? 0 : reach,
                 EntityAttributeModifier.Operation.ADD_VALUE
             ),
             AttributeModifierSlot.MAINHAND

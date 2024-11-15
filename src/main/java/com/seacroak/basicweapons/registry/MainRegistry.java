@@ -18,6 +18,7 @@ import static net.minecraft.item.ToolMaterial.*;
 
 public class MainRegistry {
   public final static boolean bronze_mod_loaded = FabricLoader.getInstance().isModLoaded("bronze");
+  public final static boolean bettercombat_mod_loaded = FabricLoader.getInstance().isModLoaded("bettercombat");
 
   public final static Map<Integer, ItemInfo> registeredItems = new HashMap<>();
   /*
