@@ -24,7 +24,8 @@
       "basicweapons:golden_club_variant",
       "basicweapons:golden_hammer",
       "basicweapons:golden_spear",
-      "basicweapons:golden_quarterstaff"
+      "basicweapons:golden_quarterstaff",
+      "basicweapons:golden_glaive"
     ]
   },
   "sends_telemetry_event": true

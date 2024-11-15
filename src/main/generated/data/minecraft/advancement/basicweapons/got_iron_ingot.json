@@ -24,7 +24,8 @@
       "basicweapons:iron_club_variant",
       "basicweapons:iron_hammer",
       "basicweapons:iron_spear",
-      "basicweapons:iron_quarterstaff"
+      "basicweapons:iron_quarterstaff",
+      "basicweapons:iron_glaive"
     ]
   },
   "sends_telemetry_event": true

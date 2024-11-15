@@ -24,7 +24,8 @@
       "basicweapons:wooden_club_variant",
       "basicweapons:wooden_hammer",
       "basicweapons:wooden_spear",
-      "basicweapons:wooden_quarterstaff"
+      "basicweapons:wooden_quarterstaff",
+      "basicweapons:wooden_glaive"
     ]
   },
   "sends_telemetry_event": true

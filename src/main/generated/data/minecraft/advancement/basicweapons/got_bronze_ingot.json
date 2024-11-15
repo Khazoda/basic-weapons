@@ -24,7 +24,8 @@
       "bronze:bronze_club_variant",
       "bronze:bronze_hammer",
       "bronze:bronze_spear",
-      "bronze:bronze_quarterstaff"
+      "bronze:bronze_quarterstaff",
+      "bronze:bronze_glaive"
     ]
   },
   "sends_telemetry_event": true

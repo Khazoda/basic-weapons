@@ -37,9 +37,16 @@ public abstract class ModelLoaderMixin {
         this.addModelToBake(ModelIdentifier.ofInventoryVariant(Identifier.of(Constants.BW_NAMESPACE, "golden_quarterstaff_held")), jsonUnbakedModels.get(Identifier.of(Constants.BW_NAMESPACE, "models/item/golden_quarterstaff_held.json")));
         this.addModelToBake(ModelIdentifier.ofInventoryVariant(Identifier.of(Constants.BW_NAMESPACE, "diamond_quarterstaff_held")), jsonUnbakedModels.get(Identifier.of(Constants.BW_NAMESPACE, "models/item/diamond_quarterstaff_held.json")));
         this.addModelToBake(ModelIdentifier.ofInventoryVariant(Identifier.of(Constants.BW_NAMESPACE, "netherite_quarterstaff_held")), jsonUnbakedModels.get(Identifier.of(Constants.BW_NAMESPACE, "models/item/netherite_quarterstaff_held.json")));
+      this.addModelToBake(ModelIdentifier.ofInventoryVariant(Identifier.of(Constants.BW_NAMESPACE, "wooden_glaive_held")), jsonUnbakedModels.get(Identifier.of(Constants.BW_NAMESPACE, "models/item/wooden_glaive_held.json")));
+      this.addModelToBake(ModelIdentifier.ofInventoryVariant(Identifier.of(Constants.BW_NAMESPACE, "stone_glaive_held")), jsonUnbakedModels.get(Identifier.of(Constants.BW_NAMESPACE, "models/item/stone_glaive_held.json")));
+      this.addModelToBake(ModelIdentifier.ofInventoryVariant(Identifier.of(Constants.BW_NAMESPACE, "iron_glaive_held")), jsonUnbakedModels.get(Identifier.of(Constants.BW_NAMESPACE, "models/item/iron_glaive_held.json")));
+      this.addModelToBake(ModelIdentifier.ofInventoryVariant(Identifier.of(Constants.BW_NAMESPACE, "golden_glaive_held")), jsonUnbakedModels.get(Identifier.of(Constants.BW_NAMESPACE, "models/item/golden_glaive_held.json")));
+      this.addModelToBake(ModelIdentifier.ofInventoryVariant(Identifier.of(Constants.BW_NAMESPACE, "diamond_glaive_held")), jsonUnbakedModels.get(Identifier.of(Constants.BW_NAMESPACE, "models/item/diamond_glaive_held.json")));
+      this.addModelToBake(ModelIdentifier.ofInventoryVariant(Identifier.of(Constants.BW_NAMESPACE, "netherite_glaive_held")), jsonUnbakedModels.get(Identifier.of(Constants.BW_NAMESPACE, "models/item/netherite_glaive_held.json")));
         if (MainRegistry.bronze_mod_loaded) {
             this.addModelToBake(ModelIdentifier.ofInventoryVariant(Identifier.of(Constants.BW_NAMESPACE, "bronze_spear_held")), jsonUnbakedModels.get(Identifier.of(Constants.BW_NAMESPACE, "models/item/bronze_spear_held.json")));
             this.addModelToBake(ModelIdentifier.ofInventoryVariant(Identifier.of(Constants.BW_NAMESPACE, "bronze_quarterstaff_held")), jsonUnbakedModels.get(Identifier.of(Constants.BW_NAMESPACE, "models/item/bronze_quarterstaff_held.json")));
+          this.addModelToBake(ModelIdentifier.ofInventoryVariant(Identifier.of(Constants.BW_NAMESPACE, "bronze_glaive_held")), jsonUnbakedModels.get(Identifier.of(Constants.BW_NAMESPACE, "models/item/bronze_glaive_held.json")));
         }
     }
 }

@@ -62,5 +62,14 @@
   "tag.item.c.enchantable.unbreaking_supported": "Oförstörbar Förtrollning Stödjes",
   "tag.item.c.enchantable.sharpness_supported": "Skärpa Förtrollning Stödjes",
   "tag.item.c.enchantable.sharpness_primary": "Skärpa Förtrollning Primärt",
-  "tag.item.c.enchantable.bane_of_arthropods_primary": "Leddjurens skräck Förtrollning Primärt"
+  "tag.item.c.enchantable.bane_of_arthropods_primary": "Leddjurens skräck Förtrollning Primärt",
+  "item.basicweapons.wooden_glaive": "Träglav",
+  "item.basicweapons.stone_glaive": "Stenglav",
+  "item.basicweapons.iron_glaive": "Järnglav",
+  "item.basicweapons.bronze_glaive": "Bronsglav",
+  "item.basicweapons.golden_glaive": "Guldglav",
+  "item.basicweapons.diamond_glaive": "Diamantglav",
+  "item.basicweapons.netherite_glaive": "Netheritglav",
+  "tag.item.basicweapons.glaives": "Glavar",
+  "tag.item.c.tools.glaives": "Glavar"
 }

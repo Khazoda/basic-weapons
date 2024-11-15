@@ -1,7 +1,7 @@
-// 1.21	2024-06-14T10:45:03.4875165	Basic Weapons/Advancements
-ae211e108c70fe804637e8a52fcd04031257f3f4 data\minecraft\advancement\basicweapons\got_sticks.json
-899c83a76c127a206dc94b152ec6750d433f2448 data\minecraft\advancement\basicweapons\got_gold_ingot.json
-3b3ccc40652629504e1f4d907ee72d20cdf96149 data\minecraft\advancement\basicweapons\got_cobblestone.json
-bbfd5d8933f31c334ea793aa4c810184f77dc282 data\minecraft\advancement\basicweapons\got_iron_ingot.json
-0f98624c7704c50964fea38ab4bdea46a93fda54 data\minecraft\advancement\basicweapons\got_diamond.json
-2146b94e76c883da59e6bf8479bc9e406767d340 data\minecraft\advancement\basicweapons\got_bronze_ingot.json
+// 1.21	2024-08-12T00:55:47.0030557	Basic Weapons/Advancements
+58e2fc3c9d691245eb99f9ca966638393f79d880 data\minecraft\advancement\basicweapons\got_sticks.json
+370981c899ad6c79ba194289820335634b1906da data\minecraft\advancement\basicweapons\got_cobblestone.json
+2386b1b0cca589a943cd83cb278e5daa5b24049e data\minecraft\advancement\basicweapons\got_gold_ingot.json
+a20508fc77bf79400b1aa9d39b7966c715c310a5 data\minecraft\advancement\basicweapons\got_iron_ingot.json
+e251eda5b0e4528ac14b75a0289e085746351726 data\minecraft\advancement\basicweapons\got_diamond.json
+2250a1aa3c9b9523d331040734282a13c4fb1d5e data\minecraft\advancement\basicweapons\got_bronze_ingot.json
