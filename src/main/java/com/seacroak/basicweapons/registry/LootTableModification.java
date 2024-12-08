@@ -25,28 +25,36 @@ public class LootTableModification {
       ItemEntry.builder(registeredItems.get(7)).weight(1).build(),
       ItemEntry.builder(registeredItems.get(13)).weight(2).build(),
       ItemEntry.builder(registeredItems.get(19)).weight(2).build(),
-      ItemEntry.builder(registeredItems.get(25)).weight(2).build()
+      ItemEntry.builder(registeredItems.get(25)).weight(2).build(),
+      ItemEntry.builder(registeredItems.get(31)).weight(2).build()
+
   );
   private static final List<LootPoolEntry> iron_loot_pool = Arrays.asList(
       ItemEntry.builder(registeredItems.get(2)).weight(2).build(),
       ItemEntry.builder(registeredItems.get(8)).weight(1).build(),
       ItemEntry.builder(registeredItems.get(14)).weight(2).build(),
       ItemEntry.builder(registeredItems.get(20)).weight(2).build(),
-      ItemEntry.builder(registeredItems.get(26)).weight(2).build()
+      ItemEntry.builder(registeredItems.get(26)).weight(2).build(),
+      ItemEntry.builder(registeredItems.get(32)).weight(2).build()
+
   );
   private static final List<LootPoolEntry> golden_loot_pool = Arrays.asList(
       ItemEntry.builder(registeredItems.get(3)).weight(2).build(),
       ItemEntry.builder(registeredItems.get(9)).weight(1).build(),
       ItemEntry.builder(registeredItems.get(15)).weight(2).build(),
       ItemEntry.builder(registeredItems.get(21)).weight(2).build(),
-      ItemEntry.builder(registeredItems.get(27)).weight(2).build()
+      ItemEntry.builder(registeredItems.get(27)).weight(2).build(),
+      ItemEntry.builder(registeredItems.get(33)).weight(2).build()
+
   );
   private static final List<LootPoolEntry> diamond_loot_pool = Arrays.asList(
       ItemEntry.builder(registeredItems.get(4)).weight(2).build(),
       ItemEntry.builder(registeredItems.get(10)).weight(1).build(),
       ItemEntry.builder(registeredItems.get(16)).weight(2).build(),
       ItemEntry.builder(registeredItems.get(22)).weight(2).build(),
-      ItemEntry.builder(registeredItems.get(28)).weight(2).build()
+      ItemEntry.builder(registeredItems.get(28)).weight(2).build(),
+      ItemEntry.builder(registeredItems.get(34)).weight(2).build()
+
   );
 
   public static void addItems(List<LootPoolEntry> loot_pool, LootTable.Builder tableBuilder, boolean applyDamage) {

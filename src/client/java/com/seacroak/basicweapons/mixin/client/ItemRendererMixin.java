@@ -76,6 +76,31 @@ public abstract class ItemRendererMixin {
           resourceLocation = "netherite_quarterstaff_held";
           yield true;
         }
+        /* Glaives */
+        case "item.basicweapons.wooden_glaive" -> {
+          resourceLocation = "wooden_glaive_held";
+          yield true;
+        }
+        case "item.basicweapons.stone_glaive" -> {
+          resourceLocation = "stone_glaive_held";
+          yield true;
+        }
+        case "item.basicweapons.iron_glaive" -> {
+          resourceLocation = "iron_glaive_held";
+          yield true;
+        }
+        case "item.basicweapons.golden_glaive" -> {
+          resourceLocation = "golden_glaive_held";
+          yield true;
+        }
+        case "item.basicweapons.diamond_glaive" -> {
+          resourceLocation = "diamond_glaive_held";
+          yield true;
+        }
+        case "item.basicweapons.netherite_glaive" -> {
+          resourceLocation = "netherite_glaive_held";
+          yield true;
+        }
         default -> false;
       };
     }

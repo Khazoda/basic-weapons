@@ -19,6 +19,8 @@ public class BWItems {
   public static final float spearSpeed = -2.8f;
   public static final int quarterstaffDamage = 1;
   public static final float quarterstaffSpeed = -2.3f;
+  public static final int glaiveDamage = 5;
+  public static final float glaiveSpeed = -3.2f;
 
   /* When referencing items, use registeredItems from MainRegistry, not items.
   Indices are the same for both constants */
@@ -90,6 +92,19 @@ public class BWItems {
     items.add(new ItemInfo("quarterstaff", "diamond_quarterstaff", () -> new QuarterstaffItem(ToolMaterials.DIAMOND, quarterstaffDamage, quarterstaffSpeed, new Item.Settings())));
     /* 29 */
     items.add(new ItemInfo("quarterstaff", "netherite_quarterstaff", () -> new QuarterstaffItem(ToolMaterials.NETHERITE, quarterstaffDamage, quarterstaffSpeed, new Item.Settings().fireproof())));
+    /* Glaives */
+    /* 30 */
+    items.add(new ItemInfo("glaive", "wooden_glaive", () -> new GlaiveItem(ToolMaterials.WOOD, glaiveDamage, glaiveSpeed, new Item.Settings())));
+    /* 31 */
+    items.add(new ItemInfo("glaive", "stone_glaive", () -> new GlaiveItem(ToolMaterials.STONE, glaiveDamage, glaiveSpeed, new Item.Settings())));
+    /* 32 */
+    items.add(new ItemInfo("glaive", "iron_glaive", () -> new GlaiveItem(ToolMaterials.IRON, glaiveDamage, glaiveSpeed, new Item.Settings())));
+    /* 33 */
+    items.add(new ItemInfo("glaive", "golden_glaive", () -> new GlaiveItem(ToolMaterials.GOLD, glaiveDamage, glaiveSpeed, new Item.Settings())));
+    /* 34 */
+    items.add(new ItemInfo("glaive", "diamond_glaive", () -> new GlaiveItem(ToolMaterials.DIAMOND, glaiveDamage, glaiveSpeed, new Item.Settings())));
+    /* 35 */
+    items.add(new ItemInfo("glaive", "netherite_glaive", () -> new GlaiveItem(ToolMaterials.NETHERITE, glaiveDamage, glaiveSpeed, new Item.Settings().fireproof())));
 
   }
 

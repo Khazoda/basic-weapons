@@ -36,6 +36,12 @@ public abstract class ModelLoaderMixin {
     this.addModel(new ModelIdentifier(Constants.BW_ID, "golden_quarterstaff_held", "inventory"));
     this.addModel(new ModelIdentifier(Constants.BW_ID, "diamond_quarterstaff_held", "inventory"));
     this.addModel(new ModelIdentifier(Constants.BW_ID, "netherite_quarterstaff_held", "inventory"));
+    this.addModel(new ModelIdentifier(Constants.BW_ID, "wooden_glaive_held", "inventory"));
+    this.addModel(new ModelIdentifier(Constants.BW_ID, "stone_glaive_held", "inventory"));
+    this.addModel(new ModelIdentifier(Constants.BW_ID, "iron_glaive_held", "inventory"));
+    this.addModel(new ModelIdentifier(Constants.BW_ID, "golden_glaive_held", "inventory"));
+    this.addModel(new ModelIdentifier(Constants.BW_ID, "diamond_glaive_held", "inventory"));
+    this.addModel(new ModelIdentifier(Constants.BW_ID, "netherite_glaive_held", "inventory"));
   }
 
 }

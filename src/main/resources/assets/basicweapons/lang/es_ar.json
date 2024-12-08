@@ -62,5 +62,14 @@
   "tag.item.c.enchantable.unbreaking_supported": "Admite Encantamiento Inrrompibilidad",
   "tag.item.c.enchantable.sharpness_supported": "Admite Encantamiento Filo",
   "tag.item.c.enchantable.sharpness_primary": "Encantamiento Primario de Filo",
-  "tag.item.c.enchantable.bane_of_arthropods_primary": "Encantamiento Pesadilla de los Antropodos Primarios"
+  "tag.item.c.enchantable.bane_of_arthropods_primary": "Encantamiento Pesadilla de los Antropodos Primarios",
+  "item.basicweapons.wooden_glaive": "Guja de Madera",
+  "item.basicweapons.stone_glaive": "Guja de Piedra",
+  "item.basicweapons.iron_glaive": "Guja de Hierro",
+  "item.basicweapons.bronze_glaive": "Guja de Bronce",
+  "item.basicweapons.golden_glaive": "Guja de Oro",
+  "item.basicweapons.diamond_glaive": "Guja de Diamante",
+  "item.basicweapons.netherite_glaive": "Guja de Netherita",
+  "tag.item.basicweapons.glaives": "Gujas",
+  "tag.item.c.tools.glaives": "Gujas"
 }
