@@ -27,6 +27,11 @@
           "type": "minecraft:item",
           "name": "basicweapons:iron_quarterstaff",
           "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "basicweapons:iron_glaive",
+          "weight": 2
         }
       ],
       "rolls": {

@@ -27,6 +27,11 @@
           "type": "minecraft:item",
           "name": "basicweapons:diamond_quarterstaff",
           "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "basicweapons:diamond_glaive",
+          "weight": 2
         }
       ],
       "functions": [
@@ -74,6 +79,11 @@
         {
           "type": "minecraft:item",
           "name": "basicweapons:diamond_quarterstaff",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "basicweapons:diamond_glaive",
           "weight": 2
         }
       ],
