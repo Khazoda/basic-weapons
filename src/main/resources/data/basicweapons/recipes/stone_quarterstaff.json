@@ -10,7 +10,7 @@
       "item": "minecraft:stick"
     },
     "O": {
-      "item": "minecraft:cobblestone"
+      "tag": "minecraft:stone_tool_materials"
     }
   },
   "result": {
