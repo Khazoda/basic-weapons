@@ -41,28 +41,36 @@ public class LootTableModification {
       createEntry(new ItemStack(registeredItems.get(7).get()), 1),
       createEntry(new ItemStack(registeredItems.get(13).get()), 2),
       createEntry(new ItemStack(registeredItems.get(19).get()), 2),
-      createEntry(new ItemStack(registeredItems.get(25).get()), 2)
+      createEntry(new ItemStack(registeredItems.get(25).get()), 2),
+      createEntry(new ItemStack(registeredItems.get(31).get()), 2)
+
   );
   private static final List<LootPoolSingletonContainer.Builder<?>> iron_loot_pool = Arrays.asList(
       createEntry(new ItemStack(registeredItems.get(2).get()), 2),
       createEntry(new ItemStack(registeredItems.get(8).get()), 1),
       createEntry(new ItemStack(registeredItems.get(14).get()), 2),
       createEntry(new ItemStack(registeredItems.get(20).get()), 2),
-      createEntry(new ItemStack(registeredItems.get(26).get()), 2)
+      createEntry(new ItemStack(registeredItems.get(26).get()), 2),
+      createEntry(new ItemStack(registeredItems.get(32).get()), 2)
+
   );
   private static final List<LootPoolSingletonContainer.Builder<?>> golden_loot_pool = Arrays.asList(
       createEntry(new ItemStack(registeredItems.get(3).get()), 2),
       createEntry(new ItemStack(registeredItems.get(9).get()), 1),
       createEntry(new ItemStack(registeredItems.get(15).get()), 2),
       createEntry(new ItemStack(registeredItems.get(21).get()), 2),
-      createEntry(new ItemStack(registeredItems.get(27).get()), 2)
+      createEntry(new ItemStack(registeredItems.get(27).get()), 2),
+      createEntry(new ItemStack(registeredItems.get(33).get()), 2)
+
   );
   private static final List<LootPoolSingletonContainer.Builder<?>> diamond_loot_pool = Arrays.asList(
       createEntry(new ItemStack(registeredItems.get(4).get()), 2),
       createEntry(new ItemStack(registeredItems.get(10).get()), 1),
       createEntry(new ItemStack(registeredItems.get(16).get()), 2),
       createEntry(new ItemStack(registeredItems.get(22).get()), 2),
-      createEntry(new ItemStack(registeredItems.get(28).get()), 2)
+      createEntry(new ItemStack(registeredItems.get(28).get()), 2),
+      createEntry(new ItemStack(registeredItems.get(34).get()), 2)
+
   );
 
   private static final Set<ResourceLocation> VANILLA_TABLES = Sets.newHashSet();

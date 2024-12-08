@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " OO",
+    "O/ ",
+    "/  "
+  ],
+  "key": {
+    "/": {
+      "item": "minecraft:stick"
+    },
+    "O": {
+      "tag": "minecraft:stone_tool_materials"
+    }
+  },
+  "result": {
+    "item": "basicweapons:stone_glaive",
+    "count": 1
+  }
+}

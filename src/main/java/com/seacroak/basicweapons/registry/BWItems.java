@@ -19,6 +19,8 @@ public class BWItems {
   public static final float spearSpeed = -2.8f;
   public static final int quarterstaffDamage = 1;
   public static final float quarterstaffSpeed = -2.3f;
+  public static final int glaiveDamage = 5;
+  public static final float glaiveSpeed = -3.2f;
   public static List<ItemInfo> items = new LinkedList<>();
 
   public static void init() {
@@ -57,6 +59,13 @@ public class BWItems {
     items.add(new ItemInfo("quarterstaff", "golden_quarterstaff", () -> new QuarterstaffItem(Tiers.GOLD, quarterstaffDamage, quarterstaffSpeed, new Item.Properties())));
     items.add(new ItemInfo("quarterstaff", "diamond_quarterstaff", () -> new QuarterstaffItem(Tiers.DIAMOND, quarterstaffDamage, quarterstaffSpeed, new Item.Properties())));
     items.add(new ItemInfo("quarterstaff", "netherite_quarterstaff", () -> new QuarterstaffItem(Tiers.NETHERITE, quarterstaffDamage, quarterstaffSpeed, new Item.Properties().fireResistant())));
+    /* Glaives */
+    items.add(new ItemInfo("glaive", "wooden_glaive", () -> new GlaiveItem(Tiers.WOOD, glaiveDamage, glaiveSpeed, new Item.Properties())));
+    items.add(new ItemInfo("glaive", "stone_glaive", () -> new GlaiveItem(Tiers.STONE, glaiveDamage, glaiveSpeed, new Item.Properties())));
+    items.add(new ItemInfo("glaive", "iron_glaive", () -> new GlaiveItem(Tiers.IRON, glaiveDamage, glaiveSpeed, new Item.Properties())));
+    items.add(new ItemInfo("glaive", "golden_glaive", () -> new GlaiveItem(Tiers.GOLD, glaiveDamage, glaiveSpeed, new Item.Properties())));
+    items.add(new ItemInfo("glaive", "diamond_glaive", () -> new GlaiveItem(Tiers.DIAMOND, glaiveDamage, glaiveSpeed, new Item.Properties())));
+    items.add(new ItemInfo("glaive", "netherite_glaive", () -> new GlaiveItem(Tiers.NETHERITE, glaiveDamage, glaiveSpeed, new Item.Properties().fireResistant())));
 
   }
 
