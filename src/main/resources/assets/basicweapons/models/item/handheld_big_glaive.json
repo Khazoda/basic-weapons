@@ -1,0 +1,115 @@
+{
+  "credit": "Made with Blockbench",
+  "parent": "minecraft:item/generated",
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        45
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1.75,
+        1.75,
+        0.85
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        -45
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1.75,
+        1.75,
+        0.85
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        -60,
+        -90,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1.75,
+        1.75,
+        0.85
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        -60,
+        90,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1.75,
+        1.75,
+        0.85
+      ]
+    },
+    "ground": {
+      "translation": [
+        0,
+        4,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        0.5
+      ]
+    },
+    "head": {
+      "translation": [
+        0,
+        6,
+        0
+      ],
+      "scale": [
+        1.5,
+        1.5,
+        1.5
+      ]
+    },
+    "fixed": {
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        -1
+      ],
+      "scale": [
+        2,
+        2,
+        1
+      ]
+    }
+  }
+}
