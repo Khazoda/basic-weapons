@@ -1,8 +1,8 @@
 package com.seacroak.basicweapons.item;
 
-import com.seacroak.basicweapons.mixin.PlayerEntityMixin;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.AttributeModifierSlot;
 import net.minecraft.component.type.AttributeModifiersComponent;
@@ -17,22 +17,19 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryEntryLookup;
+import net.minecraft.registry.entry.RegistryEntryList;
+import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.seacroak.basicweapons.Constants.PLAYER_ENTITY_INTERACTION_RANGE_MODIFIER_ID;
 import static com.seacroak.basicweapons.registry.MainRegistry.bettercombat_mod_loaded;
 
-
-/**
- * Used by PlayerEntityMixin to determine whether to kill sweeping behaviour or not
- *
- * @see PlayerEntityMixin
- */
 public abstract class BasicWeaponItem extends Item {
   public BasicWeaponItem(ToolMaterial material, TagKey<Block> effectiveBlocks, float attackDamage, float attackSpeed, double extraReach, Settings settings) {
     super(prepareSettings(material, effectiveBlocks, attackDamage, attackSpeed, extraReach, settings));
@@ -43,20 +40,17 @@ public abstract class BasicWeaponItem extends Item {
     return weaponSettings.attributeModifiers(createAttributeModifiers(material, attackDamage, attackSpeed, extraReach));
   }
 
+
   public static Settings applyToolSettings(ToolMaterial material, Settings settings, TagKey<Block> effectiveBlocks) {
     RegistryEntryLookup<Block> registryEntryLookup = Registries.createEntryLookup(Registries.BLOCK);
+    List<ToolComponent.Rule> toolComponentRuleList = new ArrayList<>(List.of(
+        ToolComponent.Rule.ofNeverDropping(registryEntryLookup.getOrThrow(material.incorrectBlocksForDrops())),
+        ToolComponent.Rule.ofAlwaysDropping(registryEntryLookup.getOrThrow(effectiveBlocks), material.speed())));
+    if (effectiveBlocks.equals(BlockTags.SWORD_EFFICIENT))
+      toolComponentRuleList.add(ToolComponent.Rule.ofAlwaysDropping(RegistryEntryList.of(Blocks.COBWEB.getRegistryEntry()), 15.0F));
+
     settings.maxDamage(material.durability()).repairable(material.repairItems()).enchantable(material.enchantmentValue())
-        .component(
-            DataComponentTypes.TOOL,
-            new ToolComponent(
-                List.of(
-                    ToolComponent.Rule.ofNeverDropping(registryEntryLookup.getOrThrow(material.incorrectBlocksForDrops())),
-                    ToolComponent.Rule.ofAlwaysDropping(registryEntryLookup.getOrThrow(effectiveBlocks), material.speed())
-                ),
-                1.0F,
-                1
-            )
-        );
+        .component(DataComponentTypes.TOOL, new ToolComponent(toolComponentRuleList, 1.0F, 1));
     return settings;
   }
 

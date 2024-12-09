@@ -12,7 +12,7 @@ import net.minecraft.util.math.Vec3d;
 public class HammerItem extends BasicWeaponItem {
 
   public HammerItem(ToolMaterial tier, float attackDamage, float attackSpeed, double reach, Settings settings) {
-    super(tier, BlockTags.SWORD_EFFICIENT, attackDamage, attackSpeed, reach, settings);
+    super(tier, BlockTags.AIR, attackDamage, attackSpeed, reach, settings);
   }
 
   @Override

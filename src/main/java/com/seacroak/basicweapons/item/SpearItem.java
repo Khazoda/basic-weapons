@@ -6,6 +6,6 @@ import net.minecraft.registry.tag.BlockTags;
 public class SpearItem extends BasicWeaponItem {
 
   public SpearItem(ToolMaterial tier, float attackDamage, float attackSpeed, double reach, Settings settings) {
-    super(tier, BlockTags.SWORD_EFFICIENT, attackDamage, attackSpeed, reach, settings);
+    super(tier, BlockTags.AIR, attackDamage, attackSpeed, reach, settings);
   }
 }
