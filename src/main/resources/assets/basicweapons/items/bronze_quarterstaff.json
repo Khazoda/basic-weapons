@@ -1,0 +1,23 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "cases": [
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "basicweapons:item/bronze_quarterstaff"
+        },
+        "when": [
+          "gui",
+          "ground",
+          "fixed"
+        ]
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "basicweapons:item/bronze_quarterstaff_held"
+    },
+    "property": "minecraft:display_context"
+  }
+} 
