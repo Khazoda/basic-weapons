@@ -9,10 +9,11 @@
   ],
   "contact": {
     "homepage": "https://khazoda.com#basic-weapons",
-    "sources": "https://github.com/Khazoda/basic-weapons"
+    "sources": "https://github.com/Khazoda/basic-weapons",
+    "issues": "https://github.com/Khazoda/basic-weapons/issues"
   },
   "license": "MIT",
-  "icon": "bw_icon.png",
+  "icon": "mod_icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
