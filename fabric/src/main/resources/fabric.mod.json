@@ -1,0 +1,44 @@
+{
+    "schemaVersion": 1,
+    "id": "basicweapons",
+    "version": "${version}",
+    "name": "${mod_name}",
+    "description": "${description}",
+    "authors": [
+        "${mod_author}"
+    ],
+    "contact": {
+        "homepage": "https://khazoda.com#basicweapons",
+        "sources": "https://github.com/Khazoda/basic-weapons",
+        "issues": "https://github.com/Khazoda/basic-weapons/issues"
+    },
+    "license": "${license}",
+    "icon": "basicweapons.png",
+    "environment": "*",
+    "entrypoints": {
+        "main": [
+            "com.khazoda.basicweapons.BasicWeaponsFabric"
+        ]
+    },
+    "mixins": [
+        "basicweapons.mixins.json",
+        "basicweapons.fabric.mixins.json"
+    ],
+    "custom": {
+        "modmenu": {
+            "links": {
+                "modmenu.discord": "https://discord.com/invite/vEZUkSxwR9"
+            }
+        }
+    },
+    "depends": {
+        "fabricloader": ">=${fabric_loader_version}",
+        "fabric-api": "*",
+        "minecraft": "${minecraft_version}",
+        "java": ">=${java_version}"
+    },
+    "suggests": {
+        "another-mod": "*"
+    }
+}
+  
