@@ -42,6 +42,11 @@ public abstract class ModelLoaderMixin {
     this.addModel(new ModelIdentifier(Constants.BW_ID, "golden_glaive_held", "inventory"));
     this.addModel(new ModelIdentifier(Constants.BW_ID, "diamond_glaive_held", "inventory"));
     this.addModel(new ModelIdentifier(Constants.BW_ID, "netherite_glaive_held", "inventory"));
+    // Bronze mod integration
+    this.addModel(new ModelIdentifier(Constants.BW_ID, "bronze_spear_held", "inventory"));
+    this.addModel(new ModelIdentifier(Constants.BW_ID, "bronze_quarterstaff_held", "inventory"));
+    this.addModel(new ModelIdentifier(Constants.BW_ID, "bronze_glaive_held", "inventory"));
+
   }
 
 }

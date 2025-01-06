@@ -101,6 +101,19 @@ public abstract class ItemRendererMixin {
           resourceLocation = "netherite_glaive_held";
           yield true;
         }
+        /* Bronze mod integration */
+        case "item.basicweapons.bronze_spear" -> {
+          resourceLocation = "bronze_spear_held";
+          yield true;
+        }
+        case "item.basicweapons.bronze_quarterstaff" -> {
+          resourceLocation = "bronze_quarterstaff_held";
+          yield true;
+        }
+        case "item.basicweapons.bronze_glaive" -> {
+          resourceLocation = "bronze_glaive_held";
+          yield true;
+        }
         default -> false;
       };
     }

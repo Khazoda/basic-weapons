@@ -1,12 +1,15 @@
 package com.seacroak.basicweapons.registry;
 
 import com.seacroak.basicweapons.item.*;
+import com.seacroak.basicweapons.material.BWToolMaterials;
 import net.minecraft.item.Item;
 import net.minecraft.item.ToolMaterials;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.function.Supplier;
+
+import static com.seacroak.basicweapons.registry.MainRegistry.bronze_mod_loaded;
 
 public class BWItems {
   public static final int daggerDamage = 1;
@@ -25,6 +28,7 @@ public class BWItems {
   /* When referencing items, use registeredItems from MainRegistry, not items.
   Indices are the same for both constants */
   public static List<ItemInfo> items = new LinkedList<>();
+
 
   public static void init() {
     /* Daggers */
@@ -106,6 +110,21 @@ public class BWItems {
     /* 35 */
     items.add(new ItemInfo("glaive", "netherite_glaive", () -> new GlaiveItem(ToolMaterials.NETHERITE, glaiveDamage, glaiveSpeed, new Item.Settings().fireproof())));
 
+    // Register bronze weapons if mod is present
+    if (bronze_mod_loaded) {
+      /* 36 */
+      items.add(new ItemInfo("dagger", "bronze_dagger", () -> new DaggerItem(BWToolMaterials.BRONZE, daggerDamage, daggerSpeed, new Item.Settings())));
+      /* 37 */
+      items.add(new ItemInfo("hammer", "bronze_hammer", () -> new HammerItem(BWToolMaterials.BRONZE, hammerDamage - 1, hammerSpeed + 0.1f, new Item.Settings())));
+      /* 38 */
+      items.add(new ItemInfo("club", "bronze_club", () -> new ClubItem(BWToolMaterials.BRONZE, clubDamage, clubSpeed, new Item.Settings())));
+      /* 39 */
+      items.add(new ItemInfo("spear", "bronze_spear", () -> new SpearItem(BWToolMaterials.BRONZE, spearDamage, spearSpeed, new Item.Settings())));
+      /* 40 */
+      items.add(new ItemInfo("quarterstaff", "bronze_quarterstaff", () -> new QuarterstaffItem(BWToolMaterials.BRONZE, quarterstaffDamage, quarterstaffSpeed, new Item.Settings())));
+      /* 41 */
+      items.add(new ItemInfo("glaive", "bronze_glaive", () -> new GlaiveItem(BWToolMaterials.BRONZE, glaiveDamage, glaiveSpeed, new Item.Settings())));
+    }
   }
 
   /*** This class holds information about all items.
