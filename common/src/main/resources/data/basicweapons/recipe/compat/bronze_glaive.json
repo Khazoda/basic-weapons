@@ -10,7 +10,7 @@
       "item": "minecraft:stick"
     },
     "O": {
-      "tag": "c:bronze_ingots"
+      "tag": "c:ingots/bronze"
     }
   },
   "result": {

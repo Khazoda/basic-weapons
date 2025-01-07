@@ -6,7 +6,7 @@
   ],
   "key": {
     "#": {
-      "tag": "c:bronze_ingots"
+      "tag": "c:ingots/bronze"
     },
     "/": {
       "item": "minecraft:stick"
