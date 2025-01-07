@@ -34,7 +34,7 @@ public class ExternalToolMaterials {
 
     @Override
     public Ingredient getRepairIngredient() {
-      return Ingredient.of(TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("bronze", "ingots/bronze")));
+      return Ingredient.of(TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "ingots/bronze")));
     }
 
     @Override
