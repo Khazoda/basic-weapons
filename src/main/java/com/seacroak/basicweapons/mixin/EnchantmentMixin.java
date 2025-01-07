@@ -1,6 +1,6 @@
 package com.seacroak.basicweapons.mixin;
 
-import com.seacroak.basicweapons.data.BWTags;
+import com.seacroak.basicweapons.registry.TagRegistry;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -32,14 +32,14 @@ public class EnchantmentMixin {
       ItemStack stack = new ItemStack(entry.value());
 
       // If item to enchant is not a weapon from this mod add it to the list and go next
-      if (!stack.isIn(BWTags.BASIC_WEAPONS)) {
+      if (!stack.isIn(TagRegistry.BASIC_WEAPONS)) {
         filteredList.add(entry);
         continue;
       }
 
       // Don't add weapon to the list if the current enchantment is blacklisted on it
-      if (stack.isIn(BWTags.NO_SWEEPING) && enchantDesc.contains("sweeping")) continue;
-      if (stack.isIn(BWTags.BLUNT_WEAPONS) && enchantDesc.contains("sharpness")) continue;
+      if (stack.isIn(TagRegistry.NO_SWEEPING) && enchantDesc.contains("sweeping")) continue;
+      if (stack.isIn(TagRegistry.BLUNT_WEAPONS) && enchantDesc.contains("sharpness")) continue;
 
       // If it passed all filters, add the weapon
       filteredList.add(entry);
@@ -49,17 +49,17 @@ public class EnchantmentMixin {
 
   @Inject(method = "isAcceptableItem", at = @At("HEAD"), cancellable = true)
   private void onIsAcceptableItem(ItemStack stack, CallbackInfoReturnable<Boolean> cir) {
-    if (stack.isIn(BWTags.BASIC_WEAPONS)) {
+    if (stack.isIn(TagRegistry.BASIC_WEAPONS)) {
       String enchantDesc = ((Enchantment) (Object) this).toString().toLowerCase();
 
       // Block sweeping edge for weapons that shouldn't have it
-      if (stack.isIn(BWTags.NO_SWEEPING) && enchantDesc.contains("sweeping")) {
+      if (stack.isIn(TagRegistry.NO_SWEEPING) && enchantDesc.contains("sweeping")) {
         cir.setReturnValue(false);
         return;
       }
 
       // Block sharpness only for blunt weapons
-      if (stack.isIn(BWTags.BLUNT_WEAPONS) && enchantDesc.contains("sharpness")) {
+      if (stack.isIn(TagRegistry.BLUNT_WEAPONS) && enchantDesc.contains("sharpness")) {
         cir.setReturnValue(false);
       }
     }
@@ -67,17 +67,17 @@ public class EnchantmentMixin {
 
   @Inject(method = "isPrimaryItem", at = @At("HEAD"), cancellable = true)
   private void onIsPrimaryItem(ItemStack stack, CallbackInfoReturnable<Boolean> cir) {
-    if (stack.isIn(BWTags.BASIC_WEAPONS)) {
+    if (stack.isIn(TagRegistry.BASIC_WEAPONS)) {
       String enchantDesc = ((Enchantment) (Object) this).toString().toLowerCase();
 
       // Block sweeping edge for weapons that shouldn't have it
-      if (stack.isIn(BWTags.NO_SWEEPING) && enchantDesc.contains("sweeping")) {
+      if (stack.isIn(TagRegistry.NO_SWEEPING) && enchantDesc.contains("sweeping")) {
         cir.setReturnValue(false);
         return;
       }
 
       // Block sharpness for blunt weapons
-      if (stack.isIn(BWTags.BLUNT_WEAPONS) && enchantDesc.contains("sharpness")) {
+      if (stack.isIn(TagRegistry.BLUNT_WEAPONS) && enchantDesc.contains("sharpness")) {
         cir.setReturnValue(false);
       }
     }

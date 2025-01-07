@@ -1,9 +1,6 @@
 package com.seacroak.basicweapons;
 
-import com.seacroak.basicweapons.registry.EnchantmentRegistry;
-import com.seacroak.basicweapons.registry.LootTableModification;
 import com.seacroak.basicweapons.registry.MainRegistry;
-import com.seacroak.basicweapons.registry.WeaponRegistry;
 import net.fabricmc.api.ModInitializer;
 
 import static com.seacroak.basicweapons.Constants.BW_LOG;
@@ -12,10 +9,7 @@ public class BasicWeapons implements ModInitializer {
 
   @Override
   public void onInitialize() {
-    WeaponRegistry.init();
     MainRegistry.init();
-    LootTableModification.init();
-    EnchantmentRegistry.init();
     BW_LOG.info("[Basic Weapons] Weapons Loaded");
   }
 }
