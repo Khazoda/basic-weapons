@@ -9,6 +9,9 @@
     "PlayerEntityMixin"
   ],
   "client": [
+    "client.ItemRendererAccessor",
+    "client.ItemRendererMixin",
+    "client.ModelBakeryMixin"
   ],
   "server": [
   ],
