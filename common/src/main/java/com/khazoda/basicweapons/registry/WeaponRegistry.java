@@ -9,6 +9,8 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
+import static com.khazoda.basicweapons.data.WeaponType.getDamageModifier;
+import static com.khazoda.basicweapons.data.WeaponType.getSpeedModifier;
 import static com.khazoda.basicweapons.registry.MainRegistry.ITEM_REGISTRAR;
 
 public class WeaponRegistry {
@@ -17,7 +19,13 @@ public class WeaponRegistry {
   private static final Map<Tier, List<Supplier<Item>>> ITEMS_BY_MATERIAL = new HashMap<>();
 
   // Easy reference fields for common materials
-  private static final List<MaterialEntry> VANILLA_MATERIALS = Arrays.asList(new MaterialEntry(Tiers.WOOD, "wooden"), new MaterialEntry(Tiers.STONE, "stone"), new MaterialEntry(Tiers.IRON, "iron"), new MaterialEntry(Tiers.GOLD, "golden"), new MaterialEntry(Tiers.DIAMOND, "diamond"), new MaterialEntry(Tiers.NETHERITE, "netherite", Item.Properties::fireResistant));
+  private static final List<MaterialEntry> VANILLA_MATERIALS = Arrays.asList(
+      new MaterialEntry(Tiers.WOOD, "wooden"),
+      new MaterialEntry(Tiers.STONE, "stone"),
+      new MaterialEntry(Tiers.IRON, "iron"),
+      new MaterialEntry(Tiers.GOLD, "golden"),
+      new MaterialEntry(Tiers.DIAMOND, "diamond"),
+      new MaterialEntry(Tiers.NETHERITE, "netherite", Item.Properties::fireResistant));
 
   public static void init() {
     // Register vanilla weapons
@@ -52,57 +60,19 @@ public class WeaponRegistry {
     }
   }
 
-  /**
-   * Gets any special damage modifications for specific material/type combinations (e.g. Hammer)
-   */
-  private static float getDamageModifier(WeaponType type, Tier material) {
-    if (type == WeaponType.DAGGER && material == Tiers.GOLD) return -1;
-    if (type == WeaponType.HAMMER) {
-      if (material == Tiers.WOOD) return -6;
-      if (material == Tiers.STONE) return -3;
-      if (material == Tiers.GOLD) return -6;
-      if (material == Tiers.DIAMOND) return -1;
-      if (material == Tiers.NETHERITE) return -1;
-    }
-    return 0;
-  }
-
-  /**
-   * Gets any special speed modifications for specific material/type combinations (e.g. Hammer)
-   */
-  private static float getSpeedModifier(WeaponType type, Tier material) {
-    if (type == WeaponType.DAGGER && material == Tiers.GOLD) return 1;
-    if (type == WeaponType.HAMMER) {
-      if (material == Tiers.WOOD) return 0.4f;
-      if (material == Tiers.STONE) return 0.2f;
-      if (material == Tiers.GOLD) return 0.6f;
-      if (material == Tiers.DIAMOND) return 0.1f;
-      if (material == Tiers.NETHERITE) return 0.2f;
-    }
-    return 0;
-  }
-
   public static Item getItem(String id) {
     Supplier<Item> supplier = ITEMS.get(id);
     return supplier != null ? supplier.get() : null;
   }
 
   public static List<Item> getItemsByType(WeaponType type) {
-    List<Item> items = ITEMS_BY_TYPE.getOrDefault(type, Collections.emptyList())
-        .stream()
-        .map(supplier -> {
-          try {
-            Item item = supplier.get();
-            if (item != null) {
-            }
-            return item;
-          } catch (Exception e) {
-            return null;
-          }
-        })
-        .filter(Objects::nonNull)
-        .toList();
-    return items;
+    return ITEMS_BY_TYPE.getOrDefault(type, Collections.emptyList()).stream().map(supplier -> {
+      try {
+        return supplier.get();
+      } catch (Exception e) {
+        return null;
+      }
+    }).filter(Objects::nonNull).toList();
   }
 
   public static List<Item> getItemsByMaterial(Tier material) {

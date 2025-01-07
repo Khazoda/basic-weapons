@@ -4,6 +4,7 @@ package com.khazoda.basicweapons.data;
 import com.khazoda.basicweapons.item.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.Tiers;
 
 public enum WeaponType {
   DAGGER("dagger", 1f, -1.6f, 0, DaggerItem::new),
@@ -51,6 +52,36 @@ public enum WeaponType {
         reach,
         properties
     );
+  }
+
+  /**
+   * Gets any special damage modifications for specific material/type combinations (e.g. Hammer)
+   */
+  public static float getDamageModifier(WeaponType type, Tier material) {
+    if (type == WeaponType.DAGGER && material == Tiers.GOLD) return -1;
+    if (type == WeaponType.HAMMER) {
+      if (material == Tiers.WOOD) return -6;
+      if (material == Tiers.STONE) return -3;
+      if (material == Tiers.GOLD) return -6;
+      if (material == Tiers.DIAMOND) return -1;
+      if (material == Tiers.NETHERITE) return -1;
+    }
+    return 0;
+  }
+
+  /**
+   * Gets any special speed modifications for specific material/type combinations (e.g. Hammer)
+   */
+  public static float getSpeedModifier(WeaponType type, Tier material) {
+    if (type == WeaponType.DAGGER && material == Tiers.GOLD) return 1;
+    if (type == WeaponType.HAMMER) {
+      if (material == Tiers.WOOD) return 0.4f;
+      if (material == Tiers.STONE) return 0.2f;
+      if (material == Tiers.GOLD) return 0.6f;
+      if (material == Tiers.DIAMOND) return 0.1f;
+      if (material == Tiers.NETHERITE) return 0.2f;
+    }
+    return 0;
   }
 
   @FunctionalInterface
