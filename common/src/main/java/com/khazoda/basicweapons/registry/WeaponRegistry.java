@@ -17,13 +17,7 @@ public class WeaponRegistry {
   private static final Map<Tier, List<Supplier<Item>>> ITEMS_BY_MATERIAL = new HashMap<>();
 
   // Easy reference fields for common materials
-  private static final List<MaterialEntry> VANILLA_MATERIALS = Arrays.asList(
-      new MaterialEntry(Tiers.WOOD, "wooden"),
-      new MaterialEntry(Tiers.STONE, "stone"),
-      new MaterialEntry(Tiers.IRON, "iron"),
-      new MaterialEntry(Tiers.GOLD, "golden"),
-      new MaterialEntry(Tiers.DIAMOND, "diamond"),
-      new MaterialEntry(Tiers.NETHERITE, "netherite", Item.Properties::fireResistant));
+  private static final List<MaterialEntry> VANILLA_MATERIALS = Arrays.asList(new MaterialEntry(Tiers.WOOD, "wooden"), new MaterialEntry(Tiers.STONE, "stone"), new MaterialEntry(Tiers.IRON, "iron"), new MaterialEntry(Tiers.GOLD, "golden"), new MaterialEntry(Tiers.DIAMOND, "diamond"), new MaterialEntry(Tiers.NETHERITE, "netherite", Item.Properties::fireResistant));
 
   public static void init() {
     // Register vanilla weapons
@@ -47,8 +41,9 @@ public class WeaponRegistry {
       float speedModifier = getSpeedModifier(type, material.material());
 
       // Store the supplier instead of getting the item immediately
-      Supplier<Item> itemSupplier = ITEM_REGISTRAR.register(itemId, 
-          () -> type.create(material.material(), damageModifier, speedModifier, itemSettings));
+      Supplier<Item> itemSupplier = ITEM_REGISTRAR.register(itemId, () -> {
+        return type.create(material.material(), damageModifier, speedModifier, itemSettings);
+      });
 
       // Store the supplier in lookup maps
       ITEMS.put(itemId, itemSupplier);
@@ -93,30 +88,48 @@ public class WeaponRegistry {
   }
 
   public static List<Item> getItemsByType(WeaponType type) {
-    return ITEMS_BY_TYPE.getOrDefault(type, Collections.emptyList())
+    List<Item> items = ITEMS_BY_TYPE.getOrDefault(type, Collections.emptyList())
         .stream()
-        .map(Supplier::get)
+        .map(supplier -> {
+          try {
+            Item item = supplier.get();
+            if (item != null) {
+            }
+            return item;
+          } catch (Exception e) {
+            return null;
+          }
+        })
+        .filter(Objects::nonNull)
         .toList();
+    return items;
   }
 
   public static List<Item> getItemsByMaterial(Tier material) {
-    return ITEMS_BY_MATERIAL.getOrDefault(material, Collections.emptyList())
-        .stream()
-        .map(Supplier::get)
-        .toList();
+    return ITEMS_BY_MATERIAL.getOrDefault(material, Collections.emptyList()).stream().map(supplier -> {
+      try {
+        return supplier.get();
+      } catch (Exception e) {
+        return null;
+      }
+    }).filter(Objects::nonNull).toList();
   }
 
   public static Collection<Item> getAllItems() {
-    return ITEMS.values()
-        .stream()
-        .map(Supplier::get)
-        .toList();
+    return ITEMS.values().stream().map(supplier -> {
+      try {
+        return supplier.get();
+      } catch (Exception e) {
+        return null;
+      }
+    }).filter(Objects::nonNull).toList();
   }
 
   /**
    * Record for defining a material variant with its properties
    */
-  public record MaterialEntry(Tier material, String prefix, Function<Item.Properties, Item.Properties> settingsModifier) {
+  public record MaterialEntry(Tier material, String prefix,
+                              Function<Item.Properties, Item.Properties> settingsModifier) {
     MaterialEntry(Tier material, String prefix) {
       this(material, prefix, settings -> settings);
     }
