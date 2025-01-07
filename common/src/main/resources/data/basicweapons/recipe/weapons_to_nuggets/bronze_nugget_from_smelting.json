@@ -1,0 +1,44 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": [
+    {
+      "item": "basicweapons:bronze_dagger"
+    },
+    {
+      "item": "basicweapons:bronze_hammer"
+    },
+    {
+      "item": "basicweapons:bronze_club"
+    },
+    {
+      "item": "basicweapons:bronze_spear"
+    },
+    {
+      "item": "basicweapons:bronze_quarterstaff"
+    },
+    {
+      "item": "basicweapons:bronze_glaive"
+    }
+  ],
+  "result": {
+    "id": "bronze:bronze_nugget",
+    "count": 1
+  },
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "bronze"
+      ]
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "bronze"
+    }
+  ]
+}
