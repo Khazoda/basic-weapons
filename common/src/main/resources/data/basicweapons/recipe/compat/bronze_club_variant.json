@@ -1,12 +1,12 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "  ^",
-    " / ",
-    "/  "
+    "# ",
+    " #",
+    " /"
   ],
   "key": {
-    "^": {
+    "#": {
       "tag": "c:bronze_ingots"
     },
     "/": {
@@ -14,8 +14,7 @@
     }
   },
   "result": {
-    "id": "basicweapons:bronze_spear",
-    "required": false,
+    "id": "basicweapons:bronze_club",
     "count": 1
   },
   "fabric:load_conditions": [
@@ -24,6 +23,12 @@
       "values": [
         "bronze"
       ]
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "bronze"
     }
   ]
 }

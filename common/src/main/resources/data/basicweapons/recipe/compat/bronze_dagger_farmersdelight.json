@@ -6,28 +6,38 @@
   ],
   "key": {
     "#": {
-      "item": "minecraft:cobblestone"
+      "item": "minecraft:diamond"
     },
     "/": {
       "item": "minecraft:stick"
     }
   },
   "result": {
-    "id": "basicweapons:stone_dagger",
+    "id": "basicweapons:diamond_dagger",
     "count": 1
   },
   "fabric:load_conditions": [
     {
       "condition": "fabric:all_mods_loaded",
       "values": [
+        "bronze",
         "farmersdelight"
       ]
     }
   ],
   "neoforge:conditions": [
     {
-      "type": "neoforge:mod_loaded",
-      "modid": "farmersdelight"
+      "type": "neoforge:and",
+      "values": [
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "bronze"
+        },
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "farmersdelight"
+        }
+      ]
     }
   ]
 }

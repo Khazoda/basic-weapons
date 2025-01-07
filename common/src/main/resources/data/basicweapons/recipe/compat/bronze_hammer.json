@@ -1,20 +1,20 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " OO",
-    "O/ ",
-    "/  "
+    "###",
+    "#/#",
+    " / "
   ],
   "key": {
+    "#": {
+      "tag": "c:bronze_ingots"
+    },
     "/": {
       "item": "minecraft:stick"
-    },
-    "O": {
-      "tag": "c:bronze_ingots"
     }
   },
   "result": {
-    "id": "basicweapons:bronze_glaive",
+    "id": "basicweapons:bronze_hammer",
     "count": 1
   },
   "fabric:load_conditions": [
@@ -23,6 +23,12 @@
       "values": [
         "bronze"
       ]
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "bronze"
     }
   ]
 }
