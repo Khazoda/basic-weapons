@@ -49,9 +49,7 @@ public class WeaponRegistry {
       float speedModifier = getSpeedModifier(type, material.material());
 
       // Store the supplier instead of getting the item immediately
-      Supplier<Item> itemSupplier = ITEM_REGISTRAR.register(itemId, () -> {
-        return type.create(material.material(), damageModifier, speedModifier, itemSettings);
-      });
+      Supplier<Item> itemSupplier = ITEM_REGISTRAR.register(itemId, () -> type.create(material.material(), damageModifier, speedModifier, itemSettings));
 
       // Store the supplier in lookup maps
       ITEMS.put(itemId, itemSupplier);
