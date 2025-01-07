@@ -3,8 +3,16 @@ plugins {
     id 'maven-publish'
 }
 
+sourceSets {
+    main {
+        resources {
+            srcDir 'src/main/generated'
+        }
+    }
+}
+
 base {
-    archivesName = "${mod_id}-${project.name}-${minecraft_version}"
+    archivesName = "${mod_id}-${project.name}"
 }
 
 java {
@@ -58,6 +66,7 @@ repositories {
 }
 
 sourcesJar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     from(rootProject.file('LICENSE')) {
         rename { "${it}_${mod_name}" }
     }
@@ -82,6 +91,8 @@ jar {
 }
 
 processResources {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
     var expandProps = [
             'version'                      : version,
             'group'                        : project.group, //Else we target the task's group.
@@ -89,6 +100,7 @@ processResources {
             'minecraft_version_range'      : minecraft_version_range,
             'fabric_version'               : fabric_version,
             'fabric_loader_version'        : fabric_loader_version,
+            'fabric_loader_minimum_version': fabric_loader_minimum_version,
             'mod_name'                     : mod_name,
             'mod_author'                   : mod_author,
             'mod_id'                       : mod_id,

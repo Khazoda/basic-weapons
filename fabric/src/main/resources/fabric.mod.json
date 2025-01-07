@@ -18,6 +18,9 @@
     "entrypoints": {
         "main": [
             "com.khazoda.basicweapons.BasicWeaponsFabric"
+        ],
+        "fabric-datagen": [
+            "com.khazoda.basicweapons.datagen.BasicWeaponsDataGenerator"
         ]
     },
     "mixins": [
@@ -32,7 +35,7 @@
         }
     },
     "depends": {
-        "fabricloader": ">=${fabric_loader_version}",
+        "fabricloader": ">=${fabric_loader_minimum_version}",
         "fabric-api": "*",
         "minecraft": "${minecraft_version}",
         "java": ">=${java_version}"

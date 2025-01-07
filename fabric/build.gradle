@@ -35,3 +35,10 @@ loom {
         }
     }
 }
+
+fabricApi.configureDataGeneration {
+    modId = "${mod_id}"
+    outputDirectory = project(":common").file("src/main/generated")
+    addToResources = false
+    createSourceSet = true
+}

@@ -29,6 +29,7 @@ tasks.named('compileJava', JavaCompile) {
 processResources {
     dependsOn(configurations.commonResources)
     from(configurations.commonResources)
+    from(project(":common").files("src/main/generated"))
 }
 
 tasks.named('javadoc', Javadoc).configure {
