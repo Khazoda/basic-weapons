@@ -2,7 +2,6 @@ package com.khazoda.basicweapons.registry.helper;
 
 import com.khazoda.basicweapons.Constants;
 import com.khazoda.basicweapons.registry.MainRegistry;
-import com.khazoda.basicweapons.registry.TabRegistry;
 import it.unimi.dsi.fastutil.objects.Object2ObjectLinkedOpenHashMap;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -23,9 +22,7 @@ import java.util.Map;
  * <br/>
  * This class
  * is used by
- * {@link MainRegistry} to register all mod content and by {@link TabRegistry}
- * to create
- * the creative tab.
+ * {@link MainRegistry} to register all mod content
  *
  * @see Reggie
  * @see MainRegistry

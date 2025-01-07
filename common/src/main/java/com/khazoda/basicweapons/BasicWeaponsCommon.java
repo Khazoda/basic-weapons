@@ -2,7 +2,6 @@ package com.khazoda.basicweapons;
 
 import com.khazoda.basicweapons.platform.Services;
 import com.khazoda.basicweapons.registry.MainRegistry;
-import com.khazoda.basicweapons.registry.TabRegistry;
 import com.khazoda.basicweapons.registry.helper.Reginald;
 
 public class BasicWeaponsCommon {
@@ -10,8 +9,6 @@ public class BasicWeaponsCommon {
 
     public static void init() {
         MainRegistry.init();
-        TabRegistry.init();
-
         if (Services.PLATFORM.isModLoaded("basicweapons")) Constants.LOG.info("- Basic Weapons Loaded -");
     }
 
