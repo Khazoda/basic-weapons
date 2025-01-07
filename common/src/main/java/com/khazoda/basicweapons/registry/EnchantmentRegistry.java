@@ -16,5 +16,4 @@ public class EnchantmentRegistry {
 
   public static void init() {
   }
-
 }
