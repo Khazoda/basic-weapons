@@ -10,10 +10,9 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.TieredItem;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.component.Tool;
 import net.minecraft.world.level.Level;
@@ -28,8 +27,8 @@ import static com.khazoda.basicweapons.BasicWeaponsCommon.bettercombat_mod_loade
 import static com.khazoda.basicweapons.Constants.ID;
 import static com.khazoda.basicweapons.Constants.PLAYER_ENTITY_INTERACTION_RANGE_MODIFIER_ID;
 
-public abstract class BasicWeaponItem extends SwordItem {
-  public BasicWeaponItem(Tier material, TagKey<Block> effectiveBlocks, float attackDamage, float attackSpeed, double extraReach, Item.Properties properties) {
+public abstract class BasicWeaponSweeplessItem extends TieredItem {
+  public BasicWeaponSweeplessItem(Tier material, TagKey<Block> effectiveBlocks, float attackDamage, float attackSpeed, double extraReach, Properties properties) {
     super(material, properties
         .component(DataComponents.TOOL, createToolProperties(material, effectiveBlocks))
         .component(DataComponents.ATTRIBUTE_MODIFIERS, createAttributes(material, attackDamage, attackSpeed, extraReach)));
@@ -53,7 +52,7 @@ public abstract class BasicWeaponItem extends SwordItem {
             Attributes.ATTACK_DAMAGE,
             new AttributeModifier(
                 BASE_ATTACK_DAMAGE_ID,
-                (double)((float)attackDamage + tier.getAttackDamageBonus()),
+                (double) ((float) attackDamage + tier.getAttackDamageBonus()),
                 AttributeModifier.Operation.ADD_VALUE
             ),
             EquipmentSlotGroup.MAINHAND
@@ -62,7 +61,7 @@ public abstract class BasicWeaponItem extends SwordItem {
             Attributes.ATTACK_SPEED,
             new AttributeModifier(
                 BASE_ATTACK_SPEED_ID,
-                (double)attackSpeed,
+                (double) attackSpeed,
                 AttributeModifier.Operation.ADD_VALUE
             ),
             EquipmentSlotGroup.MAINHAND

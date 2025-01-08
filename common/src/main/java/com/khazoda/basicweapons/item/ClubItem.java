@@ -12,7 +12,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 
-public class ClubItem extends BasicWeaponItem {
+public class ClubItem extends BasicWeaponSweeplessItem {
   public ClubItem(Tier tier, float attackDamage, float attackSpeed, double reach, Item.Properties properties) {
     super(tier, BlockTags.AIR, attackDamage, attackSpeed, reach, properties);
   }
