@@ -7,7 +7,7 @@ import net.neoforged.fml.loading.FMLLoader;
 
 import java.util.function.BiConsumer;
 
-public class NeoForgePlatformHelper implements IPlatformHelper {
+public class NorgePlatformHelper implements IPlatformHelper {
   private BiConsumer<CreativeModeTab, CreativeModeTab.Output> itemGenerator;
 
   @Override
