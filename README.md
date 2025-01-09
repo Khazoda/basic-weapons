@@ -6,9 +6,7 @@
 
 ### This repository contains the source code for the Basic Weapons mod for Minecraft Java Edition, available on [Modrinth](https://modrinth.com/mod/basicweapons) and [CurseForge](https://www.curseforge.com/minecraft/mc-mods/basicweapons).
 
-The code in this repository is under the [GPL v3.0 License](https://github.com/Khazoda/basic-weapons/blob/latest-stable/CODE_LICENSE.md).  
-The assets in this repository are under the [CC BY-NC-SA 4.0 License](https://github.com/Khazoda/basic-weapons/blob/latest-stable/ASSETS_LICENSE.md).  
-**For more information see the [Full License](https://github.com/Khazoda/Plushables/blob/latest-stable/LICENSE.md)**
-
+The code & assets in this repository are under
+the [GPL v3.0 License](https://github.com/Khazoda/basic-weapons/blob/latest-stable/LICENSE.md).
 
 Issues and pull requests are welcome, but please contribute translations via the POEditor platform [here](https://poeditor.com/join/project/vW0G3i42PX).
