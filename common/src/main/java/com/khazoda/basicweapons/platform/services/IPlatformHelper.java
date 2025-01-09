@@ -1,5 +1,8 @@
 package com.khazoda.basicweapons.platform.services;
 
+import net.minecraft.core.RegistryAccess;
+import org.apache.commons.lang3.NotImplementedException;
+
 public interface IPlatformHelper {
 
     /**
@@ -32,5 +35,9 @@ public interface IPlatformHelper {
     default String getEnvironmentName() {
 
         return isDevelopmentEnvironment() ? "development" : "production";
+    }
+
+    default RegistryAccess getCurrentRegistryAccess() {
+        throw new NotImplementedException("getCurrentRegistryAccess is not implemented!");
     }
 }

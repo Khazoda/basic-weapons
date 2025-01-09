@@ -2,6 +2,9 @@ package com.khazoda.basicweapons.platform;
 
 import com.khazoda.basicweapons.platform.services.IPlatformHelper;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.client.Minecraft;
+import net.minecraft.core.RegistryAccess;
+import net.minecraft.server.MinecraftServer;
 
 public class FabricPlatformHelper implements IPlatformHelper {
 
@@ -18,5 +21,18 @@ public class FabricPlatformHelper implements IPlatformHelper {
     @Override
     public boolean isDevelopmentEnvironment() {
         return FabricLoader.getInstance().isDevelopmentEnvironment();
+    }
+
+    public static MinecraftServer currentMinecraftServer = null;
+
+    @Override
+    public RegistryAccess getCurrentRegistryAccess() {
+        try {
+            if (currentMinecraftServer == null || !currentMinecraftServer.isSameThread()) {
+                return Minecraft.getInstance().getConnection().registryAccess();
+            }
+        } catch (Throwable ignored) {
+        }
+        return currentMinecraftServer.registryAccess();
     }
 }
