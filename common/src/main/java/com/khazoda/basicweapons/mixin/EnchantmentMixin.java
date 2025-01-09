@@ -25,39 +25,28 @@ public class EnchantmentMixin {
     Enchantment enchantment = (Enchantment) (Object) this;
     String enchantDesc = enchantment.description().getString().toLowerCase();
 
-    // Filter out blacklisted items
     List<Holder<Item>> filteredItems = currentItems.stream()
         .filter(itemHolder -> {
           ItemStack stack = new ItemStack(itemHolder.value());
-
-          // Only filter our mod's weapons
           if (!stack.is(TagRegistry.BASIC_WEAPON)) return true;
-
-          // Check blacklists
           if (enchantDesc.contains("sweeping") && stack.is(TagRegistry.SWEEPING_BLACKLISTED)) {
             return false;
           }
           if (enchantDesc.contains("sharpness") && stack.is(TagRegistry.SHARPNESS_BLACKLISTED)) {
             return false;
           }
-
-          // Allow all other enchantments
           return true;
-        })
-        .toList();
-
+        }).toList();
     cir.setReturnValue(HolderSet.direct(filteredItems));
   }
 
   @Inject(method = "canEnchant", at = @At("HEAD"), cancellable = true)
   private void onCanEnchant(ItemStack stack, CallbackInfoReturnable<Boolean> cir) {
-    // Only check our mod's weapons
     if (!stack.is(TagRegistry.BASIC_WEAPON)) return;
 
     Enchantment enchantment = (Enchantment) (Object) this;
     String enchantDesc = enchantment.description().getString().toLowerCase();
 
-    // Check blacklists
     if (enchantDesc.contains("sweeping") && stack.is(TagRegistry.SWEEPING_BLACKLISTED)) {
       cir.setReturnValue(false);
     } else if (enchantDesc.contains("sharpness") && stack.is(TagRegistry.SHARPNESS_BLACKLISTED)) {
@@ -70,13 +59,10 @@ public class EnchantmentMixin {
     if (stack.is(TagRegistry.BASIC_WEAPON)) {
       String enchantDesc = ((Enchantment) (Object) this).toString().toLowerCase();
 
-      // Block sweeping edge for weapons that shouldn't have it
       if (stack.is(TagRegistry.SWEEPING_BLACKLISTED) && enchantDesc.contains("sweeping")) {
         cir.setReturnValue(false);
         return;
       }
-
-      // Block sharpness for blunt weapons
       if (stack.is(TagRegistry.SHARPNESS_BLACKLISTED) && enchantDesc.contains("sharpness")) {
         cir.setReturnValue(false);
       }
