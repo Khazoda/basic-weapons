@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "#basicweapons:tools/clubs",
+    "#basicweapons:tools/hammers",
+    "#basicweapons:tools/quarterstaves"
+  ]
+}

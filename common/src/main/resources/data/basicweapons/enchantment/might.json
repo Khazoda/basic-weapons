@@ -28,10 +28,10 @@
     "base": 1,
     "per_level_above_first": 11
   },
-  "primary_items": "#basicweapons:sharpness_blacklisted",
+  "primary_items": "#basicweapons:enchantable/might",
   "slots": [
     "mainhand"
   ],
-  "supported_items": "#basicweapons:sharpness_blacklisted",
+  "supported_items": "#basicweapons:enchantable/might",
   "weight": 10
 }
