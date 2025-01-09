@@ -1,5 +1,6 @@
 package com.khazoda.basicweapons;
 
+import com.khazoda.basicweapons.fabric.FabricEventManager;
 import com.khazoda.basicweapons.registry.CreativeModeTabHandler;
 import com.khazoda.basicweapons.registry.FabricLootTableModifier;
 import net.fabricmc.api.ModInitializer;
@@ -12,6 +13,8 @@ public class BasicWeaponsFabric implements ModInitializer {
         BasicWeaponsCommon.postInit();
         BasicWeaponsCommon.REGISTRARS.registerAll();
 
+
+        FabricEventManager.init();
         FabricLootTableModifier.init();
         CreativeModeTabHandler.buildContents();
     }

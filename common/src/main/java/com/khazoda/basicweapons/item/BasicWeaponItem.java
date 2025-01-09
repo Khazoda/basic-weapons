@@ -1,5 +1,6 @@
 package com.khazoda.basicweapons.item;
 
+import com.khazoda.basicweapons.platform.ItemExtension;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.tags.BlockTags;
@@ -28,7 +29,7 @@ import static com.khazoda.basicweapons.BasicWeaponsCommon.bettercombat_mod_loade
 import static com.khazoda.basicweapons.Constants.ID;
 import static com.khazoda.basicweapons.Constants.PLAYER_ENTITY_INTERACTION_RANGE_MODIFIER_ID;
 
-public abstract class BasicWeaponItem extends SwordItem {
+public abstract class BasicWeaponItem extends SwordItem implements ItemExtension {
   public BasicWeaponItem(Tier material, TagKey<Block> effectiveBlocks, float attackDamage, float attackSpeed, double extraReach, Item.Properties properties) {
     super(material, properties
         .component(DataComponents.TOOL, createToolProperties(material, effectiveBlocks))
