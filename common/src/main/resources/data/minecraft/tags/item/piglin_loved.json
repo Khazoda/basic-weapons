@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "basicweapons:golden_dagger",
+    "basicweapons:golden_hammer",
+    "basicweapons:golden_club",
+    "basicweapons:golden_spear",
+    "basicweapons:golden_quarterstaff",
+    "basicweapons:golden_glaive"
+  ]
+}
