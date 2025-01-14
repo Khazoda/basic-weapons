@@ -1,6 +1,6 @@
 package com.khazoda.basicweapons.registry;
 
-import com.khazoda.basicweapons.data.WeaponType;
+import com.khazoda.basicweapons.struct.WeaponType;
 import net.minecraft.world.item.*;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;

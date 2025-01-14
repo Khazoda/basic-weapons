@@ -1,6 +1,6 @@
 package com.khazoda.basicweapons.registry;
 
-import com.khazoda.basicweapons.data.WeaponType;
+import com.khazoda.basicweapons.struct.WeaponType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.Tiers;
@@ -9,9 +9,9 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-import static com.khazoda.basicweapons.data.WeaponType.getDamageModifier;
-import static com.khazoda.basicweapons.data.WeaponType.getSpeedModifier;
 import static com.khazoda.basicweapons.registry.MainRegistry.ITEM_REGISTRAR;
+import static com.khazoda.basicweapons.struct.WeaponType.getDamageModifier;
+import static com.khazoda.basicweapons.struct.WeaponType.getSpeedModifier;
 
 public class WeaponRegistry {
   private static final Map<String, Supplier<Item>> ITEMS = new LinkedHashMap<>();

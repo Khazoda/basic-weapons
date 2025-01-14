@@ -1,4 +1,4 @@
-package com.khazoda.basicweapons.data;
+package com.khazoda.basicweapons.struct;
 
 
 import com.khazoda.basicweapons.item.*;
