@@ -1,6 +1,8 @@
 package com.khazoda.basicweapons.mixin.client;
 
-import com.khazoda.basicweapons.BasicWeaponsCommon;
+import com.khazoda.basicweapons.Constants;
+import com.khazoda.basicweapons.materialpack.MaterialPackLoader;
+import com.khazoda.basicweapons.registry.WeaponRegistry;
 import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.client.resources.model.BlockStateModelLoader;
@@ -40,34 +42,14 @@ public abstract class ModelBakeryMixin {
   @Inject(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/profiling/ProfilerFiller;popPush(Ljava/lang/String;)V", ordinal = 0))
   private void registerCustomModels(BlockColors blockColors, ProfilerFiller profilerFiller, Map<ResourceLocation, BlockModel> modelResources, Map<ResourceLocation, List<BlockStateModelLoader.LoadedJson>> blockStateResources, CallbackInfo ci) {
     try {
-      // Spears
-      basic_weapons$registerHeldModel("wooden_spear");
-      basic_weapons$registerHeldModel("stone_spear");
-      basic_weapons$registerHeldModel("iron_spear");
-      basic_weapons$registerHeldModel("golden_spear");
-      basic_weapons$registerHeldModel("diamond_spear");
-      basic_weapons$registerHeldModel("netherite_spear");
+      // Register vanilla materials
+      for (WeaponRegistry.MaterialEntry material : WeaponRegistry.VANILLA_MATERIALS) {
+        basic_weapons$registerMaterialWeaponModels(material.prefix());
+      }
 
-      // Quarterstaves
-      basic_weapons$registerHeldModel("wooden_quarterstaff");
-      basic_weapons$registerHeldModel("stone_quarterstaff");
-      basic_weapons$registerHeldModel("iron_quarterstaff");
-      basic_weapons$registerHeldModel("golden_quarterstaff");
-      basic_weapons$registerHeldModel("diamond_quarterstaff");
-      basic_weapons$registerHeldModel("netherite_quarterstaff");
-
-      // Glaives
-      basic_weapons$registerHeldModel("wooden_glaive");
-      basic_weapons$registerHeldModel("stone_glaive");
-      basic_weapons$registerHeldModel("iron_glaive");
-      basic_weapons$registerHeldModel("golden_glaive");
-      basic_weapons$registerHeldModel("diamond_glaive");
-      basic_weapons$registerHeldModel("netherite_glaive");
-
-      if (BasicWeaponsCommon.bronze_mod_loaded) {
-        basic_weapons$registerHeldModel("bronze_spear");
-        basic_weapons$registerHeldModel("bronze_quarterstaff");
-        basic_weapons$registerHeldModel("bronze_glaive");
+      // Register datapack materials
+      for (String materialName : MaterialPackLoader.getMaterialNames()) {
+        basic_weapons$registerMaterialWeaponModels(materialName);
       }
     } catch (Exception e) {
       LOG.error("basicweapons: Error registering held models", e);
@@ -75,12 +57,39 @@ public abstract class ModelBakeryMixin {
   }
 
   @Unique
+  private void basic_weapons$registerMaterialWeaponModels(String materialPrefix) {
+    // Register models for weapon types that need held variants
+    basic_weapons$registerHeldModel(materialPrefix + "_spear");
+    basic_weapons$registerHeldModel(materialPrefix + "_quarterstaff");
+    basic_weapons$registerHeldModel(materialPrefix + "_glaive");
+  }
+
+  @Unique
   private void basic_weapons$registerHeldModel(String baseName) {
     try {
-      ResourceLocation modelLoc = ID("models/item/" + baseName + "_held.json");
-      ModelResourceLocation modelId = new ModelResourceLocation(ID(baseName + "_held"), "inventory");
-      UnbakedModel model = modelResources.get(modelLoc);
-      registerModel(modelId, model);
+      // First check if the base model exists
+      ResourceLocation baseModelLoc = ID("item/" + baseName);
+      UnbakedModel baseModel = getModel(baseModelLoc);
+
+      if (baseModel != null) {
+        ResourceLocation modelLoc = ID("item/" + baseName + "_held");
+        ModelResourceLocation modelId = new ModelResourceLocation(ID(baseName + "_held"), "inventory");
+
+        // If held model doesn't exist, create one based on the handheld_big_staff parent
+        UnbakedModel heldModel = getModel(modelLoc);
+        if (heldModel == null) {
+          // Use the base model's texture with the handheld_big_staff parent
+          BlockModel parentModel = modelResources.get(ID("models/item/handheld_big_staff.json"));
+          if (parentModel != null) {
+            heldModel = parentModel;
+          }
+        }
+
+        if (heldModel != null) {
+          registerModel(modelId, heldModel);
+          Constants.LOG.info("Registered held model for {}", baseName);
+        }
+      }
     } catch (Exception e) {
       LOG.error("basicweapons: Failed to register held model for {}", baseName, e);
     }
