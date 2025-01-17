@@ -1,5 +1,6 @@
 package com.khazoda.basicweapons.item;
 
+import com.khazoda.basicweapons.Constants;
 import com.khazoda.basicweapons.platform.ItemExtension;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
@@ -11,6 +12,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TieredItem;
@@ -29,10 +31,15 @@ import static com.khazoda.basicweapons.Constants.ID;
 import static com.khazoda.basicweapons.Constants.PLAYER_ENTITY_INTERACTION_RANGE_MODIFIER_ID;
 
 public abstract class BasicWeaponSweeplessItem extends TieredItem implements ItemExtension {
+  private Tier currentTier;
+  private final Item.Properties properties;
+
   public BasicWeaponSweeplessItem(Tier material, TagKey<Block> effectiveBlocks, float attackDamage, float attackSpeed, double extraReach, Properties properties) {
     super(material, properties
         .component(DataComponents.TOOL, createToolProperties(material, effectiveBlocks))
         .component(DataComponents.ATTRIBUTE_MODIFIERS, createAttributes(material, attackDamage, attackSpeed, extraReach)));
+    this.currentTier = material;
+    this.properties = properties;
   }
 
   private static Tool createToolProperties(Tier material, TagKey<Block> effectiveBlocks) {
@@ -48,6 +55,7 @@ public abstract class BasicWeaponSweeplessItem extends TieredItem implements Ite
   }
 
   private static ItemAttributeModifiers createAttributes(Tier tier, float attackDamage, float attackSpeed, double reach) {
+    Constants.LOG.info("Creating weapon attributes with reach: {}", reach);
     ItemAttributeModifiers.Builder builder = ItemAttributeModifiers.builder()
         .add(
             Attributes.ATTACK_DAMAGE,

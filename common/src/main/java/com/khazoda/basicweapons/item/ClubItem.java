@@ -37,4 +37,5 @@ public class ClubItem extends BasicWeaponSweeplessItem {
     // The item can't be enchanted by enchantments listed here
     return enchantment.is(TagRegistry.SHARPNESS_ENCHANTABLE) || enchantment.is(TagRegistry.SWEEPING_EDGE_ENCHANTABLE) ? AllowDenyPass.DENY : AllowDenyPass.PASS;
   }
+
 }
