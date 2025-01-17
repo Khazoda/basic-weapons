@@ -10,6 +10,7 @@
     "PlayerEntityMixin"
   ],
   "client": [
+    "client.ClientPackFinderMixin",
     "client.ItemRendererAccessor",
     "client.ItemRendererMixin",
     "client.ModelBakeryMixin"

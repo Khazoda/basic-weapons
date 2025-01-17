@@ -2,7 +2,6 @@ package com.khazoda.basicweapons.materialpack;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.khazoda.basicweapons.Constants;
 import com.khazoda.basicweapons.registry.WeaponRegistry;
@@ -12,7 +11,6 @@ import net.minecraft.world.level.storage.LevelResource;
 import org.apache.commons.io.FileUtils;
 
 import java.io.*;
-import java.nio.file.Files;
 import java.util.*;
 
 import static com.khazoda.basicweapons.BasicWeaponsCommon.*;
@@ -150,7 +148,7 @@ public class MaterialPackLoader {
     File assetsFolder = new File(packFolder, ASSETS_PATH);
     if (!assetsFolder.exists()) return;
 
-    File resourcepacksFolder = new File("resourcepacks");
+    File resourcepacksFolder = new File("resourcepacks/basicweapons_materialpacks");
     if (!resourcepacksFolder.exists()) {
       resourcepacksFolder.mkdirs();
     }
@@ -176,7 +174,7 @@ public class MaterialPackLoader {
         // Create default pack.mcmeta if none exists
         JsonObject packMeta = new JsonObject();
         JsonObject pack = new JsonObject();
-        pack.addProperty("pack_format", 34);
+        pack.addProperty("pack_format", 15);
         pack.addProperty("description", "Resources for " + packFolder.getName());
         packMeta.add("pack", pack);
 
@@ -185,47 +183,9 @@ public class MaterialPackLoader {
         }
       }
 
-      // Enable the resource pack in options.txt
-      enableResourcePack(packFolder.getName());
-
-      Constants.LOG.info("Copied and enabled resourcepack content from {}", packFolder.getName());
+      Constants.LOG.info("Copied resourcepack content from {}", packFolder.getName());
     } catch (IOException e) {
       Constants.LOG.error("Failed to copy resourcepack content from {}: {}", packFolder.getName(), e.getMessage());
-    }
-  }
-
-  private static void enableResourcePack(String packName) {
-    File optionsFile = new File("options.txt");
-    List<String> lines = new ArrayList<>();
-    boolean foundResourcePacks = false;
-
-    try {
-      if (optionsFile.exists()) {
-        lines = Files.readAllLines(optionsFile.toPath());
-        for (int i = 0; i < lines.size(); i++) {
-          String line = lines.get(i);
-          if (line.startsWith("resourcePacks:")) {
-            foundResourcePacks = true;
-            JsonArray packs = GSON.fromJson(line.substring(line.indexOf('[')), JsonArray.class);
-            String packPath = "file/" + packName;
-            if (!packs.toString().contains(packPath)) {
-              packs.add(packPath);
-              lines.set(i, "resourcePacks:" + GSON.toJson(packs));
-            }
-            break;
-          }
-        }
-      }
-
-      if (!foundResourcePacks) {
-        JsonArray packs = new JsonArray();
-        packs.add("file/" + packName);
-        lines.add("resourcePacks:" + GSON.toJson(packs));
-      }
-
-      Files.write(optionsFile.toPath(), lines);
-    } catch (IOException e) {
-      Constants.LOG.error("Failed to enable resourcepack {}: {}", packName, e.getMessage());
     }
   }
 
