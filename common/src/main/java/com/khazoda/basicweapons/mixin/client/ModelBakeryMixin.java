@@ -1,6 +1,5 @@
 package com.khazoda.basicweapons.mixin.client;
 
-import com.khazoda.basicweapons.Constants;
 import com.khazoda.basicweapons.materialpack.MaterialPackLoader;
 import com.khazoda.basicweapons.registry.WeaponRegistry;
 import net.minecraft.client.color.block.BlockColors;
@@ -87,7 +86,6 @@ public abstract class ModelBakeryMixin {
 
         if (heldModel != null) {
           registerModel(modelId, heldModel);
-          Constants.LOG.info("Registered held model for {}", baseName);
         }
       }
     } catch (Exception e) {

@@ -1,6 +1,5 @@
 package com.khazoda.basicweapons.item;
 
-import com.khazoda.basicweapons.Constants;
 import com.khazoda.basicweapons.platform.ItemExtension;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
@@ -58,7 +57,6 @@ public abstract class BasicWeaponItem extends SwordItem implements ItemExtension
   }
 
   private static ItemAttributeModifiers createAttributes(Tier tier, float attackDamage, float attackSpeed, double reach) {
-    Constants.LOG.info("Creating weapon attributes with reach: {}", reach);
     ItemAttributeModifiers.Builder builder = ItemAttributeModifiers.builder().add(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_ID, (double) ((float) attackDamage + tier.getAttackDamageBonus()), AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).add(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_ID, (double) attackSpeed, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND);
 
     if (!bettercombat_mod_loaded) {

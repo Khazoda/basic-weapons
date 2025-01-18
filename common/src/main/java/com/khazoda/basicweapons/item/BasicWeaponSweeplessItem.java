@@ -1,6 +1,5 @@
 package com.khazoda.basicweapons.item;
 
-import com.khazoda.basicweapons.Constants;
 import com.khazoda.basicweapons.platform.ItemExtension;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
@@ -55,7 +54,6 @@ public abstract class BasicWeaponSweeplessItem extends TieredItem implements Ite
   }
 
   private static ItemAttributeModifiers createAttributes(Tier tier, float attackDamage, float attackSpeed, double reach) {
-    Constants.LOG.info("Creating weapon attributes with reach: {}", reach);
     ItemAttributeModifiers.Builder builder = ItemAttributeModifiers.builder()
         .add(
             Attributes.ATTACK_DAMAGE,

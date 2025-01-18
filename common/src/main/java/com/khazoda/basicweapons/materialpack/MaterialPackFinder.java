@@ -7,104 +7,123 @@ import net.minecraft.server.packs.repository.PackSource;
 import net.minecraft.server.packs.repository.RepositorySource;
 
 import java.io.File;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Optional;
 import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 public class MaterialPackFinder implements RepositorySource {
-  private final File resourcepacksFolder;
-  private final boolean isRequired;
-  private static final PackSource MATERIAL = PackSource.create(Component::copy, true);
-  private static final String MATERIAL_PACKS_FOLDER = "basicweapons_materialpacks";
+    private final File packsFolder;
+    private final boolean isRequired;
+    private final PackType packType;
+    private static final PackSource MATERIAL = PackSource.create(Component::copy, true);
+    private static final String SOURCE_FOLDER = "basicweapons_materialpacks";
+    private static final String RESOURCEPACK_TARGET = "materialpacks";
+    private static final String DATAPACK_TARGET = "config/basicweapons/bwmp_data";
+    private static final String ZIP_EXTENSION = ".zip";
 
-  public MaterialPackFinder(File resourcepacksFolder, boolean isRequired) {
-    this.resourcepacksFolder = new File(resourcepacksFolder, MATERIAL_PACKS_FOLDER);
-    this.isRequired = isRequired;
-  }
+    private static final Predicate<Path> IS_VALID_RESOURCE_PACK = (pack) -> {
+        return Files.isDirectory(pack.resolve("assets")) &&
+            Files.isRegularFile(pack.resolve("pack.mcmeta"));
+    };
 
-  private String formatPackName(String folderName) {
-    // Split by underscores to separate sections
-    String[] sections = folderName.split("_");
+    private static final Predicate<Path> IS_VALID_DATA_PACK = (pack) -> {
+        return Files.isDirectory(pack.resolve("data")) &&
+            Files.isRegularFile(pack.resolve("pack.mcmeta"));
+    };
 
-    // If we have at least 2 sections (bwmp_materialname_...)
-    if (sections.length >= 2) {
-      // Get the material name section (index 1)
-      String materialName = sections[1];
-
-      // Split material name by hyphens if it exists
-      String[] materialWords = materialName.split("-");
-
-      // Capitalize each word and join with spaces
-      StringBuilder formatted = new StringBuilder();
-      for (String word : materialWords) {
-        if (word.length() > 0) {
-          formatted.append(Character.toUpperCase(word.charAt(0)))
-              .append(word.substring(1).toLowerCase())
-              .append(" ");
+    public MaterialPackFinder(File resourcepacksFolder, PackType packType, boolean isRequired) {
+        if (packType == PackType.CLIENT_RESOURCES) {
+            // For resource packs, use resourcepacks/materialpacks
+            this.packsFolder = new File(resourcepacksFolder, RESOURCEPACK_TARGET);
+        } else {
+            // For datapacks, use config/basicweapons/bwmp_data
+            this.packsFolder = new File(DATAPACK_TARGET);
         }
-      }
-
-      // Add "Material" suffix and trim extra spaces
-      return formatted.toString().trim() + " Material";
+        this.packType = packType;
+        this.isRequired = isRequired;
     }
 
-    // Fallback if the name doesn't follow the convention
-    return folderName + " Material";
-  }
+    private String formatPackName(String folderName) {
+        String[] sections = folderName.split("_");
+        if (sections.length >= 2) {
+            String materialName = sections[1];
+            String[] materialWords = materialName.split("-");
 
-  @Override
-  public void loadPacks(Consumer<Pack> packConsumer) {
-    if (!resourcepacksFolder.exists() || !resourcepacksFolder.isDirectory()) {
-      return;
-    }
+            StringBuilder formatted = new StringBuilder();
+            for (String word : materialWords) {
+                if (word.length() > 0) {
+                    formatted.append(Character.toUpperCase(word.charAt(0)))
+                        .append(word.substring(1).toLowerCase())
+                        .append(" ");
+                }
+            }
 
-    File[] packs = resourcepacksFolder.listFiles(file ->
-        file.isDirectory() && new File(file, "pack.mcmeta").exists());
-
-    if (packs != null) {
-      for (File packFile : packs) {
-        String packId = (isRequired ? "basicweapons:" : "basicweaponsopt:") + packFile.getName();
-        Path packPath = packFile.toPath();
-
-        // Create a formatted display name
-        String displayName = formatPackName(packFile.getName());
-
-        PackLocationInfo location = new PackLocationInfo(
-            packId,
-            Component.literal(displayName),
-            MATERIAL,
-            Optional.empty()
-        );
-
-        Pack.ResourcesSupplier resources = new Pack.ResourcesSupplier() {
-          @Override
-          public PackResources openPrimary(PackLocationInfo info) {
-            return new PathPackResources(info, packPath);
-          }
-
-          @Override
-          public PackResources openFull(PackLocationInfo info, Pack.Metadata metadata) {
-            return new PathPackResources(info, packPath);
-          }
-        };
-
-        PackSelectionConfig selectionConfig = new PackSelectionConfig(
-            isRequired,
-            Pack.Position.TOP,
-            true
-        );
-
-        Pack pack = Pack.readMetaAndCreate(
-            location,
-            resources,
-            PackType.CLIENT_RESOURCES,
-            selectionConfig
-        );
-
-        if (pack != null) {
-          packConsumer.accept(pack);
+            return formatted.toString().trim() + (packType == PackType.CLIENT_RESOURCES ? " Material Resources" : " Material Data");
         }
-      }
+        return folderName + (packType == PackType.CLIENT_RESOURCES ? " Material Resources" : " Material Data");
     }
-  }
+
+    @Override
+    public void loadPacks(Consumer<Pack> packConsumer) {
+        if (!packsFolder.exists() || !packsFolder.isDirectory()) {
+            return;
+        }
+
+        File[] packs = packsFolder.listFiles(file ->
+            (file.isDirectory() || file.getName().endsWith(ZIP_EXTENSION)) &&
+                new File(file, "pack.mcmeta").exists() &&
+                (packType == PackType.CLIENT_RESOURCES ?
+                    IS_VALID_RESOURCE_PACK.test(file.toPath()) :
+                    IS_VALID_DATA_PACK.test(file.toPath()))
+        );
+
+        if (packs != null) {
+            for (File packFile : packs) {
+                String packId = "basicweapons:" + (packFile.getName().endsWith(ZIP_EXTENSION) ?
+                    packFile.getName().substring(0, packFile.getName().length() - 4) :
+                    packFile.getName());
+
+                Path packPath = packFile.toPath();
+                String displayName = formatPackName(packFile.getName());
+
+                PackLocationInfo location = new PackLocationInfo(
+                    packId,
+                    Component.literal(displayName),
+                    MATERIAL,
+                    Optional.empty()
+                );
+
+                Pack.ResourcesSupplier resources = new Pack.ResourcesSupplier() {
+                    @Override
+                    public PackResources openPrimary(PackLocationInfo info) {
+                        return new PathPackResources(info, packPath);
+                    }
+
+                    @Override
+                    public PackResources openFull(PackLocationInfo info, Pack.Metadata metadata) {
+                        return new PathPackResources(info, packPath);
+                    }
+                };
+
+                PackSelectionConfig selectionConfig = new PackSelectionConfig(
+                    isRequired,
+                    Pack.Position.TOP,
+                    true
+                );
+
+                Pack pack = Pack.readMetaAndCreate(
+                    location,
+                    resources,
+                    packType,
+                    selectionConfig
+                );
+
+                if (pack != null) {
+                    packConsumer.accept(pack);
+                }
+            }
+        }
+    }
 } 

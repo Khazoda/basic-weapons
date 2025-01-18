@@ -7,9 +7,11 @@
   "mixins": [
     "EnchantmentMixin",
     "MinecraftServerMixin",
-    "PlayerEntityMixin"
+    "PlayerEntityMixin",
+    "ServerPacksSourceMixin"
   ],
   "client": [
+    "CreateWorldScreenMixin",
     "client.ClientPackFinderMixin",
     "client.ItemRendererAccessor",
     "client.ItemRendererMixin",
