@@ -1,7 +1,7 @@
 package com.khazoda.basicweapons.registry;
 
 import com.khazoda.basicweapons.BasicWeaponsCommon;
-import com.khazoda.basicweapons.material.ExternalToolMaterials;
+import com.khazoda.basicweapons.material.ConditionalToolMaterials;
 import com.khazoda.basicweapons.registry.helper.Reggie;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.Item;
@@ -16,7 +16,7 @@ public class MainRegistry {
     WeaponRegistry.init();
     if (bronze_mod_loaded) {
       WeaponRegistry.registerMaterialVariants(
-          new WeaponRegistry.MaterialEntry(ExternalToolMaterials.BRONZE, "bronze")
+          new WeaponRegistry.MaterialEntry(ConditionalToolMaterials.BRONZE, "bronze")
       );
     }
     EnchantmentRegistry.init();

@@ -2,7 +2,7 @@ package com.khazoda.basicweapons.struct;
 
 
 import com.khazoda.basicweapons.item.*;
-import com.khazoda.basicweapons.materialpack.EarlyMaterial;
+import com.khazoda.basicweapons.materialpack.EarlyLoadedMaterial;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.Tiers;
@@ -47,8 +47,8 @@ public enum WeaponType {
 
   public Item create(Tier material, float damageModifier, float speedModifier, float reachModifier, Item.Properties properties) {
     double totalReach = baseReach + reachModifier;
-    if (material instanceof EarlyMaterial.TierWithReach) {
-      totalReach += ((EarlyMaterial.TierWithReach) material).getReachBonus();
+    if (material instanceof EarlyLoadedMaterial.TierWithReach) {
+      totalReach += ((EarlyLoadedMaterial.TierWithReach) material).getReachBonus();
     }
 
     return factory.create(

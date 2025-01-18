@@ -9,7 +9,10 @@ import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 
-public class EarlyMaterial {
+/**
+ * This class' fields should mirror the schema used for material pack material JSON files
+ */
+public class EarlyLoadedMaterial {
   private final String material_name;
   private final int durability;
   private final float attack_damage_bonus;
@@ -18,7 +21,7 @@ public class EarlyMaterial {
   private final int enchantability;
   private final String repair_ingredient;
 
-  public EarlyMaterial(String material_name, int durability, float attack_damage_bonus, float attack_speed_bonus, float reach_bonus, int enchantability, String repair_ingredient) {
+  public EarlyLoadedMaterial(String material_name, int durability, float attack_damage_bonus, float attack_speed_bonus, float reach_bonus, int enchantability, String repair_ingredient) {
     this.material_name = material_name;
     this.durability = durability;
     this.attack_damage_bonus = attack_damage_bonus;
