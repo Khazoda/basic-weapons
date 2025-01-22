@@ -32,10 +32,11 @@ public class EarlyLoadedMaterial {
   }
 
   private Ingredient createRepairIngredient(String repair_ingredient) {
-    ResourceLocation identifier = ResourceLocation.bySeparator(repair_ingredient, ':');
     if (repair_ingredient.startsWith("#")) {
+      ResourceLocation identifier = ResourceLocation.bySeparator(repair_ingredient.substring(1), ':');
       return Ingredient.of(TagKey.create(Registries.ITEM, identifier));
     } else {
+      ResourceLocation identifier = ResourceLocation.bySeparator(repair_ingredient, ':');
       return Ingredient.of(() -> BuiltInRegistries.ITEM.get(identifier));
     }
   }
