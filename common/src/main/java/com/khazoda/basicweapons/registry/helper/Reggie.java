@@ -1,6 +1,5 @@
 package com.khazoda.basicweapons.registry.helper;
 
-import com.khazoda.basicweapons.registry.MainRegistry;
 import it.unimi.dsi.fastutil.objects.Object2ObjectLinkedOpenHashMap;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
@@ -45,7 +44,7 @@ public class Reggie<T> {
    * Registers a new entry to this registry.
    * Uses lazy initialization through a memoized supplier. 'Registrant' here is used to refer to the thing being registered i.e. a specific Block, Item etc.
    * <br/>
-   * This method is called by each static reference in {@link MainRegistry} et al.
+   * This method is called by each static reference in {@link com.khazoda.basicweapons.BasicWeaponsCommon} et al.
    *
    * @param <T2>     The specific type being registered
    * @param path     The registration path for the registrant

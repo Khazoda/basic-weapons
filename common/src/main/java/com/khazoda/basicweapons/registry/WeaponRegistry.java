@@ -10,15 +10,13 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-import static com.khazoda.basicweapons.registry.MainRegistry.ITEM_REGISTRAR;
+import static com.khazoda.basicweapons.BasicWeaponsCommon.ITEM_REGISTRAR;
 import static com.khazoda.basicweapons.struct.WeaponType.*;
 
 public class WeaponRegistry {
   private static final Map<String, Supplier<Item>> ITEMS = new LinkedHashMap<>();
   private static final Map<WeaponType, List<Supplier<Item>>> ITEMS_BY_TYPE = new EnumMap<>(WeaponType.class);
   private static final Map<Tier, List<Supplier<Item>>> ITEMS_BY_MATERIAL = new HashMap<>();
-
-  private static final Map<String, List<Item>> DATAPACK_WEAPONS = new HashMap<>();
 
   public static final List<MaterialEntry> VANILLA_MATERIALS = Arrays.asList(
       new MaterialEntry(Tiers.WOOD, "wooden"),
@@ -31,11 +29,12 @@ public class WeaponRegistry {
 
   public static void init() {
     for (MaterialEntry material : VANILLA_MATERIALS) {
-      registerMaterialVariants(material);
+      registerAllWeaponsForMaterial(material);
     }
   }
 
-  public static void registerMaterialVariants(MaterialEntry material) {
+  /* Register weapons from MaterialEntry */
+  public static void registerAllWeaponsForMaterial(MaterialEntry material) {
     for (WeaponType type : WeaponType.values()) {
       String itemId = material.prefix() + "_" + type.getId();
       Item.Properties itemSettings = material.settingsModifier().apply(new Item.Properties());
@@ -52,14 +51,10 @@ public class WeaponRegistry {
     }
   }
 
-  public static void registerWeaponsForMaterial(String materialName) {
+  /* Register weapons from string of material name (used for material packs) */
+  public static void registerAllWeaponsForMaterial(String materialName) {
     Tier material = MaterialPackLoader.getMaterial(materialName);
-    registerMaterialVariants(new MaterialEntry(material, materialName));
-  }
-
-  public static Item getItem(String id) {
-    Supplier<Item> supplier = ITEMS.get(id);
-    return supplier != null ? supplier.get() : null;
+    registerAllWeaponsForMaterial(new MaterialEntry(material, materialName));
   }
 
   public static List<Item> getItemsByType(WeaponType type) {
@@ -74,16 +69,6 @@ public class WeaponRegistry {
         .map(Supplier::get)
         .filter(Objects::nonNull)
         .toList();
-  }
-
-  public static Collection<Item> getAllItems() {
-    return ITEMS.values().stream().map(supplier -> {
-      try {
-        return supplier.get();
-      } catch (Exception e) {
-        return null;
-      }
-    }).filter(Objects::nonNull).toList();
   }
 
   /**

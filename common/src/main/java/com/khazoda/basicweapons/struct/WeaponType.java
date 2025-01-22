@@ -94,7 +94,7 @@ public enum WeaponType {
    * Gets any special reach modifications for specific material/type combinations
    */
   public static float getReachModifier(WeaponType type, Tier material) {
-    // No base materials implement implicit reach modifiers yet
+    // No base materials implement implicit reach modifiers yet. This is future proofing (tm)
     return 0;
   }
 

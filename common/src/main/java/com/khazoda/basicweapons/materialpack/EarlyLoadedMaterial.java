@@ -51,12 +51,16 @@ public class EarlyLoadedMaterial {
     }
 
     @Override
+    public float getSpeed() {
+      return 1.0f;
+    }
+
+    @Override
     public float getAttackDamageBonus() {
       return attack_damage_bonus;
     }
 
-    @Override
-    public float getSpeed() {
+    public float getAttackSpeedBonus() {
       return attack_speed_bonus;
     }
 

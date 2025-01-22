@@ -68,12 +68,9 @@ public class ResourceAndDatapackCustomLoader implements RepositorySource {
     if (packs != null) {
       for (File packFile : packs) {
         String packId = "basicweapons:" + (packFile.getName().endsWith(".zip") ? packFile.getName().substring(0, packFile.getName().length() - 4) : packFile.getName());
-
         Path packPath = packFile.toPath();
         String displayName = formatPackName(packFile.getName());
-
         PackLocationInfo location = new PackLocationInfo(packId, Component.literal(displayName), MATERIAL, Optional.empty());
-
         Pack.ResourcesSupplier resources = new Pack.ResourcesSupplier() {
           @Override
           public PackResources openPrimary(PackLocationInfo info) {
@@ -85,11 +82,9 @@ public class ResourceAndDatapackCustomLoader implements RepositorySource {
             return new PathPackResources(info, packPath);
           }
         };
-
         PackSelectionConfig selectionConfig = new PackSelectionConfig(isRequired, Pack.Position.TOP, true);
 
         Pack pack = Pack.readMetaAndCreate(location, resources, packType, selectionConfig);
-
         if (pack != null) packConsumer.accept(pack);
       }
     }

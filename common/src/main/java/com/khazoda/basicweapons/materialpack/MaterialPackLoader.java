@@ -42,7 +42,7 @@ public class MaterialPackLoader {
     File materialPacksFolder = new File(MATERIALPACK_SOURCE);
     if (!materialPacksFolder.exists()) {
       if (materialPacksFolder.mkdir()) {
-        Constants.LOG.info("Created material packs folder at {}", materialPacksFolder.getAbsolutePath());
+        Constants.LOG.info("Created material packs folder {}", materialPacksFolder.getName());
       } else {
         Constants.LOG.error("Failed to create basicweapons_materials folder. This should never happen.");
         return;
@@ -50,9 +50,8 @@ public class MaterialPackLoader {
     }
 
     File[] packFiles = materialPacksFolder.listFiles(file -> file.isDirectory() || file.getName().endsWith(".zip"));
-
     if (packFiles == null || packFiles.length == 0) {
-      Constants.LOG.info("No material packs found in {}", materialPacksFolder.getAbsolutePath());
+      Constants.LOG.info("No material packs found in {}", materialPacksFolder.getName());
       return;
     }
 
@@ -61,7 +60,7 @@ public class MaterialPackLoader {
       if (packFile.isDirectory()) {
         processPackFolder(packFile);
       } else {
-        // For ZIP files, extract to a directory with the same name
+        // For ZIP files, extract to a temp directory with the same name before processing
         File extractDir = new File(materialPacksFolder, packName.substring(0, packName.length() - 4));
         try {
           if (extractDir.exists()) {
@@ -110,9 +109,11 @@ public class MaterialPackLoader {
   }
 
   private static void copyResourcePackContent(File packFolder) {
+    /* Internal /assets folder inside material pack */
     File assetsFolder = new File(packFolder, ASSETS_PATH);
     if (!assetsFolder.exists()) return;
 
+    /* Destination for resourcepack generated from /assets */
     File resourcepacksFolder = new File(RESOURCEPACK_TARGET);
     if (!resourcepacksFolder.exists()) {
       resourcepacksFolder.mkdirs();
@@ -120,7 +121,7 @@ public class MaterialPackLoader {
 
     File targetFolder = new File(resourcepacksFolder, packFolder.getName());
     try {
-      // Copy assets folder contents (excluding pack.mcmeta)
+      // Copy /assets folder contents (excluding pack.mcmeta, that's handled separately)
       File[] assetContents = assetsFolder.listFiles(file -> !file.getName().equals("pack.mcmeta"));
       if (assetContents != null) {
         for (File file : assetContents) {
@@ -151,9 +152,11 @@ public class MaterialPackLoader {
   }
 
   private static void copyDataPackContent(File packFolder) {
+    /* Internal /data folder inside material pack */
     File dataFolder = new File(packFolder, DATA_PATH);
     if (!dataFolder.exists()) return;
 
+    /* Destination for datapack generated from /data */
     File datapacksFolder = new File(DATAPACK_TARGET);
     if (!datapacksFolder.exists()) {
       datapacksFolder.mkdirs();
@@ -161,7 +164,7 @@ public class MaterialPackLoader {
 
     File targetFolder = new File(datapacksFolder, packFolder.getName());
     try {
-      // Copy data folder contents (excluding pack.mcmeta)
+      // Copy /data folder contents (excluding pack.mcmeta, that's handled separately)
       File[] dataContents = dataFolder.listFiles(file -> !file.getName().equals("pack.mcmeta"));
       if (dataContents != null) {
         for (File file : dataContents) {
@@ -247,7 +250,7 @@ public class MaterialPackLoader {
         Constants.LOG.info("'{}' material found. smithing new weapons..", material_name);
         // Constants.LOG.info("Loaded material '{}' from '{}' with stats: [durability '{}'], [attack damage bonus '{}'], [attack speed bonus '{}'], [enchantability '{}'], [repair ingredient '{}']", material_name, packFolder.getName(), durability,attack_damage_bonus, attack_speed_bonus, enchantability,repair_ingredient);
 
-        WeaponRegistry.registerWeaponsForMaterial(material_name);
+        WeaponRegistry.registerAllWeaponsForMaterial(material_name);
       } catch (Exception e) {
         Constants.LOG.error("Failed to load material file {} from pack {}: {}", file.getName(), packFolder.getName(), e.getMessage());
       }
@@ -272,24 +275,23 @@ public class MaterialPackLoader {
   }
 
   private static void cleanTargetFolders() {
-    // Clean resourcepacks/materialpacks to make sure data is always fresh
-    File resourcepacksFolder = new File(RESOURCEPACK_TARGET);
-    if (resourcepacksFolder.exists()) {
-      try {
-        FileUtils.deleteDirectory(resourcepacksFolder);
-      } catch (IOException e) {
-        Constants.LOG.error("Failed to clean resource pack target folder: {}", e.getMessage());
-      }
-    }
+    // Clean config/basicweapons/bwmp_resources and config/basicweapons/bwmp_data to make sure materialpacks are always fresh
+    if (unableToDeleteDirectory(new File(RESOURCEPACK_TARGET)))
+      Constants.LOG.error("Failed to clean resource pack target folder. Please report this on the Basic Weapons issue tracker");
+    if (unableToDeleteDirectory(new File(DATAPACK_TARGET)))
+      Constants.LOG.error("Failed to clean datapack target folder. Please report this on the Basic Weapons issue tracker");
+  }
 
-    // Clean config/basicweapons/bwmp_data to make sure data is always fresh
-    File datapacksFolder = new File(DATAPACK_TARGET);
-    if (datapacksFolder.exists()) {
+  /* Returns true if directory wasn't able to be deleted, false if it was*/
+  private static boolean unableToDeleteDirectory(File dir) {
+    if (dir.exists()) {
       try {
-        FileUtils.deleteDirectory(datapacksFolder);
+        FileUtils.deleteDirectory(dir);
+        return false;
       } catch (IOException e) {
-        Constants.LOG.error("Failed to clean data pack target folder: {}", e.getMessage());
+        return true;
       }
     }
+    return true;
   }
 }

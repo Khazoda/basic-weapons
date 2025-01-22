@@ -74,11 +74,11 @@ public abstract class ModelBakeryMixin {
         ResourceLocation modelLoc = ID("item/" + baseName + "_held");
         ModelResourceLocation modelId = new ModelResourceLocation(ID(baseName + "_held"), "inventory");
 
-        // If held model doesn't exist, create one based on the handheld_big_staff parent
+        // If held model doesn't exist, create one based on the handheld_big_quarterstaff parent
         UnbakedModel heldModel = getModel(modelLoc);
         if (heldModel == null) {
-          // Use the base model's texture with the handheld_big_staff parent
-          BlockModel parentModel = modelResources.get(ID("models/item/handheld_big_staff.json"));
+          // Use the base model's texture with the handheld_big_quarterstaff parent
+          BlockModel parentModel = modelResources.get(ID("models/item/handheld_big_quarterstaff.json"));
           if (parentModel != null) {
             heldModel = parentModel;
           }
