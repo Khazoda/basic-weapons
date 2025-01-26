@@ -1,5 +1,6 @@
 package com.khazoda.basicweapons.item;
 
+import com.khazoda.basicweapons.materialpack.EarlyLoadedMaterial;
 import com.khazoda.basicweapons.platform.ItemExtension;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
@@ -29,10 +30,9 @@ import static com.khazoda.basicweapons.Constants.ID;
 import static com.khazoda.basicweapons.Constants.PLAYER_ENTITY_INTERACTION_RANGE_MODIFIER_ID;
 
 public abstract class BasicWeaponSweeplessItem extends TieredItem implements ItemExtension {
+
   public BasicWeaponSweeplessItem(Tier material, TagKey<Block> effectiveBlocks, float attackDamage, float attackSpeed, double extraReach, Properties properties) {
-    super(material, properties
-        .component(DataComponents.TOOL, createToolProperties(material, effectiveBlocks))
-        .component(DataComponents.ATTRIBUTE_MODIFIERS, createAttributes(material, attackDamage, attackSpeed, extraReach)));
+    super(material, properties.component(DataComponents.TOOL, createToolProperties(material, effectiveBlocks)).component(DataComponents.ATTRIBUTE_MODIFIERS, createAttributes(material, attackDamage, attackSpeed, extraReach)));
   }
 
   private static Tool createToolProperties(Tier material, TagKey<Block> effectiveBlocks) {
@@ -48,38 +48,35 @@ public abstract class BasicWeaponSweeplessItem extends TieredItem implements Ite
   }
 
   private static ItemAttributeModifiers createAttributes(Tier tier, float attackDamage, float attackSpeed, double reach) {
-    ItemAttributeModifiers.Builder builder = ItemAttributeModifiers.builder()
-        .add(
-            Attributes.ATTACK_DAMAGE,
-            new AttributeModifier(
-                BASE_ATTACK_DAMAGE_ID,
-                (double) ((float) attackDamage + tier.getAttackDamageBonus()),
-                AttributeModifier.Operation.ADD_VALUE
-            ),
-            EquipmentSlotGroup.MAINHAND
-        )
-        .add(
-            Attributes.ATTACK_SPEED,
-            new AttributeModifier(
-                BASE_ATTACK_SPEED_ID,
-                (double) attackSpeed,
-                AttributeModifier.Operation.ADD_VALUE
-            ),
-            EquipmentSlotGroup.MAINHAND
-        );
-
-    if (!bettercombat_mod_loaded) {
-      builder.add(
-          Attributes.ENTITY_INTERACTION_RANGE,
-          new AttributeModifier(
-              ID(PLAYER_ENTITY_INTERACTION_RANGE_MODIFIER_ID),
-              reach,
-              AttributeModifier.Operation.ADD_VALUE
-          ),
-          EquipmentSlotGroup.MAINHAND
-      );
+    // Get the tier-specific bonus values if it's a materialpack tier
+    float attackSpeedBonus = 0;
+    float reachBonus = 0;
+    if (tier instanceof EarlyLoadedMaterial.TierWithReach tierWithReach) {
+      attackSpeedBonus = tierWithReach.getAttackSpeedBonus();
+      reachBonus = tierWithReach.getReachBonus();
     }
 
+
+    ItemAttributeModifiers.Builder builder = ItemAttributeModifiers.builder()
+        .add(Attributes.ATTACK_DAMAGE,
+            new AttributeModifier(BASE_ATTACK_DAMAGE_ID,
+                attackDamage + tier.getAttackDamageBonus(),
+                AttributeModifier.Operation.ADD_VALUE),
+            EquipmentSlotGroup.MAINHAND).add(Attributes.ATTACK_SPEED,
+            new AttributeModifier(BASE_ATTACK_SPEED_ID,
+                attackSpeed + attackSpeedBonus,
+                AttributeModifier.Operation.ADD_VALUE),
+            EquipmentSlotGroup.MAINHAND);
+
+    /* Better Combat handles reach attributes via json */
+    if (!bettercombat_mod_loaded) {
+      builder.add(Attributes.ENTITY_INTERACTION_RANGE,
+          new AttributeModifier(
+              ID(PLAYER_ENTITY_INTERACTION_RANGE_MODIFIER_ID),
+              reach + reachBonus,
+              AttributeModifier.Operation.ADD_VALUE),
+          EquipmentSlotGroup.MAINHAND);
+    }
     return builder.build();
   }
 

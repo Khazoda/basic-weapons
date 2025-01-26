@@ -3,6 +3,8 @@ package com.khazoda.basicweapons.platform.services;
 import net.minecraft.core.RegistryAccess;
 import org.apache.commons.lang3.NotImplementedException;
 
+import java.io.File;
+
 public interface IPlatformHelper {
 
     /**
@@ -40,4 +42,12 @@ public interface IPlatformHelper {
     default RegistryAccess getCurrentRegistryAccess() {
         throw new NotImplementedException("getCurrentRegistryAccess is not implemented!");
     }
+
+  /**
+   * Gets the datapacks directory for the current/loading world
+   *
+   * @return File pointing to the datapacks directory, or null if not available
+   */
+  File getWorldDatapacksDirectory();
+
 }

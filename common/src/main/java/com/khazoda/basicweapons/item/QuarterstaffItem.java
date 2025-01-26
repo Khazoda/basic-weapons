@@ -14,7 +14,6 @@ public class QuarterstaffItem extends BasicWeaponItem {
     super(tier, BlockTags.AIR, attackDamage, attackSpeed, reach, properties);
   }
 
-
   @Override
   public AllowDenyPass bw$canEnchant(ItemStack itemstack, Holder<Enchantment> enchantment) {
     // The item can't be enchanted by enchantments listed here

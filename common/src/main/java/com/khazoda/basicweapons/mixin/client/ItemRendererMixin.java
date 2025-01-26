@@ -39,13 +39,13 @@ public abstract class ItemRendererMixin {
     if (baseType.equals("spear") || baseType.equals("quarterstaff") || baseType.equals("glaive")) {
       ModelResourceLocation modelId = new ModelResourceLocation(
           ID(itemId + "_held"), "inventory");
+      // Never inline heldModel as the return value. For some reason that breaks things!
       BakedModel heldModel = ((ItemRendererAccessor) this)
           .bw$getItemModelShaper()
           .getModelManager()
           .getModel(modelId);
       return heldModel;
     }
-
     return value;
   }
 }
