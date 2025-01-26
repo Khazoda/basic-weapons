@@ -54,5 +54,6 @@
   "item.basicweapons.diamond_glaive": "Diamant Glefe",
   "item.basicweapons.netherite_glaive": "Netherit Glefe",
   "tag.item.basicweapons.tools.glaives": "Glefen",
-  "tag.item.c.tools.glaives": "Glefen"
+  "tag.item.c.tools.glaives": "Glefen",
+  "tag.item.c.tools.melee_weapons": "Nahkampfwaffen"
 }
