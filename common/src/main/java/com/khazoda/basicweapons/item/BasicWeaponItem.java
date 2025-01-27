@@ -1,6 +1,5 @@
 package com.khazoda.basicweapons.item;
 
-import com.khazoda.basicweapons.materialpack.EarlyLoadedMaterial;
 import com.khazoda.basicweapons.platform.ItemExtension;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
@@ -51,13 +50,6 @@ public abstract class BasicWeaponItem extends SwordItem implements ItemExtension
   }
 
   private static ItemAttributeModifiers createAttributes(Tier tier, float attackDamage, float attackSpeed, double reach) {
-    // Get the tier-specific bonus values if it's a materialpack tier
-    float speedBonus = 0;
-    float reachBonus = 0;
-    if (tier instanceof EarlyLoadedMaterial.TierWithReach tierWithReach) {
-      speedBonus = tierWithReach.getAttackSpeedBonus();
-      reachBonus = tierWithReach.getReachBonus();
-    }
 
     ItemAttributeModifiers.Builder builder = ItemAttributeModifiers.builder()
         .add(Attributes.ATTACK_DAMAGE,
@@ -67,7 +59,7 @@ public abstract class BasicWeaponItem extends SwordItem implements ItemExtension
             EquipmentSlotGroup.MAINHAND)
         .add(Attributes.ATTACK_SPEED,
             new AttributeModifier(BASE_ATTACK_SPEED_ID,
-                attackSpeed + speedBonus,
+                attackSpeed,
                 AttributeModifier.Operation.ADD_VALUE),
             EquipmentSlotGroup.MAINHAND);
 
@@ -76,7 +68,7 @@ public abstract class BasicWeaponItem extends SwordItem implements ItemExtension
       builder.add(Attributes.ENTITY_INTERACTION_RANGE,
           new AttributeModifier(
               ID(PLAYER_ENTITY_INTERACTION_RANGE_MODIFIER_ID),
-              reach + reachBonus,
+              reach,
               AttributeModifier.Operation.ADD_VALUE),
           EquipmentSlotGroup.MAINHAND);
     }

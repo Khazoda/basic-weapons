@@ -1,6 +1,5 @@
 package com.khazoda.basicweapons.item;
 
-import com.khazoda.basicweapons.materialpack.EarlyLoadedMaterial;
 import com.khazoda.basicweapons.platform.ItemExtension;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
@@ -48,13 +47,6 @@ public abstract class BasicWeaponSweeplessItem extends TieredItem implements Ite
   }
 
   private static ItemAttributeModifiers createAttributes(Tier tier, float attackDamage, float attackSpeed, double reach) {
-    // Get the tier-specific bonus values if it's a materialpack tier
-    float attackSpeedBonus = 0;
-    float reachBonus = 0;
-    if (tier instanceof EarlyLoadedMaterial.TierWithReach tierWithReach) {
-      attackSpeedBonus = tierWithReach.getAttackSpeedBonus();
-      reachBonus = tierWithReach.getReachBonus();
-    }
 
 
     ItemAttributeModifiers.Builder builder = ItemAttributeModifiers.builder()
@@ -64,7 +56,7 @@ public abstract class BasicWeaponSweeplessItem extends TieredItem implements Ite
                 AttributeModifier.Operation.ADD_VALUE),
             EquipmentSlotGroup.MAINHAND).add(Attributes.ATTACK_SPEED,
             new AttributeModifier(BASE_ATTACK_SPEED_ID,
-                attackSpeed + attackSpeedBonus,
+                attackSpeed,
                 AttributeModifier.Operation.ADD_VALUE),
             EquipmentSlotGroup.MAINHAND);
 
@@ -73,7 +65,7 @@ public abstract class BasicWeaponSweeplessItem extends TieredItem implements Ite
       builder.add(Attributes.ENTITY_INTERACTION_RANGE,
           new AttributeModifier(
               ID(PLAYER_ENTITY_INTERACTION_RANGE_MODIFIER_ID),
-              reach + reachBonus,
+              reach,
               AttributeModifier.Operation.ADD_VALUE),
           EquipmentSlotGroup.MAINHAND);
     }

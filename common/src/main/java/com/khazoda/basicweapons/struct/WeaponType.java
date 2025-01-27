@@ -46,16 +46,18 @@ public enum WeaponType {
   }
 
   public Item create(Tier material, float damageModifier, float speedModifier, float reachModifier, Item.Properties properties) {
-    double totalReach = baseReach + reachModifier;
+    float extraSpeed = speedModifier;
+    double extraReach = reachModifier;
     if (material instanceof EarlyLoadedMaterial.TierWithReach) {
-      totalReach += ((EarlyLoadedMaterial.TierWithReach) material).getReachBonus();
+      extraSpeed += ((EarlyLoadedMaterial.TierWithReach) material).getAttackSpeedBonus();
+      extraReach += ((EarlyLoadedMaterial.TierWithReach) material).getReachBonus();
     }
 
     return factory.create(
         material,
         baseDamage + damageModifier,
-        baseSpeed + speedModifier,
-        totalReach,
+        baseSpeed + extraSpeed,
+        baseReach + extraReach,
         properties
     );
   }
