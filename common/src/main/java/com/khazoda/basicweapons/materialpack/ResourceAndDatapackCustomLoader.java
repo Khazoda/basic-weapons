@@ -82,7 +82,7 @@ public class ResourceAndDatapackCustomLoader implements RepositorySource {
             return new PathPackResources(info, packPath);
           }
         };
-        PackSelectionConfig selectionConfig = new PackSelectionConfig(isRequired, Pack.Position.TOP, true);
+        PackSelectionConfig selectionConfig = new PackSelectionConfig(isRequired, Pack.Position.BOTTOM, true);
 
         Pack pack = Pack.readMetaAndCreate(location, resources, packType, selectionConfig);
         if (pack != null) packConsumer.accept(pack);
