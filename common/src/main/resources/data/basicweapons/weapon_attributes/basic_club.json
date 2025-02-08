@@ -1,6 +1,6 @@
 {
   "parent": "bettercombat:mace",
   "attributes": {
-    "attack_range": 3.0
+    "range_bonus": 0
   }
 }

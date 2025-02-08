@@ -1,6 +1,6 @@
 {
   "attributes": {
-    "attack_range": 3.0,
+    "range_bonus": 0,
     "category": "hammer",
     "attacks": [
       {
