@@ -21,8 +21,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.List;
 import java.util.Map;
 
+import static com.khazoda.basicweapons.BasicWeaponsCommon.bronze_mod_loaded;
 import static com.khazoda.basicweapons.Constants.ID;
 import static com.khazoda.basicweapons.Constants.LOG;
+import static com.khazoda.basicweapons.registry.WeaponRegistry.BRONZE_MATERIAL_ENTRY;
 
 /* Remove in 1.21.4 in favour of new item model loading system */
 @Mixin(ModelBakery.class)
@@ -45,8 +47,10 @@ public abstract class ModelBakeryMixin {
       for (WeaponRegistry.MaterialEntry material : WeaponRegistry.VANILLA_MATERIALS) {
         basic_weapons$registerMaterialWeaponModels(material.prefix());
       }
+      // Register bronze material compat
+      if (bronze_mod_loaded) basic_weapons$registerMaterialWeaponModels(BRONZE_MATERIAL_ENTRY.prefix());
 
-      // Register datapack materials
+      // Register materialpack materials
       for (String materialName : MaterialPackLoader.getMaterialNames()) {
         basic_weapons$registerMaterialWeaponModels(materialName);
       }

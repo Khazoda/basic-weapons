@@ -1,6 +1,5 @@
 package com.khazoda.basicweapons;
 
-import com.khazoda.basicweapons.material.ConditionalToolMaterials;
 import com.khazoda.basicweapons.materialpack.MaterialPackLoader;
 import com.khazoda.basicweapons.platform.Services;
 import com.khazoda.basicweapons.registry.EnchantmentRegistry;
@@ -22,9 +21,6 @@ public class BasicWeaponsCommon {
     MaterialPackLoader.loadPacks();
 
     WeaponRegistry.init();
-    if (bronze_mod_loaded)
-      WeaponRegistry.registerAllWeaponsForMaterial(
-          new WeaponRegistry.MaterialEntry(ConditionalToolMaterials.BRONZE, "bronze"));
     EnchantmentRegistry.init();
 
     if (Services.PLATFORM.isModLoaded("basicweapons"))

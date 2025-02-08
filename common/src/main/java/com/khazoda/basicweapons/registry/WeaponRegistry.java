@@ -1,5 +1,6 @@
 package com.khazoda.basicweapons.registry;
 
+import com.khazoda.basicweapons.material.ConditionalToolMaterials;
 import com.khazoda.basicweapons.materialpack.MaterialPackLoader;
 import com.khazoda.basicweapons.struct.WeaponType;
 import net.minecraft.world.item.Item;
@@ -11,6 +12,7 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 
 import static com.khazoda.basicweapons.BasicWeaponsCommon.ITEM_REGISTRAR;
+import static com.khazoda.basicweapons.BasicWeaponsCommon.bronze_mod_loaded;
 import static com.khazoda.basicweapons.struct.WeaponType.*;
 
 public class WeaponRegistry {
@@ -26,11 +28,14 @@ public class WeaponRegistry {
       new MaterialEntry(Tiers.DIAMOND, "diamond"),
       new MaterialEntry(Tiers.NETHERITE, "netherite", Item.Properties::fireResistant)
   );
+  public static final MaterialEntry BRONZE_MATERIAL_ENTRY = new MaterialEntry(ConditionalToolMaterials.BRONZE, "bronze");
 
   public static void init() {
     for (MaterialEntry material : VANILLA_MATERIALS) {
       registerAllWeaponsForMaterial(material);
     }
+    if (bronze_mod_loaded) registerAllWeaponsForMaterial(BRONZE_MATERIAL_ENTRY);
+
   }
 
   /* Register weapons from MaterialEntry */
