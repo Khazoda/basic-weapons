@@ -9,7 +9,7 @@ import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 
-public class ExternalToolMaterials {
+public class ConditionalToolMaterials {
 
   public static final Tier BRONZE = new Tier() {
     @Override

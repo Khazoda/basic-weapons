@@ -1,6 +1,6 @@
 package com.khazoda.basicweapons.registry;
 
-import com.khazoda.basicweapons.data.WeaponType;
+import com.khazoda.basicweapons.struct.WeaponType;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;

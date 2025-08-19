@@ -6,9 +6,13 @@
   "compatibilityLevel": "JAVA_18",
   "mixins": [
     "EnchantmentMixin",
-    "PlayerEntityMixin"
+    "MinecraftServerMixin",
+    "PlayerEntityMixin",
+    "ServerPacksSourceMixin"
   ],
   "client": [
+    "CreateWorldScreenMixin",
+    "client.ClientPackFinderMixin",
     "client.ItemRendererAccessor",
     "client.ItemRendererMixin",
     "client.ModelBakeryMixin"
