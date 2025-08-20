@@ -1,0 +1,22 @@
+{
+  "values": {
+    "basicweapons:wooden_dagger": {
+      "burn_time": 200
+    },
+    "basicweapons:wooden_club": {
+      "burn_time": 200
+    },
+    "basicweapons:wooden_hammer": {
+      "burn_time": 200
+    },
+    "basicweapons:wooden_quarterstaff": {
+      "burn_time": 200
+    },
+    "basicweapons:wooden_spear": {
+      "burn_time": 200
+    },
+    "basicweapons:wooden_glaive": {
+      "burn_time": 200
+    }
+  }
+}

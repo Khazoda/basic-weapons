@@ -22,6 +22,9 @@ public class BasicWeaponsCommon {
 
     WeaponRegistry.init();
     EnchantmentRegistry.init();
+    if(!Services.PLATFORM.registerFurnaceFuels()) {
+      Constants.LOG.info("Wooden weapons not registered correctly as furnace fuels. Please report this on the GitHub repository.");
+    }
 
     if (Services.PLATFORM.isModLoaded("basicweapons"))
       Constants.LOG.info("- Basic Weapons Loaded -");

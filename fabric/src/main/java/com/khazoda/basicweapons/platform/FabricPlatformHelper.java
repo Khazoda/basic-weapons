@@ -1,10 +1,14 @@
 package com.khazoda.basicweapons.platform;
 
 import com.khazoda.basicweapons.platform.services.IPlatformHelper;
+import com.khazoda.basicweapons.registry.WeaponRegistry;
+import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Tiers;
 import net.minecraft.world.level.storage.LevelResource;
 
 import java.io.File;
@@ -51,5 +55,13 @@ public class FabricPlatformHelper implements IPlatformHelper {
     } catch (Throwable ignored) {
       return null;
     }
+  }
+
+  @Override
+  public boolean registerFurnaceFuels() {
+    for(Item weapon: WeaponRegistry.getItemsByMaterial(Tiers.WOOD)) {
+      FuelRegistry.INSTANCE.add(weapon, 200); // 200 tick burn time like vanilla weapons/tools
+    }
+    return true;
   }
 }

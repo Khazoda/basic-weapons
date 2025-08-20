@@ -50,4 +50,5 @@ public interface IPlatformHelper {
    */
   File getWorldDatapacksDirectory();
 
+  boolean registerFurnaceFuels();
 }

@@ -59,4 +59,10 @@ public class NorgePlatformHelper implements IPlatformHelper {
     }
     return null;
   }
+
+  @Override
+  public boolean registerFurnaceFuels() {
+    /* Handled in neoforge data map: data/neoforge/data_maps/item/furnace_fuels.json */
+    return true;
+  }
 }
