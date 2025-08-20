@@ -19,7 +19,7 @@
   ],
   "rewards": {
     "recipes": [
-      "basicweapons:compat/bronze_dagger",
+      "basicweapons:compat/_dagger",
       "basicweapons:compat/bronze_club",
       "basicweapons:compat/bronze_club_variant",
       "basicweapons:compat/bronze_hammer",
