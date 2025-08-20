@@ -36,8 +36,6 @@ public abstract class BasicWeaponSweeplessItem extends TieredItem implements Ite
 
   private static Tool createToolProperties(Tier material, TagKey<Block> effectiveBlocks) {
     List<Tool.Rule> rules = new ArrayList<>();
-    rules.add(Tool.Rule.minesAndDrops(material.getIncorrectBlocksForDrops(), material.getSpeed()));
-    rules.add(Tool.Rule.overrideSpeed(effectiveBlocks, material.getSpeed()));
 
     if (effectiveBlocks.equals(BlockTags.SWORD_EFFICIENT)) {
       rules.add(Tool.Rule.minesAndDrops(List.of(Blocks.COBWEB), 15.0F));
