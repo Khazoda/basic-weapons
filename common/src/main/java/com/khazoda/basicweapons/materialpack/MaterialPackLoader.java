@@ -38,8 +38,9 @@ public class MaterialPackLoader {
       return;
     }
 
-    cleanTargetFolders(); // On every load the target folders are cleaned to handle users removing materialpacks
     File materialPacksFolder = new File(MATERIALPACK_SOURCE);
+    File[] packFiles = materialPacksFolder.listFiles(file -> file.isDirectory() || file.getName().endsWith(".zip"));
+
     if (!materialPacksFolder.exists()) {
       if (materialPacksFolder.mkdir()) {
         Constants.LOG.info("Created material packs folder {}", materialPacksFolder.getName());
@@ -47,9 +48,10 @@ public class MaterialPackLoader {
         Constants.LOG.error("Failed to create basicweapons_materials folder. This should never happen.");
         return;
       }
+    } else if(packFiles != null && packFiles.length == 0) {
+      cleanTargetFolders(); // On every load the target resource & data folders are cleaned to handle users removing materialpacks
     }
 
-    File[] packFiles = materialPacksFolder.listFiles(file -> file.isDirectory() || file.getName().endsWith(".zip"));
     if (packFiles == null || packFiles.length == 0) {
       Constants.LOG.info("No material packs found in {}", materialPacksFolder.getName());
       return;
@@ -276,22 +278,21 @@ public class MaterialPackLoader {
 
   private static void cleanTargetFolders() {
     // Clean config/basicweapons/bwmp_resources and config/basicweapons/bwmp_data to make sure materialpacks are always fresh
-    if (unableToDeleteDirectory(new File(RESOURCEPACK_TARGET)))
+    if (!ableToDeleteDirectory(new File(RESOURCEPACK_TARGET)))
       Constants.LOG.error("Failed to clean resource pack target folder. Please report this on the Basic Weapons issue tracker");
-    if (unableToDeleteDirectory(new File(DATAPACK_TARGET)))
+    if (!ableToDeleteDirectory(new File(DATAPACK_TARGET)))
       Constants.LOG.error("Failed to clean datapack target folder. Please report this on the Basic Weapons issue tracker");
   }
 
-  /* Returns true if directory wasn't able to be deleted, false if it was*/
-  private static boolean unableToDeleteDirectory(File dir) {
+  private static boolean ableToDeleteDirectory(File dir) {
     if (dir.exists()) {
       try {
         FileUtils.deleteDirectory(dir);
-        return false;
-      } catch (IOException e) {
         return true;
+      } catch (IOException e) {
+        return false;
       }
     }
-    return true;
+    return false;
   }
 }
