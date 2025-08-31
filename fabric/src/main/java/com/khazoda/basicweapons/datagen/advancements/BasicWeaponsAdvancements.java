@@ -79,7 +79,7 @@ public class BasicWeaponsAdvancements implements Consumer<Consumer<AdvancementHo
         .parent(ResourceLocation.withDefaultNamespace("recipes/root"))
         .addCriterion("got_bronze_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(BRONZE_INGOTS)))
         .rewards(AdvancementRewards.Builder
-            .recipe(ID("compat/_dagger"))
+            .recipe(ID("compat/bronze_dagger"))
             .addRecipe(ID("compat/bronze_club"))
             .addRecipe(ID("compat/bronze_club_variant"))
             .addRecipe(ID("compat/bronze_hammer"))
