@@ -66,6 +66,22 @@ public class BasicWeaponsAdvancements implements Consumer<Consumer<AdvancementHo
         .build(ID("recipes/got_cobblestone"));
     advancementConsumer.accept(stone_weapons);
 
+    AdvancementHolder copper_weapons = Advancement.Builder.recipeAdvancement()
+        .parent(ResourceLocation.withDefaultNamespace("recipes/root"))
+        .addCriterion("got_copper_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
+        .rewards(AdvancementRewards.Builder
+            .recipe(recipeKey(ID("copper_dagger")))
+            .addRecipe(recipeKey(ID("copper_club")))
+            .addRecipe(recipeKey(ID("copper_club_variant")))
+            .addRecipe(recipeKey(ID("copper_hammer")))
+            .addRecipe(recipeKey(ID("copper_spear")))
+            .addRecipe(recipeKey(ID("copper_quarterstaff")))
+            .addRecipe(recipeKey(ID("copper_glaive")))
+
+        )
+        .build(ID("recipes/got_copper_ingot"));
+    advancementConsumer.accept(copper_weapons);
+
     AdvancementHolder iron_weapons = Advancement.Builder.recipeAdvancement()
         .parent(ResourceLocation.withDefaultNamespace("recipes/root"))
         .addCriterion("got_iron_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(Items.IRON_INGOT))
