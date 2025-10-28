@@ -5,12 +5,8 @@
     "/ "
   ],
   "key": {
-    "#": {
-      "item": "minecraft:diamond"
-    },
-    "/": {
-      "item": "minecraft:stick"
-    }
+    "#": "minecraft:diamond",
+    "/": "minecraft:stick"
   },
   "result": {
     "id": "basicweapons:diamond_dagger",

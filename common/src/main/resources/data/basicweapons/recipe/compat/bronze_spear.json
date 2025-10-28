@@ -1,17 +1,13 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "  ^",
+    "  #",
     " / ",
     "/  "
   ],
   "key": {
-    "^": {
-      "tag": "c:ingots/bronze"
-    },
-    "/": {
-      "item": "minecraft:stick"
-    }
+    "#": "#c:ingots/bronze",
+    "/": "minecraft:stick"
   },
   "result": {
     "id": "basicweapons:bronze_spear",

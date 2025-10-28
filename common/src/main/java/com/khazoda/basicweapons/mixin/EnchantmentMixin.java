@@ -3,6 +3,7 @@ package com.khazoda.basicweapons.mixin;
 import com.khazoda.basicweapons.platform.ItemExtension;
 import com.khazoda.basicweapons.platform.Services;
 import com.khazoda.basicweapons.utils.AllowDenyPass;
+import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -34,18 +35,24 @@ public class EnchantmentMixin {
   private void bw$customAllowDisallowEnchantments3(ItemStack itemStack, CallbackInfoReturnable<Boolean> cir) {
     bw$checkEnchantability(itemStack, cir);
   }
-  
+
   @Unique
   private void bw$checkEnchantability(ItemStack itemStack, CallbackInfoReturnable<Boolean> cir) {
     if (itemStack.getItem() instanceof ItemExtension itemExtension) {
-      Services.PLATFORM.getCurrentRegistryAccess().registry(Registries.ENCHANTMENT).ifPresent(enchantmentRegistry -> {
-        enchantmentRegistry.getResourceKey((Enchantment) (Object) this).ifPresent(resourceKey -> {
-          AllowDenyPass result = itemExtension.bw$canEnchant(itemStack, enchantmentRegistry.getHolderOrThrow(resourceKey));
-          if (result != AllowDenyPass.PASS) {
-            cir.setReturnValue(result == AllowDenyPass.ALLOW);
-          }
-        });
-      });
+      Enchantment enchantment = (Enchantment) (Object) this;
+
+      Services.PLATFORM.getCurrentRegistryAccess()
+          .lookup(Registries.ENCHANTMENT)
+          .ifPresent(enchantmentRegistry -> {
+            enchantmentRegistry.getResourceKey(enchantment).ifPresent(resourceKey -> {
+              Holder<Enchantment> enchantmentHolder = enchantmentRegistry.getOrThrow(resourceKey);
+
+              AllowDenyPass result = itemExtension.bw$canEnchant(itemStack, enchantmentHolder);
+              if (result != AllowDenyPass.PASS) {
+                cir.setReturnValue(result == AllowDenyPass.ALLOW);
+              }
+            });
+          });
     }
   }
 }

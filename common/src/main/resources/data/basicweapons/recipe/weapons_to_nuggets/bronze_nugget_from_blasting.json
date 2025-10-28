@@ -4,24 +4,12 @@
   "cookingtime": 100,
   "experience": 0.1,
   "ingredient": [
-    {
-      "item": "basicweapons:bronze_dagger"
-    },
-    {
-      "item": "basicweapons:bronze_hammer"
-    },
-    {
-      "item": "basicweapons:bronze_club"
-    },
-    {
-      "item": "basicweapons:bronze_spear"
-    },
-    {
-      "item": "basicweapons:bronze_quarterstaff"
-    },
-    {
-      "item": "basicweapons:bronze_glaive"
-    }
+    "basicweapons:bronze_dagger",
+    "basicweapons:bronze_hammer",
+    "basicweapons:bronze_club",
+    "basicweapons:bronze_spear",
+    "basicweapons:bronze_quarterstaff",
+    "basicweapons:bronze_glaive"
   ],
   "result": {
     "id": "bronze:bronze_nugget",

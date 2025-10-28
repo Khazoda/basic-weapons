@@ -11,11 +11,7 @@ public class BasicWeaponsDataGenerator implements DataGeneratorEntrypoint {
   public void onInitializeDataGenerator(FabricDataGenerator generator) {
     FabricDataGenerator.Pack pack = generator.createPack();
     pack.addProvider(BasicWeaponsAdvancementsProvider::new);
-
-  }
-
-  @Override
-  public @Nullable String getEffectiveModId() {
-    return Constants.MOD_ID;
+    pack.addProvider(BasicWeaponsModelProvider::new);
+    pack.addProvider(BasicWeaponsRecipeProvider::new);
   }
 }

@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 @Mixin(CreateWorldScreen.class)
 public class CreateWorldScreenMixin {
   @ModifyArg(
-      method = "openFresh",
+      method = "openCreateWorldScreen",
       at = @At(
           value = "INVOKE",
           target = "Lnet/minecraft/server/packs/repository/PackRepository;<init>([Lnet/minecraft/server/packs/repository/RepositorySource;)V"
@@ -24,4 +24,4 @@ public class CreateWorldScreenMixin {
     ResourceAndDatapackCustomLoader finder = new ResourceAndDatapackCustomLoader(PackType.SERVER_DATA, true);
     return ArrayUtils.add(original, finder);
   }
-} 
+}

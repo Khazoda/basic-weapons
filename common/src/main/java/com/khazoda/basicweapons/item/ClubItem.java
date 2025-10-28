@@ -13,23 +13,22 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.enchantment.Enchantment;
 
 public class ClubItem extends BasicWeaponSweeplessItem {
-  public ClubItem(Tier tier, float attackDamage, float attackSpeed, double reach, Item.Properties properties) {
-    super(tier, BlockTags.AIR, attackDamage, attackSpeed, reach, properties);
+  public ClubItem(ToolMaterial ToolMaterial, float attackDamage, float attackSpeed, double reach, Item.Properties properties) {
+    super(ToolMaterial, BlockTags.AIR, attackDamage, attackSpeed, reach, properties);
   }
 
   @Override
-  public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+  public void hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
     Player player = (Player) attacker;
     float f2 = ((PlayerEntityAccessor) player).bw$getCooldown(0.5f);
     if (f2 > 0.9F) {
-      target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 15));
+      target.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 15));
     }
     stack.hurtAndBreak(1, attacker, EquipmentSlot.MAINHAND);
-    return true;
   }
 
   @Override

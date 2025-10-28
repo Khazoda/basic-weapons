@@ -2,16 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "  /",
-    " O ",
+    " # ",
     "/  "
   ],
   "key": {
-    "/": {
-      "item": "minecraft:stick"
-    },
-    "O": {
-      "tag": "c:ingots/bronze"
-    }
+    "#": "#c:ingots/bronze",
+    "/": "minecraft:stick"
   },
   "result": {
     "id": "basicweapons:bronze_quarterstaff",

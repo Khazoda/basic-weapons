@@ -5,12 +5,8 @@
     "/ "
   ],
   "key": {
-    "#": {
-      "tag": "minecraft:planks"
-    },
-    "/": {
-      "item": "minecraft:stick"
-    }
+    "#": "#minecraft:wooden_tool_materials",
+    "/": "minecraft:stick"
   },
   "result": {
     "id": "basicweapons:wooden_dagger",

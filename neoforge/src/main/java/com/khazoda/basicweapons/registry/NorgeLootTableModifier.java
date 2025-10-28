@@ -9,7 +9,7 @@ import net.neoforged.neoforge.event.LootTableLoadEvent;
 
 import static com.khazoda.basicweapons.Constants.MOD_ID;
 
-@EventBusSubscriber(modid = MOD_ID, bus = EventBusSubscriber.Bus.GAME)
+@EventBusSubscriber(modid = MOD_ID)
 public class NorgeLootTableModifier {
 
   @SubscribeEvent

@@ -6,7 +6,7 @@ import com.google.gson.JsonObject;
 import com.khazoda.basicweapons.Constants;
 import com.khazoda.basicweapons.platform.Services;
 import com.khazoda.basicweapons.registry.WeaponRegistry;
-import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.ToolMaterial;
 import org.apache.commons.io.FileUtils;
 
 import java.io.*;
@@ -27,7 +27,8 @@ import static com.khazoda.basicweapons.materialpack.MaterialPackConstants.*;
 
 public class MaterialPackLoader {
   private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
-  private static final Map<String, Tier> loadedMaterials = new HashMap<>();
+  private static final Map<String, EarlyLoadedMaterial> loadedMaterials = new HashMap<>();
+  private static final Map<ToolMaterial, EarlyLoadedMaterial> toolMaterialMap = new HashMap<>();
   private static final Map<String, String> materialToDatapackName = new HashMap<>();
   private static final Set<String> initiallyLoadedPacks = new HashSet<>();
   private static boolean hasInitialized = false;
@@ -246,8 +247,9 @@ public class MaterialPackLoader {
         String repair_ingredient = json.get("repair_ingredient").getAsString();
 
         EarlyLoadedMaterial material = new EarlyLoadedMaterial(material_name, durability, attack_damage_bonus, attack_speed_bonus, reach_bonus, enchantability, repair_ingredient);
-
-        loadedMaterials.put(material_name, material.createTier());
+        ToolMaterial toolMaterial = material.createToolMaterial();
+        toolMaterialMap.put(toolMaterial, material);
+        loadedMaterials.put(material_name, material);
         materialToDatapackName.put(material_name, packFolder.getName());
         Constants.LOG.info("'{}' material found. smithing new weapons..", material_name);
         // Constants.LOG.info("Loaded material '{}' from '{}' with stats: [durability '{}'], [attack damage bonus '{}'], [attack speed bonus '{}'], [enchantability '{}'], [repair ingredient '{}']", material_name, packFolder.getName(), durability,attack_damage_bonus, attack_speed_bonus, enchantability,repair_ingredient);
@@ -260,8 +262,9 @@ public class MaterialPackLoader {
     return true;
   }
 
-  public static Tier getMaterial(String name) {
-    return loadedMaterials.get(name);
+  public static ToolMaterial getMaterial(String name) {
+    EarlyLoadedMaterial material = loadedMaterials.get(name);
+    return material != null ? material.createToolMaterial() : null;
   }
 
   public static Collection<String> getMaterialNames() {
@@ -274,6 +277,16 @@ public class MaterialPackLoader {
 
   public static boolean wasPackLoadedInitially(String packName) {
     return initiallyLoadedPacks.contains(packName);
+  }
+
+  public static float getAttackSpeedBonus(ToolMaterial toolMaterial) {
+    EarlyLoadedMaterial material = toolMaterialMap.get(toolMaterial);
+    return material != null ? material.getAttackSpeedBonus() : 0f;
+  }
+
+  public static float getReachBonus(ToolMaterial toolMaterial) {
+    EarlyLoadedMaterial material = toolMaterialMap.get(toolMaterial);
+    return material != null ? material.getReachBonus() : 0f;
   }
 
   private static void cleanTargetFolders() {

@@ -5,12 +5,8 @@
     "/ "
   ],
   "key": {
-    "#": {
-      "item": "minecraft:gold_ingot"
-    },
-    "/": {
-      "item": "minecraft:stick"
-    }
+    "#": "minecraft:gold_ingot",
+    "/": "minecraft:stick"
   },
   "result": {
     "id": "basicweapons:golden_dagger",

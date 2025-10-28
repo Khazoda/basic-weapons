@@ -15,6 +15,6 @@ public class BasicWeaponsAdvancementsProvider extends FabricAdvancementProvider 
 
   @Override
   public void generateAdvancement(HolderLookup.Provider provider, Consumer<AdvancementHolder> consumer) {
-    new BasicWeaponsAdvancements().accept(provider.asGetterLookup(), consumer);
+    new BasicWeaponsAdvancements().accept(provider, consumer);
   }
 }

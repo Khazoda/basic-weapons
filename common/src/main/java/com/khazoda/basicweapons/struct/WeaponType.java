@@ -3,9 +3,9 @@ package com.khazoda.basicweapons.struct;
 
 import com.khazoda.basicweapons.item.*;
 import com.khazoda.basicweapons.materialpack.EarlyLoadedMaterial;
+import com.khazoda.basicweapons.materialpack.MaterialPackLoader;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Tier;
-import net.minecraft.world.item.Tiers;
+import net.minecraft.world.item.ToolMaterial;
 
 public enum WeaponType {
   DAGGER("dagger", 1f, -1.6f, 0, DaggerItem::new),
@@ -45,19 +45,21 @@ public enum WeaponType {
     return baseReach;
   }
 
-  public Item create(Tier material, float damageModifier, float speedModifier, float reachModifier, Item.Properties properties) {
-    float extraSpeed = speedModifier;
-    double extraReach = reachModifier;
-    if (material instanceof EarlyLoadedMaterial.TierWithReach) {
-      extraSpeed += ((EarlyLoadedMaterial.TierWithReach) material).getAttackSpeedBonus();
-      extraReach += ((EarlyLoadedMaterial.TierWithReach) material).getReachBonus();
-    }
+  public Item create(ToolMaterial material, float damageModifier, float speedModifier, float reachModifier, Item.Properties properties) {
+    float extraSpeed = speedModifier + MaterialPackLoader.getAttackSpeedBonus(material);
+    double extraReach = reachModifier + MaterialPackLoader.getReachBonus(material);
+
+    float finalDamage = baseDamage + damageModifier;
+    float finalSpeed = baseSpeed + extraSpeed;
+    double finalReach = baseReach + extraReach;
+
+
 
     return factory.create(
         material,
-        baseDamage + damageModifier,
-        baseSpeed + extraSpeed,
-        baseReach + extraReach,
+        finalDamage,
+        finalSpeed,
+        finalReach,
         properties
     );
   }
@@ -65,12 +67,12 @@ public enum WeaponType {
   /**
    * Gets any special damage modifications for specific material/type combinations (e.g. Hammer)
    */
-  public static float getDamageModifier(WeaponType type, Tier material) {
-    if (type == WeaponType.DAGGER && material == Tiers.GOLD) return -1;
+  public static float getDamageModifier(WeaponType type, ToolMaterial material) {
+    if (type == WeaponType.DAGGER && material == ToolMaterial.GOLD) return -1;
     if (type == WeaponType.HAMMER) {
-      if (material == Tiers.WOOD) return -6;
-      if (material == Tiers.STONE) return -3;
-      if (material == Tiers.GOLD) return -6;
+      if (material == ToolMaterial.WOOD) return -6;
+      if (material == ToolMaterial.STONE) return -3;
+      if (material == ToolMaterial.GOLD) return -6;
       return -1; // All other materials (including material pack ones) use the same modifier
     }
     return 0;
@@ -79,13 +81,13 @@ public enum WeaponType {
   /**
    * Gets any special speed modifications for specific material/type combinations (e.g. Hammer)
    */
-  public static float getSpeedModifier(WeaponType type, Tier material) {
-    if (type == WeaponType.DAGGER && material == Tiers.GOLD) return 1;
+  public static float getSpeedModifier(WeaponType type, ToolMaterial material) {
+    if (type == WeaponType.DAGGER && material == ToolMaterial.GOLD) return 1;
     if (type == WeaponType.HAMMER) {
-      if (material == Tiers.WOOD) return 0.4f;
-      if (material == Tiers.STONE) return 0.2f;
-      if (material == Tiers.GOLD) return 0.6f;
-      if (material == Tiers.NETHERITE) return 0.2f;
+      if (material == ToolMaterial.WOOD) return 0.4f;
+      if (material == ToolMaterial.STONE) return 0.2f;
+      if (material == ToolMaterial.GOLD) return 0.6f;
+      if (material == ToolMaterial.NETHERITE) return 0.2f;
       // All other materials (including custom ones) use the same modifier
       return 0.1f;
     }
@@ -95,13 +97,13 @@ public enum WeaponType {
   /**
    * Gets any special reach modifications for specific material/type combinations
    */
-  public static float getReachModifier(WeaponType type, Tier material) {
+  public static float getReachModifier(WeaponType type, ToolMaterial material) {
     // No base materials implement implicit reach modifiers yet. This is future proofing (tm)
     return 0;
   }
 
   @FunctionalInterface
   public interface WeaponFactory {
-    Item create(Tier material, float damage, float speed, double reach, Item.Properties properties);
+    Item create(ToolMaterial material, float attackDamage, float attackSpeed, double reach, Item.Properties properties);
   }
 } 

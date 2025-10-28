@@ -12,10 +12,7 @@
   ],
   "client": [
     "CreateWorldScreenMixin",
-    "client.ClientPackFinderMixin",
-    "client.ItemRendererAccessor",
-    "client.ItemRendererMixin",
-    "client.ModelBakeryMixin"
+    "client.ClientPackFinderMixin"
   ],
   "server": [
   ],

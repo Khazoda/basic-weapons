@@ -1,6 +1,0 @@
-{
-  "parent": "basicweapons:item/handheld_big_quarterstaff",
-  "textures": {
-    "layer0": "basicweapons:item/quarterstaff/golden_quarterstaff_held"
-  }
-}

@@ -35,17 +35,17 @@ public abstract class PlayerEntityMixin implements PlayerEntityAccessor {
   }
 
   /*** Cursed mixins to prevent sweeping on BasicWeaponItems ***/
-  @WrapOperation(method = "attack", at = @At(value = "FIELD", target = "Lnet/minecraft/world/entity/player/Player;walkDist:F"))
-  private float alterHorizontalSpeedToSneakilyPreventSweeping(Player instance, Operation<Float> original) {
-    if (!instance.getMainHandItem().is(ItemTags.SWORDS) && instance.getMainHandItem().getItem() instanceof BasicWeaponSweeplessItem)
-      return 10f;
-    return original.call(instance);
-  }
-
-  @WrapOperation(method = "attack", at = @At(value = "FIELD", target = "Lnet/minecraft/world/entity/player/Player;walkDistO:F"))
-  private float alterPreviousHorizontalSpeedToSneakilyPreventSweeping(Player instance, Operation<Float> original) {
-    if (!instance.getMainHandItem().is(ItemTags.SWORDS) && instance.getMainHandItem().getItem() instanceof BasicWeaponSweeplessItem)
-      return 0f;
-    return original.call(instance);
-  }
+//  @WrapOperation(method = "attack", at = @At(value = "FIELD", target = "Lnet/minecraft/world/entity/player/Player;walkDist:F"))
+//  private float alterHorizontalSpeedToSneakilyPreventSweeping(Player instance, Operation<Float> original) {
+//    if (!instance.getMainHandItem().is(ItemTags.SWORDS) && instance.getMainHandItem().getItem() instanceof BasicWeaponSweeplessItem)
+//      return 10f;
+//    return original.call(instance);
+//  }
+//
+//  @WrapOperation(method = "attack", at = @At(value = "FIELD", target = "Lnet/minecraft/world/entity/player/Player;walkDistO:F"))
+//  private float alterPreviousHorizontalSpeedToSneakilyPreventSweeping(Player instance, Operation<Float> original) {
+//    if (!instance.getMainHandItem().is(ItemTags.SWORDS) && instance.getMainHandItem().getItem() instanceof BasicWeaponSweeplessItem)
+//      return 0f;
+//    return original.call(instance);
+//  }
 }

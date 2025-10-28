@@ -1,13 +1,16 @@
 package com.khazoda.basicweapons.materialpack;
 
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * This class' fields should mirror the schema used for material pack material JSON files
@@ -31,57 +34,32 @@ public class EarlyLoadedMaterial {
     this.repair_ingredient = repair_ingredient;
   }
 
-  private Ingredient createRepairIngredient(String repair_ingredient) {
-    if (repair_ingredient.startsWith("#")) {
-      ResourceLocation identifier = ResourceLocation.bySeparator(repair_ingredient.substring(1), ':');
-      return Ingredient.of(TagKey.create(Registries.ITEM, identifier));
+  private TagKey<Item> createRepairIngredientTagKey(String repairIngredient) {
+    ResourceLocation identifier;
+    if (repairIngredient.startsWith("#")) {
+      identifier = ResourceLocation.bySeparator(repairIngredient.substring(1), ':');
     } else {
-      ResourceLocation identifier = ResourceLocation.bySeparator(repair_ingredient, ':');
-      return Ingredient.of(() -> BuiltInRegistries.ITEM.get(identifier));
+      identifier = ResourceLocation.bySeparator(repairIngredient, ':');
     }
+    return TagKey.create(Registries.ITEM, identifier);
   }
 
-  public Tier createTier() {
-    return new TierWithReach();
+  public ToolMaterial createToolMaterial() {
+    return new ToolMaterial(
+        BlockTags.INCORRECT_FOR_STONE_TOOL,
+        durability,
+        attack_speed_bonus,  // This becomes the mining speed in ToolMaterial
+        attack_damage_bonus,
+        enchantability,
+        createRepairIngredientTagKey(repair_ingredient)
+    );
   }
 
-  public class TierWithReach implements Tier {
-    @Override
-    public int getUses() {
-      return durability;
-    }
+  public float getAttackSpeedBonus() {
+    return attack_speed_bonus;
+  }
 
-    @Override
-    public float getSpeed() {
-      return 1.0f;
-    }
-
-    @Override
-    public float getAttackDamageBonus() {
-      return attack_damage_bonus;
-    }
-
-    public float getAttackSpeedBonus() {
-      return attack_speed_bonus;
-    }
-
-    public float getReachBonus() {
-      return reach_bonus;
-    }
-
-    @Override
-    public int getEnchantmentValue() {
-      return enchantability;
-    }
-
-    @Override
-    public Ingredient getRepairIngredient() {
-      return createRepairIngredient(repair_ingredient);
-    }
-
-    @Override
-    public TagKey<Block> getIncorrectBlocksForDrops() {
-      return BlockTags.INCORRECT_FOR_STONE_TOOL;
-    }
+  public float getReachBonus() {
+    return reach_bonus;
   }
 }

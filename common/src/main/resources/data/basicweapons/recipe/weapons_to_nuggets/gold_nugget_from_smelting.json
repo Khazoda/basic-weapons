@@ -4,24 +4,12 @@
   "cookingtime": 200,
   "experience": 0.1,
   "ingredient": [
-    {
-      "item": "basicweapons:golden_dagger"
-    },
-    {
-      "item": "basicweapons:golden_hammer"
-    },
-    {
-      "item": "basicweapons:golden_club"
-    },
-    {
-      "item": "basicweapons:golden_spear"
-    },
-    {
-      "item": "basicweapons:golden_quarterstaff"
-    },
-    {
-      "item": "basicweapons:golden_glaive"
-    }
+    "basicweapons:golden_dagger",
+    "basicweapons:golden_hammer",
+    "basicweapons:golden_club",
+    "basicweapons:golden_spear",
+    "basicweapons:golden_quarterstaff",
+    "basicweapons:golden_glaive"
   ],
   "result": {
     "id": "minecraft:gold_nugget",

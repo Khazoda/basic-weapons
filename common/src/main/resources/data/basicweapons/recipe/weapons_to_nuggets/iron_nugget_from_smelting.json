@@ -4,24 +4,12 @@
   "cookingtime": 200,
   "experience": 0.1,
   "ingredient": [
-    {
-      "item": "basicweapons:iron_dagger"
-    },
-    {
-      "item": "basicweapons:iron_hammer"
-    },
-    {
-      "item": "basicweapons:iron_club"
-    },
-    {
-      "item": "basicweapons:iron_spear"
-    },
-    {
-      "item": "basicweapons:iron_quarterstaff"
-    },
-    {
-      "item": "basicweapons:iron_glaive"
-    }
+    "basicweapons:iron_dagger",
+    "basicweapons:iron_hammer",
+    "basicweapons:iron_club",
+    "basicweapons:iron_spear",
+    "basicweapons:iron_quarterstaff",
+    "basicweapons:iron_glaive"
   ],
   "result": {
     "id": "minecraft:iron_nugget",

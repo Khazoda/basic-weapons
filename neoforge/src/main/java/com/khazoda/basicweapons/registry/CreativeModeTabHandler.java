@@ -8,7 +8,7 @@ import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 
 import static com.khazoda.basicweapons.Constants.MOD_ID;
 
-@EventBusSubscriber(modid = MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = MOD_ID)
 public class CreativeModeTabHandler {
 
   @SubscribeEvent

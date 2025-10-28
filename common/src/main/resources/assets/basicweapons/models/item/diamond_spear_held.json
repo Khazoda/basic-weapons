@@ -1,6 +1,0 @@
-{
-  "parent": "basicweapons:item/handheld_big_spear",
-  "textures": {
-    "layer0": "basicweapons:item/spear/diamond_spear_held"
-  }
-}
