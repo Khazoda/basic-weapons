@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "#minecraft:netherite_tool_materials",
+  "base": "basicweapons:diamond_glaive",
+  "result": {
+    "id": "basicweapons:netherite_glaive"
+  },
+  "template": "minecraft:netherite_upgrade_smithing_template"
+}

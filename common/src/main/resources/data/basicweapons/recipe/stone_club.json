@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "stone_club",
+  "pattern": [
+    " #",
+    "# ",
+    "/ "
+  ],
+  "key": {
+    "#": "#minecraft:stone_tool_materials",
+    "/": "minecraft:stick"
+  },
+  "result": {
+    "id": "basicweapons:stone_club",
+    "count": 1
+  }
+}

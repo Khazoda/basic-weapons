@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  /",
+    " O ",
+    "/  "
+  ],
+  "key": {
+    "O": "minecraft:diamond",
+    "/": "minecraft:stick"
+  },
+  "result": {
+    "id": "basicweapons:diamond_quarterstaff",
+    "count": 1
+  }
+}

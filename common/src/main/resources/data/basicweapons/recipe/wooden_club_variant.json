@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_club",
+  "pattern": [
+    "# ",
+    " #",
+    " /"
+  ],
+  "key": {
+    "#": "#minecraft:wooden_tool_materials",
+    "/": "minecraft:stick"
+  },
+  "result": {
+    "id": "basicweapons:wooden_club",
+    "count": 1
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  #",
+    " / ",
+    "/  "
+  ],
+  "key": {
+    "#": "#minecraft:wooden_tool_materials",
+    "/": "minecraft:stick"
+  },
+  "result": {
+    "id": "basicweapons:wooden_spear",
+    "count": 1
+  }
+}

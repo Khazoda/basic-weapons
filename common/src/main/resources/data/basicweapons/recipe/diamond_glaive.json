@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " OO",
+    "O/ ",
+    "/  "
+  ],
+  "key": {
+    "O": "minecraft:diamond",
+    "/": "minecraft:stick"
+  },
+  "result": {
+    "id": "basicweapons:diamond_glaive",
+    "count": 1
+  }
+}
