@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "copper_club",
+  "pattern": [
+    "# ",
+    " #",
+    " /"
+  ],
+  "key": {
+    "#": "minecraft:copper_ingot",
+    "/": "minecraft:stick"
+  },
+  "result": {
+    "id": "basicweapons:copper_club",
+    "count": 1
+  }
+}

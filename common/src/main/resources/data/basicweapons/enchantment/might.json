@@ -1,7 +1,7 @@
 {
   "anvil_cost": 1,
   "description": {
-    "translate": "enchantment.minecraft.might"
+    "translate": "enchantment.basicweapons.might"
   },
   "effects": {
     "minecraft:damage": [

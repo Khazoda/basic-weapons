@@ -25,6 +25,7 @@ public class WeaponRegistry {
   public static final List<MaterialEntry> VANILLA_MATERIALS = Arrays.asList(
       new MaterialEntry(ToolMaterial.WOOD, "wooden"),
       new MaterialEntry(ToolMaterial.STONE, "stone"),
+      new MaterialEntry(ToolMaterial.COPPER, "copper"),
       new MaterialEntry(ToolMaterial.IRON, "iron"),
       new MaterialEntry(ToolMaterial.GOLD, "golden"),
       new MaterialEntry(ToolMaterial.DIAMOND, "diamond"),

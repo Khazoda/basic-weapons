@@ -1,0 +1,31 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "got_copper_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:copper_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "got_copper_ingot"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "basicweapons:copper_dagger",
+      "basicweapons:copper_club",
+      "basicweapons:copper_club_variant",
+      "basicweapons:copper_hammer",
+      "basicweapons:copper_spear",
+      "basicweapons:copper_quarterstaff",
+      "basicweapons:copper_glaive"
+    ]
+  }
+}

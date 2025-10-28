@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " OO",
+    "O/ ",
+    "/  "
+  ],
+  "key": {
+    "O": "minecraft:copper_ingot",
+    "/": "minecraft:stick"
+  },
+  "result": {
+    "id": "basicweapons:copper_glaive",
+    "count": 1
+  }
+}
