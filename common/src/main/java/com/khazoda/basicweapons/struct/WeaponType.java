@@ -53,8 +53,6 @@ public enum WeaponType {
     float finalSpeed = baseSpeed + extraSpeed;
     double finalReach = baseReach + extraReach;
 
-
-
     return factory.create(
         material,
         finalDamage,

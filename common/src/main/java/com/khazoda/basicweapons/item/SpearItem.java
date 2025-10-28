@@ -3,15 +3,14 @@ package com.khazoda.basicweapons.item;
 import com.khazoda.basicweapons.registry.TagRegistry;
 import com.khazoda.basicweapons.utils.AllowDenyPass;
 import net.minecraft.core.Holder;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.enchantment.Enchantment;
 
 public class SpearItem extends BasicWeaponSweeplessItem {
-  public SpearItem(ToolMaterial ToolMaterial, float attackDamage, float attackSpeed, double reach, Item.Properties properties) {
-    super(ToolMaterial, BlockTags.SWORD_EFFICIENT, attackDamage, attackSpeed, reach, properties);
+  public SpearItem(ToolMaterial material, float attackDamage, float attackSpeed, double reach, Item.Properties properties) {
+    super(material, attackDamage, attackSpeed, reach, properties);
   }
 
   @Override

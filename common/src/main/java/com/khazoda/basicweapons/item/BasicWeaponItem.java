@@ -1,6 +1,7 @@
 package com.khazoda.basicweapons.item;
 
 import com.khazoda.basicweapons.platform.ItemExtension;
+import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -16,6 +17,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.component.Tool;
+import net.minecraft.world.item.component.Weapon;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 
@@ -28,27 +30,19 @@ import static com.khazoda.basicweapons.Constants.PLAYER_ENTITY_INTERACTION_RANGE
 
 public abstract class BasicWeaponItem extends Item implements ItemExtension {
 
-  public BasicWeaponItem(ToolMaterial material, TagKey<Block> effectiveBlocks, float attackDamage, float attackSpeed, double extraReach, Item.Properties properties) {
+  /* For blunt weapons */
+  public BasicWeaponItem(ToolMaterial material, TagKey<Block> effectiveBlocks, float attackDamage, float attackSpeed, double extraReach, Properties properties) {
+    super(properties.tool(material, effectiveBlocks, attackDamage, attackSpeed, 0.0f)
+        .component(DataComponents.ATTRIBUTE_MODIFIERS, createAttributes(material, attackDamage, attackSpeed, extraReach))
+        .component(DataComponents.WEAPON, new Weapon(1)));
+  }
+
+  /* For sharp weapons */
+  public BasicWeaponItem(ToolMaterial material, float attackDamage, float attackSpeed, double extraReach, Properties properties) {
     super(properties.sword(material, attackDamage, attackSpeed)
-//        .component(DataComponents.TOOL, createToolProperties(material, effectiveBlocks))
         .component(DataComponents.ATTRIBUTE_MODIFIERS, createAttributes(material, attackDamage, attackSpeed, extraReach)));
   }
 
-//  private static Tool createToolProperties(ToolMaterial material, TagKey<Block> effectiveBlocks) {
-//    List<Tool.Rule> rules = new ArrayList<>();
-//
-//    HolderSet<Block> incorrectBlocksHolderSet = BuiltInRegistries.BLOCK.getOrThrow(material.incorrectBlocksForDrops());
-//    HolderSet<Block> effectiveHolderSet = BuiltInRegistries.BLOCK.getOrThrow(effectiveBlocks);
-//
-//    rules.add(Tool.Rule.minesAndDrops(incorrectBlocksHolderSet, material.speed()));
-//    rules.add(Tool.Rule.overrideSpeed(effectiveHolderSet, material.speed()));
-//
-//    if (effectiveBlocks.equals(BlockTags.SWORD_EFFICIENT)) {
-//      rules.add(Tool.Rule.minesAndDrops(HolderSet.direct(BuiltInRegistries.BLOCK.wrapAsHolder(Blocks.COBWEB)), 15.0F));
-//    }
-//
-//    return new Tool(rules, 1.0F, 1, false);
-//  }
 
   private static ItemAttributeModifiers createAttributes(ToolMaterial ToolMaterial, float attackDamage, float attackSpeed, double reach) {
 

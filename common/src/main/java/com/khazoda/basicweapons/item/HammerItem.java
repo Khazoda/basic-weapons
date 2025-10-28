@@ -15,8 +15,8 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.phys.Vec3;
 
 public class HammerItem extends BasicWeaponSweeplessItem {
-  public HammerItem(ToolMaterial ToolMaterial, float attackDamage, float attackSpeed, double reach, Item.Properties properties) {
-    super(ToolMaterial, BlockTags.AIR, attackDamage, attackSpeed, reach, properties);
+  public HammerItem(ToolMaterial material, float attackDamage, float attackSpeed, double reach, Item.Properties properties) {
+    super(material, BlockTags.AIR, attackDamage, attackSpeed, reach, properties);
   }
 
   @Override

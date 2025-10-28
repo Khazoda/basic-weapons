@@ -17,8 +17,8 @@ import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.enchantment.Enchantment;
 
 public class ClubItem extends BasicWeaponSweeplessItem {
-  public ClubItem(ToolMaterial ToolMaterial, float attackDamage, float attackSpeed, double reach, Item.Properties properties) {
-    super(ToolMaterial, BlockTags.AIR, attackDamage, attackSpeed, reach, properties);
+  public ClubItem(ToolMaterial material, float attackDamage, float attackSpeed, double reach, Item.Properties properties) {
+    super(material, BlockTags.AIR, attackDamage, attackSpeed, reach, properties);
   }
 
   @Override
