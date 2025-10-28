@@ -39,7 +39,7 @@
   "tag.item.basicweapons.tools.spears": "Lanza",
   "tag.item.c.tools.spears": "Lanzas",
   "tag.item.c.tools.hammers": "Martillos",
-  "enchantment.minecraft.might": "Fuerza",
+  "enchantment.basicweapons.might": "Fuerza",
   "item.basicweapons.bronze_dagger": "Daga de Bronce",
   "item.basicweapons.bronze_hammer": "Martillo de Bronce",
   "item.basicweapons.bronze_club": "Garrote de Bronce",
@@ -54,5 +54,6 @@
   "item.basicweapons.diamond_glaive": "Guja de Diamante",
   "item.basicweapons.netherite_glaive": "Guja de Netherita",
   "tag.item.basicweapons.tools.glaives": "Gujas",
-  "tag.item.c.tools.glaives": "Gujas"
+  "tag.item.c.tools.glaives": "Gujas",
+  "tag.item.c.tools.melee_weapons": "armas cuerpo a cuerpo"
 }
