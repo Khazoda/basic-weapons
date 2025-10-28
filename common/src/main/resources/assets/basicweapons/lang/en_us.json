@@ -45,7 +45,7 @@
   "tag.item.c.tools.spears": "Spears",
   "tag.item.c.tools.hammers": "Hammers",
   "enchantment.basicweapons.might": "Might",
-  "enchantment.basicweapons.might.desc": "Increases the damage of the item. Functionally identical to Sharpness.",
+  "enchantment.basicweapons.might.desc": "Increases the damage of the item.",
   "item.basicweapons.bronze_dagger": "Bronze Dagger",
   "item.basicweapons.bronze_hammer": "Bronze Hammer",
   "item.basicweapons.bronze_club": "Bronze Club",
