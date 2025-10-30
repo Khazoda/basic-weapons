@@ -62,7 +62,7 @@ public class BasicWeaponsModelProvider extends FabricModelProvider {
     String parentModel;
     switch (weaponType) {
       case SPEAR -> parentModel = "handheld_big_spear";
-      case QUARTERSTAFF -> parentModel = "handheld_big_staff";
+      case QUARTERSTAFF -> parentModel = "handheld_big_quarterstaff";
       case GLAIVE -> parentModel = "handheld_big_glaive";
       default -> parentModel = "handheld_big_spear";
     }

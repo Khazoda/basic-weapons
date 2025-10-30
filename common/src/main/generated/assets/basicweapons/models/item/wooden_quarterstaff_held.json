@@ -1,5 +1,5 @@
 {
-  "parent": "basicweapons:item/handheld_big_staff",
+  "parent": "basicweapons:item/handheld_big_quarterstaff",
   "textures": {
     "layer0": "basicweapons:item/wooden_quarterstaff_held"
   }

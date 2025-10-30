@@ -6,11 +6,6 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ToolMaterial;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.block.Block;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * This class' fields should mirror the schema used for material pack material JSON files
@@ -36,11 +31,16 @@ public class EarlyLoadedMaterial {
 
   private TagKey<Item> createRepairIngredientTagKey(String repairIngredient) {
     ResourceLocation identifier;
+    String tagReference;
+    /* Material pack either contains direct existing tag reference e.g. #minecraft:golden_tool_materials */
+    /* OR it contains a fresh tag containing item references. This clause figures out which. */
+    /* This is needed from 1.21.10 onwards because ToolMaterial only accepts TagKeys, not items directly */
     if (repairIngredient.startsWith("#")) {
-      identifier = ResourceLocation.bySeparator(repairIngredient.substring(1), ':');
+      tagReference = repairIngredient.substring(1);
     } else {
-      identifier = ResourceLocation.bySeparator(repairIngredient, ':');
+      tagReference = "basicweapons:" + material_name + "_tool_materials";
     }
+    identifier = ResourceLocation.bySeparator(tagReference, ':');
     return TagKey.create(Registries.ITEM, identifier);
   }
 

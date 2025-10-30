@@ -49,7 +49,7 @@ public class MaterialPackLoader {
         Constants.LOG.error("Failed to create basicweapons_materials folder. This should never happen.");
         return;
       }
-    } else if(packFiles != null && packFiles.length == 0) {
+    } else if(packFiles != null && packFiles.length != 0) {
       cleanTargetFolders(); // On every load the target resource & data folders are cleaned to handle users removing materialpacks
     }
 
@@ -77,7 +77,7 @@ public class MaterialPackLoader {
         }
       }
     }
-    Constants.LOG.info("Loaded the following material packs for Basic Weapons: {}", initiallyLoadedPacks.stream().map(Object::toString).collect(Collectors.joining(", ")));
+    Constants.LOG.info("Loaded the following material packs: [{}]", initiallyLoadedPacks.stream().map(Object::toString).collect(Collectors.joining(", ")));
     hasInitialized = true;
   }
 
@@ -251,7 +251,7 @@ public class MaterialPackLoader {
         toolMaterialMap.put(toolMaterial, material);
         loadedMaterials.put(material_name, material);
         materialToDatapackName.put(material_name, packFolder.getName());
-        Constants.LOG.info("'{}' material found. smithing new weapons..", material_name);
+        Constants.LOG.info("[{}] material loaded.", material_name);
         // Constants.LOG.info("Loaded material '{}' from '{}' with stats: [durability '{}'], [attack damage bonus '{}'], [attack speed bonus '{}'], [enchantability '{}'], [repair ingredient '{}']", material_name, packFolder.getName(), durability,attack_damage_bonus, attack_speed_bonus, enchantability,repair_ingredient);
 
         WeaponRegistry.registerAllWeaponsForMaterial(material_name);
@@ -292,9 +292,9 @@ public class MaterialPackLoader {
   private static void cleanTargetFolders() {
     // Clean config/basicweapons/bwmp_resources and config/basicweapons/bwmp_data to make sure materialpacks are always fresh
     if (!ableToDeleteDirectory(new File(RESOURCEPACK_TARGET)))
-      Constants.LOG.error("Failed to clean resource pack target folder. Please report this on the Basic Weapons issue tracker");
+      Constants.LOG.error("Failed to clean bwmp_resources target folder. This is probably fine but if you experience issues please report this on the Basic Weapons issue tracker.");
     if (!ableToDeleteDirectory(new File(DATAPACK_TARGET)))
-      Constants.LOG.error("Failed to clean datapack target folder. Please report this on the Basic Weapons issue tracker");
+      Constants.LOG.error("Failed to clean bwmp_data target folder. This is probably fine but if you experience issues please report this on the Basic Weapons issue tracker.");
   }
 
   private static boolean ableToDeleteDirectory(File dir) {
