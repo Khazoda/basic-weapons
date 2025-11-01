@@ -30,6 +30,7 @@ public class MaterialPackLoader {
   private static final Map<String, EarlyLoadedMaterial> loadedMaterials = new HashMap<>();
   private static final Map<ToolMaterial, EarlyLoadedMaterial> toolMaterialMap = new HashMap<>();
   private static final Map<String, String> materialToDatapackName = new HashMap<>();
+  private static final Map<String, File> materialToPackFolder = new HashMap<>();
   private static final Set<String> initiallyLoadedPacks = new HashSet<>();
   private static boolean hasInitialized = false;
 
@@ -129,8 +130,9 @@ public class MaterialPackLoader {
       if (assetContents != null) {
         for (File file : assetContents) {
           if (file.isDirectory()) {
-            FileUtils.copyDirectory(file, new File(targetFolder, ASSETS_PATH + "/" + file.getName()));
+            copyDirectoryFiltered(file, new File(targetFolder, ASSETS_PATH + "/" + file.getName()), packFolder);
           } else {
+            if (shouldSkipSwordAxeFile(file.getName(), packFolder)) continue;
             FileUtils.copyFile(file, new File(targetFolder, ASSETS_PATH + "/" + file.getName()));
           }
         }
@@ -172,8 +174,9 @@ public class MaterialPackLoader {
       if (dataContents != null) {
         for (File file : dataContents) {
           if (file.isDirectory()) {
-            FileUtils.copyDirectory(file, new File(targetFolder, DATA_PATH + "/" + file.getName()));
+            copyDirectoryFiltered(file, new File(targetFolder, DATA_PATH + "/" + file.getName()), packFolder);
           } else {
+            if (shouldSkipSwordAxeFile(file.getName(), packFolder)) continue;
             FileUtils.copyFile(file, new File(targetFolder, DATA_PATH + "/" + file.getName()));
           }
         }
@@ -195,6 +198,44 @@ public class MaterialPackLoader {
     } catch (IOException e) {
       Constants.LOG.error("Failed to copy datapack content from {}: {}", packFolder.getName(), e.getMessage());
     }
+  }
+
+  /**
+   * Recursively copies directories, filtering out sword/axe files that don't have textures.
+   * Used for both resource pack and data pack copying. Stops annoying console errors.
+   */
+  private static void copyDirectoryFiltered(File sourceDir, File targetDir, File packFolder) throws IOException {
+    if (!targetDir.exists()) {
+      targetDir.mkdirs();
+    }
+
+    File[] files = sourceDir.listFiles();
+    if (files == null) return;
+
+    for (File file : files) {
+      if (file.isDirectory()) {
+        copyDirectoryFiltered(file, new File(targetDir, file.getName()), packFolder);
+      } else {
+        if (shouldSkipSwordAxeFile(file.getName(), packFolder)) continue;
+        FileUtils.copyFile(file, new File(targetDir, file.getName()));
+      }
+    }
+  }
+
+  /**
+   * Checks if a file should be skipped because it's for a sword/axe item that doesn't have a texture.
+   */
+  private static boolean shouldSkipSwordAxeFile(String fileName, File packFolder) {
+    if (!fileName.endsWith("_sword.json") && !fileName.endsWith("_axe.json")) {
+      return false;
+    }
+
+    String itemName = fileName.substring(0, fileName.length() - 5);
+    String weaponType = itemName.endsWith("_sword") ? "sword" : "axe";
+    String materialName = itemName.substring(0, itemName.length() - weaponType.length() - 1);
+
+    File textureFile = new File(packFolder, ASSETS_PATH + "/basicweapons/textures/item/" + materialName + "_" + weaponType + ".png");
+    return !textureFile.exists();
   }
 
 
@@ -241,20 +282,39 @@ public class MaterialPackLoader {
         String material_name = json.get("material_name").getAsString();
         int durability = json.get("durability").getAsInt();
         float attack_damage_bonus = json.get("attack_damage_bonus").getAsFloat();
-        float attack_speed_bonus = json.get("attack_speed_bonus").getAsFloat();
+        
+        // mining_speed is optional for backwards compatibility
+        boolean hasMiningSpeed = json.has("mining_speed");
+        float mining_speed;
+        if (hasMiningSpeed) {
+          mining_speed = json.get("mining_speed").getAsFloat();
+        } else {
+          // Backwards compatibility: use attack_speed_bonus as mining speed if mining_speed is missing
+          mining_speed = json.get("attack_speed_bonus").getAsFloat();
+        }
+        
+        // attack_speed_bonus is optional for backwards compatibility
+        float attack_speed_bonus;
+        if (hasMiningSpeed && json.has("attack_speed_bonus")) {
+          attack_speed_bonus = json.get("attack_speed_bonus").getAsFloat(); // 1.21.10+ format
+        } else {
+          attack_speed_bonus = 0.0f; // 1.21.1 format
+        }
+        
         float reach_bonus = json.get("reach_bonus").getAsFloat();
         int enchantability = json.get("enchantability").getAsInt();
         String repair_ingredient = json.get("repair_ingredient").getAsString();
 
-        EarlyLoadedMaterial material = new EarlyLoadedMaterial(material_name, durability, attack_damage_bonus, attack_speed_bonus, reach_bonus, enchantability, repair_ingredient);
+        EarlyLoadedMaterial material = new EarlyLoadedMaterial(material_name, durability, attack_damage_bonus, mining_speed, attack_speed_bonus, reach_bonus, enchantability, repair_ingredient);
         ToolMaterial toolMaterial = material.createToolMaterial();
         toolMaterialMap.put(toolMaterial, material);
         loadedMaterials.put(material_name, material);
         materialToDatapackName.put(material_name, packFolder.getName());
+        materialToPackFolder.put(material_name, packFolder);
         Constants.LOG.info("[{}] material loaded.", material_name);
         // Constants.LOG.info("Loaded material '{}' from '{}' with stats: [durability '{}'], [attack damage bonus '{}'], [attack speed bonus '{}'], [enchantability '{}'], [repair ingredient '{}']", material_name, packFolder.getName(), durability,attack_damage_bonus, attack_speed_bonus, enchantability,repair_ingredient);
 
-        WeaponRegistry.registerAllWeaponsForMaterial(material_name);
+        WeaponRegistry.registerAllWeaponsForMaterialPackMaterial(material_name);
       } catch (Exception e) {
         Constants.LOG.error("Failed to load material file {} from pack {}: {}", file.getName(), packFolder.getName(), e.getMessage());
       }
@@ -279,6 +339,11 @@ public class MaterialPackLoader {
     return initiallyLoadedPacks.contains(packName);
   }
 
+  public static float getMiningSpeed(ToolMaterial toolMaterial) {
+    EarlyLoadedMaterial material = toolMaterialMap.get(toolMaterial);
+    return material != null ? material.getMiningSpeed() : 0f;
+  }
+
   public static float getAttackSpeedBonus(ToolMaterial toolMaterial) {
     EarlyLoadedMaterial material = toolMaterialMap.get(toolMaterial);
     return material != null ? material.getAttackSpeedBonus() : 0f;
@@ -287,6 +352,24 @@ public class MaterialPackLoader {
   public static float getReachBonus(ToolMaterial toolMaterial) {
     EarlyLoadedMaterial material = toolMaterialMap.get(toolMaterial);
     return material != null ? material.getReachBonus() : 0f;
+  }
+
+  /**
+   * Checks if a texture file exists for a weapon type in the material pack.
+   * @param materialName The name of the material
+   * @param weaponTypeId The weapon type ID (e.g., "sword", "axe")
+   * @return true if the texture file exists, false otherwise
+   */
+  public static boolean hasTextureForWeaponType(String materialName, String weaponTypeId) {
+    File packFolder = materialToPackFolder.get(materialName);
+    if (packFolder == null) {
+      return false;
+    }
+
+    // Texture path: assets/basicweapons/textures/item/{material_name}_{weapon_type}.png
+    String texturePath = ASSETS_PATH + "/basicweapons/textures/item/" + materialName + "_" + weaponTypeId + ".png";
+    File textureFile = new File(packFolder, texturePath);
+    return textureFile.exists() && textureFile.isFile();
   }
 
   private static void cleanTargetFolders() {

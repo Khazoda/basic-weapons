@@ -14,15 +14,17 @@ public class EarlyLoadedMaterial {
   private final String material_name;
   private final int durability;
   private final float attack_damage_bonus;
+  private final float mining_speed;
   private final float attack_speed_bonus;
   private final float reach_bonus;
   private final int enchantability;
   private final String repair_ingredient;
 
-  public EarlyLoadedMaterial(String material_name, int durability, float attack_damage_bonus, float attack_speed_bonus, float reach_bonus, int enchantability, String repair_ingredient) {
+  public EarlyLoadedMaterial(String material_name, int durability, float attack_damage_bonus, float mining_speed, float attack_speed_bonus, float reach_bonus, int enchantability, String repair_ingredient) {
     this.material_name = material_name;
     this.durability = durability;
     this.attack_damage_bonus = attack_damage_bonus;
+    this.mining_speed = mining_speed;
     this.attack_speed_bonus = attack_speed_bonus;
     this.reach_bonus = reach_bonus;
     this.enchantability = enchantability;
@@ -48,11 +50,15 @@ public class EarlyLoadedMaterial {
     return new ToolMaterial(
         BlockTags.INCORRECT_FOR_STONE_TOOL,
         durability,
-        attack_speed_bonus,  // This becomes the mining speed in ToolMaterial
+        mining_speed,  // Mining speed for block breaking
         attack_damage_bonus,
         enchantability,
         createRepairIngredientTagKey(repair_ingredient)
     );
+  }
+
+  public float getMiningSpeed() {
+    return mining_speed;
   }
 
   public float getAttackSpeedBonus() {

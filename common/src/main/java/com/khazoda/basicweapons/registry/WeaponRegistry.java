@@ -19,7 +19,7 @@ import static com.khazoda.basicweapons.struct.WeaponType.*;
 
 public class WeaponRegistry {
   private static final Map<String, Supplier<Item>> ITEMS = new LinkedHashMap<>();
-  private static final Map<WeaponType, List<Supplier<Item>>> ITEMS_BY_TYPE = new EnumMap<>(WeaponType.class);
+  private static final Map<WeaponType.WeaponTypeInterface, List<Supplier<Item>>> ITEMS_BY_TYPE = new HashMap<>();
   private static final Map<ToolMaterial, List<Supplier<Item>>> ITEMS_BY_MATERIAL = new HashMap<>();
 
   public static final List<MaterialEntry> VANILLA_MATERIALS = Arrays.asList(
@@ -38,39 +38,52 @@ public class WeaponRegistry {
       registerAllWeaponsForMaterial(material);
     }
     if (bronze_mod_loaded) registerAllWeaponsForMaterial(BRONZE_MATERIAL_ENTRY);
-
   }
 
-  /* Register weapons from MaterialEntry */
+  public static void registerWeaponForMaterial(WeaponTypeInterface type, MaterialEntry material) {
+    String itemId = material.prefix() + "_" + type.getId();
+    Item.Properties itemSettings = material.settingsModifier().apply(new Item.Properties());
+
+    float damageModifier = WeaponType.getDamageModifier(type, material.material());
+    float speedModifier = WeaponType.getSpeedModifier(type, material.material());
+    float reachModifier = WeaponType.getReachModifier(type, material.material());
+
+    ResourceKey<Item> resourceKey = ResourceKey.create(Registries.ITEM, ID(itemId));
+    Item.Properties finalProperties = itemSettings.setId(resourceKey);
+
+    Supplier<Item> itemSupplier = ITEM_REGISTRAR.register(itemId, () ->
+        type.create(material.material, damageModifier, speedModifier, reachModifier, finalProperties)
+    );
+
+    ITEMS.put(itemId, itemSupplier);
+    ITEMS_BY_TYPE.computeIfAbsent(type, k -> new ArrayList<>()).add(itemSupplier);
+    ITEMS_BY_MATERIAL.computeIfAbsent(material.material(), k -> new ArrayList<>()).add(itemSupplier);
+  }
+
+  /* Register all weapons from a MaterialEntry */
   public static void registerAllWeaponsForMaterial(MaterialEntry material) {
-    for (WeaponType type : WeaponType.values()) {
-      String itemId = material.prefix() + "_" + type.getId();
-      Item.Properties itemSettings = material.settingsModifier().apply(new Item.Properties());
-
-      float damageModifier = getDamageModifier(type, material.material());
-      float speedModifier = getSpeedModifier(type, material.material());
-      float reachModifier = getReachModifier(type, material.material());
-
-      ResourceKey<Item> resourceKey = ResourceKey.create(Registries.ITEM, ID(itemId));
-      Item.Properties finalProperties = itemSettings.setId(resourceKey);
-
-      Supplier<Item> itemSupplier = ITEM_REGISTRAR.register(itemId, () ->
-          type.create(material.material, damageModifier, speedModifier, reachModifier, finalProperties)
-      );
-
-      ITEMS.put(itemId, itemSupplier);
-      ITEMS_BY_TYPE.computeIfAbsent(type, k -> new ArrayList<>()).add(itemSupplier);
-      ITEMS_BY_MATERIAL.computeIfAbsent(material.material(), k -> new ArrayList<>()).add(itemSupplier);
+    for (BasicWeaponType type : WeaponType.BasicWeaponType.values()) {
+      registerWeaponForMaterial(type, material);
     }
   }
 
   /* Register weapons from string of material name (used for material packs) */
-  public static void registerAllWeaponsForMaterial(String materialName) {
+  public static void registerAllWeaponsForMaterialPackMaterial(String materialName) {
     ToolMaterial material = MaterialPackLoader.getMaterial(materialName);
-    registerAllWeaponsForMaterial(new MaterialEntry(material, materialName));
+    MaterialEntry materialEntry = new MaterialEntry(material, materialName);
+    
+    // Always register BasicWeaponType weapons (dagger, hammer, club, etc.) for material packs
+    registerAllWeaponsForMaterial(materialEntry);
+    
+    // Only register VanillaWeaponType weapons (sword, axe) if their textures exist in the material pack
+    for (WeaponType.VanillaWeaponType type : WeaponType.VanillaWeaponType.values()) {
+      if (MaterialPackLoader.hasTextureForWeaponType(materialName, type.getId())) {
+        registerWeaponForMaterial(type, materialEntry);
+      }
+    }
   }
 
-  public static List<Item> getItemsByType(WeaponType type) {
+  public static List<Item> getItemsByType(WeaponType.WeaponTypeInterface type) {
     return ITEMS_BY_TYPE.getOrDefault(type, Collections.emptyList()).stream()
         .map(Supplier::get)
         .filter(Objects::nonNull)
