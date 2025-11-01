@@ -15,11 +15,15 @@ import java.util.function.Supplier;
 import static com.khazoda.basicweapons.BasicWeaponsCommon.ITEM_REGISTRAR;
 import static com.khazoda.basicweapons.BasicWeaponsCommon.bronze_mod_loaded;
 import static com.khazoda.basicweapons.Constants.ID;
-import static com.khazoda.basicweapons.struct.WeaponType.*;
+import static com.khazoda.basicweapons.struct.WeaponType.BasicWeaponType;
+import static com.khazoda.basicweapons.struct.WeaponType.WeaponTypeInterface;
 
 public class WeaponRegistry {
   private static final Map<String, Supplier<Item>> ITEMS = new LinkedHashMap<>();
-  private static final Map<WeaponType.WeaponTypeInterface, List<Supplier<Item>>> ITEMS_BY_TYPE = new HashMap<>();
+  private static final Map<WeaponType.WeaponTypeInterface, List<Supplier<Item>>> ALL_ITEMS_BY_TYPE = new HashMap<>();
+  private static final Map<WeaponType.WeaponTypeInterface, List<Supplier<Item>>> BUILTIN_ITEMS_BY_TYPE = new HashMap<>();
+  private static final Map<WeaponType.WeaponTypeInterface, List<Supplier<Item>>> MATERIALPACK_ITEMS_BY_TYPE = new HashMap<>();
+
   private static final Map<ToolMaterial, List<Supplier<Item>>> ITEMS_BY_MATERIAL = new HashMap<>();
 
   public static final List<MaterialEntry> VANILLA_MATERIALS = Arrays.asList(
@@ -56,7 +60,14 @@ public class WeaponRegistry {
     );
 
     ITEMS.put(itemId, itemSupplier);
-    ITEMS_BY_TYPE.computeIfAbsent(type, k -> new ArrayList<>()).add(itemSupplier);
+
+    /* Needed for proper creative tab sorting of entries */
+    if (VANILLA_MATERIALS.contains(material)) {
+      BUILTIN_ITEMS_BY_TYPE.computeIfAbsent(type, k -> new ArrayList<>()).add(itemSupplier);
+    } else {
+      MATERIALPACK_ITEMS_BY_TYPE.computeIfAbsent(type, k -> new ArrayList<>()).add(itemSupplier);
+    }
+    ALL_ITEMS_BY_TYPE.computeIfAbsent(type, k -> new ArrayList<>()).add(itemSupplier);
     ITEMS_BY_MATERIAL.computeIfAbsent(material.material(), k -> new ArrayList<>()).add(itemSupplier);
   }
 
@@ -71,10 +82,10 @@ public class WeaponRegistry {
   public static void registerAllWeaponsForMaterialPackMaterial(String materialName) {
     ToolMaterial material = MaterialPackLoader.getMaterial(materialName);
     MaterialEntry materialEntry = new MaterialEntry(material, materialName);
-    
+
     // Always register BasicWeaponType weapons (dagger, hammer, club, etc.) for material packs
     registerAllWeaponsForMaterial(materialEntry);
-    
+
     // Only register VanillaWeaponType weapons (sword, axe) if their textures exist in the material pack
     for (WeaponType.VanillaWeaponType type : WeaponType.VanillaWeaponType.values()) {
       if (MaterialPackLoader.hasTextureForWeaponType(materialName, type.getId())) {
@@ -83,11 +94,35 @@ public class WeaponRegistry {
     }
   }
 
-  public static List<Item> getItemsByType(WeaponType.WeaponTypeInterface type) {
-    return ITEMS_BY_TYPE.getOrDefault(type, Collections.emptyList()).stream()
-        .map(Supplier::get)
-        .filter(Objects::nonNull)
-        .toList();
+
+  /* ITEMS_BY_TYPE retrieval options for tab registry */
+  public enum ITEMS_BY_TYPE {
+    ALL,
+    BUILTIN,
+    MATERIALPACK
+  }
+
+  public static List<Item> getItemsByType(ITEMS_BY_TYPE selection, WeaponType.WeaponTypeInterface type) {
+    switch (selection) {
+      case BUILTIN -> {
+        return BUILTIN_ITEMS_BY_TYPE.getOrDefault(type, Collections.emptyList()).stream()
+            .map(Supplier::get)
+            .filter(Objects::nonNull)
+            .toList();
+      }
+      case MATERIALPACK -> {
+        return MATERIALPACK_ITEMS_BY_TYPE.getOrDefault(type, Collections.emptyList()).stream()
+            .map(Supplier::get)
+            .filter(Objects::nonNull)
+            .toList();
+      }
+      default -> {
+        return ALL_ITEMS_BY_TYPE.getOrDefault(type, Collections.emptyList()).stream()
+            .map(Supplier::get)
+            .filter(Objects::nonNull)
+            .toList();
+      }
+    }
   }
 
   public static List<Item> getItemsByMaterial(ToolMaterial material) {

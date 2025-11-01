@@ -27,7 +27,7 @@ import static com.khazoda.basicweapons.materialpack.MaterialPackConstants.*;
 
 public class MaterialPackLoader {
   private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
-  private static final Map<String, EarlyLoadedMaterial> loadedMaterials = new HashMap<>();
+  public static final Map<String, EarlyLoadedMaterial> loadedMaterials = new HashMap<>();
   private static final Map<ToolMaterial, EarlyLoadedMaterial> toolMaterialMap = new HashMap<>();
   private static final Map<String, String> materialToDatapackName = new HashMap<>();
   private static final Map<String, File> materialToPackFolder = new HashMap<>();

@@ -34,8 +34,8 @@ public class BasicWeaponsModelProvider extends FabricModelProvider {
 
   @Override
   public void generateItemModels(ItemModelGenerators itemModelGenerators) {
-    for (WeaponType weaponType : WeaponType.values()) {
-      WeaponRegistry.getItemsByType(weaponType).forEach(item -> {
+    for (WeaponType.BasicWeaponType weaponType : WeaponType.BasicWeaponType.values()) {
+      WeaponRegistry.getItemsByType(WeaponRegistry.ITEMS_BY_TYPE.ALL,weaponType).forEach(item -> {
         if (needsDisplayContext(weaponType)) {
           generateDisplayContextModel(itemModelGenerators, item, weaponType);
         } else {
@@ -45,20 +45,20 @@ public class BasicWeaponsModelProvider extends FabricModelProvider {
     }
   }
 
-  private boolean needsDisplayContext(WeaponType weaponType) {
-    return weaponType == WeaponType.SPEAR ||
-        weaponType == WeaponType.QUARTERSTAFF ||
-        weaponType == WeaponType.GLAIVE;
+  private boolean needsDisplayContext(WeaponType.BasicWeaponType weaponType) {
+    return weaponType == WeaponType.BasicWeaponType.SPEAR ||
+        weaponType == WeaponType.BasicWeaponType.QUARTERSTAFF ||
+        weaponType == WeaponType.BasicWeaponType.GLAIVE;
   }
 
-  private void generateDisplayContextModel(ItemModelGenerators itemModelGenerators, Item item, WeaponType weaponType) {
+  private void generateDisplayContextModel(ItemModelGenerators itemModelGenerators, Item item, WeaponType.BasicWeaponType weaponType) {
     ResourceLocation baseModel = itemModelGenerators.createFlatItemModel(item, item, ModelTemplates.FLAT_HANDHELD_ITEM);
     ResourceLocation heldModel = createBigHeldModel(itemModelGenerators, item, weaponType);
     ItemModel.Unbaked displayContextModel = getUnbaked(baseModel, heldModel);
     itemModelGenerators.itemModelOutput.accept(item, displayContextModel);
   }
 
-  private ResourceLocation createBigHeldModel(ItemModelGenerators itemModelGenerators, Item item, WeaponType weaponType) {
+  private ResourceLocation createBigHeldModel(ItemModelGenerators itemModelGenerators, Item item, WeaponType.BasicWeaponType weaponType) {
     String parentModel;
     switch (weaponType) {
       case SPEAR -> parentModel = "handheld_big_spear";

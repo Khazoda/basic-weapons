@@ -3,6 +3,7 @@ package com.khazoda.basicweapons;
 import com.khazoda.basicweapons.materialpack.MaterialPackLoader;
 import com.khazoda.basicweapons.platform.Services;
 import com.khazoda.basicweapons.registry.EnchantmentRegistry;
+import com.khazoda.basicweapons.registry.TabRegistry;
 import com.khazoda.basicweapons.registry.WeaponRegistry;
 import com.khazoda.basicweapons.registry.helper.Reggie;
 import com.khazoda.basicweapons.registry.helper.Reginald;
@@ -22,6 +23,8 @@ public class BasicWeaponsCommon {
 
     WeaponRegistry.init();
     EnchantmentRegistry.init();
+    TabRegistry.init();
+
     if(!Services.PLATFORM.registerFurnaceFuels()) {
       Constants.LOG.info("Wooden weapons not registered correctly as furnace fuels. Please report this on the GitHub repository.");
     }

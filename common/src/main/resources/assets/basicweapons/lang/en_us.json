@@ -62,5 +62,8 @@
   "item.basicweapons.copper_spear": "Copper Spear",
   "item.basicweapons.copper_quarterstaff": "Copper Quarterstaff",
   "item.basicweapons.copper_glaive": "Copper Glaive",
-  "enchantment.basicweapons.might.desc": "Increases the damage of the item."
+  "enchantment.basicweapons.might.desc": "Increases the damage of the item.",
+  "itemGroup.basicweapons.main": "Basic Weapons",
+  "itemGroup.basicweapons.materialpack": "Basic Materialpack Weapons"
+
 }
