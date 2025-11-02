@@ -20,8 +20,8 @@ public final class WeaponType {
     HAMMER("hammer", 7f, -3.4f, 0, HammerItem::new),
     CLUB("club", 5f, -3.0f, 0, ClubItem::new),
     SPEAR("spear", 2f, -2.8f, 2, SpearItem::new),
-    QUARTERSTAFF("quarterstaff", 1f, -2.3f, 1.25, QuarterstaffItem::new),
-    GLAIVE("glaive", 5f, -3.2f, 1.25, GlaiveItem::new);
+    QUARTERSTAFF("quarterstaff", 1f, -2.3f, 1, QuarterstaffItem::new),
+    GLAIVE("glaive", 5f, -3.2f, 1, GlaiveItem::new);
 
     private final String id;
     private final float baseDamage;
