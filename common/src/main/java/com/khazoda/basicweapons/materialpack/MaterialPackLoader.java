@@ -50,7 +50,12 @@ public class MaterialPackLoader {
         Constants.LOG.error("Failed to create basicweapons_materials folder. This should never happen.");
         return;
       }
-    } else if(packFiles != null && packFiles.length != 0) {
+    } else {
+      /* Generate bwmp_data and bwmp_resources */
+      File resourcepacksFolder = new File(RESOURCEPACK_TARGET);
+      File datapacksFolder = new File(RESOURCEPACK_TARGET);
+      createFolder(resourcepacksFolder);
+      createFolder(datapacksFolder);
       cleanTargetFolders(); // On every load the target resource & data folders are cleaned to handle users removing materialpacks
     }
 
@@ -119,9 +124,7 @@ public class MaterialPackLoader {
 
     /* Destination for resourcepack generated from /assets */
     File resourcepacksFolder = new File(RESOURCEPACK_TARGET);
-    if (!resourcepacksFolder.exists()) {
-      resourcepacksFolder.mkdirs();
-    }
+    createFolder(resourcepacksFolder);
 
     File targetFolder = new File(resourcepacksFolder, packFolder.getName());
     try {
@@ -163,9 +166,7 @@ public class MaterialPackLoader {
 
     /* Destination for datapack generated from /data */
     File datapacksFolder = new File(DATAPACK_TARGET);
-    if (!datapacksFolder.exists()) {
-      datapacksFolder.mkdirs();
-    }
+    createFolder(datapacksFolder);
 
     File targetFolder = new File(datapacksFolder, packFolder.getName());
     try {
@@ -282,7 +283,7 @@ public class MaterialPackLoader {
         String material_name = json.get("material_name").getAsString();
         int durability = json.get("durability").getAsInt();
         float attack_damage_bonus = json.get("attack_damage_bonus").getAsFloat();
-        
+
         // mining_speed is optional for backwards compatibility
         boolean hasMiningSpeed = json.has("mining_speed");
         float mining_speed;
@@ -292,7 +293,7 @@ public class MaterialPackLoader {
           // Backwards compatibility: use attack_speed_bonus as mining speed if mining_speed is missing
           mining_speed = json.get("attack_speed_bonus").getAsFloat();
         }
-        
+
         // attack_speed_bonus is optional for backwards compatibility
         float attack_speed_bonus;
         if (hasMiningSpeed && json.has("attack_speed_bonus")) {
@@ -300,7 +301,7 @@ public class MaterialPackLoader {
         } else {
           attack_speed_bonus = 0.0f; // 1.21.1 format
         }
-        
+
         float reach_bonus = json.get("reach_bonus").getAsFloat();
         int enchantability = json.get("enchantability").getAsInt();
         String repair_ingredient = json.get("repair_ingredient").getAsString();
@@ -370,6 +371,14 @@ public class MaterialPackLoader {
     String texturePath = ASSETS_PATH + "/basicweapons/textures/item/" + materialName + "_" + weaponTypeId + ".png";
     File textureFile = new File(packFolder, texturePath);
     return textureFile.exists() && textureFile.isFile();
+  }
+
+  /* Returns true if folder was created, false if not or if it already exists */
+  private static boolean createFolder(File folder) {
+    if (!folder.exists()) {
+      return folder.mkdirs();
+    }
+    return false;
   }
 
   private static void cleanTargetFolders() {
