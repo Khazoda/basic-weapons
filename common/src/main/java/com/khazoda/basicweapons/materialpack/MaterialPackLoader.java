@@ -53,7 +53,7 @@ public class MaterialPackLoader {
     } else {
       /* Generate bwmp_data and bwmp_resources */
       File resourcepacksFolder = new File(RESOURCEPACK_TARGET);
-      File datapacksFolder = new File(RESOURCEPACK_TARGET);
+      File datapacksFolder = new File(DATAPACK_TARGET);
       createFolder(resourcepacksFolder);
       createFolder(datapacksFolder);
       cleanTargetFolders(); // On every load the target resource & data folders are cleaned to handle users removing materialpacks
