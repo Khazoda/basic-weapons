@@ -64,6 +64,11 @@
   "item.basicweapons.copper_glaive": "Copper Glaive",
   "enchantment.basicweapons.might.desc": "Increases the damage of the item.",
   "itemGroup.basicweapons.main": "Basic Weapons",
-  "itemGroup.basicweapons.materialpack": "Materialpack Weapons"
-
+  "itemGroup.basicweapons.materialpack": "Materialpack Weapons",
+  "item.basicweapons.tin_dagger": "Tin Dagger",
+  "item.basicweapons.tin_hammer": "Tin Hammer",
+  "item.basicweapons.tin_club": "Tin Club",
+  "item.basicweapons.tin_spear": "Tin Spear",
+  "item.basicweapons.tin_quarterstaff": "Tin Quarterstaff",
+  "item.basicweapons.tin_glaive": "Tin Glaive"
 }
