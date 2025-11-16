@@ -11,6 +11,10 @@
     {
       "id": "basicweapons:bronze_club",
       "required": false
+    },
+    {
+      "id": "basicweapons:tin_club",
+      "required": false
     }
   ]
 }

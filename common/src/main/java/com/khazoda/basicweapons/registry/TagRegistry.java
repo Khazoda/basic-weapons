@@ -16,4 +16,6 @@ public class TagRegistry {
   public static final TagKey<Enchantment> SWEEPING_EDGE_ENCHANTABLE = TagKey.create(Registries.ENCHANTMENT, ID("enchantable/sweeping_edge"));
 
   public static final TagKey<Item> BRONZE_INGOTS = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "ingots/bronze"));
+  public static final TagKey<Item> TIN_INGOTS = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "ingots/tin"));
+
 }

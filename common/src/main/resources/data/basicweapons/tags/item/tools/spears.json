@@ -11,6 +11,10 @@
     {
       "id": "basicweapons:bronze_spear",
       "required": false
+    },
+    {
+      "id": "basicweapons:tin_spear",
+      "required": false
     }
   ]
 }

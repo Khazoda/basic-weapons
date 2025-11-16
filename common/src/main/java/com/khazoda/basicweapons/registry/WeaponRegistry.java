@@ -35,13 +35,20 @@ public class WeaponRegistry {
       new MaterialEntry(ToolMaterial.DIAMOND, "diamond"),
       new MaterialEntry(ToolMaterial.NETHERITE, "netherite", Item.Properties::fireResistant)
   );
-  public static final MaterialEntry BRONZE_MATERIAL_ENTRY = new MaterialEntry(ConditionalToolMaterials.BRONZE, "bronze");
+  public static final List<MaterialEntry> COMPAT_MATERIALS = Arrays.asList(
+      new MaterialEntry(ConditionalToolMaterials.BRONZE, "bronze"),
+      new MaterialEntry(ConditionalToolMaterials.TIN, "tin")
+  );
 
   public static void init() {
     for (MaterialEntry material : VANILLA_MATERIALS) {
       registerAllWeaponsForMaterial(material);
     }
-    if (bronze_mod_loaded) registerAllWeaponsForMaterial(BRONZE_MATERIAL_ENTRY);
+    if (bronze_mod_loaded) { //TODO: Make sure you uncomment this when running DATAGEN
+      for (MaterialEntry material : COMPAT_MATERIALS) {
+        registerAllWeaponsForMaterial(material);
+      }
+    }
   }
 
   public static void registerWeaponForMaterial(WeaponTypeInterface type, MaterialEntry material) {
@@ -62,7 +69,7 @@ public class WeaponRegistry {
     ITEMS.put(itemId, itemSupplier);
 
     /* Needed for proper creative tab sorting of entries */
-    if (VANILLA_MATERIALS.contains(material)) {
+    if (VANILLA_MATERIALS.contains(material) || COMPAT_MATERIALS.contains(material)) {
       BUILTIN_ITEMS_BY_TYPE.computeIfAbsent(type, k -> new ArrayList<>()).add(itemSupplier);
     } else {
       MATERIALPACK_ITEMS_BY_TYPE.computeIfAbsent(type, k -> new ArrayList<>()).add(itemSupplier);

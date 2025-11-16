@@ -17,6 +17,7 @@ import java.util.function.Consumer;
 
 import static com.khazoda.basicweapons.Constants.ID;
 import static com.khazoda.basicweapons.registry.TagRegistry.BRONZE_INGOTS;
+import static com.khazoda.basicweapons.registry.TagRegistry.TIN_INGOTS;
 
 @SuppressWarnings("removal")
 public class BasicWeaponsAdvancements implements Consumer<Consumer<AdvancementHolder>> {
@@ -98,6 +99,22 @@ public class BasicWeaponsAdvancements implements Consumer<Consumer<AdvancementHo
         .build(ID("recipes/got_iron_ingot"));
     advancementConsumer.accept(iron_weapons);
 
+    AdvancementHolder tin_weapons = Advancement.Builder.recipeAdvancement()
+        .parent(ResourceLocation.withDefaultNamespace("recipes/root"))
+        .addCriterion("got_tin_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(registryEntryLookup, TIN_INGOTS)))
+        .rewards(AdvancementRewards.Builder
+            .recipe(recipeKey(ID("compat/tin_dagger")))
+            .addRecipe(recipeKey(ID("compat/tin_club")))
+            .addRecipe(recipeKey(ID("compat/tin_club_variant")))
+            .addRecipe(recipeKey(ID("compat/tin_hammer")))
+            .addRecipe(recipeKey(ID("compat/tin_spear")))
+            .addRecipe(recipeKey(ID("compat/tin_quarterstaff")))
+            .addRecipe(recipeKey(ID("compat/tin_glaive")))
+
+        )
+        .build(ID("recipes/got_tin_ingot"));
+    advancementConsumer.accept(tin_weapons);
+
     AdvancementHolder bronze_weapons = Advancement.Builder.recipeAdvancement()
         .parent(ResourceLocation.withDefaultNamespace("recipes/root"))
         .addCriterion("got_bronze_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(registryEntryLookup, BRONZE_INGOTS)))
@@ -113,7 +130,7 @@ public class BasicWeaponsAdvancements implements Consumer<Consumer<AdvancementHo
         )
         .build(ID("recipes/got_bronze_ingot"));
     advancementConsumer.accept(bronze_weapons);
-
+    
     AdvancementHolder golden_weapons = Advancement.Builder.recipeAdvancement()
         .parent(ResourceLocation.withDefaultNamespace("recipes/root"))
         .addCriterion("got_gold_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(Items.GOLD_INGOT))

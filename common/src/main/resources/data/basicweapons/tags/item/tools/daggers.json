@@ -11,6 +11,10 @@
     {
       "id": "basicweapons:bronze_dagger",
       "required": false
+    },
+    {
+      "id": "basicweapons:tin_dagger",
+      "required": false
     }
   ]
 }

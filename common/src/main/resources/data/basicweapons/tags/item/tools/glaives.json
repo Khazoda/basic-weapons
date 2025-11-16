@@ -11,6 +11,10 @@
     {
       "id": "basicweapons:bronze_glaive",
       "required": false
+    },
+    {
+      "id": "basicweapons:tin_glaive",
+      "required": false
     }
   ]
 }

@@ -24,7 +24,7 @@ public class BasicWeaponsRecipeProvider extends FabricRecipeProvider {
       @Override
       public void buildRecipes() {
         HolderLookup.RegistryLookup<Item> itemLookup = registryLookup.lookupOrThrow(Registries.ITEM);
-        /* Todo: Implement this whole thing one day when you figure out how to do mojmap in fabric datagen for recipes.. */
+        /* Todo: Implement this whole thing one day when you figure out how to do mojmap in fabric datagen for recipes.. (copy bronze mod asp) */
       }
     };
   }

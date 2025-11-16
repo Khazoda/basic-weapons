@@ -1,0 +1,31 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "got_tin_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:ingots/tin"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "got_tin_ingot"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "basicweapons:compat/tin_dagger",
+      "basicweapons:compat/tin_club",
+      "basicweapons:compat/tin_club_variant",
+      "basicweapons:compat/tin_hammer",
+      "basicweapons:compat/tin_spear",
+      "basicweapons:compat/tin_quarterstaff",
+      "basicweapons:compat/tin_glaive"
+    ]
+  }
+}

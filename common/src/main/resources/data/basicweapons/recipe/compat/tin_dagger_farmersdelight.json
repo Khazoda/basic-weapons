@@ -5,11 +5,11 @@
     "/ "
   ],
   "key": {
-    "#": "#c:ingots/bronze",
+    "#": "#c:ingots/tin",
     "/": "minecraft:stick"
   },
   "result": {
-    "id": "basicweapons:bronze_dagger",
+    "id": "basicweapons:tin_dagger",
     "count": 1
   },
   "fabric:load_conditions": [
