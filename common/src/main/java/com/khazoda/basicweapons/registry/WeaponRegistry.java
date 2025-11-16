@@ -44,7 +44,7 @@ public class WeaponRegistry {
     for (MaterialEntry material : VANILLA_MATERIALS) {
       registerAllWeaponsForMaterial(material);
     }
-    if (bronze_mod_loaded) { //TODO: Make sure you uncomment this when running DATAGEN
+    if (bronze_mod_loaded) { //TODO: Make sure you comment this when running DATAGEN
       for (MaterialEntry material : COMPAT_MATERIALS) {
         registerAllWeaponsForMaterial(material);
       }
