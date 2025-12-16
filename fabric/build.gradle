@@ -43,3 +43,4 @@ fabricApi.configureDataGeneration {
     createSourceSet = true
     client = true
 }
+
