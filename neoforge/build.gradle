@@ -37,3 +37,18 @@ neoForge {
 }
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
+
+tasks.named('jar') {
+    archiveFileName.set("${mod_id}-neoforge-${project.version}+${minecraft_version}.jar")
+    destinationDirectory.set(file("${rootProject.projectDir}/exports"))
+}
+
+tasks.named('sourcesJar') {
+    archiveFileName.set("${mod_id}-neoforge-${project.version}+${minecraft_version}-sources.jar")
+    destinationDirectory.set(file("${rootProject.projectDir}/exports/sources"))
+}
+
+tasks.named('javadocJar') {
+    archiveFileName.set("${mod_id}-neoforge-${project.version}+${minecraft_version}-javadoc.jar")
+    destinationDirectory.set(file("${rootProject.projectDir}/exports/javadoc"))
+}

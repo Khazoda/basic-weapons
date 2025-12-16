@@ -1,7 +1,7 @@
 package com.khazoda.basicweapons.registry;
 
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.level.storage.loot.LootPool;
@@ -49,7 +49,7 @@ public class LootTableModifier {
     LOOT_TABLE_CONFIGS.put(END_CITY_TREASURE, new LootConfig(WeaponRegistry.getItemsByMaterial(ToolMaterial.DIAMOND), false, true));
   }
 
-  public static void modifyLootTable(ResourceLocation id, LootTable.Builder tableBuilder) {
+  public static void modifyLootTable(Identifier id, LootTable.Builder tableBuilder) {
     ResourceKey<LootTable> key = ResourceKey.create(LOOT_TABLE, id);
     LootConfig config = LOOT_TABLE_CONFIGS.get(key);
     if (config != null) {

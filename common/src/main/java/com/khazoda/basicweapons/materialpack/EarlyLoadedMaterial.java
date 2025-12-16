@@ -1,7 +1,7 @@
 package com.khazoda.basicweapons.materialpack;
 
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -32,7 +32,7 @@ public class EarlyLoadedMaterial {
   }
 
   private TagKey<Item> createRepairIngredientTagKey(String repairIngredient) {
-    ResourceLocation identifier;
+    Identifier identifier;
     String tagReference;
     /* Material pack either contains direct existing tag reference e.g. #minecraft:golden_tool_materials */
     /* OR it contains a fresh tag containing item references. This clause figures out which. */
@@ -42,7 +42,7 @@ public class EarlyLoadedMaterial {
     } else {
       tagReference = "basicweapons:" + material_name + "_tool_materials";
     }
-    identifier = ResourceLocation.bySeparator(tagReference, ':');
+    identifier = Identifier.bySeparator(tagReference, ':');
     return TagKey.create(Registries.ITEM, identifier);
   }
 

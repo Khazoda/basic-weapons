@@ -15,7 +15,7 @@ import net.minecraft.client.data.models.model.TextureSlot;
 import net.minecraft.client.renderer.item.ItemModel;
 import net.minecraft.client.renderer.item.SelectItemModel;
 import net.minecraft.client.renderer.item.properties.select.DisplayContext;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemDisplayContext;
 import org.jetbrains.annotations.NotNull;
@@ -52,13 +52,13 @@ public class BasicWeaponsModelProvider extends FabricModelProvider {
   }
 
   private void generateDisplayContextModel(ItemModelGenerators itemModelGenerators, Item item, WeaponType.BasicWeaponType weaponType) {
-    ResourceLocation baseModel = itemModelGenerators.createFlatItemModel(item, item, ModelTemplates.FLAT_HANDHELD_ITEM);
-    ResourceLocation heldModel = createBigHeldModel(itemModelGenerators, item, weaponType);
+    Identifier baseModel = itemModelGenerators.createFlatItemModel(item, item, ModelTemplates.FLAT_HANDHELD_ITEM);
+    Identifier heldModel = createBigHeldModel(itemModelGenerators, item, weaponType);
     ItemModel.Unbaked displayContextModel = getUnbaked(baseModel, heldModel);
     itemModelGenerators.itemModelOutput.accept(item, displayContextModel);
   }
 
-  private ResourceLocation createBigHeldModel(ItemModelGenerators itemModelGenerators, Item item, WeaponType.BasicWeaponType weaponType) {
+  private Identifier createBigHeldModel(ItemModelGenerators itemModelGenerators, Item item, WeaponType.BasicWeaponType weaponType) {
     String parentModel;
     switch (weaponType) {
       case SPEAR -> parentModel = "handheld_big_spear";
@@ -67,17 +67,17 @@ public class BasicWeaponsModelProvider extends FabricModelProvider {
       default -> parentModel = "handheld_big_spear";
     }
     ModelTemplate bigWeaponTemplate = new ModelTemplate(
-        Optional.of(ResourceLocation.fromNamespaceAndPath("basicweapons", "item/" + parentModel)),
+        Optional.of(Identifier.fromNamespaceAndPath("basicweapons", "item/" + parentModel)),
         Optional.empty(),
         TextureSlot.LAYER0
     );
 
-    ResourceLocation heldModelId = ModelLocationUtils.getModelLocation(item, "_held");
+    Identifier heldModelId = ModelLocationUtils.getModelLocation(item, "_held");
     TextureMapping heldTextureMapping = TextureMapping.layer0(TextureMapping.getItemTexture(item, "_held"));
     return bigWeaponTemplate.create(heldModelId, heldTextureMapping, itemModelGenerators.modelOutput);
   }
 
-  private static ItemModel.@NotNull Unbaked getUnbaked(ResourceLocation baseModel, ResourceLocation heldModel) {
+  private static ItemModel.@NotNull Unbaked getUnbaked(Identifier baseModel, Identifier heldModel) {
     ItemModel.Unbaked baseUnbaked = ItemModelUtils.plainModel(baseModel);
     ItemModel.Unbaked heldUnbaked = ItemModelUtils.plainModel(heldModel);
     return ItemModelUtils.select(

@@ -106,7 +106,7 @@ public abstract class ItemStackMixin {
     for (Map.Entry<Holder<Enchantment>, Integer> entry : enchantments.entrySet()) {
       Optional<ResourceKey<Enchantment>> keyOpt = entry.getKey().unwrapKey();
       if (keyOpt.isPresent()) {
-        String id = keyOpt.get().location().toString();
+        String id = keyOpt.get().identifier().toString();
         int level = entry.getValue();
 
         if (level <= 0) continue;

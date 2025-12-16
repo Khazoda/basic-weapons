@@ -3,12 +3,12 @@ package com.khazoda.basicweapons.datagen.advancements;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.advancements.AdvancementRewards;
-import net.minecraft.advancements.critereon.InventoryChangeTrigger;
-import net.minecraft.advancements.critereon.ItemPredicate;
+import net.minecraft.advancements.criterion.InventoryChangeTrigger;
+import net.minecraft.advancements.criterion.ItemPredicate;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Recipe;
@@ -28,7 +28,7 @@ public class BasicWeaponsAdvancements implements Consumer<Consumer<AdvancementHo
     accept(advancementHolderConsumer);
   }
 
-  public static ResourceKey<Recipe<?>> recipeKey(ResourceLocation location) {
+  public static ResourceKey<Recipe<?>> recipeKey(Identifier location) {
     return ResourceKey.create(Registries.RECIPE, location);
   }
 
@@ -36,7 +36,7 @@ public class BasicWeaponsAdvancements implements Consumer<Consumer<AdvancementHo
   public void accept(Consumer<AdvancementHolder> advancementConsumer) {
 
     AdvancementHolder wooden_weapons = Advancement.Builder.recipeAdvancement()
-        .parent(ResourceLocation.withDefaultNamespace("recipes/root"))
+        .parent(Identifier.withDefaultNamespace("recipes/root"))
         .addCriterion("got_sticks", InventoryChangeTrigger.TriggerInstance.hasItems(Items.STICK))
         .rewards(AdvancementRewards.Builder
             .recipe(ResourceKey.create(Registries.RECIPE, ID("wooden_dagger")))
@@ -52,7 +52,7 @@ public class BasicWeaponsAdvancements implements Consumer<Consumer<AdvancementHo
     advancementConsumer.accept(wooden_weapons);
 
     AdvancementHolder stone_weapons = Advancement.Builder.recipeAdvancement()
-        .parent(ResourceLocation.withDefaultNamespace("recipes/root"))
+        .parent(Identifier.withDefaultNamespace("recipes/root"))
         .addCriterion("got_cobblestone", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COBBLESTONE))
         .rewards(AdvancementRewards.Builder
             .recipe(recipeKey(ID("stone_dagger")))
@@ -68,7 +68,7 @@ public class BasicWeaponsAdvancements implements Consumer<Consumer<AdvancementHo
     advancementConsumer.accept(stone_weapons);
 
     AdvancementHolder copper_weapons = Advancement.Builder.recipeAdvancement()
-        .parent(ResourceLocation.withDefaultNamespace("recipes/root"))
+        .parent(Identifier.withDefaultNamespace("recipes/root"))
         .addCriterion("got_copper_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
         .rewards(AdvancementRewards.Builder
             .recipe(recipeKey(ID("copper_dagger")))
@@ -84,7 +84,7 @@ public class BasicWeaponsAdvancements implements Consumer<Consumer<AdvancementHo
     advancementConsumer.accept(copper_weapons);
 
     AdvancementHolder iron_weapons = Advancement.Builder.recipeAdvancement()
-        .parent(ResourceLocation.withDefaultNamespace("recipes/root"))
+        .parent(Identifier.withDefaultNamespace("recipes/root"))
         .addCriterion("got_iron_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(Items.IRON_INGOT))
         .rewards(AdvancementRewards.Builder
             .recipe(recipeKey(ID("iron_dagger")))
@@ -100,7 +100,7 @@ public class BasicWeaponsAdvancements implements Consumer<Consumer<AdvancementHo
     advancementConsumer.accept(iron_weapons);
 
     AdvancementHolder tin_weapons = Advancement.Builder.recipeAdvancement()
-        .parent(ResourceLocation.withDefaultNamespace("recipes/root"))
+        .parent(Identifier.withDefaultNamespace("recipes/root"))
         .addCriterion("got_tin_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(registryEntryLookup, TIN_INGOTS)))
         .rewards(AdvancementRewards.Builder
             .recipe(recipeKey(ID("compat/tin_dagger")))
@@ -116,7 +116,7 @@ public class BasicWeaponsAdvancements implements Consumer<Consumer<AdvancementHo
     advancementConsumer.accept(tin_weapons);
 
     AdvancementHolder bronze_weapons = Advancement.Builder.recipeAdvancement()
-        .parent(ResourceLocation.withDefaultNamespace("recipes/root"))
+        .parent(Identifier.withDefaultNamespace("recipes/root"))
         .addCriterion("got_bronze_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(registryEntryLookup, BRONZE_INGOTS)))
         .rewards(AdvancementRewards.Builder
             .recipe(recipeKey(ID("compat/bronze_dagger")))
@@ -132,7 +132,7 @@ public class BasicWeaponsAdvancements implements Consumer<Consumer<AdvancementHo
     advancementConsumer.accept(bronze_weapons);
     
     AdvancementHolder golden_weapons = Advancement.Builder.recipeAdvancement()
-        .parent(ResourceLocation.withDefaultNamespace("recipes/root"))
+        .parent(Identifier.withDefaultNamespace("recipes/root"))
         .addCriterion("got_gold_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(Items.GOLD_INGOT))
         .rewards(AdvancementRewards.Builder
             .recipe(recipeKey(ID("golden_dagger")))
@@ -148,7 +148,7 @@ public class BasicWeaponsAdvancements implements Consumer<Consumer<AdvancementHo
     advancementConsumer.accept(golden_weapons);
 
     AdvancementHolder diamond_weapons = Advancement.Builder.recipeAdvancement()
-        .parent(ResourceLocation.withDefaultNamespace("recipes/root"))
+        .parent(Identifier.withDefaultNamespace("recipes/root"))
         .addCriterion("got_diamond", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DIAMOND))
         .rewards(AdvancementRewards.Builder
             .recipe(recipeKey(ID("diamond_dagger")))
