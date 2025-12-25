@@ -55,5 +55,6 @@
   "item.basicweapons.netherite_glaive": "Netherite Glaive",
   "tag.item.basicweapons.tools.glaives": "Glaives",
   "tag.item.c.tools.glaives": "Glaives",
-  "tag.item.c.tools.melee_weapons": "Melee Weapons"
+  "tag.item.c.tools.melee_weapons": "Melee Weapons",
+  "enchantment.basicweapons.might.desc": "Increases the damage of the item. Functionally identical to Sharpness."
 }
