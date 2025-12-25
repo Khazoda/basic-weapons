@@ -1,0 +1,11 @@
+{
+  "weight": 3,
+  "verifiers": [
+    {
+      "tag": "c:tools/melee_weapons"
+    }
+  ],
+  "tiers": [
+    "tiered:melee_weapons/extended"
+  ]
+}
