@@ -26,12 +26,14 @@ public class ZombieMixin extends Monster {
     super(entityType, level);
   }
 
-  @Inject(method = "populateDefaultEquipmentSlots", at = @At("TAIL"), cancellable = true)
+  @Inject(method = "populateDefaultEquipmentSlots", at = @At("TAIL"))
   protected void injectMyWeapons(RandomSource random, DifficultyInstance difficulty, CallbackInfo ci) {
     if (random.nextFloat() < (this.level().getDifficulty() == Difficulty.HARD ? 0.15F : 0.01F)) {
       List<Item> ironWeapons = WeaponRegistry.getItemsByMaterial(ToolMaterial.IRON);
-      this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(ironWeapons.get(random.nextInt(ironWeapons.size()))));
-      ci.cancel();
+      if (!ironWeapons.isEmpty()) {
+        Item selectedWeapon = ironWeapons.get(random.nextInt(ironWeapons.size()));
+        this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(selectedWeapon));
+      }
     }
   }
 }

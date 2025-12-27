@@ -5,12 +5,11 @@ import com.khazoda.basicweapons.materialpack.MaterialPackLoader;
 import com.khazoda.basicweapons.struct.WeaponType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ToolMaterial;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
@@ -21,12 +20,16 @@ import static com.khazoda.basicweapons.struct.WeaponType.BasicWeaponType;
 import static com.khazoda.basicweapons.struct.WeaponType.WeaponTypeInterface;
 
 public class WeaponRegistry {
+  /* Raw suppliers for registration */
   private static final Map<String, Supplier<Item>> ITEMS = new LinkedHashMap<>();
-  private static final Map<WeaponType.WeaponTypeInterface, List<Supplier<Item>>> ALL_ITEMS_BY_TYPE = new HashMap<>();
-  private static final Map<WeaponType.WeaponTypeInterface, List<Supplier<Item>>> BUILTIN_ITEMS_BY_TYPE = new HashMap<>();
-  private static final Map<WeaponType.WeaponTypeInterface, List<Supplier<Item>>> MATERIALPACK_ITEMS_BY_TYPE = new HashMap<>();
-
+  private static final Map<WeaponTypeInterface, List<Supplier<Item>>> ALL_ITEMS_BY_TYPE = new HashMap<>();
+  private static final Map<WeaponTypeInterface, List<Supplier<Item>>> BUILTIN_ITEMS_BY_TYPE = new HashMap<>();
+  private static final Map<WeaponTypeInterface, List<Supplier<Item>>> MATERIALPACK_ITEMS_BY_TYPE = new HashMap<>();
   private static final Map<ToolMaterial, List<Supplier<Item>>> ITEMS_BY_MATERIAL = new HashMap<>();
+
+  /* Cached maps for runtime retrieval */
+  private static final Map<ToolMaterial, List<Item>> CACHED_MATERIAL_ITEMS = new ConcurrentHashMap<>();
+  private static final Map<ITEMS_BY_TYPE, Map<WeaponTypeInterface, List<Item>>> CACHED_TYPED_ITEMS = new ConcurrentHashMap<>();
 
   public static final List<MaterialEntry> VANILLA_MATERIALS = Arrays.asList(
       new MaterialEntry(ToolMaterial.WOOD, "wooden"),
@@ -70,7 +73,6 @@ public class WeaponRegistry {
 
     ITEMS.put(itemId, itemSupplier);
 
-    /* Needed for proper creative tab sorting of entries */
     if (VANILLA_MATERIALS.contains(material) || COMPAT_MATERIALS.contains(material)) {
       BUILTIN_ITEMS_BY_TYPE.computeIfAbsent(type, k -> new ArrayList<>()).add(itemSupplier);
     } else {
@@ -80,9 +82,8 @@ public class WeaponRegistry {
     ITEMS_BY_MATERIAL.computeIfAbsent(material.material(), k -> new ArrayList<>()).add(itemSupplier);
   }
 
-  /* Register all weapons from a MaterialEntry */
   public static void registerAllWeaponsForMaterial(MaterialEntry material) {
-    for (BasicWeaponType type : WeaponType.BasicWeaponType.values()) {
+    for (BasicWeaponType type : BasicWeaponType.values()) {
       registerWeaponForMaterial(type, material);
     }
   }
@@ -103,7 +104,6 @@ public class WeaponRegistry {
     }
   }
 
-
   /* ITEMS_BY_TYPE retrieval options for tab registry */
   public enum ITEMS_BY_TYPE {
     ALL,
@@ -111,39 +111,34 @@ public class WeaponRegistry {
     MATERIALPACK
   }
 
-  public static List<Item> getItemsByType(ITEMS_BY_TYPE selection, WeaponType.WeaponTypeInterface type) {
-    switch (selection) {
-      case BUILTIN -> {
-        return BUILTIN_ITEMS_BY_TYPE.getOrDefault(type, Collections.emptyList()).stream()
-            .map(Supplier::get)
-            .filter(Objects::nonNull)
-            .toList();
-      }
-      case MATERIALPACK -> {
-        return MATERIALPACK_ITEMS_BY_TYPE.getOrDefault(type, Collections.emptyList()).stream()
-            .map(Supplier::get)
-            .filter(Objects::nonNull)
-            .toList();
-      }
-      default -> {
-        return ALL_ITEMS_BY_TYPE.getOrDefault(type, Collections.emptyList()).stream()
-            .map(Supplier::get)
-            .filter(Objects::nonNull)
-            .toList();
-      }
-    }
+  /* Retrieve items by type (built-in/materialpack) */
+  public static List<Item> getItemsByType(ITEMS_BY_TYPE selection, WeaponTypeInterface type) {
+    return CACHED_TYPED_ITEMS
+        .computeIfAbsent(selection, k -> new ConcurrentHashMap<>())
+        .computeIfAbsent(type, t -> {
+          List<Supplier<Item>> suppliers = switch (selection) {
+            case BUILTIN -> BUILTIN_ITEMS_BY_TYPE.getOrDefault(t, Collections.emptyList());
+            case MATERIALPACK -> MATERIALPACK_ITEMS_BY_TYPE.getOrDefault(t, Collections.emptyList());
+            default -> ALL_ITEMS_BY_TYPE.getOrDefault(t, Collections.emptyList());
+          };
+          return suppliers.stream()
+              .map(Supplier::get)
+              .filter(Objects::nonNull)
+              .toList();
+        });
   }
 
+
+  /* Retrieve items by material */
   public static List<Item> getItemsByMaterial(ToolMaterial material) {
-    return ITEMS_BY_MATERIAL.getOrDefault(material, Collections.emptyList()).stream()
-        .map(Supplier::get)
-        .filter(Objects::nonNull)
-        .toList();
+    return CACHED_MATERIAL_ITEMS.computeIfAbsent(material, mat ->
+        ITEMS_BY_MATERIAL.getOrDefault(mat, Collections.emptyList()).stream()
+            .map(Supplier::get)
+            .filter(Objects::nonNull)
+            .toList()
+    );
   }
 
-  /**
-   * Record for defining a material variant with its properties
-   */
   public record MaterialEntry(ToolMaterial material, String prefix,
                               Function<Item.Properties, Item.Properties> settingsModifier) {
     public MaterialEntry(ToolMaterial material, String prefix) {
