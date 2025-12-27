@@ -9,7 +9,8 @@
     "ItemStackMixin",
     "MinecraftServerMixin",
     "PlayerEntityMixin",
-    "ServerPacksSourceMixin"
+    "ServerPacksSourceMixin",
+    "ZombieMixin"
   ],
   "client": [
     "CreateWorldScreenMixin",

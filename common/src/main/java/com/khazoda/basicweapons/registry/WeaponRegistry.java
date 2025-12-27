@@ -5,7 +5,9 @@ import com.khazoda.basicweapons.materialpack.MaterialPackLoader;
 import com.khazoda.basicweapons.struct.WeaponType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ToolMaterial;
 
 import java.util.*;

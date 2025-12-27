@@ -26,6 +26,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
 
+/* Temporary bugfix for MC-271840 */
 @Mixin(ItemStack.class)
 public abstract class ItemStackMixin {
 
