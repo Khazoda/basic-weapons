@@ -1,5 +1,6 @@
 package com.khazoda.basicweapons.registry;
 
+import com.khazoda.basicweapons.item.SpearItem;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
@@ -80,6 +81,7 @@ public class LootTableModifier {
         .setRolls(UniformGenerator.between(0.0f, maxRolls));
 
     for (Item item : items) {
+      if (item instanceof SpearItem) continue;
       builder.add(LootItem.lootTableItem(item).setWeight(2));
     }
 

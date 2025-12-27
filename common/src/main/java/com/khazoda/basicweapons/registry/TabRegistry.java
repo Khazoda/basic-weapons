@@ -23,6 +23,7 @@ public class TabRegistry {
       }
     }
     for (WeaponType.BasicWeaponType type : WeaponType.BasicWeaponType.values()) {
+      if (type == WeaponType.BasicWeaponType.SPEAR) continue;
       List<Item> items = WeaponRegistry.getItemsByType(WeaponRegistry.ITEMS_BY_TYPE.BUILTIN, type);
       for (Item item : items) {
         if (item != null) {
@@ -43,6 +44,7 @@ public class TabRegistry {
       }
     }
     for (WeaponType.BasicWeaponType type : WeaponType.BasicWeaponType.values()) {
+      if (type == WeaponType.BasicWeaponType.SPEAR) continue;
       List<Item> items = WeaponRegistry.getItemsByType(WeaponRegistry.ITEMS_BY_TYPE.MATERIALPACK, type);
       for (Item item : items) {
         if (item != null) {

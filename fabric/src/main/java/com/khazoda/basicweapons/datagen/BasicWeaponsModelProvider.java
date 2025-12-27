@@ -46,9 +46,10 @@ public class BasicWeaponsModelProvider extends FabricModelProvider {
   }
 
   private boolean needsDisplayContext(WeaponType.BasicWeaponType weaponType) {
-    return weaponType == WeaponType.BasicWeaponType.SPEAR ||
+    return weaponType == WeaponType.BasicWeaponType.PIKE ||
         weaponType == WeaponType.BasicWeaponType.QUARTERSTAFF ||
-        weaponType == WeaponType.BasicWeaponType.GLAIVE;
+        weaponType == WeaponType.BasicWeaponType.GLAIVE ||
+        weaponType == WeaponType.BasicWeaponType.SPEAR;
   }
 
   private void generateDisplayContextModel(ItemModelGenerators itemModelGenerators, Item item, WeaponType.BasicWeaponType weaponType) {
@@ -61,7 +62,7 @@ public class BasicWeaponsModelProvider extends FabricModelProvider {
   private Identifier createBigHeldModel(ItemModelGenerators itemModelGenerators, Item item, WeaponType.BasicWeaponType weaponType) {
     String parentModel;
     switch (weaponType) {
-      case SPEAR -> parentModel = "handheld_big_spear";
+      case PIKE -> parentModel = "handheld_big_pike";
       case QUARTERSTAFF -> parentModel = "handheld_big_quarterstaff";
       case GLAIVE -> parentModel = "handheld_big_glaive";
       default -> parentModel = "handheld_big_spear";

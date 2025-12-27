@@ -1,0 +1,20 @@
+{
+  "replace": false,
+  "values": [
+    "basicweapons:wooden_pike",
+    "basicweapons:stone_pike",
+    "basicweapons:copper_pike",
+    "basicweapons:iron_pike",
+    "basicweapons:golden_pike",
+    "basicweapons:diamond_pike",
+    "basicweapons:netherite_pike",
+    {
+      "id": "basicweapons:bronze_pike",
+      "required": false
+    },
+    {
+      "id": "basicweapons:tin_pike",
+      "required": false
+    }
+  ]
+}

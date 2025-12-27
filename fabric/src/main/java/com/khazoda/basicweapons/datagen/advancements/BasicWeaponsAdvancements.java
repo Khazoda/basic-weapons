@@ -43,9 +43,10 @@ public class BasicWeaponsAdvancements implements Consumer<Consumer<AdvancementHo
             .addRecipe(recipeKey(ID("wooden_club")))
             .addRecipe(recipeKey(ID("wooden_club_variant")))
             .addRecipe(recipeKey(ID("wooden_hammer")))
-            .addRecipe(recipeKey(ID("wooden_spear")))
+            .addRecipe(recipeKey(ID("wooden_pike")))
             .addRecipe(recipeKey(ID("wooden_quarterstaff")))
             .addRecipe(recipeKey(ID("wooden_glaive")))
+
 
         )
         .build(ID("recipes/got_sticks"));
@@ -59,7 +60,7 @@ public class BasicWeaponsAdvancements implements Consumer<Consumer<AdvancementHo
             .addRecipe(recipeKey(ID("stone_club")))
             .addRecipe(recipeKey(ID("stone_club_variant")))
             .addRecipe(recipeKey(ID("stone_hammer")))
-            .addRecipe(recipeKey(ID("stone_spear")))
+            .addRecipe(recipeKey(ID("stone_pike")))
             .addRecipe(recipeKey(ID("stone_quarterstaff")))
             .addRecipe(recipeKey(ID("stone_glaive")))
 
@@ -75,7 +76,7 @@ public class BasicWeaponsAdvancements implements Consumer<Consumer<AdvancementHo
             .addRecipe(recipeKey(ID("copper_club")))
             .addRecipe(recipeKey(ID("copper_club_variant")))
             .addRecipe(recipeKey(ID("copper_hammer")))
-            .addRecipe(recipeKey(ID("copper_spear")))
+            .addRecipe(recipeKey(ID("copper_pike")))
             .addRecipe(recipeKey(ID("copper_quarterstaff")))
             .addRecipe(recipeKey(ID("copper_glaive")))
 
@@ -91,7 +92,7 @@ public class BasicWeaponsAdvancements implements Consumer<Consumer<AdvancementHo
             .addRecipe(recipeKey(ID("iron_club")))
             .addRecipe(recipeKey(ID("iron_club_variant")))
             .addRecipe(recipeKey(ID("iron_hammer")))
-            .addRecipe(recipeKey(ID("iron_spear")))
+            .addRecipe(recipeKey(ID("iron_pike")))
             .addRecipe(recipeKey(ID("iron_quarterstaff")))
             .addRecipe(recipeKey(ID("iron_glaive")))
 
@@ -107,7 +108,7 @@ public class BasicWeaponsAdvancements implements Consumer<Consumer<AdvancementHo
             .addRecipe(recipeKey(ID("compat/tin_club")))
             .addRecipe(recipeKey(ID("compat/tin_club_variant")))
             .addRecipe(recipeKey(ID("compat/tin_hammer")))
-            .addRecipe(recipeKey(ID("compat/tin_spear")))
+            .addRecipe(recipeKey(ID("compat/tin_pike")))
             .addRecipe(recipeKey(ID("compat/tin_quarterstaff")))
             .addRecipe(recipeKey(ID("compat/tin_glaive")))
 
@@ -123,7 +124,7 @@ public class BasicWeaponsAdvancements implements Consumer<Consumer<AdvancementHo
             .addRecipe(recipeKey(ID("compat/bronze_club")))
             .addRecipe(recipeKey(ID("compat/bronze_club_variant")))
             .addRecipe(recipeKey(ID("compat/bronze_hammer")))
-            .addRecipe(recipeKey(ID("compat/bronze_spear")))
+            .addRecipe(recipeKey(ID("compat/bronze_pike")))
             .addRecipe(recipeKey(ID("compat/bronze_quarterstaff")))
             .addRecipe(recipeKey(ID("compat/bronze_glaive")))
 
@@ -139,7 +140,7 @@ public class BasicWeaponsAdvancements implements Consumer<Consumer<AdvancementHo
             .addRecipe(recipeKey(ID("golden_club")))
             .addRecipe(recipeKey(ID("golden_club_variant")))
             .addRecipe(recipeKey(ID("golden_hammer")))
-            .addRecipe(recipeKey(ID("golden_spear")))
+            .addRecipe(recipeKey(ID("golden_pike")))
             .addRecipe(recipeKey(ID("golden_quarterstaff")))
             .addRecipe(recipeKey(ID("golden_glaive")))
 
@@ -155,7 +156,7 @@ public class BasicWeaponsAdvancements implements Consumer<Consumer<AdvancementHo
             .addRecipe(recipeKey(ID("diamond_club")))
             .addRecipe(recipeKey(ID("diamond_club_variant")))
             .addRecipe(recipeKey(ID("diamond_hammer")))
-            .addRecipe(recipeKey(ID("diamond_spear")))
+            .addRecipe(recipeKey(ID("diamond_pike")))
             .addRecipe(recipeKey(ID("diamond_quarterstaff")))
             .addRecipe(recipeKey(ID("diamond_glaive")))
 

@@ -1,0 +1,6 @@
+{
+  "parent": "basicweapons:item/handheld_big_pike",
+  "textures": {
+    "layer0": "basicweapons:item/netherite_pike_held"
+  }
+}

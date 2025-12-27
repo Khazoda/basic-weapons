@@ -70,5 +70,14 @@
   "item.basicweapons.tin_club": "Tin Club",
   "item.basicweapons.tin_spear": "Tin Spear",
   "item.basicweapons.tin_quarterstaff": "Tin Quarterstaff",
-  "item.basicweapons.tin_glaive": "Tin Glaive"
+  "item.basicweapons.tin_glaive": "Tin Glaive",
+  "item.basicweapons.wooden_pike": "Wooden Pike",
+  "item.basicweapons.stone_pike": "Stone Pike",
+  "item.basicweapons.copper_pike": "Copper Pike",
+  "item.basicweapons.tin_pike": "Tin Pike",
+  "item.basicweapons.iron_pike": "Iron Pike",
+  "item.basicweapons.bronze_pike": "Bronze Pike",
+  "item.basicweapons.golden_pike": "Golden Pike",
+  "item.basicweapons.diamond_pike": "Diamond Pike",
+  "item.basicweapons.netherite_pike": "Netherite Pike"
 }

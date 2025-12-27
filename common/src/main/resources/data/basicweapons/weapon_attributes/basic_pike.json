@@ -1,0 +1,6 @@
+{
+  "parent": "bettercombat:spear",
+  "attributes": {
+    "range_bonus": 1.5
+  }
+}
