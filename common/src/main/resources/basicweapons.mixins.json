@@ -14,7 +14,9 @@
   ],
   "client": [
     "CreateWorldScreenMixin",
-    "client.ClientPackFinderMixin"
+    "client.ClientPackFinderMixin",
+    "client.HumanoidModelMixin",
+    "client.ItemInHandRendererMixin"
   ],
   "server": [
   ],
