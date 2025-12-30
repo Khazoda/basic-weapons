@@ -93,10 +93,14 @@ public class WeaponRegistry {
     ToolMaterial material = MaterialPackLoader.getMaterial(materialName);
     MaterialEntry materialEntry = new MaterialEntry(material, materialName);
 
-    // Always register BasicWeaponType weapons (dagger, hammer, club, etc.) for material packs
-    registerAllWeaponsForMaterial(materialEntry);
+    // Register BasicWeaponType weapons (dagger, hammer, club, etc.) only if textures exist
+    for (WeaponType.BasicWeaponType type : WeaponType.BasicWeaponType.values()) {
+      if (MaterialPackLoader.hasTextureForWeaponType(materialName, type.getId())) {
+        registerWeaponForMaterial(type, materialEntry);
+      }
+    }
 
-    // Only register VanillaWeaponType weapons (sword, axe) if their textures exist in the material pack
+    // Register VanillaWeaponType weapons (sword, axe, spear) only if textures exist
     for (WeaponType.VanillaWeaponType type : WeaponType.VanillaWeaponType.values()) {
       if (MaterialPackLoader.hasTextureForWeaponType(materialName, type.getId())) {
         registerWeaponForMaterial(type, materialEntry);
@@ -113,30 +117,19 @@ public class WeaponRegistry {
 
   /* Retrieve items by type (built-in/materialpack) */
   public static List<Item> getItemsByType(ITEMS_BY_TYPE selection, WeaponTypeInterface type) {
-    return CACHED_TYPED_ITEMS
-        .computeIfAbsent(selection, k -> new ConcurrentHashMap<>())
-        .computeIfAbsent(type, t -> {
-          List<Supplier<Item>> suppliers = switch (selection) {
-            case BUILTIN -> BUILTIN_ITEMS_BY_TYPE.getOrDefault(t, Collections.emptyList());
-            case MATERIALPACK -> MATERIALPACK_ITEMS_BY_TYPE.getOrDefault(t, Collections.emptyList());
-            default -> ALL_ITEMS_BY_TYPE.getOrDefault(t, Collections.emptyList());
-          };
-          return suppliers.stream()
-              .map(Supplier::get)
-              .filter(Objects::nonNull)
-              .toList();
-        });
+    return CACHED_TYPED_ITEMS.computeIfAbsent(selection, k -> new ConcurrentHashMap<>()).computeIfAbsent(type, t -> {
+      List<Supplier<Item>> suppliers = switch (selection) {
+        case BUILTIN -> BUILTIN_ITEMS_BY_TYPE.getOrDefault(t, Collections.emptyList());
+        case MATERIALPACK -> MATERIALPACK_ITEMS_BY_TYPE.getOrDefault(t, Collections.emptyList());
+        default -> ALL_ITEMS_BY_TYPE.getOrDefault(t, Collections.emptyList());
+      };
+      return suppliers.stream().map(Supplier::get).filter(Objects::nonNull).toList();
+    });
   }
-
 
   /* Retrieve items by material */
   public static List<Item> getItemsByMaterial(ToolMaterial material) {
-    return CACHED_MATERIAL_ITEMS.computeIfAbsent(material, mat ->
-        ITEMS_BY_MATERIAL.getOrDefault(mat, Collections.emptyList()).stream()
-            .map(Supplier::get)
-            .filter(Objects::nonNull)
-            .toList()
-    );
+    return CACHED_MATERIAL_ITEMS.computeIfAbsent(material, mat -> ITEMS_BY_MATERIAL.getOrDefault(mat, Collections.emptyList()).stream().map(Supplier::get).filter(Objects::nonNull).toList());
   }
 
   public record MaterialEntry(ToolMaterial material, String prefix,

@@ -1,18 +1,17 @@
 package com.khazoda.basicweapons.struct;
 
-
 import com.khazoda.basicweapons.item.*;
 import com.khazoda.basicweapons.materialpack.MaterialPackLoader;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ToolMaterial;
-
 
 public final class WeaponType {
 
   public interface WeaponTypeInterface {
     String getId();
 
-    Item create(ToolMaterial material, float damageModifier, float speedModifier, float reachModifier, Item.Properties properties);
+    Item create(ToolMaterial material, float damageModifier, float speedModifier, float reachModifier,
+                Item.Properties properties);
   }
 
   public enum BasicWeaponType implements WeaponTypeInterface {
@@ -68,8 +67,7 @@ public final class WeaponType {
           finalDamage,
           finalSpeed,
           finalReach,
-          properties
-      );
+          properties);
     }
 
     /**
@@ -118,7 +116,8 @@ public final class WeaponType {
 
   public enum VanillaWeaponType implements WeaponTypeInterface {
     SWORD("sword", 1f, -1.6f, 0, CustomSwordItem::new),
-    AXE("axe", 7f, -3.4f, 0, CustomAxeItem::new);
+    AXE("axe", 7f, -3.4f, 0, CustomAxeItem::new),
+    VANILLA_SPEAR("vanillaspear", 0, 0, 0, CustomSpearItem::new);
 
     private final String id;
     private final float baseDamage;
@@ -139,6 +138,12 @@ public final class WeaponType {
     }
 
     public Item create(ToolMaterial material, float damageModifier, float speedModifier, float reachModifier, Item.Properties properties) {
+      if (this == VANILLA_SPEAR) {
+        SpearStats stats = getSpearStats(material);
+        properties.spear(material, stats.f, stats.g, stats.h, stats.i, stats.j, stats.k, stats.l, stats.m, stats.n);
+        return factory.create(material, 0, 0, 0, properties);
+      }
+
       // Add material's attack speed bonus to combat attack speed
       float extraSpeed = speedModifier + MaterialPackLoader.getAttackSpeedBonus(material);
       double extraReach = reachModifier + MaterialPackLoader.getReachBonus(material);
@@ -147,13 +152,22 @@ public final class WeaponType {
       float finalSpeed = baseSpeed + extraSpeed;
       double finalReach = baseReach + extraReach;
 
+      properties.sword(material, finalDamage, finalSpeed);
+
       return factory.create(
           material,
           finalDamage,
           finalSpeed,
           finalReach,
-          properties
-      );
+          properties);
+    }
+
+    private SpearStats getSpearStats(ToolMaterial material) {
+      // Todo: Currently defaults to iron's spear stats, maybe this should be made extensible in future in the materialpack creator
+      return new SpearStats(0.95F, 0.95F, 0.6F, 2.5F, 8.0F, 6.75F, 5.1F, 11.25F, 4.6F);
+    }
+
+    private record SpearStats(float f, float g, float h, float i, float j, float k, float l, float m, float n) {
     }
 
     @FunctionalInterface
