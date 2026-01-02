@@ -21,10 +21,12 @@ public class HammerItem extends BasicWeaponSweeplessItem {
 
   @Override
   public void hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-    Player player = (Player) attacker;
-    float f2 = ((PlayerEntityAccessor) player).bw$getCooldown(0.5f);
+    /* f2 always true for mob attacks, only true if full cooldown for player attacks */
+    float f2 = 1F;
+    if (attacker instanceof Player player) {
+      f2 = ((PlayerEntityAccessor) player).bw$getCooldown(0.5f);
+    }
     if (f2 >= 0.9F) {
-      /* If entity is a player */
       if (target.isAlwaysTicking()) {
         Vec3 currentMovement = target.getDeltaMovement();
         target.setDeltaMovement(currentMovement.x, currentMovement.y + 0.8, currentMovement.z);

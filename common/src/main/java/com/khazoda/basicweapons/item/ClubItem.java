@@ -23,8 +23,11 @@ public class ClubItem extends BasicWeaponSweeplessItem {
 
   @Override
   public void hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-    Player player = (Player) attacker;
-    float f2 = ((PlayerEntityAccessor) player).bw$getCooldown(0.5f);
+    /* f2 always true for mob attacks, only true if full cooldown for player attacks */
+    float f2 = 1F;
+    if (attacker instanceof Player player) {
+      f2 = ((PlayerEntityAccessor) player).bw$getCooldown(0.5f);
+    }
     if (f2 > 0.9F) {
       target.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 15));
     }
