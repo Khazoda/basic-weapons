@@ -33,10 +33,9 @@ public abstract class ItemRendererMixin {
     String itemId = item.getDescriptionId()
         .replace("item." + Constants.MOD_ID + ".", "");
 
-    // Remove material prefix (wooden_, iron_) to get base weapon type
-    String baseType = itemId.substring(itemId.indexOf('_') + 1);
+    if (itemId.endsWith("_spear") || itemId.endsWith("_quarterstaff") || itemId.endsWith("_glaive") ||
+        itemId.equals("spear") || itemId.equals("quarterstaff") || itemId.equals("glaive")) {
 
-    if (baseType.equals("spear") || baseType.equals("quarterstaff") || baseType.equals("glaive")) {
       ModelResourceLocation modelId = new ModelResourceLocation(
           ID(itemId + "_held"), "inventory");
       // Never inline heldModel as the return value. For some reason that breaks things!
