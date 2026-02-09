@@ -24,9 +24,9 @@ import java.util.Optional;
 public abstract class MonsterMixin {
 
   @Unique
-  private static final Item[] bw$IRON_WEAPONS = bw$getWeapons("iron_dagger", "iron_hammer", "iron_club");
+  private static Item[] bw$IRON_WEAPONS;
   @Unique
-  private static final Item[] bw$GOLDEN_WEAPONS = bw$getWeapons("golden_dagger", "golden_hammer", "golden_club");
+  private static Item[] bw$GOLDEN_WEAPONS;
 
   @Unique
   private static Item[] bw$getWeapons(String... ids) {
@@ -38,6 +38,9 @@ public abstract class MonsterMixin {
 
   @Inject(method = "populateDefaultEquipmentSlots", at = @At("TAIL"))
   protected void injectWeaponsWhenSpawning(RandomSource r, DifficultyInstance d, CallbackInfo ci) {
+    if (bw$IRON_WEAPONS == null) bw$IRON_WEAPONS = bw$getWeapons("iron_dagger", "iron_hammer", "iron_club");
+    if (bw$GOLDEN_WEAPONS == null) bw$GOLDEN_WEAPONS = bw$getWeapons("golden_dagger", "golden_hammer", "golden_club");
+
     Mob self = (Mob) (Object) this;
     if (self instanceof Piglin piglin && !piglin.isBaby()) {
       if (r.nextFloat() < (self.level().getDifficulty() == Difficulty.HARD ? 0.35F : 0.1F)) {
