@@ -89,8 +89,8 @@ public class MaterialPackLoader {
 
   private static void processPackFolder(File packFolder) {
     if (!loadMaterialsFromPack(packFolder)) return;
-    copyResourcePackContent(packFolder);
-    copyDataPackContent(packFolder);
+    copyPackContent(packFolder, ASSETS_PATH, RESOURCEPACK_TARGET);
+    copyPackContent(packFolder, DATA_PATH, DATAPACK_TARGET);
     initiallyLoadedPacks.add(packFolder.getName());
   }
 
@@ -117,87 +117,41 @@ public class MaterialPackLoader {
     }
   }
 
-  private static void copyResourcePackContent(File packFolder) {
-    /* Internal /assets folder inside material pack */
-    File assetsFolder = new File(packFolder, ASSETS_PATH);
-    if (!assetsFolder.exists()) return;
+  private static void copyPackContent(File packFolder, String subPath, String targetRootPath) {
+    File sourceFolder = new File(packFolder, subPath);
+    if (!sourceFolder.exists()) return;
 
-    /* Destination for resourcepack generated from /assets */
-    File resourcepacksFolder = new File(RESOURCEPACK_TARGET);
-    createFolder(resourcepacksFolder);
+    File targetRootFolder = new File(targetRootPath);
+    createFolder(targetRootFolder);
 
-    File targetFolder = new File(resourcepacksFolder, packFolder.getName());
+    File targetFolder = new File(targetRootFolder, packFolder.getName());
     try {
-      // Copy /assets folder contents (excluding pack.mcmeta, that's handled separately)
-      File[] assetContents = assetsFolder.listFiles(file -> !file.getName().equals("pack.mcmeta"));
-      if (assetContents != null) {
-        for (File file : assetContents) {
+      File[] contents = sourceFolder.listFiles(file -> !file.getName().equals("pack.mcmeta"));
+      if (contents != null) {
+        for (File file : contents) {
+          File targetDir = new File(targetFolder, subPath + "/" + file.getName());
           if (file.isDirectory()) {
-            copyDirectoryFiltered(file, new File(targetFolder, ASSETS_PATH + "/" + file.getName()), packFolder);
+            copyDirectoryFiltered(file, targetDir, packFolder);
           } else {
             if (shouldSkipSwordAxeFile(file.getName(), packFolder)) continue;
-            FileUtils.copyFile(file, new File(targetFolder, ASSETS_PATH + "/" + file.getName()));
+            FileUtils.copyFile(file, targetDir);
           }
         }
       }
 
-      // Copy pack.png if it exists
       File packIcon = new File(packFolder, "pack.png");
       if (packIcon.exists()) {
         FileUtils.copyFile(packIcon, new File(targetFolder, "pack.png"));
       }
 
-      // Copy assets/pack.mcmeta to root of target
-      File sourcePackMcmeta = new File(assetsFolder, "pack.mcmeta");
+      File sourcePackMcmeta = new File(sourceFolder, "pack.mcmeta");
       if (sourcePackMcmeta.exists()) {
         FileUtils.copyFile(sourcePackMcmeta, new File(targetFolder, "pack.mcmeta"));
       } else {
-        Constants.LOG.warn("No pack.mcmeta found in assets folder for {}", packFolder.getName());
+        Constants.LOG.warn("No pack.mcmeta found in {} folder for {}", subPath, packFolder.getName());
       }
     } catch (IOException e) {
-      Constants.LOG.error("Failed to copy resourcepack content from {}: {}", packFolder.getName(), e.getMessage());
-    }
-  }
-
-  private static void copyDataPackContent(File packFolder) {
-    /* Internal /data folder inside material pack */
-    File dataFolder = new File(packFolder, DATA_PATH);
-    if (!dataFolder.exists()) return;
-
-    /* Destination for datapack generated from /data */
-    File datapacksFolder = new File(DATAPACK_TARGET);
-    createFolder(datapacksFolder);
-
-    File targetFolder = new File(datapacksFolder, packFolder.getName());
-    try {
-      // Copy /data folder contents (excluding pack.mcmeta, that's handled separately)
-      File[] dataContents = dataFolder.listFiles(file -> !file.getName().equals("pack.mcmeta"));
-      if (dataContents != null) {
-        for (File file : dataContents) {
-          if (file.isDirectory()) {
-            copyDirectoryFiltered(file, new File(targetFolder, DATA_PATH + "/" + file.getName()), packFolder);
-          } else {
-            if (shouldSkipSwordAxeFile(file.getName(), packFolder)) continue;
-            FileUtils.copyFile(file, new File(targetFolder, DATA_PATH + "/" + file.getName()));
-          }
-        }
-      }
-
-      // Copy pack.png if it exists
-      File packIcon = new File(packFolder, "pack.png");
-      if (packIcon.exists()) {
-        FileUtils.copyFile(packIcon, new File(targetFolder, "pack.png"));
-      }
-
-      // Copy data/pack.mcmeta to root of target
-      File sourcePackMcmeta = new File(dataFolder, "pack.mcmeta");
-      if (sourcePackMcmeta.exists()) {
-        FileUtils.copyFile(sourcePackMcmeta, new File(targetFolder, "pack.mcmeta"));
-      } else {
-        Constants.LOG.warn("No pack.mcmeta found in data folder for {}", packFolder.getName());
-      }
-    } catch (IOException e) {
-      Constants.LOG.error("Failed to copy datapack content from {}: {}", packFolder.getName(), e.getMessage());
+      Constants.LOG.error("Failed to copy pack content from {}: {}", packFolder.getName(), e.getMessage());
     }
   }
 
@@ -251,14 +205,12 @@ public class MaterialPackLoader {
         if (json.has("requires_mod")) {
           String requiredMod = json.get("requires_mod").getAsString();
           if (!requiredMod.isEmpty() && !Services.PLATFORM.isModLoaded(requiredMod)) {
-            Constants.LOG.info("Skipping material pack {} - required mod {} is not loaded",
-                packFolder.getName(), requiredMod);
+            Constants.LOG.info("Skipping material pack {} - required mod {} is not loaded", packFolder.getName(), requiredMod);
             return false;
           }
         }
       } catch (Exception e) {
-        Constants.LOG.error("Failed to read loading requirements for pack {}: {}. It won't be enabled.",
-            packFolder.getName(), e.getMessage());
+        Constants.LOG.error("Failed to read loading requirements for pack {}: {}. It won't be enabled.", packFolder.getName(), e.getMessage());
         return false;
       }
     }
@@ -357,6 +309,7 @@ public class MaterialPackLoader {
 
   /**
    * Checks if a texture file exists for a weapon type in the material pack.
+   *
    * @param materialName The name of the material
    * @param weaponTypeId The weapon type ID (e.g., "sword", "axe")
    * @return true if the texture file exists, false otherwise

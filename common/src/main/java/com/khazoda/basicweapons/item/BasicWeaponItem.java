@@ -44,7 +44,7 @@ public abstract class BasicWeaponItem extends Item implements ItemExtension {
   }
 
 
-  private static ItemAttributeModifiers createAttributes(ToolMaterial ToolMaterial, float attackDamage, float attackSpeed, double reach) {
+  public static ItemAttributeModifiers createAttributes(ToolMaterial ToolMaterial, float attackDamage, float attackSpeed, double reach) {
 
     ItemAttributeModifiers.Builder builder = ItemAttributeModifiers.builder()
         .add(Attributes.ATTACK_DAMAGE,
