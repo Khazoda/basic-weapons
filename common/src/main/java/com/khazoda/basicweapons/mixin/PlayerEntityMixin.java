@@ -17,21 +17,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(Player.class)
 public abstract class PlayerEntityMixin implements PlayerEntityAccessor {
 
-  /*** Pull attack cooldown for use in custom logic based on it, such as hammer swing and club bash ***/
-  @Unique
-  protected float basic_weapons$attackCooldownProgress = 0.0f;
-
   @Shadow
   public abstract float getAttackStrengthScale(float baseTime);
 
   @Override
   public float bw$getCooldown(float baseTime) {
-    return this.basic_weapons$attackCooldownProgress;
-  }
-
-  @Inject(method = "attack", at = @At("HEAD"))
-  private void retrieveCooldownEarly(Entity target, CallbackInfo ci) {
-    basic_weapons$attackCooldownProgress = this.getAttackStrengthScale(0.5f);
+    return this.getAttackStrengthScale(baseTime);
   }
 
   /*** Cursed mixins to prevent sweeping on BasicWeaponItems ***/
