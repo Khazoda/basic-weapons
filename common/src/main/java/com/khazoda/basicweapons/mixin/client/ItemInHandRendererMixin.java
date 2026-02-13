@@ -34,10 +34,11 @@ public abstract class ItemInHandRendererMixin {
   @Inject(method = "renderArmWithItem", at = @At("HEAD"), cancellable = true)
   private void bw$renderPike(AbstractClientPlayer player, float partialTick, float pitch, InteractionHand hand, float swingProgress, ItemStack stack, float equipProgress, PoseStack poseStack, SubmitNodeCollector nodeCollector, int packedLight, CallbackInfo ci) {
 
-    // Let locomotion handle rendering if it's loaded
-    if (Services.PLATFORM.isModLoaded("locomotion")) {
-      return;
-    }
+    // Cancel basicweapons's pike rendering and let either of these mods take over
+    if (Services.PLATFORM.isModLoaded("locomotion")) return;
+    if (Services.PLATFORM.isModLoaded("bettercombat")) return;
+
+
 
     if (bw$isPike(stack)) {
       HumanoidArm humanoidArm = (hand == InteractionHand.MAIN_HAND) ? player.getMainArm() : player.getMainArm().getOpposite();
