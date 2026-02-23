@@ -55,7 +55,7 @@ public abstract class BasicWeaponItem extends Item {
   }
 
   public static AttributeModifiersComponent createAttributeModifiers(ToolMaterial material, float attackDamage, float attackSpeed, double reach) {
-    return AttributeModifiersComponent.builder()
+    AttributeModifiersComponent.Builder builder = AttributeModifiersComponent.builder()
         .add(
             EntityAttributes.ATTACK_DAMAGE,
             new EntityAttributeModifier(
@@ -69,17 +69,22 @@ public abstract class BasicWeaponItem extends Item {
                 Item.BASE_ATTACK_SPEED_MODIFIER_ID, attackSpeed, EntityAttributeModifier.Operation.ADD_VALUE
             ),
             AttributeModifierSlot.MAINHAND
-        )
-        .add(
-            EntityAttributes.ENTITY_INTERACTION_RANGE,
-            new EntityAttributeModifier(
-                Identifier.of(PLAYER_ENTITY_INTERACTION_RANGE_MODIFIER_ID.toString()),
-                bettercombat_mod_loaded ? 0 : reach,
-                EntityAttributeModifier.Operation.ADD_VALUE
-            ),
-            AttributeModifierSlot.MAINHAND
-        )
-        .build();
+        );
+
+    /* Better Combat handles reach via its weapon_attributes JSON */
+    if (!bettercombat_mod_loaded) {
+      builder.add(
+          EntityAttributes.ENTITY_INTERACTION_RANGE,
+          new EntityAttributeModifier(
+              Identifier.of(PLAYER_ENTITY_INTERACTION_RANGE_MODIFIER_ID.toString()),
+              reach,
+              EntityAttributeModifier.Operation.ADD_VALUE
+          ),
+          AttributeModifierSlot.MAINHAND
+      );
+    }
+
+    return builder.build();
   }
 
   @Override
